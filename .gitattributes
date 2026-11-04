@@ -1,0 +1,4 @@
+# Mantener estables los archivos de evidencia al trabajar entre Windows y Linux.
+bitacora/** text=auto eol=lf
+# Los prompts medidos son artefactos inmutables: conservar sus bytes al clonar.
+prompts/*.md -text
