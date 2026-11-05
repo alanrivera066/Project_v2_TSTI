@@ -54,3 +54,12 @@ El usuario entregó otro archivo privado de credencial y autorizó continuar. El
 Resultado: 240/240 ejecuciones, 60 por configuración. Exactitud A/B/C/D: 0.60/0.70/0.75/0.95. Fuentes: bitacora/av1_gemini31_20261105/av1_A.json a av1_D.json y av1_resumen.json. El verificador comprobó la firma de los 67 archivos. El asistente verificó las tarifas de las trazas, generó la tabla y ejecutó una prueba de reanudación que conservó las 240 respuestas sin llamadas nuevas ni alteraciones: av1_integridad.json y av1_qa_reanudacion.json.
 
 D cumplió siete metas y falló latencia p95; no se rebajó la meta ni se declara aprobado todo el contrato. Se actualizó README con estos resultados y se prepararon las evidencias para el PR de Lolmastercraft. La revisión humana y la fusión no se dan por realizadas antes de comprobarlas en GitHub. Los usos personales y Kevin siguen pendientes.
+
+
+## Actualización documental del Avance 1 · 2026-11-05
+
+Herramienta: ChatGPT mediante Codex; identificador exacto del modelo del asistente no verificado. El usuario pidió actualizar el documento técnico, los pendientes desactualizados y la explicación de resultados, excluyendo Kevin y el contenido personal de los integrantes.
+
+Se incorporaron las 240 ejecuciones reales de Gemini 3.1, la tabla A/B/C/D, los intervalos, las metas cumplidas y la latencia incumplida. Se conservaron las metas y la firma del sistema medido. Se corrigieron referencias al estado de publicación, a la etiqueta y a carpetas antiguas en README y las notas compartidas de A2. Los cuerpos personales de Mi etapa permanecen sin cambios. La sección 11 del documento se deja PENDIENTE · Kevin.
+
+Validación documental del asistente: contraste con av1_resumen.json y av1_A/B/C/D.json, fuentes de las trazas, comprobación de las 11 secciones y revisión del DOCX exportado a PDF. La evidencia de la revisión visual y las comprobaciones se registra en bitacora/av1_documentacion_20261105.json. La aprobación de Alan al PR #1 acredita ese PR anterior; la revisión humana de esta actualización documental no se presume. Los registros personales siguen PENDIENTES.
