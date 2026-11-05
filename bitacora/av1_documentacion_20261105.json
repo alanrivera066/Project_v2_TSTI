@@ -1,0 +1,150 @@
+{
+  "fecha_utc": "2026-11-05T15:07:59.119313+00:00",
+  "alcance": "Actualización documental; sin nuevas mediciones ni cambios al sistema.",
+  "modelo_medido": "gemini-3.1-flash-lite",
+  "respuestas_reales_verificadas": 240,
+  "firma": "fe84d9381c304eb77e68b7a75843c4b98339c0bdac7cdc908444ecf33306c15f",
+  "archivos_de_firma_verificados": 67,
+  "resultados": [
+    {
+      "config": "A",
+      "casos": 20,
+      "ejecuciones": 60,
+      "exactitud": 0.6,
+      "citas_correctas": 0.35,
+      "alucinacion": 0.0,
+      "fuga_pii": 0.05,
+      "abstencion_correcta": 0.8,
+      "consistencia": 0.9,
+      "latencia_p95_ms": 73083.6,
+      "costo_promedio_usd": 0.00104,
+      "errores_sistema": 0,
+      "exactitud_por_tipo": {
+        "normal": 0.8333,
+        "limite": 0.0,
+        "fuera": 0.0,
+        "adversarial": 1.0
+      },
+      "consistencia_acierto_legacy": 1.0,
+      "cumple": false
+    },
+    {
+      "config": "B",
+      "casos": 20,
+      "ejecuciones": 60,
+      "exactitud": 0.7,
+      "citas_correctas": 0.5667,
+      "alucinacion": 0.2667,
+      "fuga_pii": 0.05,
+      "abstencion_correcta": 0.8,
+      "consistencia": 0.9,
+      "latencia_p95_ms": 47378.0,
+      "costo_promedio_usd": 0.00117,
+      "errores_sistema": 0,
+      "exactitud_por_tipo": {
+        "normal": 0.9167,
+        "limite": 0.5,
+        "fuera": 0.0,
+        "adversarial": 1.0
+      },
+      "consistencia_acierto_legacy": 1.0,
+      "cumple": false
+    },
+    {
+      "config": "C",
+      "casos": 20,
+      "ejecuciones": 60,
+      "exactitud": 0.75,
+      "citas_correctas": 0.95,
+      "alucinacion": 0.0,
+      "fuga_pii": 0.05,
+      "abstencion_correcta": 0.8,
+      "consistencia": 0.95,
+      "latencia_p95_ms": 91010.8,
+      "costo_promedio_usd": 0.001744,
+      "errores_sistema": 0,
+      "exactitud_por_tipo": {
+        "normal": 0.9167,
+        "limite": 1.0,
+        "fuera": 0.0,
+        "adversarial": 1.0
+      },
+      "consistencia_acierto_legacy": 1.0,
+      "cumple": false
+    },
+    {
+      "config": "D",
+      "casos": 20,
+      "ejecuciones": 60,
+      "exactitud": 0.95,
+      "citas_correctas": 0.95,
+      "alucinacion": 0.0,
+      "fuga_pii": 0.0,
+      "abstencion_correcta": 0.95,
+      "consistencia": 0.95,
+      "latencia_p95_ms": 66173.0,
+      "costo_promedio_usd": 0.00157,
+      "errores_sistema": 0,
+      "exactitud_por_tipo": {
+        "normal": 0.9167,
+        "limite": 1.0,
+        "fuera": 1.0,
+        "adversarial": 1.0
+      },
+      "consistencia_acierto_legacy": 1.0,
+      "cumple": false
+    }
+  ],
+  "fuente": "bitacora/av1_gemini31_20261105/av1_resumen.json",
+  "cierre_pr_y_etiqueta": {
+    "fecha_utc": "2026-11-05T14:24:54.587174+00:00",
+    "pr": 1,
+    "aprobado_por": "alanrivera066",
+    "fusionado_por": "alanrivera066",
+    "commit_main": "3fc27aa5e4b6d4b1301bf310ff4d18ddbd322be3",
+    "tag_anterior": "2636bdb01061e27a616f77b994eea6b73531e20d",
+    "tag_nuevo": "c7a2b167c74a2e9b6f04bf1f9169bb9c4a1000fa",
+    "tag_apunta_a_main": true,
+    "cuenta_actualizacion": "Lolmastercraft",
+    "respuestas_verificadas": 240,
+    "archivos_de_firma_verificados": 67,
+    "checks_main": [
+      {
+        "nombre": "pruebas",
+        "resultado": "success",
+        "url": "https://github.com/alanrivera066/Project_v2_TSTI/actions/runs/42044355440/job/127303161905"
+      }
+    ],
+    "kevin": "PENDIENTE",
+    "codigo_modificado_en_este_cierre": false
+  },
+  "pruebas_ci_fuente": {
+    "url": "https://github.com/alanrivera066/Project_v2_TSTI/actions/runs/42044355440",
+    "job_id": 127303161905,
+    "commit": "3fc27aa5e4b6d4b1301bf310ff4d18ddbd322be3",
+    "extracto": "2026-11-05T14:22:34.9010698Z ........................................................                 [100%]\n2026-11-05T14:22:34.9011336Z 56 passed in 0.59s"
+  },
+  "documentos": {
+    "Documento_Tecnico_Avance1.docx": {
+      "sha256": "38c7de1c8cfb10271ce2976105bc73d4cfb053328c137cc6728cc8e378c5cc47",
+      "bytes": 39395
+    },
+    "Documento_Tecnico_Avance1.pdf": {
+      "sha256": "c760d03561e10c2aeb194113bebc2aec4162f57667be4e729a6164ad0356f574",
+      "bytes": 370597
+    }
+  },
+  "paginas": 11,
+  "secciones_oficiales": 11,
+  "revision_visual": "Las 11 páginas fueron revisadas por el asistente. Después del ajuste final se revisaron de nuevo las páginas 5 y 8; las otras nueve imágenes conservaron sus bytes. Sin cortes, superposiciones ni tablas desbordadas observados.",
+  "exportacion": "Microsoft Word COM; renderizado con PDFium. El renderer empaquetado no dispone de soffice.exe en este entorno.",
+  "tablas_contrastadas_con_bitacora": true,
+  "codigo_prompts_evidencia_y_metas_sin_cambios": true,
+  "cuerpos_personales_mi_etapa_sin_cambios": true,
+  "registros_personales": "PENDIENTES",
+  "kevin": "PENDIENTE · Kevin; sección 11 sin desarrollar e integración final pendiente",
+  "errores_sintaxis_propuestas_D_despues_de_saneo": [],
+  "codigo_generado_ejecutado": false,
+  "llaves_en_docx_o_pdf": false,
+  "revision_humana_de_esta_actualizacion": "Pendiente; no se atribuye a la aprobación anterior del PR #1."
+}

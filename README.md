@@ -56,8 +56,8 @@ Los 20 casos tienen 12 normales, 4 fuera de dominio y 4 límite/adversariales. r
 | Evidencia | Qué demuestra |
 |---|---|
 | `bitacora/av1_cierre/` | Medición histórica completa del 2 de noviembre: 240 respuestas originales y trazas, con sus bytes conservados. Respalda antecedentes citados en A2; su firma no corresponde al código corregido. |
-| `bitacora/av1_publicado_20261105/` | Medición nueva del código corregido. Consultar su resumen o el estado **PENDIENTE DE MEDIR** si hubo interrupción. No mezclar firmas distintas. |
-| `bitacora/av1_gemini31_20261105/` | Comparación independiente iniciada el 5 de noviembre con Gemini 3.1 Flash-Lite. No reutiliza respuestas de Gemini 3.5. El resumen y el verificador indican si terminó. |
+| `bitacora/av1_publicado_20261105/` | Intento anterior con Gemini 3.5: 62/240 respuestas del commit 8742796, conservadas como antecedente de otra firma. |
+| `bitacora/av1_gemini31_20261105/` | Medición actual completa: 240/240 ejecuciones con Gemini 3.1 Flash-Lite, 60 por configuración. Firma verificada de 67 archivos. |
 | `bitacora/correccion_av1_pytest_antes.txt` | Pruebas de la copia antes de corregirla. |
 | `bitacora/correccion_av1_pytest_despues.txt` | Pruebas ejecutadas después de corregirla; sin modelo real. |
 
@@ -83,15 +83,15 @@ Mantener el mismo proveedor, modelo, embeddings, contrato y archivos. `--env RUT
 
 ## Actividad 2
 
-Los borradores individuales están en `Actividad 2/Luis/`, `Actividad 2/Cesar/` y `Actividad 2/Alan/`. Sus comparaciones son históricas y sus fuentes de las tres etapas ahora están publicadas. Cada persona debe revisarlos y registrar su participación real. El documento técnico integrado sigue pendiente de la cuarta etapa.
+Los borradores individuales están en `Actividad 2/Luis/`, `Actividad 2/Cesar/` y `Actividad 2/Alan/`. Sus comparaciones son históricas y sus fuentes de las tres etapas ahora están publicadas. Cada persona debe revisarlos y registrar su participación real. Las secciones técnicas actualizadas del Avance 1 están en [Word](entregables/Documento_Tecnico_Avance1.docx) y [PDF](entregables/Documento_Tecnico_Avance1.pdf), con 11 secciones y la evidencia de Gemini 3.1. Las conclusiones de la sección 11 y la integración final siguen **PENDIENTES · Kevin**.
 
 ## Antecedente de Gemini 3.5 · 5 de noviembre
 
-A terminó 60/60 ejecuciones y B conserva 2/60; C y D siguen pendientes. Hay 62/240 respuestas reales guardadas. Gemini respondió repetidamente HTTP 503 UNAVAILABLE y tiempos de espera; después de varios reintentos sin progreso se detuvo la corrida. No se sustituyeron respuestas por salidas fake ni se reutilizaron las 240 históricas de otra firma.
+Ese intento terminó con A=60 y B=2; C y D quedaron sin medir en Gemini 3.5. Se guardaron 62/240 respuestas como antecedente. Gemini respondió repetidamente HTTP 503 UNAVAILABLE y tiempos de espera; después de varios reintentos sin progreso se detuvo la corrida. La comparación posterior de Gemini 3.1 sí completó las 240 ejecuciones, sin reutilizar estas respuestas ni las históricas de otra firma.
 
 Esas 62 respuestas corresponden al código del commit `87427960918c2c87fdcc277a70757da13eb157cb`, con firma `1fd3da80456dbb8ade55a0cba3093ba0ac8af2478bbd9e74e48efdd1e69f0230`. Se conservan intactas como comparación parcial anterior. Su manifiesto permite comprobar los 67 archivos en ese commit. No deben verificarse contra el código posterior ni mezclarse con Gemini 3.1.
 
-Antes de esta actualización, la etiqueta `avance1` identificaba la entrega de tres etapas con esa medición parcial. La nueva comparación completa está en el pull request de esta rama; la etiqueta se actualizará al estado final después de la revisión y fusión en `main`. Kevin y los usos personales conservan sus pendientes.
+El PR [#1](https://github.com/alanrivera066/Project_v2_TSTI/pull/1) fue aprobado y fusionado por Alan. La etiqueta `avance1` se actualizó con Lolmastercraft al commit `3fc27aa5e4b6d4b1301bf310ff4d18ddbd322be3`, con la medición completa de 240 ejecuciones. GitHub Actions aprobó 56 pruebas en ese estado. Esa es la base de código y evidencia de la actualización documental; Kevin y los usos personales conservan sus pendientes.
 
 ## Nueva comparación con Gemini 3.1
 
