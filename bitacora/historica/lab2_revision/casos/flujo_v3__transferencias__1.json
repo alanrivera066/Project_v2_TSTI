@@ -1,0 +1,291 @@
+{
+  "tipo": "extracto histórico; NO es una ejecución nueva de esta publicación",
+  "origen_relativo": "bitacora/lab2_revision/casos/flujo_v3__transferencias__1.json",
+  "sha256_original": "4f6c8e45ec720ca93d9ab25e899bc90adeae927d0bce0dfa1f604f3e9d82e88a",
+  "datos": {
+    "caso": "flujo_v3__transferencias__1",
+    "archivo": "transferencias.py",
+    "repeticion": 1,
+    "modo": "flujo_completo",
+    "fecha_utc": "2026-11-01T05:38:27.305216+00:00",
+    "firma": {
+      "modelo": "gemini-3.5-flash-lite",
+      "proveedor": "gemini",
+      "codigo": {
+        "pipeline.py": "41f41ab3233a5f36a11117ab1b47aa9e8f434e1aa3b4e88ae9b9beead0be6e70",
+        "reglas.py": "d23739c847c4712d3cef276d74aea6e86b3e467f33e1a8a7682d9a302ec4e211"
+      },
+      "validadores": "lab2-revision-2",
+      "archivo_sha256": "7909c3bf879d5af5aceba09df59a57c6dce490d76b66f17b82195cf0a81a8a3b",
+      "entrada_sha256": "e51624d744ea74da57a49dd3ad9f24b16f32ad2c8d56b27e1878338d3c7eaf0a",
+      "semillas_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+      "prompts": {
+        "rev_detectar.v3": "a872302649b24a39122c1ed88a1657ee78d3211e8c92d56f88b8fdc3f3a6c91c",
+        "rev_explicar.v3": "03764fa5c8d991620acbd054538deedf99e8f4432270618631824793734e5dd2",
+        "rev_parche.v3": "6d78ac2e0785543f6c295d762322041780e38e5fc60a659b248732dbc8eeadb8"
+      },
+      "esquemas": {
+        "rev_detectar.v3": "269e5185105349b7e77dd4ec36481074e9acbdfbd117cf64e4a25ff8073b663c",
+        "rev_explicar.v3": "a600d4f47324ba0213833037c04ac4d2a42cc6d186ebc9e8aa8e82e05199b482",
+        "rev_parche.v3": "5761fb9023651cf21e5cb0746f4696398ccde07ef1948efeca717784a34573e5"
+      },
+      "temperatura": 0.2,
+      "reintentos_etapa": 1,
+      "intervalo_s": 7
+    },
+    "demo": false,
+    "semillas": null,
+    "estado": "completo",
+    "etapas": [
+      {
+        "nombre": "detectar",
+        "prompt": "rev_detectar.v3",
+        "ok": true,
+        "salida": {
+          "hallazgos": [
+            {
+              "id": "H1",
+              "regla": "SEC-03",
+              "linea": 12,
+              "descripcion": "El registro muestra la CLABE sin enmascarar"
+            },
+            {
+              "id": "H2",
+              "regla": "SEC-01",
+              "linea": 3,
+              "descripcion": "Se detecta una clave secreta hardcodeada en el código fuente"
+            },
+            {
+              "id": "H3",
+              "regla": "SEC-02",
+              "linea": 8,
+              "descripcion": "Uso de f-string en consulta SQL susceptible a inyección"
+            },
+            {
+              "id": "H4",
+              "regla": "SEC-02",
+              "linea": 11,
+              "descripcion": "Concatenación de variables en consulta SQL susceptible a inyección"
+            },
+            {
+              "id": "H5",
+              "regla": "SEC-07",
+              "linea": 10,
+              "descripcion": "Manejo de montos monetarios usando float en lugar de Decimal"
+            }
+          ]
+        },
+        "errores": [],
+        "intentos": 1,
+        "latencia_ms": 7732.82430000836,
+        "costo_usd": 0.0009212000000000001
+      },
+      {
+        "nombre": "explicar",
+        "prompt": "rev_explicar.v3",
+        "ok": true,
+        "salida": {
+          "hallazgos": [
+            {
+              "id": "H1",
+              "regla": "SEC-03",
+              "linea": 12,
+              "descripcion": "El registro muestra la CLABE sin enmascarar",
+              "explicacion": "El hecho observable es que la línea 12 imprime el parámetro destino_clabe sin aplicar ningún enmascaramiento. Esta implementación incumple la regla SEC-03, la cual exige ocultar información sensible en los registros de auditoría y bitácoras. El riesgo posible es la filtración de datos confidenciales de cuentas hacia los archivos de registro, facilitando su acceso no autorizado NO ESPECIFICADO por la política interna de almacenamiento."
+            },
+            {
+              "id": "H2",
+              "regla": "SEC-01",
+              "linea": 3,
+              "descripcion": "Se detecta una clave secreta hardcodeada en el código fuente",
+              "explicacion": "El hecho observable es que la línea 3 define una variable API_KEY con un valor literal asignado directamente en el código. Esta implementación infringe la regla SEC-01, que prohíbe el almacenamiento estático de credenciales en el repositorio. El riesgo posible es la exposición de secretos ante cualquier acceso al código fuente, comprometiendo la autenticación con servicios externos de manera NO ESPECIFICADA."
+            },
+            {
+              "id": "H3",
+              "regla": "SEC-02",
+              "linea": 8,
+              "descripcion": "Uso de f-string en consulta SQL susceptible a inyección",
+              "explicacion": "El hecho observable consiste en la construcción de una sentencia SQL utilizando un f-string que intercala la variable origen_id de forma directa en la línea 8. Esto viola la regla SEC-02, la cual prohíbe la interpolación de variables en consultas sin parametrización. El riesgo posible es la manipulación de la estructura de la consulta mediante entradas maliciosas, permitiendo la ejecución de comandos no intencionados de manera NO ESPECIFICADA."
+            },
+            {
+              "id": "H4",
+              "regla": "SEC-02",
+              "linea": 11,
+              "descripcion": "Concatenación de variables en consulta SQL susceptible a inyección",
+              "explicacion": "El hecho observable es que la línea 11 arma la sentencia SQL concatenando cadenas de texto con las variables monto y origen_id. Dicha práctica incumple la regla SEC-02 sobre el uso seguro de consultas parametrizadas. El riesgo posible es que un usuario altere los parámetros para modificar la lógica de la base de datos o sustraer información, vulnerando la integridad de los datos de forma NO ESPECIFICADA."
+            },
+            {
+              "id": "H5",
+              "regla": "SEC-07",
+              "linea": 10,
+              "descripcion": "Manejo de montos monetarios usando float en lugar de Decimal",
+              "explicacion": "El hecho observable es la conversión del parámetro monto a tipo float para realizar una validación numérica en la línea 10. Esto contraviene la regla SEC-07, que exige el uso de tipos de alta precisión como Decimal para operaciones financieras. El riesgo posible es la aparición de errores de redondeo acumulativos o imprecisiones en los cálculos monetarios, generando discrepancias contables de manera NO ESPECIFICADA."
+            }
+          ]
+        },
+        "errores": [],
+        "intentos": 1,
+        "latencia_ms": 8442.616700020153,
+        "costo_usd": 0.0021923000000000003
+      },
+      {
+        "nombre": "parche",
+        "prompt": "rev_parche.v3",
+        "ok": true,
+        "salida": {
+          "parches": [
+            {
+              "id": "H1",
+              "regla": "SEC-03",
+              "linea": 12,
+              "cambio": "Se modifica la impresión del registro para enmascarar la CLABE de destino, mostrando solo los últimos 4 dígitos."
+            },
+            {
+              "id": "H2",
+              "regla": "SEC-01",
+              "linea": 3,
+              "cambio": "Se elimina la clave secreta hardcodeada del código fuente y se sugiere cargarla desde variables de entorno de manera NO ESPECIFICADA."
+            },
+            {
+              "id": "H3",
+              "regla": "SEC-02",
+              "linea": 8,
+              "cambio": "Se modifica la consulta SQL para utilizar parámetros en lugar de interpolación mediante f-string."
+            },
+            {
+              "id": "H4",
+              "regla": "SEC-02",
+              "linea": 11,
+              "cambio": "Se reemplaza la concatenación de variables en la sentencia SQL por el uso de parámetros seguros."
+            },
+            {
+              "id": "H5",
+              "regla": "SEC-07",
+              "linea": 10,
+              "cambio": "Se sustituye el uso de float por el tipo Decimal para el manejo del monto monetario."
+            }
+          ],
+          "codigo_corregido": "import sqlite3\nimport os\nfrom decimal import Decimal\n\nAPI_KEY = os.getenv(\"API_KEY\")\n\n\ndef transferir(conn, origen_id, destino_clabe, monto):\n    cur = conn.cursor()\n    cur.execute(\"SELECT saldo FROM cuentas WHERE id = ?\", (origen_id,))\n    saldo = cur.fetchone()[0]\n    monto_dec = Decimal(str(monto))\n    if monto_dec <= saldo:\n        cur.execute(\"UPDATE cuentas SET saldo = saldo - ? WHERE id = ?\", (str(monto_dec), origen_id))\n        clabe_enmascarada = \"*\" * (len(str(destino_clabe)) - 4) + str(destino_clabe)[-4:] if destino_clabe else \"****\"\n        print(f\"transferencia {origen_id} -> {clabe_enmascarada} por {monto_dec}\")\n        return True\n    return False\n"
+        },
+        "errores": [],
+        "intentos": 1,
+        "latencia_ms": 6073.429299984127,
+        "costo_usd": 0.001843
+      }
+    ],
+    "salidas": {
+      "detectar": {
+        "hallazgos": [
+          {
+            "id": "H1",
+            "regla": "SEC-03",
+            "linea": 12,
+            "descripcion": "El registro muestra la CLABE sin enmascarar"
+          },
+          {
+            "id": "H2",
+            "regla": "SEC-01",
+            "linea": 3,
+            "descripcion": "Se detecta una clave secreta hardcodeada en el código fuente"
+          },
+          {
+            "id": "H3",
+            "regla": "SEC-02",
+            "linea": 8,
+            "descripcion": "Uso de f-string en consulta SQL susceptible a inyección"
+          },
+          {
+            "id": "H4",
+            "regla": "SEC-02",
+            "linea": 11,
+            "descripcion": "Concatenación de variables en consulta SQL susceptible a inyección"
+          },
+          {
+            "id": "H5",
+            "regla": "SEC-07",
+            "linea": 10,
+            "descripcion": "Manejo de montos monetarios usando float en lugar de Decimal"
+          }
+        ]
+      },
+      "explicar": {
+        "hallazgos": [
+          {
+            "id": "H1",
+            "regla": "SEC-03",
+            "linea": 12,
+            "descripcion": "El registro muestra la CLABE sin enmascarar",
+            "explicacion": "El hecho observable es que la línea 12 imprime el parámetro destino_clabe sin aplicar ningún enmascaramiento. Esta implementación incumple la regla SEC-03, la cual exige ocultar información sensible en los registros de auditoría y bitácoras. El riesgo posible es la filtración de datos confidenciales de cuentas hacia los archivos de registro, facilitando su acceso no autorizado NO ESPECIFICADO por la política interna de almacenamiento."
+          },
+          {
+            "id": "H2",
+            "regla": "SEC-01",
+            "linea": 3,
+            "descripcion": "Se detecta una clave secreta hardcodeada en el código fuente",
+            "explicacion": "El hecho observable es que la línea 3 define una variable API_KEY con un valor literal asignado directamente en el código. Esta implementación infringe la regla SEC-01, que prohíbe el almacenamiento estático de credenciales en el repositorio. El riesgo posible es la exposición de secretos ante cualquier acceso al código fuente, comprometiendo la autenticación con servicios externos de manera NO ESPECIFICADA."
+          },
+          {
+            "id": "H3",
+            "regla": "SEC-02",
+            "linea": 8,
+            "descripcion": "Uso de f-string en consulta SQL susceptible a inyección",
+            "explicacion": "El hecho observable consiste en la construcción de una sentencia SQL utilizando un f-string que intercala la variable origen_id de forma directa en la línea 8. Esto viola la regla SEC-02, la cual prohíbe la interpolación de variables en consultas sin parametrización. El riesgo posible es la manipulación de la estructura de la consulta mediante entradas maliciosas, permitiendo la ejecución de comandos no intencionados de manera NO ESPECIFICADA."
+          },
+          {
+            "id": "H4",
+            "regla": "SEC-02",
+            "linea": 11,
+            "descripcion": "Concatenación de variables en consulta SQL susceptible a inyección",
+            "explicacion": "El hecho observable es que la línea 11 arma la sentencia SQL concatenando cadenas de texto con las variables monto y origen_id. Dicha práctica incumple la regla SEC-02 sobre el uso seguro de consultas parametrizadas. El riesgo posible es que un usuario altere los parámetros para modificar la lógica de la base de datos o sustraer información, vulnerando la integridad de los datos de forma NO ESPECIFICADA."
+          },
+          {
+            "id": "H5",
+            "regla": "SEC-07",
+            "linea": 10,
+            "descripcion": "Manejo de montos monetarios usando float en lugar de Decimal",
+            "explicacion": "El hecho observable es la conversión del parámetro monto a tipo float para realizar una validación numérica en la línea 10. Esto contraviene la regla SEC-07, que exige el uso de tipos de alta precisión como Decimal para operaciones financieras. El riesgo posible es la aparición de errores de redondeo acumulativos o imprecisiones en los cálculos monetarios, generando discrepancias contables de manera NO ESPECIFICADA."
+          }
+        ]
+      },
+      "parche": {
+        "parches": [
+          {
+            "id": "H1",
+            "regla": "SEC-03",
+            "linea": 12,
+            "cambio": "Se modifica la impresión del registro para enmascarar la CLABE de destino, mostrando solo los últimos 4 dígitos."
+          },
+          {
+            "id": "H2",
+            "regla": "SEC-01",
+            "linea": 3,
+            "cambio": "Se elimina la clave secreta hardcodeada del código fuente y se sugiere cargarla desde variables de entorno de manera NO ESPECIFICADA."
+          },
+          {
+            "id": "H3",
+            "regla": "SEC-02",
+            "linea": 8,
+            "cambio": "Se modifica la consulta SQL para utilizar parámetros en lugar de interpolación mediante f-string."
+          },
+          {
+            "id": "H4",
+            "regla": "SEC-02",
+            "linea": 11,
+            "cambio": "Se reemplaza la concatenación de variables en la sentencia SQL por el uso de parámetros seguros."
+          },
+          {
+            "id": "H5",
+            "regla": "SEC-07",
+            "linea": 10,
+            "cambio": "Se sustituye el uso de float por el tipo Decimal para el manejo del monto monetario."
+          }
+        ],
+        "codigo_corregido": "import sqlite3\nimport os\nfrom decimal import Decimal\n\nAPI_KEY = os.getenv(\"API_KEY\")\n\n\ndef transferir(conn, origen_id, destino_clabe, monto):\n    cur = conn.cursor()\n    cur.execute(\"SELECT saldo FROM cuentas WHERE id = ?\", (origen_id,))\n    saldo = cur.fetchone()[0]\n    monto_dec = Decimal(str(monto))\n    if monto_dec <= saldo:\n        cur.execute(\"UPDATE cuentas SET saldo = saldo - ? WHERE id = ?\", (str(monto_dec), origen_id))\n        clabe_enmascarada = \"*\" * (len(str(destino_clabe)) - 4) + str(destino_clabe)[-4:] if destino_clabe else \"****\"\n        print(f\"transferencia {origen_id} -> {clabe_enmascarada} por {monto_dec}\")\n        return True\n    return False\n"
+      }
+    },
+    "entrada_modelo": {
+      "entrada": "import sqlite3\n\nAPI_KEY = \"sk_live_9f2c41d7aa\"\n\n\ndef transferir(conn, origen_id, destino_clabe, monto):\n    cur = conn.cursor()\n    cur.execute(f\"SELECT saldo FROM cuentas WHERE id = '{origen_id}'\")\n    saldo = cur.fetchone()[0]\n    if float(monto) <= saldo:\n        cur.execute(\"UPDATE cuentas SET saldo = saldo - \" + str(monto) + \" WHERE id = '\" + origen_id + \"'\")\n        print(f\"transferencia {origen_id} -> {destino_clabe} por {monto}\")\n        return True\n    return False\n",
+      "contexto": "(sin contexto: Mini-RAG pendiente del Laboratorio 3)"
+    }
+  }
+}

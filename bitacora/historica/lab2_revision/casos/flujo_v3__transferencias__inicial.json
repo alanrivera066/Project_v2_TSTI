@@ -1,0 +1,291 @@
+{
+  "tipo": "extracto histórico; NO es una ejecución nueva de esta publicación",
+  "origen_relativo": "bitacora/lab2_revision/casos/flujo_v3__transferencias__inicial.json",
+  "sha256_original": "046aab44a0be77c3c6856bfcc851a7fa2029d1435b5dec96471bf77a4874fe4b",
+  "datos": {
+    "caso": "flujo_v3__transferencias__inicial",
+    "archivo": "transferencias.py",
+    "repeticion": "inicial",
+    "modo": "flujo_completo",
+    "fecha_utc": "2026-11-01T05:34:39.631164+00:00",
+    "firma": {
+      "modelo": "gemini-3.5-flash-lite",
+      "proveedor": "gemini",
+      "codigo": {
+        "pipeline.py": "41f41ab3233a5f36a11117ab1b47aa9e8f434e1aa3b4e88ae9b9beead0be6e70",
+        "reglas.py": "d23739c847c4712d3cef276d74aea6e86b3e467f33e1a8a7682d9a302ec4e211"
+      },
+      "validadores": "lab2-revision-2",
+      "archivo_sha256": "7909c3bf879d5af5aceba09df59a57c6dce490d76b66f17b82195cf0a81a8a3b",
+      "entrada_sha256": "e51624d744ea74da57a49dd3ad9f24b16f32ad2c8d56b27e1878338d3c7eaf0a",
+      "semillas_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+      "prompts": {
+        "rev_detectar.v3": "a872302649b24a39122c1ed88a1657ee78d3211e8c92d56f88b8fdc3f3a6c91c",
+        "rev_explicar.v3": "03764fa5c8d991620acbd054538deedf99e8f4432270618631824793734e5dd2",
+        "rev_parche.v3": "6d78ac2e0785543f6c295d762322041780e38e5fc60a659b248732dbc8eeadb8"
+      },
+      "esquemas": {
+        "rev_detectar.v3": "269e5185105349b7e77dd4ec36481074e9acbdfbd117cf64e4a25ff8073b663c",
+        "rev_explicar.v3": "a600d4f47324ba0213833037c04ac4d2a42cc6d186ebc9e8aa8e82e05199b482",
+        "rev_parche.v3": "5761fb9023651cf21e5cb0746f4696398ccde07ef1948efeca717784a34573e5"
+      },
+      "temperatura": 0.2,
+      "reintentos_etapa": 1,
+      "intervalo_s": 7
+    },
+    "demo": false,
+    "semillas": null,
+    "estado": "completo",
+    "etapas": [
+      {
+        "nombre": "detectar",
+        "prompt": "rev_detectar.v3",
+        "ok": true,
+        "salida": {
+          "hallazgos": [
+            {
+              "id": "H1",
+              "regla": "SEC-03",
+              "linea": 12,
+              "descripcion": "El registro muestra la CLABE sin enmascarar"
+            },
+            {
+              "id": "H2",
+              "regla": "SEC-01",
+              "linea": 3,
+              "descripcion": "Clave API expuesta directamente en el código fuente"
+            },
+            {
+              "id": "H3",
+              "regla": "SEC-02",
+              "linea": 8,
+              "descripcion": "Uso de f-string en consulta SQL vulnerable a inyección"
+            },
+            {
+              "id": "H4",
+              "regla": "SEC-02",
+              "linea": 11,
+              "descripcion": "Concatenación de variables en consulta SQL vulnerable a inyección"
+            },
+            {
+              "id": "H5",
+              "regla": "SEC-07",
+              "linea": 10,
+              "descripcion": "Manejo de montos con float en lugar de Decimal"
+            }
+          ]
+        },
+        "errores": [],
+        "intentos": 1,
+        "latencia_ms": 5307.492399995681,
+        "costo_usd": 0.0009062
+      },
+      {
+        "nombre": "explicar",
+        "prompt": "rev_explicar.v3",
+        "ok": true,
+        "salida": {
+          "hallazgos": [
+            {
+              "id": "H1",
+              "regla": "SEC-03",
+              "linea": 12,
+              "descripcion": "El registro muestra la CLABE sin enmascarar",
+              "explicacion": "En la línea 12 se imprime la variable destino_clabe sin ocultar sus dígitos. La regla SEC-03 prohíbe exponer datos sensibles en texto plano en los registros. El riesgo posible es la fuga de información confidencial de cuentas financieras si los registros son accesibles no autorizadamente."
+            },
+            {
+              "id": "H2",
+              "regla": "SEC-01",
+              "linea": 3,
+              "descripcion": "Clave API expuesta directamente en el código fuente",
+              "explicacion": "En la línea 3 se define una constante con un secreto directamente en el archivo. La regla SEC-01 restringe el almacenamiento de credenciales en el código fuente. El riesgo posible es la extracción de credenciales mediante accesos al repositorio, comprometiendo los servicios externos integrados."
+            },
+            {
+              "id": "H3",
+              "regla": "SEC-02",
+              "linea": 8,
+              "descripcion": "Uso de f-string en consulta SQL vulnerable a inyección",
+              "explicacion": "En la línea 8 se construye la consulta utilizando una f-string con la variable origen_id. La regla SEC-02 prohíbe la interpolación directa en consultas SQL. El riesgo posible es la ejecución de comandos SQL maliciosos si el parámetro contiene entradas manipuladas."
+            },
+            {
+              "id": "H4",
+              "regla": "SEC-02",
+              "linea": 11,
+              "descripcion": "Concatenación de variables en consulta SQL vulnerable a inyección",
+              "explicacion": "En la línea 11 se arma la sentencia SQL mediante concatenación de cadenas con operadores '+' usando monto y origen_id. La regla SEC-02 demanda el uso de consultas parametrizadas para evitar la inyección de código. El riesgo posible es la alteración no autorizada de datos en la base de datos."
+            },
+            {
+              "id": "H5",
+              "regla": "SEC-07",
+              "linea": 10,
+              "descripcion": "Manejo de montos con float en lugar de Decimal",
+              "explicacion": "En la línea 10 se convierte el parámetro monto a tipo float para la comparación de saldos. La regla SEC-07 exige el uso de tipos de precisión exacta como Decimal para operaciones monetarias. El riesgo posible son errores de redondeo o pérdida de precisión numérica en cálculos financieros."
+            }
+          ]
+        },
+        "errores": [],
+        "intentos": 1,
+        "latencia_ms": 5107.95589996269,
+        "costo_usd": 0.0018205
+      },
+      {
+        "nombre": "parche",
+        "prompt": "rev_parche.v3",
+        "ok": true,
+        "salida": {
+          "parches": [
+            {
+              "id": "H1",
+              "regla": "SEC-03",
+              "linea": 12,
+              "cambio": "Se enmascara la CLABE en el registro para evitar exponer información sensible en texto plano."
+            },
+            {
+              "id": "H2",
+              "regla": "SEC-01",
+              "linea": 3,
+              "cambio": "Se reemplaza el secreto hardcodeado por una carga desde variables de entorno."
+            },
+            {
+              "id": "H3",
+              "regla": "SEC-02",
+              "linea": 8,
+              "cambio": "Se reemplaza la f-string en la consulta SQL por una consulta parametrizada."
+            },
+            {
+              "id": "H4",
+              "regla": "SEC-02",
+              "linea": 11,
+              "cambio": "Se reemplaza la concatenación de variables en la sentencia SQL por una consulta parametrizada."
+            },
+            {
+              "id": "H5",
+              "regla": "SEC-07",
+              "linea": 10,
+              "cambio": "Se utiliza el tipo Decimal en lugar de float para el manejo exacto del monto monetario."
+            }
+          ],
+          "codigo_corregido": "import os\nimport sqlite3\nfrom decimal import Decimal\n\nAPI_KEY = os.getenv(\"API_KEY\", \"\")\n\n\ndef transferir(conn, origen_id, destino_clabe, monto):\n    cur = conn.cursor()\n    cur.execute(\"SELECT saldo FROM cuentas WHERE id = ?\", (origen_id,))\n    saldo = cur.fetchone()[0]\n    monto_dec = Decimal(str(monto))\n    if monto_dec <= saldo:\n        cur.execute(\"UPDATE cuentas SET saldo = saldo - ? WHERE id = ?\", (str(monto_dec), origen_id))\n        clabe_mask = f\"{destino_clabe[:4]}****{destino_clabe[-4:]}\" if len(destino_clabe) >= 8 else \"****\"\n        print(f\"transferencia {origen_id} -> {clabe_mask} por {monto_dec}\")\n        return True\n    return False\n"
+        },
+        "errores": [],
+        "intentos": 1,
+        "latencia_ms": 20175.084899994545,
+        "costo_usd": 0.0017335999999999999
+      }
+    ],
+    "salidas": {
+      "detectar": {
+        "hallazgos": [
+          {
+            "id": "H1",
+            "regla": "SEC-03",
+            "linea": 12,
+            "descripcion": "El registro muestra la CLABE sin enmascarar"
+          },
+          {
+            "id": "H2",
+            "regla": "SEC-01",
+            "linea": 3,
+            "descripcion": "Clave API expuesta directamente en el código fuente"
+          },
+          {
+            "id": "H3",
+            "regla": "SEC-02",
+            "linea": 8,
+            "descripcion": "Uso de f-string en consulta SQL vulnerable a inyección"
+          },
+          {
+            "id": "H4",
+            "regla": "SEC-02",
+            "linea": 11,
+            "descripcion": "Concatenación de variables en consulta SQL vulnerable a inyección"
+          },
+          {
+            "id": "H5",
+            "regla": "SEC-07",
+            "linea": 10,
+            "descripcion": "Manejo de montos con float en lugar de Decimal"
+          }
+        ]
+      },
+      "explicar": {
+        "hallazgos": [
+          {
+            "id": "H1",
+            "regla": "SEC-03",
+            "linea": 12,
+            "descripcion": "El registro muestra la CLABE sin enmascarar",
+            "explicacion": "En la línea 12 se imprime la variable destino_clabe sin ocultar sus dígitos. La regla SEC-03 prohíbe exponer datos sensibles en texto plano en los registros. El riesgo posible es la fuga de información confidencial de cuentas financieras si los registros son accesibles no autorizadamente."
+          },
+          {
+            "id": "H2",
+            "regla": "SEC-01",
+            "linea": 3,
+            "descripcion": "Clave API expuesta directamente en el código fuente",
+            "explicacion": "En la línea 3 se define una constante con un secreto directamente en el archivo. La regla SEC-01 restringe el almacenamiento de credenciales en el código fuente. El riesgo posible es la extracción de credenciales mediante accesos al repositorio, comprometiendo los servicios externos integrados."
+          },
+          {
+            "id": "H3",
+            "regla": "SEC-02",
+            "linea": 8,
+            "descripcion": "Uso de f-string en consulta SQL vulnerable a inyección",
+            "explicacion": "En la línea 8 se construye la consulta utilizando una f-string con la variable origen_id. La regla SEC-02 prohíbe la interpolación directa en consultas SQL. El riesgo posible es la ejecución de comandos SQL maliciosos si el parámetro contiene entradas manipuladas."
+          },
+          {
+            "id": "H4",
+            "regla": "SEC-02",
+            "linea": 11,
+            "descripcion": "Concatenación de variables en consulta SQL vulnerable a inyección",
+            "explicacion": "En la línea 11 se arma la sentencia SQL mediante concatenación de cadenas con operadores '+' usando monto y origen_id. La regla SEC-02 demanda el uso de consultas parametrizadas para evitar la inyección de código. El riesgo posible es la alteración no autorizada de datos en la base de datos."
+          },
+          {
+            "id": "H5",
+            "regla": "SEC-07",
+            "linea": 10,
+            "descripcion": "Manejo de montos con float en lugar de Decimal",
+            "explicacion": "En la línea 10 se convierte el parámetro monto a tipo float para la comparación de saldos. La regla SEC-07 exige el uso de tipos de precisión exacta como Decimal para operaciones monetarias. El riesgo posible son errores de redondeo o pérdida de precisión numérica en cálculos financieros."
+          }
+        ]
+      },
+      "parche": {
+        "parches": [
+          {
+            "id": "H1",
+            "regla": "SEC-03",
+            "linea": 12,
+            "cambio": "Se enmascara la CLABE en el registro para evitar exponer información sensible en texto plano."
+          },
+          {
+            "id": "H2",
+            "regla": "SEC-01",
+            "linea": 3,
+            "cambio": "Se reemplaza el secreto hardcodeado por una carga desde variables de entorno."
+          },
+          {
+            "id": "H3",
+            "regla": "SEC-02",
+            "linea": 8,
+            "cambio": "Se reemplaza la f-string en la consulta SQL por una consulta parametrizada."
+          },
+          {
+            "id": "H4",
+            "regla": "SEC-02",
+            "linea": 11,
+            "cambio": "Se reemplaza la concatenación de variables en la sentencia SQL por una consulta parametrizada."
+          },
+          {
+            "id": "H5",
+            "regla": "SEC-07",
+            "linea": 10,
+            "cambio": "Se utiliza el tipo Decimal en lugar de float para el manejo exacto del monto monetario."
+          }
+        ],
+        "codigo_corregido": "import os\nimport sqlite3\nfrom decimal import Decimal\n\nAPI_KEY = os.getenv(\"API_KEY\", \"\")\n\n\ndef transferir(conn, origen_id, destino_clabe, monto):\n    cur = conn.cursor()\n    cur.execute(\"SELECT saldo FROM cuentas WHERE id = ?\", (origen_id,))\n    saldo = cur.fetchone()[0]\n    monto_dec = Decimal(str(monto))\n    if monto_dec <= saldo:\n        cur.execute(\"UPDATE cuentas SET saldo = saldo - ? WHERE id = ?\", (str(monto_dec), origen_id))\n        clabe_mask = f\"{destino_clabe[:4]}****{destino_clabe[-4:]}\" if len(destino_clabe) >= 8 else \"****\"\n        print(f\"transferencia {origen_id} -> {clabe_mask} por {monto_dec}\")\n        return True\n    return False\n"
+      }
+    },
+    "entrada_modelo": {
+      "entrada": "import sqlite3\n\nAPI_KEY = \"sk_live_9f2c41d7aa\"\n\n\ndef transferir(conn, origen_id, destino_clabe, monto):\n    cur = conn.cursor()\n    cur.execute(f\"SELECT saldo FROM cuentas WHERE id = '{origen_id}'\")\n    saldo = cur.fetchone()[0]\n    if float(monto) <= saldo:\n        cur.execute(\"UPDATE cuentas SET saldo = saldo - \" + str(monto) + \" WHERE id = '\" + origen_id + \"'\")\n        print(f\"transferencia {origen_id} -> {destino_clabe} por {monto}\")\n        return True\n    return False\n",
+      "contexto": "(sin contexto: Mini-RAG pendiente del Laboratorio 3)"
+    }
+  }
+}

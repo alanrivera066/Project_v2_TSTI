@@ -1,0 +1,166 @@
+{
+  "tipo": "extracto histórico; NO es una ejecución nueva de esta publicación",
+  "origen_relativo": "bitacora/lab2_cierre/casos/cesar_ejemplo__v3__r1.json",
+  "sha256_original": "f0b1d6db4a2ce5c7a77231041ff68474c92064b200083ed7931631e861ea1091",
+  "datos": {
+    "caso": "cesar_ejemplo__v3__r1",
+    "grupo": "cesar_ejemplo",
+    "archivo": "datos/v2-revisor/codigo/transferencias.py",
+    "version": 3,
+    "repeticion": 1,
+    "firma": {
+      "modelo": "gemini-3.5-flash-lite",
+      "proveedor": "gemini",
+      "codigo": {
+        "reglas.py": "711411f5052bfea5dc0bdcf9147e48e9d0936da115187f7d574463038bf2fadf",
+        "pipeline.py": "41f41ab3233a5f36a11117ab1b47aa9e8f434e1aa3b4e88ae9b9beead0be6e70"
+      },
+      "entrada": "3573e8e94f89f4befe81f9a443c134326b7b409b22ccda9da0fdb669ffe1c383",
+      "semillas": "29c3d557e6f2b6e103f6905a31041feab6ce28e9ccba30838cf9ccacede1d37d",
+      "archivo": "7909c3bf879d5af5aceba09df59a57c6dce490d76b66f17b82195cf0a81a8a3b",
+      "prompts": {
+        "rev_parche.v3": "6d78ac2e0785543f6c295d762322041780e38e5fc60a659b248732dbc8eeadb8"
+      },
+      "intervalo": 7,
+      "reintentos": {
+        "parche": 0
+      },
+      "temperatura": 0.2
+    },
+    "semillas": {
+      "explicar": {
+        "hallazgos": [
+          {
+            "id": "H1",
+            "regla": "SEC-03",
+            "linea": 12,
+            "descripcion": "El registro muestra la CLABE sin enmascarar",
+            "explicacion": "En la línea 12 se imprime la variable destino_clabe sin ocultar sus dígitos. La regla SEC-03 prohíbe exponer datos sensibles en texto plano en los registros. El riesgo posible es la fuga de información confidencial de cuentas financieras si los registros son accesibles no autorizadamente."
+          },
+          {
+            "id": "H2",
+            "regla": "SEC-01",
+            "linea": 3,
+            "descripcion": "Clave API expuesta directamente en el código fuente",
+            "explicacion": "En la línea 3 se define una constante con un secreto directamente en el archivo. La regla SEC-01 restringe el almacenamiento de credenciales en el código fuente. El riesgo posible es la extracción de credenciales mediante accesos al repositorio, comprometiendo los servicios externos integrados."
+          },
+          {
+            "id": "H3",
+            "regla": "SEC-02",
+            "linea": 8,
+            "descripcion": "Uso de f-string en consulta SQL vulnerable a inyección",
+            "explicacion": "En la línea 8 se construye la consulta utilizando una f-string con la variable origen_id. La regla SEC-02 prohíbe la interpolación directa en consultas SQL. El riesgo posible es la ejecución de comandos SQL maliciosos si el parámetro contiene entradas manipuladas."
+          },
+          {
+            "id": "H4",
+            "regla": "SEC-02",
+            "linea": 11,
+            "descripcion": "Concatenación de variables en consulta SQL vulnerable a inyección",
+            "explicacion": "En la línea 11 se arma la sentencia SQL mediante concatenación de cadenas con operadores '+' usando monto y origen_id. La regla SEC-02 demanda el uso de consultas parametrizadas para evitar la inyección de código. El riesgo posible es la alteración no autorizada de datos en la base de datos."
+          },
+          {
+            "id": "H5",
+            "regla": "SEC-07",
+            "linea": 10,
+            "descripcion": "Manejo de montos con float en lugar de Decimal",
+            "explicacion": "En la línea 10 se convierte el parámetro monto a tipo float para la comparación de saldos. La regla SEC-07 exige el uso de tipos de precisión exacta como Decimal para operaciones monetarias. El riesgo posible son errores de redondeo o pérdida de precisión numérica en cálculos financieros."
+          }
+        ]
+      }
+    },
+    "entrada": {
+      "entrada": "1: import sqlite3\n2: \n3: API_KEY = \"sk_live_9f2c41d7aa\"\n4: \n5: \n6: def transferir(conn, origen_id, destino_clabe, monto):\n7:     cur = conn.cursor()\n8:     cur.execute(f\"SELECT saldo FROM cuentas WHERE id = '{origen_id}'\")\n9:     saldo = cur.fetchone()[0]\n10:     if float(monto) <= saldo:\n11:         cur.execute(\"UPDATE cuentas SET saldo = saldo - \" + str(monto) + \" WHERE id = '\" + origen_id + \"'\")\n12:         print(f\"transferencia {origen_id} -> {destino_clabe} por {monto}\")\n13:         return True\n14:     return False",
+      "codigo_original": "import sqlite3\n\nAPI_KEY = \"sk_live_9f2c41d7aa\"\n\n\ndef transferir(conn, origen_id, destino_clabe, monto):\n    cur = conn.cursor()\n    cur.execute(f\"SELECT saldo FROM cuentas WHERE id = '{origen_id}'\")\n    saldo = cur.fetchone()[0]\n    if float(monto) <= saldo:\n        cur.execute(\"UPDATE cuentas SET saldo = saldo - \" + str(monto) + \" WHERE id = '\" + origen_id + \"'\")\n        print(f\"transferencia {origen_id} -> {destino_clabe} por {monto}\")\n        return True\n    return False\n",
+      "codigo_original_json": "\"import sqlite3\\n\\nAPI_KEY = \\\"sk_live_9f2c41d7aa\\\"\\n\\n\\ndef transferir(conn, origen_id, destino_clabe, monto):\\n    cur = conn.cursor()\\n    cur.execute(f\\\"SELECT saldo FROM cuentas WHERE id = '{origen_id}'\\\")\\n    saldo = cur.fetchone()[0]\\n    if float(monto) <= saldo:\\n        cur.execute(\\\"UPDATE cuentas SET saldo = saldo - \\\" + str(monto) + \\\" WHERE id = '\\\" + origen_id + \\\"'\\\")\\n        print(f\\\"transferencia {origen_id} -> {destino_clabe} por {monto}\\\")\\n        return True\\n    return False\\n\"",
+      "contexto": "(sin contexto: Mini-RAG pendiente del Laboratorio 3)",
+      "senales_codigo": "[{\"regla\": \"SEC-03\", \"linea\": 12, \"motivo\": \"registro con campo sensible reconocible sin enmascarar\"}]",
+      "explicar": "{\n  \"hallazgos\": [\n    {\n      \"id\": \"H1\",\n      \"regla\": \"SEC-03\",\n      \"linea\": 12,\n      \"descripcion\": \"El registro muestra la CLABE sin enmascarar\",\n      \"explicacion\": \"En la línea 12 se imprime la variable destino_clabe sin ocultar sus dígitos. La regla SEC-03 prohíbe exponer datos sensibles en texto plano en los registros. El riesgo posible es la fuga de información confidencial de cuentas financieras si los registros son accesibles no autorizadamente.\"\n    },\n    {\n      \"id\": \"H2\",\n      \"regla\": \"SEC-01\",\n      \"linea\": 3,\n      \"descripcion\": \"Clave API expuesta directamente en el código fuente\",\n      \"explicacion\": \"En la línea 3 se define una constante con un secreto directamente en el archivo. La regla SEC-01 restringe el almacenamiento de credenciales en el código fuente. El riesgo posible es la extracción de credenciales mediante accesos al repositorio, comprometiendo los servicios externos integrados.\"\n    },\n    {\n      \"id\": \"H3\",\n      \"regla\": \"SEC-02\",\n      \"linea\": 8,\n      \"descripcion\": \"Uso de f-string en consulta SQL vulnerable a inyección\",\n      \"explicacion\": \"En la línea 8 se construye la consulta utilizando una f-string con la variable origen_id. La regla SEC-02 prohíbe la interpolación directa en consultas SQL. El riesgo posible es la ejecución de comandos SQL maliciosos si el parámetro contiene entradas manipuladas.\"\n    },\n    {\n      \"id\": \"H4\",\n      \"regla\": \"SEC-02\",\n      \"linea\": 11,\n      \"descripcion\": \"Concatenación de variables en consulta SQL vulnerable a inyección\",\n      \"explicacion\": \"En la línea 11 se arma la sentencia SQL mediante concatenación de cadenas con operadores '+' usando monto y origen_id. La regla SEC-02 demanda el uso de consultas parametrizadas para evitar la inyección de código. El riesgo posible es la alteración no autorizada de datos en la base de datos.\"\n    },\n    {\n      \"id\": \"H5\",\n      \"regla\": \"SEC-07\",\n      \"linea\": 10,\n      \"descripcion\": \"Manejo de montos con float en lugar de Decimal\",\n      \"explicacion\": \"En la línea 10 se convierte el parámetro monto a tipo float para la comparación de saldos. La regla SEC-07 exige el uso de tipos de precisión exacta como Decimal para operaciones monetarias. El riesgo posible son errores de redondeo o pérdida de precisión numérica en cálculos financieros.\"\n    }\n  ]\n}"
+    },
+    "fecha_utc": "2026-11-01T06:00:27.113268+00:00",
+    "demo": false,
+    "estado": "valido",
+    "etapas": [
+      {
+        "nombre": "parche",
+        "prompt": "rev_parche.v3",
+        "ok": true,
+        "salida": {
+          "parches": [
+            {
+              "id": "H1",
+              "regla": "SEC-03",
+              "linea": 12,
+              "cambio": "Se enmascara la CLABE en el mensaje de registro mostrando solo los últimos 4 dígitos para cumplir con SEC-03."
+            },
+            {
+              "id": "H2",
+              "regla": "SEC-01",
+              "linea": 3,
+              "cambio": "Se reemplaza el secreto hardcodeado por una carga desde variables de entorno para cumplir con SEC-01."
+            },
+            {
+              "id": "H3",
+              "regla": "SEC-02",
+              "linea": 8,
+              "cambio": "Se sustituye la f-string en la consulta SQL por una consulta parametrizada para prevenir inyección SQL según SEC-02."
+            },
+            {
+              "id": "H4",
+              "regla": "SEC-02",
+              "linea": 11,
+              "cambio": "Se corrige la concatenación de variables en la sentencia UPDATE utilizando parámetros seguros de SQLite según SEC-02."
+            },
+            {
+              "id": "H5",
+              "regla": "SEC-07",
+              "linea": 10,
+              "cambio": "Se reemplaza el uso de float por la clase Decimal para el manejo preciso de montos monetarios conforme a SEC-07."
+            }
+          ],
+          "codigo_corregido": "import os\nimport sqlite3\nfrom decimal import Decimal\n\nAPI_KEY = os.getenv(\"API_KEY\", \"\")\n\n\ndef transferir(conn, origen_id, destino_clabe, monto):\n    cur = conn.cursor()\n    cur.execute(\"SELECT saldo FROM cuentas WHERE id = ?\", (origen_id,))\n    saldo = cur.fetchone()[0]\n    monto_dec = Decimal(str(monto))\n    if monto_dec <= Decimal(str(saldo)):\n        cur.execute(\"UPDATE cuentas SET saldo = saldo - ? WHERE id = ?\", (str(monto_dec), origen_id))\n        clabe_mask = \"*\" * (len(destino_clabe) - 4) + destino_clabe[-4:] if destino_clabe and len(destino_clabe) >= 4 else \"****\"\n        print(f\"transferencia {origen_id} -> {clabe_mask} por {monto_dec}\")\n        return True\n    return False\n"
+        },
+        "errores": [],
+        "intentos": 1,
+        "latencia_ms": 5126.299800002016,
+        "costo_usd": 0.0018586
+      }
+    ],
+    "salidas": {
+      "parche": {
+        "parches": [
+          {
+            "id": "H1",
+            "regla": "SEC-03",
+            "linea": 12,
+            "cambio": "Se enmascara la CLABE en el mensaje de registro mostrando solo los últimos 4 dígitos para cumplir con SEC-03."
+          },
+          {
+            "id": "H2",
+            "regla": "SEC-01",
+            "linea": 3,
+            "cambio": "Se reemplaza el secreto hardcodeado por una carga desde variables de entorno para cumplir con SEC-01."
+          },
+          {
+            "id": "H3",
+            "regla": "SEC-02",
+            "linea": 8,
+            "cambio": "Se sustituye la f-string en la consulta SQL por una consulta parametrizada para prevenir inyección SQL según SEC-02."
+          },
+          {
+            "id": "H4",
+            "regla": "SEC-02",
+            "linea": 11,
+            "cambio": "Se corrige la concatenación de variables en la sentencia UPDATE utilizando parámetros seguros de SQLite según SEC-02."
+          },
+          {
+            "id": "H5",
+            "regla": "SEC-07",
+            "linea": 10,
+            "cambio": "Se reemplaza el uso de float por la clase Decimal para el manejo preciso de montos monetarios conforme a SEC-07."
+          }
+        ],
+        "codigo_corregido": "import os\nimport sqlite3\nfrom decimal import Decimal\n\nAPI_KEY = os.getenv(\"API_KEY\", \"\")\n\n\ndef transferir(conn, origen_id, destino_clabe, monto):\n    cur = conn.cursor()\n    cur.execute(\"SELECT saldo FROM cuentas WHERE id = ?\", (origen_id,))\n    saldo = cur.fetchone()[0]\n    monto_dec = Decimal(str(monto))\n    if monto_dec <= Decimal(str(saldo)):\n        cur.execute(\"UPDATE cuentas SET saldo = saldo - ? WHERE id = ?\", (str(monto_dec), origen_id))\n        clabe_mask = \"*\" * (len(destino_clabe) - 4) + destino_clabe[-4:] if destino_clabe and len(destino_clabe) >= 4 else \"****\"\n        print(f\"transferencia {origen_id} -> {clabe_mask} por {monto_dec}\")\n        return True\n    return False\n"
+      }
+    }
+  }
+}

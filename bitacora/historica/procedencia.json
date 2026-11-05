@@ -1,0 +1,102 @@
+[
+  {
+    "archivo_original": "bitacora/a1_comparacion.json",
+    "sha256_original": "5e6c831c0def63716ae7757fec7d3b2e59b189b43769526203ba017880148854",
+    "extracto_publicado": "bitacora/historica/a1_comparacion.json"
+  },
+  {
+    "archivo_original": "bitacora/lab2_cierre/metricas.json",
+    "sha256_original": "dd5e86e5c1d2e7e0b4bc1650b1b1c41d9046114df933dac716ca17eb49da3160",
+    "extracto_publicado": "bitacora/historica/lab2_cierre/metricas.json"
+  },
+  {
+    "archivo_original": "bitacora/lab2_revision/revalidacion_historica.json",
+    "sha256_original": "6ec65a24dbf33644660cfc5b778eb166d28899c9f425ffa37d8d1dcc93eb44d8",
+    "extracto_publicado": "bitacora/historica/lab2_revision/revalidacion_historica.json"
+  },
+  {
+    "archivo_original": "bitacora/lab2_revision/consistencia_por_etapa.json",
+    "sha256_original": "8ab95ba096959e362922ec8cb0bcb549fa1d46bd0f14ec849e1579f7999638ee",
+    "extracto_publicado": "bitacora/historica/lab2_revision/consistencia_por_etapa.json"
+  },
+  {
+    "archivo_original": "bitacora/lab2_cierre/casos/alan_trazabilidad__v3__r1.json",
+    "sha256_original": "56245cd6afa9fedff3d6d07c5b6d0163783a79c0d8bf990fa5f495477136aadd",
+    "extracto_publicado": "bitacora/historica/lab2_cierre/casos/alan_trazabilidad__v3__r1.json"
+  },
+  {
+    "archivo_original": "bitacora/lab2_cierre/casos/alan_trazabilidad__v3__r2.json",
+    "sha256_original": "e1872e49d96376ab615ba24900836b7940d84d25f9cafd4f56f120b8beefac36",
+    "extracto_publicado": "bitacora/historica/lab2_cierre/casos/alan_trazabilidad__v3__r2.json"
+  },
+  {
+    "archivo_original": "bitacora/lab2_cierre/casos/alan_trazabilidad__v3__r3.json",
+    "sha256_original": "a3443e19e2d2aa87057a25d17eb1f612b0c257d8f498185bbefb86786b426a36",
+    "extracto_publicado": "bitacora/historica/lab2_cierre/casos/alan_trazabilidad__v3__r3.json"
+  },
+  {
+    "archivo_original": "bitacora/lab2_cierre/casos/alan_trazabilidad__v4__r1.json",
+    "sha256_original": "c6573214390c2f74434a6b8f59ea57a7690713308e33e6cc33f967d241e22480",
+    "extracto_publicado": "bitacora/historica/lab2_cierre/casos/alan_trazabilidad__v4__r1.json"
+  },
+  {
+    "archivo_original": "bitacora/lab2_cierre/casos/alan_trazabilidad__v4__r2.json",
+    "sha256_original": "8841b43af4c443c8b0fad611b580d22f7ad8f115db820a1643fcf032b4e3ef44",
+    "extracto_publicado": "bitacora/historica/lab2_cierre/casos/alan_trazabilidad__v4__r2.json"
+  },
+  {
+    "archivo_original": "bitacora/lab2_cierre/casos/alan_trazabilidad__v4__r3.json",
+    "sha256_original": "1fcd5aa064fb430ab31a5b42ca7de28abf0392b413f6f23a3436a213319e1aaf",
+    "extracto_publicado": "bitacora/historica/lab2_cierre/casos/alan_trazabilidad__v4__r3.json"
+  },
+  {
+    "archivo_original": "bitacora/lab2_cierre/casos/cesar_ejemplo__v3__r1.json",
+    "sha256_original": "f0b1d6db4a2ce5c7a77231041ff68474c92064b200083ed7931631e861ea1091",
+    "extracto_publicado": "bitacora/historica/lab2_cierre/casos/cesar_ejemplo__v3__r1.json"
+  },
+  {
+    "archivo_original": "bitacora/lab2_cierre/casos/cesar_ejemplo__v3__r2.json",
+    "sha256_original": "aaebf09eaa6a6cb6de191459195eb6225920df35c81b89ecdb8fc99276f5993d",
+    "extracto_publicado": "bitacora/historica/lab2_cierre/casos/cesar_ejemplo__v3__r2.json"
+  },
+  {
+    "archivo_original": "bitacora/lab2_cierre/casos/cesar_ejemplo__v3__r3.json",
+    "sha256_original": "8d22c44a0eeb3ca9f263200e1e289c50911804fb8858334f5675a2f985327ea6",
+    "extracto_publicado": "bitacora/historica/lab2_cierre/casos/cesar_ejemplo__v3__r3.json"
+  },
+  {
+    "archivo_original": "bitacora/lab2_cierre/casos/cesar_ejemplo__v4__r1.json",
+    "sha256_original": "4af4ec6cb28f5e4b5bf5e8b0217fc88c68ee220b24db39629208d8dfc1343c4f",
+    "extracto_publicado": "bitacora/historica/lab2_cierre/casos/cesar_ejemplo__v4__r1.json"
+  },
+  {
+    "archivo_original": "bitacora/lab2_cierre/casos/cesar_ejemplo__v4__r2.json",
+    "sha256_original": "7d9db7b968de91be6473bc81af380c6c1259daacaed59467bc420f265ac2146a",
+    "extracto_publicado": "bitacora/historica/lab2_cierre/casos/cesar_ejemplo__v4__r2.json"
+  },
+  {
+    "archivo_original": "bitacora/lab2_cierre/casos/cesar_ejemplo__v4__r3.json",
+    "sha256_original": "d9ce14327ad585b522045a143a2938d9963d8594db5b928343186ea551bb9ece",
+    "extracto_publicado": "bitacora/historica/lab2_cierre/casos/cesar_ejemplo__v4__r3.json"
+  },
+  {
+    "archivo_original": "bitacora/lab2_revision/casos/flujo_v3__transferencias__1.json",
+    "sha256_original": "4f6c8e45ec720ca93d9ab25e899bc90adeae927d0bce0dfa1f604f3e9d82e88a",
+    "extracto_publicado": "bitacora/historica/lab2_revision/casos/flujo_v3__transferencias__1.json"
+  },
+  {
+    "archivo_original": "bitacora/lab2_revision/casos/flujo_v3__transferencias__2.json",
+    "sha256_original": "220e06848a8c46e5b4b373af530ef50613581cea595f4a755b0765cff704e762",
+    "extracto_publicado": "bitacora/historica/lab2_revision/casos/flujo_v3__transferencias__2.json"
+  },
+  {
+    "archivo_original": "bitacora/lab2_revision/casos/flujo_v3__transferencias__3.json",
+    "sha256_original": "d707c12aea3bd50dbb9611ee4cd6aa8a3eeddfc9802f68cbbb9069e619fe3719",
+    "extracto_publicado": "bitacora/historica/lab2_revision/casos/flujo_v3__transferencias__3.json"
+  },
+  {
+    "archivo_original": "bitacora/lab2_revision/casos/flujo_v3__transferencias__inicial.json",
+    "sha256_original": "046aab44a0be77c3c6856bfcc851a7fa2029d1435b5dec96471bf77a4874fe4b",
+    "extracto_publicado": "bitacora/historica/lab2_revision/casos/flujo_v3__transferencias__inicial.json"
+  }
+]

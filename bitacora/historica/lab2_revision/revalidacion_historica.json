@@ -1,0 +1,377 @@
+{
+  "tipo": "extracto histórico; NO es una ejecución nueva de esta publicación",
+  "origen_relativo": "bitacora/lab2_revision/revalidacion_historica.json",
+  "sha256_original": "6ec65a24dbf33644660cfc5b778eb166d28899c9f425ffa37d8d1dcc93eb44d8",
+  "datos": [
+    {
+      "tipo": "revalidacion_retrospectiva_de_respuesta_real",
+      "version": 1,
+      "archivo": "transferencias.py",
+      "repeticion": "inicial",
+      "etapa": "detectar",
+      "valida_originalmente": true,
+      "errores_revision": [
+        "Falta SEC-03: registro con dato sensible sin enmascarar en línea 12"
+      ],
+      "advertencia": "No fue un rechazo en vivo de la ejecución histórica; se aplica el contrato ampliado a su respuesta guardada"
+    },
+    {
+      "tipo": "revalidacion_retrospectiva_de_respuesta_real",
+      "version": 1,
+      "archivo": "transferencias.py",
+      "repeticion": "inicial",
+      "etapa": "explicar",
+      "valida_originalmente": true,
+      "errores_revision": [],
+      "advertencia": "No fue un rechazo en vivo de la ejecución histórica; se aplica el contrato ampliado a su respuesta guardada"
+    },
+    {
+      "tipo": "revalidacion_retrospectiva_de_respuesta_real",
+      "version": 1,
+      "archivo": "transferencias.py",
+      "repeticion": "inicial",
+      "etapa": "parche",
+      "valida_originalmente": true,
+      "errores_revision": [],
+      "advertencia": "No fue un rechazo en vivo de la ejecución histórica; se aplica el contrato ampliado a su respuesta guardada"
+    },
+    {
+      "tipo": "revalidacion_retrospectiva_de_respuesta_real",
+      "version": 1,
+      "archivo": "tokens.py",
+      "repeticion": "inicial",
+      "etapa": "detectar",
+      "valida_originalmente": true,
+      "errores_revision": [],
+      "advertencia": "No fue un rechazo en vivo de la ejecución histórica; se aplica el contrato ampliado a su respuesta guardada"
+    },
+    {
+      "tipo": "revalidacion_retrospectiva_de_respuesta_real",
+      "version": 1,
+      "archivo": "tokens.py",
+      "repeticion": "inicial",
+      "etapa": "explicar",
+      "valida_originalmente": true,
+      "errores_revision": [],
+      "advertencia": "No fue un rechazo en vivo de la ejecución histórica; se aplica el contrato ampliado a su respuesta guardada"
+    },
+    {
+      "tipo": "revalidacion_retrospectiva_de_respuesta_real",
+      "version": 1,
+      "archivo": "tokens.py",
+      "repeticion": "inicial",
+      "etapa": "parche",
+      "valida_originalmente": true,
+      "errores_revision": [],
+      "advertencia": "No fue un rechazo en vivo de la ejecución histórica; se aplica el contrato ampliado a su respuesta guardada"
+    },
+    {
+      "tipo": "revalidacion_retrospectiva_de_respuesta_real",
+      "version": 1,
+      "archivo": "limites.py",
+      "repeticion": "inicial",
+      "etapa": "detectar",
+      "valida_originalmente": true,
+      "errores_revision": [],
+      "advertencia": "No fue un rechazo en vivo de la ejecución histórica; se aplica el contrato ampliado a su respuesta guardada"
+    },
+    {
+      "tipo": "revalidacion_retrospectiva_de_respuesta_real",
+      "version": 1,
+      "archivo": "limites.py",
+      "repeticion": "inicial",
+      "etapa": "explicar",
+      "valida_originalmente": true,
+      "errores_revision": [],
+      "advertencia": "No fue un rechazo en vivo de la ejecución histórica; se aplica el contrato ampliado a su respuesta guardada"
+    },
+    {
+      "tipo": "revalidacion_retrospectiva_de_respuesta_real",
+      "version": 1,
+      "archivo": "limites.py",
+      "repeticion": "inicial",
+      "etapa": "parche",
+      "valida_originalmente": false,
+      "errores_revision": [
+        "Sin hallazgos se debe conservar exactamente el código original"
+      ],
+      "advertencia": "No fue un rechazo en vivo de la ejecución histórica; se aplica el contrato ampliado a su respuesta guardada"
+    },
+    {
+      "tipo": "revalidacion_retrospectiva_de_respuesta_real",
+      "version": 1,
+      "archivo": "transferencias.py",
+      "repeticion": 1,
+      "etapa": "detectar",
+      "valida_originalmente": true,
+      "errores_revision": [
+        "Falta SEC-03: registro con dato sensible sin enmascarar en línea 12"
+      ],
+      "advertencia": "No fue un rechazo en vivo de la ejecución histórica; se aplica el contrato ampliado a su respuesta guardada"
+    },
+    {
+      "tipo": "revalidacion_retrospectiva_de_respuesta_real",
+      "version": 1,
+      "archivo": "transferencias.py",
+      "repeticion": 1,
+      "etapa": "explicar",
+      "valida_originalmente": true,
+      "errores_revision": [],
+      "advertencia": "No fue un rechazo en vivo de la ejecución histórica; se aplica el contrato ampliado a su respuesta guardada"
+    },
+    {
+      "tipo": "revalidacion_retrospectiva_de_respuesta_real",
+      "version": 1,
+      "archivo": "transferencias.py",
+      "repeticion": 1,
+      "etapa": "parche",
+      "valida_originalmente": true,
+      "errores_revision": [],
+      "advertencia": "No fue un rechazo en vivo de la ejecución histórica; se aplica el contrato ampliado a su respuesta guardada"
+    },
+    {
+      "tipo": "revalidacion_retrospectiva_de_respuesta_real",
+      "version": 1,
+      "archivo": "transferencias.py",
+      "repeticion": 2,
+      "etapa": "detectar",
+      "valida_originalmente": true,
+      "errores_revision": [
+        "Falta SEC-03: registro con dato sensible sin enmascarar en línea 12"
+      ],
+      "advertencia": "No fue un rechazo en vivo de la ejecución histórica; se aplica el contrato ampliado a su respuesta guardada"
+    },
+    {
+      "tipo": "revalidacion_retrospectiva_de_respuesta_real",
+      "version": 1,
+      "archivo": "transferencias.py",
+      "repeticion": 2,
+      "etapa": "explicar",
+      "valida_originalmente": true,
+      "errores_revision": [],
+      "advertencia": "No fue un rechazo en vivo de la ejecución histórica; se aplica el contrato ampliado a su respuesta guardada"
+    },
+    {
+      "tipo": "revalidacion_retrospectiva_de_respuesta_real",
+      "version": 1,
+      "archivo": "transferencias.py",
+      "repeticion": 2,
+      "etapa": "parche",
+      "valida_originalmente": true,
+      "errores_revision": [],
+      "advertencia": "No fue un rechazo en vivo de la ejecución histórica; se aplica el contrato ampliado a su respuesta guardada"
+    },
+    {
+      "tipo": "revalidacion_retrospectiva_de_respuesta_real",
+      "version": 1,
+      "archivo": "transferencias.py",
+      "repeticion": 3,
+      "etapa": "detectar",
+      "valida_originalmente": true,
+      "errores_revision": [
+        "Falta SEC-03: registro con dato sensible sin enmascarar en línea 12"
+      ],
+      "advertencia": "No fue un rechazo en vivo de la ejecución histórica; se aplica el contrato ampliado a su respuesta guardada"
+    },
+    {
+      "tipo": "revalidacion_retrospectiva_de_respuesta_real",
+      "version": 1,
+      "archivo": "transferencias.py",
+      "repeticion": 3,
+      "etapa": "explicar",
+      "valida_originalmente": true,
+      "errores_revision": [],
+      "advertencia": "No fue un rechazo en vivo de la ejecución histórica; se aplica el contrato ampliado a su respuesta guardada"
+    },
+    {
+      "tipo": "revalidacion_retrospectiva_de_respuesta_real",
+      "version": 1,
+      "archivo": "transferencias.py",
+      "repeticion": 3,
+      "etapa": "parche",
+      "valida_originalmente": true,
+      "errores_revision": [],
+      "advertencia": "No fue un rechazo en vivo de la ejecución histórica; se aplica el contrato ampliado a su respuesta guardada"
+    },
+    {
+      "tipo": "revalidacion_retrospectiva_de_respuesta_real",
+      "version": 2,
+      "archivo": "transferencias.py",
+      "repeticion": "inicial",
+      "etapa": "detectar",
+      "valida_originalmente": true,
+      "errores_revision": [],
+      "advertencia": "No fue un rechazo en vivo de la ejecución histórica; se aplica el contrato ampliado a su respuesta guardada"
+    },
+    {
+      "tipo": "revalidacion_retrospectiva_de_respuesta_real",
+      "version": 2,
+      "archivo": "transferencias.py",
+      "repeticion": "inicial",
+      "etapa": "explicar",
+      "valida_originalmente": true,
+      "errores_revision": [],
+      "advertencia": "No fue un rechazo en vivo de la ejecución histórica; se aplica el contrato ampliado a su respuesta guardada"
+    },
+    {
+      "tipo": "revalidacion_retrospectiva_de_respuesta_real",
+      "version": 2,
+      "archivo": "transferencias.py",
+      "repeticion": "inicial",
+      "etapa": "parche",
+      "valida_originalmente": true,
+      "errores_revision": [],
+      "advertencia": "No fue un rechazo en vivo de la ejecución histórica; se aplica el contrato ampliado a su respuesta guardada"
+    },
+    {
+      "tipo": "revalidacion_retrospectiva_de_respuesta_real",
+      "version": 2,
+      "archivo": "tokens.py",
+      "repeticion": "inicial",
+      "etapa": "detectar",
+      "valida_originalmente": true,
+      "errores_revision": [],
+      "advertencia": "No fue un rechazo en vivo de la ejecución histórica; se aplica el contrato ampliado a su respuesta guardada"
+    },
+    {
+      "tipo": "revalidacion_retrospectiva_de_respuesta_real",
+      "version": 2,
+      "archivo": "tokens.py",
+      "repeticion": "inicial",
+      "etapa": "explicar",
+      "valida_originalmente": true,
+      "errores_revision": [],
+      "advertencia": "No fue un rechazo en vivo de la ejecución histórica; se aplica el contrato ampliado a su respuesta guardada"
+    },
+    {
+      "tipo": "revalidacion_retrospectiva_de_respuesta_real",
+      "version": 2,
+      "archivo": "tokens.py",
+      "repeticion": "inicial",
+      "etapa": "parche",
+      "valida_originalmente": true,
+      "errores_revision": [],
+      "advertencia": "No fue un rechazo en vivo de la ejecución histórica; se aplica el contrato ampliado a su respuesta guardada"
+    },
+    {
+      "tipo": "revalidacion_retrospectiva_de_respuesta_real",
+      "version": 2,
+      "archivo": "limites.py",
+      "repeticion": "inicial",
+      "etapa": "detectar",
+      "valida_originalmente": true,
+      "errores_revision": [],
+      "advertencia": "No fue un rechazo en vivo de la ejecución histórica; se aplica el contrato ampliado a su respuesta guardada"
+    },
+    {
+      "tipo": "revalidacion_retrospectiva_de_respuesta_real",
+      "version": 2,
+      "archivo": "limites.py",
+      "repeticion": "inicial",
+      "etapa": "explicar",
+      "valida_originalmente": true,
+      "errores_revision": [],
+      "advertencia": "No fue un rechazo en vivo de la ejecución histórica; se aplica el contrato ampliado a su respuesta guardada"
+    },
+    {
+      "tipo": "revalidacion_retrospectiva_de_respuesta_real",
+      "version": 2,
+      "archivo": "limites.py",
+      "repeticion": "inicial",
+      "etapa": "parche",
+      "valida_originalmente": true,
+      "errores_revision": [],
+      "advertencia": "No fue un rechazo en vivo de la ejecución histórica; se aplica el contrato ampliado a su respuesta guardada"
+    },
+    {
+      "tipo": "revalidacion_retrospectiva_de_respuesta_real",
+      "version": 2,
+      "archivo": "transferencias.py",
+      "repeticion": 1,
+      "etapa": "detectar",
+      "valida_originalmente": true,
+      "errores_revision": [],
+      "advertencia": "No fue un rechazo en vivo de la ejecución histórica; se aplica el contrato ampliado a su respuesta guardada"
+    },
+    {
+      "tipo": "revalidacion_retrospectiva_de_respuesta_real",
+      "version": 2,
+      "archivo": "transferencias.py",
+      "repeticion": 1,
+      "etapa": "explicar",
+      "valida_originalmente": true,
+      "errores_revision": [],
+      "advertencia": "No fue un rechazo en vivo de la ejecución histórica; se aplica el contrato ampliado a su respuesta guardada"
+    },
+    {
+      "tipo": "revalidacion_retrospectiva_de_respuesta_real",
+      "version": 2,
+      "archivo": "transferencias.py",
+      "repeticion": 1,
+      "etapa": "parche",
+      "valida_originalmente": true,
+      "errores_revision": [],
+      "advertencia": "No fue un rechazo en vivo de la ejecución histórica; se aplica el contrato ampliado a su respuesta guardada"
+    },
+    {
+      "tipo": "revalidacion_retrospectiva_de_respuesta_real",
+      "version": 2,
+      "archivo": "transferencias.py",
+      "repeticion": 2,
+      "etapa": "detectar",
+      "valida_originalmente": true,
+      "errores_revision": [],
+      "advertencia": "No fue un rechazo en vivo de la ejecución histórica; se aplica el contrato ampliado a su respuesta guardada"
+    },
+    {
+      "tipo": "revalidacion_retrospectiva_de_respuesta_real",
+      "version": 2,
+      "archivo": "transferencias.py",
+      "repeticion": 2,
+      "etapa": "explicar",
+      "valida_originalmente": true,
+      "errores_revision": [],
+      "advertencia": "No fue un rechazo en vivo de la ejecución histórica; se aplica el contrato ampliado a su respuesta guardada"
+    },
+    {
+      "tipo": "revalidacion_retrospectiva_de_respuesta_real",
+      "version": 2,
+      "archivo": "transferencias.py",
+      "repeticion": 2,
+      "etapa": "parche",
+      "valida_originalmente": true,
+      "errores_revision": [],
+      "advertencia": "No fue un rechazo en vivo de la ejecución histórica; se aplica el contrato ampliado a su respuesta guardada"
+    },
+    {
+      "tipo": "revalidacion_retrospectiva_de_respuesta_real",
+      "version": 2,
+      "archivo": "transferencias.py",
+      "repeticion": 3,
+      "etapa": "detectar",
+      "valida_originalmente": true,
+      "errores_revision": [],
+      "advertencia": "No fue un rechazo en vivo de la ejecución histórica; se aplica el contrato ampliado a su respuesta guardada"
+    },
+    {
+      "tipo": "revalidacion_retrospectiva_de_respuesta_real",
+      "version": 2,
+      "archivo": "transferencias.py",
+      "repeticion": 3,
+      "etapa": "explicar",
+      "valida_originalmente": true,
+      "errores_revision": [],
+      "advertencia": "No fue un rechazo en vivo de la ejecución histórica; se aplica el contrato ampliado a su respuesta guardada"
+    },
+    {
+      "tipo": "revalidacion_retrospectiva_de_respuesta_real",
+      "version": 2,
+      "archivo": "transferencias.py",
+      "repeticion": 3,
+      "etapa": "parche",
+      "valida_originalmente": true,
+      "errores_revision": [],
+      "advertencia": "No fue un rechazo en vivo de la ejecución histórica; se aplica el contrato ampliado a su respuesta guardada"
+    }
+  ]
+}

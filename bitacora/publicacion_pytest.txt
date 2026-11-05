@@ -1,0 +1,22 @@
+Pruebas locales de la copia preparada para publicar
+Fecha UTC: 2026-11-04T20:51:06.704356+00:00
+Ejecutadas por ChatGPT mediante Codex, sin red, con LLM_PROVIDER=fake y EMB_PROVIDER=hash.
+No son una medición con modelo real ni una revisión humana.
+
+Comando: python -m pytest -q -p no:cacheprovider
+
+..............................................                           [100%]
+46 passed in 0.85s
+
+Verificaciones de las fases incrementales:
+Fase 1 (15:00): Embeddings: hash / hash-512
+Fase 2 (15:45): 3 passed in 0.61s
+Fase 3 (16:35): 13 passed in 0.34s
+Fase 4 (17:25): 20 passed in 1.21s
+Fase 5 (18:20): 26 passed in 0.56s
+Fase 6 (19:10): 27 passed in 0.56s
+Fase 7 (20:15): 27 passed in 0.54s
+Fase 8 (21:10): 46 passed in 0.90s
+Fase 9 (22:00): 46 passed in 0.84s
+Fase 10 (22:20): 46 passed in 0.83s
+Fase 11 (22:40): 46 passed in 0.85s

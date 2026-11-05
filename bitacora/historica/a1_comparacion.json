@@ -1,0 +1,163 @@
+{
+  "tipo": "extracto histórico; NO es una ejecución nueva de esta publicación",
+  "origen_relativo": "bitacora/a1_comparacion.json",
+  "sha256_original": "5e6c831c0def63716ae7757fec7d3b2e59b189b43769526203ba017880148854",
+  "datos": [
+    {
+      "pregunta": "Dejé la credencial de acceso escrita en el programa y ya la subí al repositorio. ¿Qué debo corregir?",
+      "tipo": "sinonimo",
+      "esperado": "sec-01",
+      "vector_top3": [
+        "sec-01",
+        "sec-03",
+        "sec-08"
+      ],
+      "palabras_top3": []
+    },
+    {
+      "pregunta": "El texto que escribe un visitante se pega a la instrucción que consulta la base de datos. ¿Cómo evito que cambie lo que se ejecuta?",
+      "tipo": "sinonimo",
+      "esperado": "sec-02",
+      "vector_top3": [
+        "sec-02",
+        "sec-04",
+        "sec-09"
+      ],
+      "palabras_top3": [
+        "sec-02",
+        "sec-09",
+        "sec-01"
+      ]
+    },
+    {
+      "pregunta": "Un cliente inició sesión, pero puede cambiar el número de cuenta de la dirección y operar sobre la de otra persona. ¿Qué comprobación falta?",
+      "tipo": "sinonimo",
+      "esperado": "sec-08",
+      "vector_top3": [
+        "sec-08",
+        "sec-03",
+        "sec-04"
+      ],
+      "palabras_top3": [
+        "sec-08",
+        "sec-03",
+        "sec-01"
+      ]
+    },
+    {
+      "pregunta": "Al sumar comisiones aparecen fracciones de centavo por la representación numérica. ¿Cómo debo representar esos importes?",
+      "tipo": "sinonimo",
+      "esperado": "sec-07",
+      "vector_top3": [
+        "sec-07",
+        "sec-04",
+        "sec-10"
+      ],
+      "palabras_top3": []
+    },
+    {
+      "pregunta": "¿Qué establece la regla SEC-02?",
+      "tipo": "exacto",
+      "esperado": "sec-02",
+      "vector_top3": [
+        "sec-01",
+        "sec-10",
+        "sec-02"
+      ],
+      "palabras_top3": [
+        "sec-02",
+        "sec-08",
+        "sec-09"
+      ]
+    },
+    {
+      "pregunta": "Según SEC-03, ¿qué información puede aparecer en los registros?",
+      "tipo": "exacto",
+      "esperado": "sec-03",
+      "vector_top3": [
+        "sec-03",
+        "sec-04",
+        "sec-05"
+      ],
+      "palabras_top3": [
+        "sec-03",
+        "sec-08",
+        "sec-09"
+      ]
+    },
+    {
+      "pregunta": "¿Qué operaciones prohíbe SEC-09 al procesar datos externos?",
+      "tipo": "exacto",
+      "esperado": "sec-09",
+      "vector_top3": [
+        "sec-09",
+        "sec-04",
+        "sec-01"
+      ],
+      "palabras_top3": [
+        "sec-09",
+        "sec-02",
+        "sec-07"
+      ]
+    },
+    {
+      "pregunta": "¿Puedo generar tokens de un solo uso con random o debo usar secrets?",
+      "tipo": "normal",
+      "esperado": "sec-06",
+      "vector_top3": [
+        "sec-06",
+        "sec-01",
+        "sec-03"
+      ],
+      "palabras_top3": [
+        "sec-06",
+        "sec-03",
+        "sec-08"
+      ]
+    },
+    {
+      "pregunta": "¿Cuándo se permite capturar una excepción amplia y qué respuesta de error debe devolver el servicio?",
+      "tipo": "normal",
+      "esperado": "sec-05",
+      "vector_top3": [
+        "sec-05",
+        "sec-11",
+        "sec-04"
+      ],
+      "palabras_top3": [
+        "sec-05",
+        "sec-11",
+        "sec-03"
+      ]
+    },
+    {
+      "pregunta": "¿Cuántas líneas puede tener una función y cuál es el límite de complejidad ciclomática?",
+      "tipo": "normal",
+      "esperado": "sec-10",
+      "vector_top3": [
+        "sec-10",
+        "sec-04",
+        "sec-07"
+      ],
+      "palabras_top3": [
+        "sec-10"
+      ]
+    },
+    {
+      "resumen": {
+        "vector": {
+          "acierto@1": 9,
+          "acierto@3": 10,
+          "n": 10
+        },
+        "palabras": {
+          "acierto@1": 8,
+          "acierto@3": 8,
+          "n": 10
+        }
+      },
+      "variante": "v2-revisor",
+      "embeddings": "gemini"
+    }
+  ]
+}

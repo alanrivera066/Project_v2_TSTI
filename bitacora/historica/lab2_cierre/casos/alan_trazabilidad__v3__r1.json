@@ -1,0 +1,133 @@
+{
+  "tipo": "extracto histórico; NO es una ejecución nueva de esta publicación",
+  "origen_relativo": "bitacora/lab2_cierre/casos/alan_trazabilidad__v3__r1.json",
+  "sha256_original": "56245cd6afa9fedff3d6d07c5b6d0163783a79c0d8bf990fa5f495477136aadd",
+  "datos": {
+    "caso": "alan_trazabilidad__v3__r1",
+    "grupo": "alan_trazabilidad",
+    "archivo": "datos/v2-revisor/codigo/reportes.py",
+    "version": 3,
+    "repeticion": 1,
+    "firma": {
+      "modelo": "gemini-3.5-flash-lite",
+      "proveedor": "gemini",
+      "codigo": {
+        "reglas.py": "711411f5052bfea5dc0bdcf9147e48e9d0936da115187f7d574463038bf2fadf",
+        "pipeline.py": "41f41ab3233a5f36a11117ab1b47aa9e8f434e1aa3b4e88ae9b9beead0be6e70"
+      },
+      "entrada": "fc2c436e62858bf7589cfc8a293ebee2bf0c49c07ebc065039eaab09726279b2",
+      "semillas": "d4e480da616bb17f310533514795abe4ef3021d8a0a76f537532bdc367cd9d75",
+      "archivo": "9556f1fe4bde90e0915f35004dddb620ee39d95296ff2c073780be6928ea39ef",
+      "prompts": {
+        "rev_explicar.v3": "03764fa5c8d991620acbd054538deedf99e8f4432270618631824793734e5dd2"
+      },
+      "intervalo": 7,
+      "reintentos": {
+        "explicar": 0
+      },
+      "temperatura": 0.2
+    },
+    "semillas": {
+      "detectar": {
+        "hallazgos": [
+          {
+            "id": "H1",
+            "regla": "SEC-09",
+            "linea": 9,
+            "descripcion": "Uso inseguro de pickle.loads para deserializar datos no confiables."
+          },
+          {
+            "id": "H2",
+            "regla": "SEC-09",
+            "linea": 13,
+            "descripcion": "Uso de subprocess.run con shell=True y concatenación de variables, susceptible a inyección de comandos."
+          },
+          {
+            "id": "H3",
+            "regla": "SEC-03",
+            "linea": 17,
+            "descripcion": "El registro muestra información sensible (curp y clabe) sin enmascarar."
+          }
+        ]
+      }
+    },
+    "entrada": {
+      "entrada": "1: import logging\n2: import pickle\n3: import subprocess\n4: \n5: log = logging.getLogger(__name__)\n6: \n7: \n8: def cargar_reporte(datos_bytes):\n9:     return pickle.loads(datos_bytes)\n10: \n11: \n12: def exportar(nombre_archivo):\n13:     subprocess.run(f\"zip reportes.zip {nombre_archivo}\", shell=True)\n14: \n15: \n16: def registrar_cliente(cliente):\n17:     log.info(f\"cliente {cliente['nombre']} curp={cliente['curp']} clabe={cliente['clabe']}\")",
+      "codigo_original": "import logging\nimport pickle\nimport subprocess\n\nlog = logging.getLogger(__name__)\n\n\ndef cargar_reporte(datos_bytes):\n    return pickle.loads(datos_bytes)\n\n\ndef exportar(nombre_archivo):\n    subprocess.run(f\"zip reportes.zip {nombre_archivo}\", shell=True)\n\n\ndef registrar_cliente(cliente):\n    log.info(f\"cliente {cliente['nombre']} curp={cliente['curp']} clabe={cliente['clabe']}\")\n",
+      "codigo_original_json": "\"import logging\\nimport pickle\\nimport subprocess\\n\\nlog = logging.getLogger(__name__)\\n\\n\\ndef cargar_reporte(datos_bytes):\\n    return pickle.loads(datos_bytes)\\n\\n\\ndef exportar(nombre_archivo):\\n    subprocess.run(f\\\"zip reportes.zip {nombre_archivo}\\\", shell=True)\\n\\n\\ndef registrar_cliente(cliente):\\n    log.info(f\\\"cliente {cliente['nombre']} curp={cliente['curp']} clabe={cliente['clabe']}\\\")\\n\"",
+      "contexto": "(sin contexto: Mini-RAG pendiente del Laboratorio 3)",
+      "senales_codigo": "[{\"regla\": \"SEC-03\", \"linea\": 17, \"motivo\": \"registro con campo sensible reconocible sin enmascarar\"}]",
+      "detectar": "{\n  \"hallazgos\": [\n    {\n      \"id\": \"H1\",\n      \"regla\": \"SEC-09\",\n      \"linea\": 9,\n      \"descripcion\": \"Uso inseguro de pickle.loads para deserializar datos no confiables.\"\n    },\n    {\n      \"id\": \"H2\",\n      \"regla\": \"SEC-09\",\n      \"linea\": 13,\n      \"descripcion\": \"Uso de subprocess.run con shell=True y concatenación de variables, susceptible a inyección de comandos.\"\n    },\n    {\n      \"id\": \"H3\",\n      \"regla\": \"SEC-03\",\n      \"linea\": 17,\n      \"descripcion\": \"El registro muestra información sensible (curp y clabe) sin enmascarar.\"\n    }\n  ]\n}"
+    },
+    "fecha_utc": "2026-11-01T05:58:23.360958+00:00",
+    "demo": false,
+    "estado": "rechazado",
+    "etapas": [
+      {
+        "nombre": "explicar",
+        "prompt": "rev_explicar.v3",
+        "ok": false,
+        "salida": {
+          "hallazgos": [
+            {
+              "id": "H1",
+              "regla": "SEC-09",
+              "linea": 9,
+              "descripcion": "Uso inseguro de pickle.loads para deserializar datos no confiables.",
+              "explicacion": "Se observa la ejecución de pickle.loads sobre un argumento de entrada, lo cual se relaciona con la regla SEC-09 al procesar datos no validados. El riesgo posible es la ejecución arbitraria de código si se reciben bytes manipulados. NO ESPECIFICADO el origen o control de validación previo sobre dichos datos."
+            },
+            {
+              "id": "H2",
+              "regla": "SEC-09",
+              "linea": 13,
+              "descripcion": "Uso de subprocess.run con shell=True y concatenación de variables, susceptible a inyección de comandos.",
+              "explicacion": "El código invoca subprocess.run habilitando el intérprete de shell mediante f-strings, conectándose directamente con la regla SEC-09. El riesgo posible radica en la inyección de comandos si el parámetro del nombre de archivo incluye caracteres especiales maliciosos. NO ESPECIFICADO un mecanismo de sanitización para el parámetro de entrada."
+            },
+            {
+              "id": "H3",
+              "regla": "SEC-03",
+              "linea": 17,
+              "descripcion": "El registro muestra información sensible (curp y clabe) sin enmascarar.",
+              "explicacion": "Se imprimen directamente las llaves curp y clabe dentro de las funciones de registro de eventos, incumpliendo los criterios de la regla SEC-03. El riesgo posible es la exposición de datos confidenciales en los archivos de bitácora del sistema. NO ESPECIFICADO el nivel de acceso protegido para los registros generados."
+            }
+          ]
+        },
+        "errores": [
+          "La explicación de H1 no identifica la línea 9; el texto debe ser trazable por sí solo",
+          "La explicación de H2 no identifica la línea 13; el texto debe ser trazable por sí solo",
+          "La explicación de H3 no identifica la línea 17; el texto debe ser trazable por sí solo"
+        ],
+        "intentos": 1,
+        "latencia_ms": 2556.3460999983363,
+        "costo_usd": 0.001263
+      }
+    ],
+    "salidas": {
+      "explicar": {
+        "hallazgos": [
+          {
+            "id": "H1",
+            "regla": "SEC-09",
+            "linea": 9,
+            "descripcion": "Uso inseguro de pickle.loads para deserializar datos no confiables.",
+            "explicacion": "Se observa la ejecución de pickle.loads sobre un argumento de entrada, lo cual se relaciona con la regla SEC-09 al procesar datos no validados. El riesgo posible es la ejecución arbitraria de código si se reciben bytes manipulados. NO ESPECIFICADO el origen o control de validación previo sobre dichos datos."
+          },
+          {
+            "id": "H2",
+            "regla": "SEC-09",
+            "linea": 13,
+            "descripcion": "Uso de subprocess.run con shell=True y concatenación de variables, susceptible a inyección de comandos.",
+            "explicacion": "El código invoca subprocess.run habilitando el intérprete de shell mediante f-strings, conectándose directamente con la regla SEC-09. El riesgo posible radica en la inyección de comandos si el parámetro del nombre de archivo incluye caracteres especiales maliciosos. NO ESPECIFICADO un mecanismo de sanitización para el parámetro de entrada."
+          },
+          {
+            "id": "H3",
+            "regla": "SEC-03",
+            "linea": 17,
+            "descripcion": "El registro muestra información sensible (curp y clabe) sin enmascarar.",
+            "explicacion": "Se imprimen directamente las llaves curp y clabe dentro de las funciones de registro de eventos, incumpliendo los criterios de la regla SEC-03. El riesgo posible es la exposición de datos confidenciales en los archivos de bitácora del sistema. NO ESPECIFICADO el nivel de acceso protegido para los registros generados."
+          }
+        ]
+      }
+    }
+  }
+}
