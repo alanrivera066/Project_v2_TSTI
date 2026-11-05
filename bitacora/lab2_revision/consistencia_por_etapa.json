@@ -1,0 +1,666 @@
+{
+  "v1_historica": {
+    "detectar": {
+      "orden": [
+        "inicial",
+        1,
+        2,
+        3
+      ],
+      "alcanzadas": 4,
+      "validas": 4,
+      "textos_distintos": 3,
+      "firmas_regla_linea": [
+        [
+          [
+            "SEC-01",
+            3
+          ],
+          [
+            "SEC-02",
+            8
+          ],
+          [
+            "SEC-02",
+            11
+          ],
+          [
+            "SEC-07",
+            10
+          ]
+        ],
+        [
+          [
+            "SEC-01",
+            3
+          ],
+          [
+            "SEC-02",
+            8
+          ],
+          [
+            "SEC-02",
+            11
+          ],
+          [
+            "SEC-07",
+            10
+          ]
+        ],
+        [
+          [
+            "SEC-01",
+            3
+          ],
+          [
+            "SEC-02",
+            8
+          ],
+          [
+            "SEC-02",
+            11
+          ],
+          [
+            "SEC-07",
+            10
+          ]
+        ],
+        [
+          [
+            "SEC-01",
+            3
+          ],
+          [
+            "SEC-02",
+            8
+          ],
+          [
+            "SEC-02",
+            11
+          ],
+          [
+            "SEC-07",
+            10
+          ]
+        ]
+      ],
+      "firmas_distintas": 1
+    },
+    "explicar": {
+      "orden": [
+        "inicial",
+        1,
+        2,
+        3
+      ],
+      "alcanzadas": 4,
+      "validas": 4,
+      "textos_distintos": 4,
+      "firmas_regla_linea": [
+        [
+          [
+            "SEC-01",
+            3
+          ],
+          [
+            "SEC-02",
+            8
+          ],
+          [
+            "SEC-02",
+            11
+          ],
+          [
+            "SEC-07",
+            10
+          ]
+        ],
+        [
+          [
+            "SEC-01",
+            3
+          ],
+          [
+            "SEC-02",
+            8
+          ],
+          [
+            "SEC-02",
+            11
+          ],
+          [
+            "SEC-07",
+            10
+          ]
+        ],
+        [
+          [
+            "SEC-01",
+            3
+          ],
+          [
+            "SEC-02",
+            8
+          ],
+          [
+            "SEC-02",
+            11
+          ],
+          [
+            "SEC-07",
+            10
+          ]
+        ],
+        [
+          [
+            "SEC-01",
+            3
+          ],
+          [
+            "SEC-02",
+            8
+          ],
+          [
+            "SEC-02",
+            11
+          ],
+          [
+            "SEC-07",
+            10
+          ]
+        ]
+      ],
+      "firmas_distintas": 1
+    },
+    "parche": {
+      "orden": [
+        "inicial",
+        1,
+        2,
+        3
+      ],
+      "alcanzadas": 4,
+      "validas": 4,
+      "textos_distintos": 4,
+      "lineas": [
+        20,
+        20,
+        20,
+        20
+      ],
+      "codigo_sha256": [
+        "aa866631f6c67e0510c5c87b6c064a5713729e2e93c149a4ec5185fe37071bcc",
+        "ead3726621c98b2eeec9c8837f65b4875b595b50dbb941f440fe0260c3a92efd",
+        "aa866631f6c67e0510c5c87b6c064a5713729e2e93c149a4ec5185fe37071bcc",
+        "141166fa80825cd7dac73500474995c21820d47497ccdd3afb023630ad7ae238"
+      ],
+      "codigos_distintos": 3
+    }
+  },
+  "v2_historica": {
+    "detectar": {
+      "orden": [
+        "inicial",
+        1,
+        2,
+        3
+      ],
+      "alcanzadas": 4,
+      "validas": 4,
+      "textos_distintos": 4,
+      "firmas_regla_linea": [
+        [
+          [
+            "SEC-01",
+            3
+          ],
+          [
+            "SEC-02",
+            8
+          ],
+          [
+            "SEC-02",
+            11
+          ],
+          [
+            "SEC-03",
+            12
+          ],
+          [
+            "SEC-07",
+            10
+          ]
+        ],
+        [
+          [
+            "SEC-01",
+            3
+          ],
+          [
+            "SEC-02",
+            8
+          ],
+          [
+            "SEC-02",
+            11
+          ],
+          [
+            "SEC-03",
+            12
+          ],
+          [
+            "SEC-07",
+            10
+          ]
+        ],
+        [
+          [
+            "SEC-01",
+            3
+          ],
+          [
+            "SEC-02",
+            8
+          ],
+          [
+            "SEC-02",
+            11
+          ],
+          [
+            "SEC-03",
+            12
+          ],
+          [
+            "SEC-07",
+            10
+          ]
+        ],
+        [
+          [
+            "SEC-01",
+            3
+          ],
+          [
+            "SEC-02",
+            8
+          ],
+          [
+            "SEC-02",
+            11
+          ],
+          [
+            "SEC-03",
+            12
+          ],
+          [
+            "SEC-07",
+            10
+          ]
+        ]
+      ],
+      "firmas_distintas": 1
+    },
+    "explicar": {
+      "orden": [
+        "inicial",
+        1,
+        2,
+        3
+      ],
+      "alcanzadas": 4,
+      "validas": 4,
+      "textos_distintos": 4,
+      "firmas_regla_linea": [
+        [
+          [
+            "SEC-01",
+            3
+          ],
+          [
+            "SEC-02",
+            8
+          ],
+          [
+            "SEC-02",
+            11
+          ],
+          [
+            "SEC-03",
+            12
+          ],
+          [
+            "SEC-07",
+            10
+          ]
+        ],
+        [
+          [
+            "SEC-01",
+            3
+          ],
+          [
+            "SEC-02",
+            8
+          ],
+          [
+            "SEC-02",
+            11
+          ],
+          [
+            "SEC-03",
+            12
+          ],
+          [
+            "SEC-07",
+            10
+          ]
+        ],
+        [
+          [
+            "SEC-01",
+            3
+          ],
+          [
+            "SEC-02",
+            8
+          ],
+          [
+            "SEC-02",
+            11
+          ],
+          [
+            "SEC-03",
+            12
+          ],
+          [
+            "SEC-07",
+            10
+          ]
+        ],
+        [
+          [
+            "SEC-01",
+            3
+          ],
+          [
+            "SEC-02",
+            8
+          ],
+          [
+            "SEC-02",
+            11
+          ],
+          [
+            "SEC-03",
+            12
+          ],
+          [
+            "SEC-07",
+            10
+          ]
+        ]
+      ],
+      "firmas_distintas": 1
+    },
+    "parche": {
+      "orden": [
+        "inicial",
+        1,
+        2,
+        3
+      ],
+      "alcanzadas": 4,
+      "validas": 4,
+      "textos_distintos": 4,
+      "lineas": [
+        17,
+        18,
+        16,
+        17
+      ],
+      "codigo_sha256": [
+        "9faa1c114f1588d1cdaa3e19e2c022cf3c101b6df514d91e9dd13a72ee8620d1",
+        "3d3c8a7a86a9c30785dec7b1985421d71e0de650a7932cd2cf41fe91db191b84",
+        "af8ea70310144ec8be58aa5a8c006607ec7e81143c840e528fe1c49d90cd4bf8",
+        "a31e9f1793626b33832b2c4c870fd93fda2e3db23c9e07de65e25eb9fa95c394"
+      ],
+      "codigos_distintos": 4
+    }
+  },
+  "v3_revision": {
+    "detectar": {
+      "orden": [
+        "inicial",
+        1,
+        2,
+        3
+      ],
+      "alcanzadas": 4,
+      "validas": 4,
+      "textos_distintos": 4,
+      "firmas_regla_linea": [
+        [
+          [
+            "SEC-01",
+            3
+          ],
+          [
+            "SEC-02",
+            8
+          ],
+          [
+            "SEC-02",
+            11
+          ],
+          [
+            "SEC-03",
+            12
+          ],
+          [
+            "SEC-07",
+            10
+          ]
+        ],
+        [
+          [
+            "SEC-01",
+            3
+          ],
+          [
+            "SEC-02",
+            8
+          ],
+          [
+            "SEC-02",
+            11
+          ],
+          [
+            "SEC-03",
+            12
+          ],
+          [
+            "SEC-07",
+            10
+          ]
+        ],
+        [
+          [
+            "SEC-01",
+            3
+          ],
+          [
+            "SEC-02",
+            8
+          ],
+          [
+            "SEC-02",
+            11
+          ],
+          [
+            "SEC-03",
+            12
+          ],
+          [
+            "SEC-07",
+            10
+          ]
+        ],
+        [
+          [
+            "SEC-01",
+            3
+          ],
+          [
+            "SEC-02",
+            8
+          ],
+          [
+            "SEC-02",
+            11
+          ],
+          [
+            "SEC-03",
+            12
+          ],
+          [
+            "SEC-07",
+            10
+          ]
+        ]
+      ],
+      "firmas_distintas": 1
+    },
+    "explicar": {
+      "orden": [
+        "inicial",
+        1,
+        2,
+        3
+      ],
+      "alcanzadas": 4,
+      "validas": 4,
+      "textos_distintos": 4,
+      "firmas_regla_linea": [
+        [
+          [
+            "SEC-01",
+            3
+          ],
+          [
+            "SEC-02",
+            8
+          ],
+          [
+            "SEC-02",
+            11
+          ],
+          [
+            "SEC-03",
+            12
+          ],
+          [
+            "SEC-07",
+            10
+          ]
+        ],
+        [
+          [
+            "SEC-01",
+            3
+          ],
+          [
+            "SEC-02",
+            8
+          ],
+          [
+            "SEC-02",
+            11
+          ],
+          [
+            "SEC-03",
+            12
+          ],
+          [
+            "SEC-07",
+            10
+          ]
+        ],
+        [
+          [
+            "SEC-01",
+            3
+          ],
+          [
+            "SEC-02",
+            8
+          ],
+          [
+            "SEC-02",
+            11
+          ],
+          [
+            "SEC-03",
+            12
+          ],
+          [
+            "SEC-07",
+            10
+          ]
+        ],
+        [
+          [
+            "SEC-01",
+            3
+          ],
+          [
+            "SEC-02",
+            8
+          ],
+          [
+            "SEC-02",
+            11
+          ],
+          [
+            "SEC-03",
+            12
+          ],
+          [
+            "SEC-07",
+            10
+          ]
+        ]
+      ],
+      "firmas_distintas": 1
+    },
+    "parche": {
+      "orden": [
+        "inicial",
+        1,
+        2,
+        3
+      ],
+      "alcanzadas": 4,
+      "validas": 4,
+      "textos_distintos": 4,
+      "lineas": [
+        18,
+        18,
+        18,
+        21
+      ],
+      "codigo_sha256": [
+        "5a436ac59e9715d0792339efb6ea21ae86f84c36aa5c74f1a318cfa0790b2a23",
+        "f453d62fe80a9a58e35205790bdcf86a827e439c01bfdefb5f4ff0ecd205d873",
+        "391ca5d8e9eabeab0592748aeeb82349611069366f82bd3679978a4c0ed753d7",
+        "e6f62bcff58590b4ff828af0aa9c9e750c0a404d09dc49d7411d7fec83e9230b"
+      ],
+      "codigos_distintos": 4
+    }
+  },
+  "importacion_20261105": {
+    "tipo": "Evidencia histórica; NO es una ejecución nueva de esta copia",
+    "origen": "bitacora/lab2_revision/consistencia_por_etapa.json",
+    "sha256_original": "8ab95ba096959e362922ec8cb0bcb549fa1d46bd0f14ec849e1579f7999638ee",
+    "alcance_publicado": "Etapas detectar, explicar y parche; la cuarta etapa se excluyó de esta copia."
+  }
+}

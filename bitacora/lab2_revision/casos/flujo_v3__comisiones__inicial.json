@@ -1,0 +1,140 @@
+{
+  "caso": "flujo_v3__comisiones__inicial",
+  "archivo": "comisiones.py",
+  "repeticion": "inicial",
+  "modo": "flujo_completo",
+  "fecha_utc": "2026-11-01T05:36:08.802008+00:00",
+  "firma": {
+    "modelo": "gemini-3.5-flash-lite",
+    "proveedor": "gemini",
+    "codigo": {
+      "pipeline.py": "41f41ab3233a5f36a11117ab1b47aa9e8f434e1aa3b4e88ae9b9beead0be6e70",
+      "reglas.py": "d23739c847c4712d3cef276d74aea6e86b3e467f33e1a8a7682d9a302ec4e211"
+    },
+    "validadores": "lab2-revision-2",
+    "archivo_sha256": "2197e047b8700499b777bd7f645f1953a47b15e9c4364ad5de9e444843b7c9c0",
+    "entrada_sha256": "b88ab19e0d41b91faec6fb9c0c6827dcf74a57cbb5c74e008bf4045535579073",
+    "semillas_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+    "prompts": {
+      "rev_detectar.v3": "a872302649b24a39122c1ed88a1657ee78d3211e8c92d56f88b8fdc3f3a6c91c",
+      "rev_explicar.v3": "03764fa5c8d991620acbd054538deedf99e8f4432270618631824793734e5dd2",
+      "rev_parche.v3": "6d78ac2e0785543f6c295d762322041780e38e5fc60a659b248732dbc8eeadb8"
+    },
+    "esquemas": {
+      "rev_detectar.v3": "269e5185105349b7e77dd4ec36481074e9acbdfbd117cf64e4a25ff8073b663c",
+      "rev_explicar.v3": "a600d4f47324ba0213833037c04ac4d2a42cc6d186ebc9e8aa8e82e05199b482",
+      "rev_parche.v3": "5761fb9023651cf21e5cb0746f4696398ccde07ef1948efeca717784a34573e5"
+    },
+    "temperatura": 0.2,
+    "reintentos_etapa": 1,
+    "intervalo_s": 7
+  },
+  "demo": false,
+  "semillas": null,
+  "estado": "completo",
+  "etapas": [
+    {
+      "nombre": "detectar",
+      "prompt": "rev_detectar.v3",
+      "ok": true,
+      "salida": {
+        "hallazgos": [
+          {
+            "id": "H1",
+            "regla": "SEC-07",
+            "linea": 6,
+            "descripcion": "El cálculo monetario utiliza tipos de coma flotante en lugar de Decimal"
+          }
+        ]
+      },
+      "errores": [],
+      "intentos": 1,
+      "latencia_ms": 5464.905000000726,
+      "costo_usd": 0.000317
+    },
+    {
+      "nombre": "explicar",
+      "prompt": "rev_explicar.v3",
+      "ok": true,
+      "salida": {
+        "hallazgos": [
+          {
+            "id": "H1",
+            "regla": "SEC-07",
+            "linea": 6,
+            "descripcion": "El cálculo monetario utiliza tipos de coma flotante en lugar de Decimal",
+            "explicacion": "En la línea 6 se realiza una operación aritmética utilizando valores de tipo flotante con la función float(m) y un literal decimal, lo cual se relaciona con la regla SEC-07 que requiere el uso de tipos de alta precisión como Decimal para cálculos monetarios. El riesgo posible es la introducción de imprecisiones y errores de redondeo acumulativos en transacciones financieras. La tolerancia exacta de redondeo o la precisión requerida para esta operación NO ESPECIFICADO en el código."
+          }
+        ]
+      },
+      "errores": [],
+      "intentos": 1,
+      "latencia_ms": 7985.299599997234,
+      "costo_usd": 0.0005789
+    },
+    {
+      "nombre": "parche",
+      "prompt": "rev_parche.v3",
+      "ok": true,
+      "salida": {
+        "parches": [
+          {
+            "id": "H1",
+            "regla": "SEC-07",
+            "linea": 6,
+            "cambio": "Se reemplaza el uso de float por decimal.Decimal para los cálculos monetarios, importando decimal y ajustando la operación según la regla SEC-07, limitando la modificación estrictamente a la línea afectada."
+          }
+        ],
+        "codigo_corregido": "from decimal import Decimal\n\ndef calc(m, n):\n    if n > 10:\n        c = Decimal('5') * Decimal('1.16')\n    else:\n        c = Decimal('0')\n    total = round(Decimal(str(m)) + c, 2)\n    if total == Decimal('15.80'):\n        print(\"caso especial\")\n    return total\n"
+      },
+      "errores": [],
+      "intentos": 1,
+      "latencia_ms": 6578.028200019617,
+      "costo_usd": 0.0006811
+    }
+  ],
+  "salidas": {
+    "detectar": {
+      "hallazgos": [
+        {
+          "id": "H1",
+          "regla": "SEC-07",
+          "linea": 6,
+          "descripcion": "El cálculo monetario utiliza tipos de coma flotante en lugar de Decimal"
+        }
+      ]
+    },
+    "explicar": {
+      "hallazgos": [
+        {
+          "id": "H1",
+          "regla": "SEC-07",
+          "linea": 6,
+          "descripcion": "El cálculo monetario utiliza tipos de coma flotante en lugar de Decimal",
+          "explicacion": "En la línea 6 se realiza una operación aritmética utilizando valores de tipo flotante con la función float(m) y un literal decimal, lo cual se relaciona con la regla SEC-07 que requiere el uso de tipos de alta precisión como Decimal para cálculos monetarios. El riesgo posible es la introducción de imprecisiones y errores de redondeo acumulativos en transacciones financieras. La tolerancia exacta de redondeo o la precisión requerida para esta operación NO ESPECIFICADO en el código."
+        }
+      ]
+    },
+    "parche": {
+      "parches": [
+        {
+          "id": "H1",
+          "regla": "SEC-07",
+          "linea": 6,
+          "cambio": "Se reemplaza el uso de float por decimal.Decimal para los cálculos monetarios, importando decimal y ajustando la operación según la regla SEC-07, limitando la modificación estrictamente a la línea afectada."
+        }
+      ],
+      "codigo_corregido": "from decimal import Decimal\n\ndef calc(m, n):\n    if n > 10:\n        c = Decimal('5') * Decimal('1.16')\n    else:\n        c = Decimal('0')\n    total = round(Decimal(str(m)) + c, 2)\n    if total == Decimal('15.80'):\n        print(\"caso especial\")\n    return total\n"
+    }
+  },
+  "entrada_modelo": {
+    "entrada": "def calc(m, n):\n    if n > 10:\n        c = 5 * 1.16\n    else:\n        c = 0\n    total = round(float(m) + c, 2)\n    if total == 15.80:\n        print(\"caso especial\")\n    return total\n",
+    "contexto": "(sin contexto: Mini-RAG pendiente del Laboratorio 3)"
+  },
+  "importacion_20261105": {
+    "tipo": "Evidencia histórica; NO es una ejecución nueva de esta copia",
+    "origen": "bitacora/lab2_revision/casos/flujo_v3__comisiones__inicial.json",
+    "sha256_original": "d65c9f9d2e87b98744e5db235dfacb6ebb63c1cb743a5db126bc2890809a7f45",
+    "alcance_publicado": "Etapas detectar, explicar y parche; la cuarta etapa se excluyó de esta copia."
+  }
+}

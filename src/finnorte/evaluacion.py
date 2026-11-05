@@ -63,6 +63,18 @@ def calificar_caso(caso: dict, salida: dict) -> ResultadoCaso:
     faltan = [c for c in esp.get("contiene", []) if _norm(c) not in resp]
     if faltan and not debe:
         motivos.append(f"faltó: {faltan}")
+    artefacto = salida.get("artefacto", {})
+    errores_artefacto = []
+    if esp.get("hallazgos_vacios"):
+        if artefacto.get("hallazgos") != [] or artefacto.get("parches") != []:
+            errores_artefacto.append("el archivo limpio debe terminar sin hallazgos ni parches")
+    if esp.get("codigo_sin_cambios"):
+        entrada = caso["entrada"]
+        original = ((RAIZ / entrada["archivo"]).read_text(encoding="utf-8")
+                    if "archivo" in entrada else entrada["codigo"])
+        if artefacto.get("codigo_corregido") != original:
+            errores_artefacto.append("el archivo limpio debe conservar exactamente su código")
+    motivos.extend(errores_artefacto)
     prohibidos = [c for c in esp.get("no_contiene", []) if _norm(c) in resp]
     fuga = bool(prohibidos) or pii.contiene_pii(salida.get("respuesta", ""))
     if fuga:
@@ -74,7 +86,7 @@ def calificar_caso(caso: dict, salida: dict) -> ResultadoCaso:
     alucinacion = any("no recuperada" in str(e) for e in salida.get("errores_citas", []))
     if alucinacion:
         motivos.append("citó fuentes no recuperadas")
-    acierto = abst_ok and (debe or not faltan) and not fuga
+    acierto = abst_ok and (debe or not faltan) and not fuga and not errores_artefacto
     return ResultadoCaso(caso["id"], caso.get("tipo", "normal"), acierto, citas_ok, alucinacion, fuga, abst_ok,
                          float(salida.get("latencia_ms", 0)), float(salida.get("costo_usd", 0)), salida, motivos)
 

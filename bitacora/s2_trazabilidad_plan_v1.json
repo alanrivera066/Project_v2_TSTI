@@ -1,0 +1,376 @@
+[
+  {
+    "solicitud": "CHG-1",
+    "etapa": "analizar",
+    "prompt": "cambio_analizar.v1",
+    "version": 1,
+    "valida": true,
+    "intentos": 1,
+    "errores": [],
+    "artefacto": {
+      "titulo": "Implementación de Idempotency-Key en POST /v1/transferencias",
+      "componentes": [
+        "pagos-api"
+      ],
+      "tipo": "funcionalidad",
+      "riesgo": "alto",
+      "justificacion_riesgo": "La implementación afecta directamente el procesamiento de transacciones financieras (dinero) y requiere modificaciones en la base de datos para persistir las claves de idempotencia.",
+      "preguntas_abiertas": [
+        "¿Cuál es el tiempo de expiración (TTL) para las claves de idempotencia?",
+        "¿Qué código de estado HTTP debe retornar el sistema cuando se detecta una clave duplicada?",
+        "¿Se requiere persistencia en una base de datos distribuida (ej. Redis) o local?",
+        "¿Existe algún formato específico requerido para la Idempotency-Key?"
+      ]
+    },
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite",
+    "demo": false
+  },
+  {
+    "solicitud": "CHG-1",
+    "etapa": "plan",
+    "prompt": "cambio_plan.v1",
+    "version": 1,
+    "valida": true,
+    "intentos": 1,
+    "errores": [],
+    "artefacto": {
+      "estrategia": "Despliegue gradual (Canary) con monitoreo de métricas de negocio y latencia.",
+      "pasos": [
+        "Ejecutar pruebas de carga en entorno de staging para validar el impacto en la base de datos.",
+        "Despliegue del 5% del tráfico en producción para validación de errores 4xx/5xx.",
+        "Monitoreo de 30 minutos para verificar integridad de transacciones.",
+        "Escalamiento al 50% del tráfico con supervisión de logs de idempotencia.",
+        "Despliegue final al 100% tras validación de métricas de éxito."
+      ],
+      "reversa": "Rollback automático a la versión anterior mediante el orquestador de contenedores y limpieza de registros de idempotencia en la base de datos si fuera necesario.",
+      "aprobaciones": [
+        "Líder Técnico de Pagos",
+        "Ingeniero de SRE/DevOps"
+      ],
+      "ventana": "Fuera de horario comercial (martes o miércoles entre 01:00 y 04:00 AM UTC)."
+    },
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite",
+    "demo": false
+  },
+  {
+    "solicitud": "CHG-1",
+    "etapa": "checklist",
+    "prompt": "cambio_checklist.v1",
+    "version": 1,
+    "valida": true,
+    "intentos": 1,
+    "errores": [],
+    "artefacto": {
+      "checklist": [
+        {
+          "punto": "¿Se ha definido el TTL de las claves de idempotencia?",
+          "origen": "analisis.preguntas_abiertas",
+          "responsable": "dev"
+        },
+        {
+          "punto": "¿Se ha estandarizado el código de respuesta HTTP para claves duplicadas?",
+          "origen": "analisis.preguntas_abiertas",
+          "responsable": "dev"
+        },
+        {
+          "punto": "¿Se ha validado la infraestructura de persistencia (Redis/DB) para soportar la carga?",
+          "origen": "analisis.preguntas_abiertas",
+          "responsable": "ops"
+        },
+        {
+          "punto": "¿Se han ejecutado las pruebas de carga en staging para medir impacto en DB?",
+          "origen": "plan.pasos",
+          "responsable": "qa"
+        },
+        {
+          "punto": "¿Está configurado el monitoreo para detectar errores 4xx/5xx durante el despliegue Canary?",
+          "origen": "plan.pasos",
+          "responsable": "qa"
+        },
+        {
+          "punto": "¿Se ha verificado la integridad de las transacciones tras el despliegue inicial?",
+          "origen": "plan.pasos",
+          "responsable": "qa"
+        },
+        {
+          "punto": "¿El plan de rollback automático está probado y listo para ejecutarse?",
+          "origen": "plan.reversa",
+          "responsable": "ops"
+        },
+        {
+          "punto": "¿Se cuenta con la aprobación formal del Líder Técnico y SRE?",
+          "origen": "plan.aprobaciones",
+          "responsable": "dev"
+        },
+        {
+          "punto": "¿El despliegue está programado dentro de la ventana de mantenimiento autorizada?",
+          "origen": "plan.ventana",
+          "responsable": "ops"
+        }
+      ]
+    },
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite",
+    "demo": false
+  },
+  {
+    "solicitud": "CHG-1",
+    "etapa": "nota",
+    "prompt": "cambio_nota.v1",
+    "version": 1,
+    "valida": true,
+    "intentos": 1,
+    "errores": [],
+    "artefacto": {
+      "titulo": "Implementación de seguridad en el procesamiento de transferencias",
+      "que_cambia": "Se ha añadido un mecanismo de control para evitar que una misma transferencia se procese más de una vez por error, utilizando una clave única de identificación en cada solicitud.",
+      "impacto_usuario": "Mayor seguridad y fiabilidad en las transferencias, evitando duplicidades accidentales en los pagos.",
+      "fecha_estimada": "NO ESPECIFICADO",
+      "contacto": "equipo de ingeniería"
+    },
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite",
+    "demo": false
+  },
+  {
+    "solicitud": "CHG-2",
+    "etapa": "analizar",
+    "prompt": "cambio_analizar.v1",
+    "version": 1,
+    "valida": true,
+    "intentos": 1,
+    "errores": [],
+    "artefacto": {
+      "titulo": "Mejorar el servicio de notificaciones",
+      "componentes": [
+        "NO ESPECIFICADO"
+      ],
+      "tipo": "funcionalidad",
+      "riesgo": "bajo",
+      "justificacion_riesgo": "La solicitud es demasiado genérica para determinar un impacto en áreas críticas, por lo que se clasifica como bajo hasta obtener más detalles.",
+      "preguntas_abiertas": [
+        "¿Qué aspectos específicos del servicio de notificaciones se desean mejorar?",
+        "¿Cuáles son los componentes o módulos afectados?",
+        "¿Existe algún impacto esperado en la base de datos o en la seguridad de los datos?"
+      ]
+    },
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite",
+    "demo": false
+  },
+  {
+    "solicitud": "CHG-2",
+    "etapa": "plan",
+    "prompt": "cambio_plan.v1",
+    "version": 1,
+    "valida": true,
+    "intentos": 1,
+    "errores": [],
+    "artefacto": {
+      "estrategia": "Despliegue normal",
+      "pasos": [
+        "Obtener especificaciones detalladas del equipo de producto",
+        "Ejecutar pruebas unitarias y de integración en entorno de QA",
+        "Desplegar en entorno de Staging para validación final",
+        "Desplegar en producción mediante pipeline estándar"
+      ],
+      "reversa": "Reversión automática mediante el despliegue de la versión anterior estable en el registro de contenedores",
+      "aprobaciones": [
+        "Líder técnico del equipo"
+      ],
+      "ventana": "Horario laboral estándar"
+    },
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite",
+    "demo": false
+  },
+  {
+    "solicitud": "CHG-2",
+    "etapa": "checklist",
+    "prompt": "cambio_checklist.v1",
+    "version": 1,
+    "valida": true,
+    "intentos": 1,
+    "errores": [],
+    "artefacto": {
+      "checklist": [
+        {
+          "punto": "¿Se han definido los componentes específicos afectados por la mejora?",
+          "origen": "analisis.componentes",
+          "responsable": "dev"
+        },
+        {
+          "punto": "¿Se ha validado el impacto en la base de datos y seguridad de los datos?",
+          "origen": "analisis.preguntas_abiertas",
+          "responsable": "qa"
+        },
+        {
+          "punto": "¿Se cuenta con las especificaciones detalladas del equipo de producto?",
+          "origen": "plan.pasos",
+          "responsable": "dev"
+        },
+        {
+          "punto": "¿Se han ejecutado y superado las pruebas unitarias y de integración en QA?",
+          "origen": "plan.pasos",
+          "responsable": "qa"
+        },
+        {
+          "punto": "¿Se ha validado el despliegue en el entorno de Staging?",
+          "origen": "plan.pasos",
+          "responsable": "qa"
+        },
+        {
+          "punto": "¿Se ha verificado la capacidad de reversión automática a la versión estable?",
+          "origen": "plan.reversa",
+          "responsable": "ops"
+        },
+        {
+          "punto": "¿Se cuenta con la aprobación formal del líder técnico?",
+          "origen": "plan.aprobaciones",
+          "responsable": "dev"
+        }
+      ]
+    },
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite",
+    "demo": false
+  },
+  {
+    "solicitud": "CHG-2",
+    "etapa": "nota",
+    "prompt": "cambio_nota.v1",
+    "version": 1,
+    "valida": true,
+    "intentos": 1,
+    "errores": [],
+    "artefacto": {
+      "titulo": "Mejora en el servicio de notificaciones",
+      "que_cambia": "Se están realizando ajustes técnicos en el sistema de envío de notificaciones para optimizar su funcionamiento general.",
+      "impacto_usuario": "No se esperan cambios visibles en la experiencia del usuario por el momento, ya que se trata de una mejora interna en la infraestructura del servicio.",
+      "fecha_estimada": "NO ESPECIFICADO",
+      "contacto": "equipo de ingeniería"
+    },
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite",
+    "demo": false
+  },
+  {
+    "solicitud": "CHG-3",
+    "etapa": "analizar",
+    "prompt": "cambio_analizar.v1",
+    "version": 1,
+    "valida": true,
+    "intentos": 1,
+    "errores": [],
+    "artefacto": {
+      "titulo": "Actualización de texto en pie de página del portal de desarrolladores",
+      "componentes": [
+        "Portal de desarrolladores"
+      ],
+      "tipo": "configuracion",
+      "riesgo": "bajo",
+      "justificacion_riesgo": "El cambio es meramente estético y no afecta la lógica de negocio, seguridad, datos o infraestructura crítica.",
+      "preguntas_abiertas": [
+        "¿Cuál es el texto exacto que debe aparecer en el pie de página?",
+        "¿Se requiere algún enlace o hipervínculo adicional en el nuevo texto?",
+        "¿El cambio debe aplicarse en todos los idiomas soportados por el portal?"
+      ]
+    },
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite",
+    "demo": false
+  },
+  {
+    "solicitud": "CHG-3",
+    "etapa": "plan",
+    "prompt": "cambio_plan.v1",
+    "version": 1,
+    "valida": true,
+    "intentos": 1,
+    "errores": [],
+    "artefacto": {
+      "estrategia": "Despliegue directo (estándar)",
+      "pasos": [
+        "Validar el texto y enlaces proporcionados en el entorno de staging",
+        "Ejecutar el despliegue del cambio de configuración en el entorno de producción",
+        "Verificar la correcta visualización del pie de página en el portal de desarrolladores",
+        "Confirmar la actualización en todos los idiomas soportados"
+      ],
+      "reversa": "Revertir el cambio de configuración al commit anterior en el repositorio de despliegue y aplicar nuevamente el estado previo",
+      "aprobaciones": [
+        "Responsable del portal de desarrolladores"
+      ],
+      "ventana": "Horario laboral estándar"
+    },
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite",
+    "demo": false
+  },
+  {
+    "solicitud": "CHG-3",
+    "etapa": "checklist",
+    "prompt": "cambio_checklist.v1",
+    "version": 1,
+    "valida": true,
+    "intentos": 1,
+    "errores": [],
+    "artefacto": {
+      "checklist": [
+        {
+          "punto": "¿Se ha confirmado el texto exacto y los enlaces requeridos?",
+          "origen": "analisis.preguntas_abiertas",
+          "responsable": "qa"
+        },
+        {
+          "punto": "¿Se ha verificado la correcta visualización en el entorno de staging?",
+          "origen": "plan.pasos",
+          "responsable": "qa"
+        },
+        {
+          "punto": "¿Se ha validado la actualización en todos los idiomas soportados?",
+          "origen": "plan.pasos",
+          "responsable": "qa"
+        },
+        {
+          "punto": "¿Se cuenta con la aprobación del responsable del portal?",
+          "origen": "plan.aprobaciones",
+          "responsable": "ops"
+        },
+        {
+          "punto": "¿El despliegue se realiza dentro de la ventana de horario laboral?",
+          "origen": "plan.ventana",
+          "responsable": "ops"
+        },
+        {
+          "punto": "¿Está listo el procedimiento de reversa en caso de error?",
+          "origen": "plan.reversa",
+          "responsable": "dev"
+        }
+      ]
+    },
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite",
+    "demo": false
+  },
+  {
+    "solicitud": "CHG-3",
+    "etapa": "nota",
+    "prompt": "cambio_nota.v1",
+    "version": 1,
+    "valida": true,
+    "intentos": 1,
+    "errores": [],
+    "artefacto": {
+      "titulo": "Actualización de información en el pie de página del portal de desarrolladores",
+      "que_cambia": "Se ha modificado el texto informativo ubicado en la parte inferior del portal de desarrolladores.",
+      "impacto_usuario": "El cambio es puramente visual y no afecta la funcionalidad, navegación ni el acceso a los servicios del portal.",
+      "fecha_estimada": "NO ESPECIFICADO",
+      "contacto": "equipo de ingeniería"
+    },
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite",
+    "demo": false
+  }
+]

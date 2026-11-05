@@ -1,0 +1,291 @@
+{
+  "caso": "flujo_actual__transferencias",
+  "grupo": "flujo_actual",
+  "archivo": "datos/v2-revisor/codigo/transferencias.py",
+  "version": "última por etapa",
+  "repeticion": "inicial",
+  "firma": {
+    "modelo": "gemini-3.5-flash-lite",
+    "proveedor": "gemini",
+    "codigo": {
+      "reglas.py": "711411f5052bfea5dc0bdcf9147e48e9d0936da115187f7d574463038bf2fadf",
+      "pipeline.py": "41f41ab3233a5f36a11117ab1b47aa9e8f434e1aa3b4e88ae9b9beead0be6e70"
+    },
+    "entrada": "52bf0c594e2bc46b0e59166a2412a1e61e61c4ad7956701ead17c856bd9a1a7c",
+    "semillas": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+    "archivo": "7909c3bf879d5af5aceba09df59a57c6dce490d76b66f17b82195cf0a81a8a3b",
+    "prompts": {
+      "rev_detectar.v3": "a872302649b24a39122c1ed88a1657ee78d3211e8c92d56f88b8fdc3f3a6c91c",
+      "rev_explicar.v4": "baf3ad734b831a3ee9bdcb80a3cd4906710e8cfa5d2eca55885db4011d623fc2",
+      "rev_parche.v4": "432e12a4366f240a70ff391c95401a028043955047fae0f285d2119b45cfcbba"
+    },
+    "intervalo": 7,
+    "reintentos": {
+      "detectar": 1,
+      "explicar": 1,
+      "parche": 1
+    },
+    "temperatura": 0.2
+  },
+  "semillas": null,
+  "entrada": {
+    "entrada": "import sqlite3\n\nAPI_KEY = \"sk_live_9f2c41d7aa\"\n\n\ndef transferir(conn, origen_id, destino_clabe, monto):\n    cur = conn.cursor()\n    cur.execute(f\"SELECT saldo FROM cuentas WHERE id = '{origen_id}'\")\n    saldo = cur.fetchone()[0]\n    if float(monto) <= saldo:\n        cur.execute(\"UPDATE cuentas SET saldo = saldo - \" + str(monto) + \" WHERE id = '\" + origen_id + \"'\")\n        print(f\"transferencia {origen_id} -> {destino_clabe} por {monto}\")\n        return True\n    return False\n",
+    "contexto": "(sin contexto)"
+  },
+  "fecha_utc": "2026-11-01T06:01:07.957743+00:00",
+  "demo": false,
+  "estado": "valido",
+  "etapas": [
+    {
+      "nombre": "detectar",
+      "prompt": "rev_detectar.v3",
+      "ok": true,
+      "salida": {
+        "hallazgos": [
+          {
+            "id": "H1",
+            "regla": "SEC-03",
+            "linea": 12,
+            "descripcion": "El registro muestra la CLABE de destino sin enmascarar"
+          },
+          {
+            "id": "H2",
+            "regla": "SEC-01",
+            "linea": 3,
+            "descripcion": "Se encuentra una clave de API hardcodeada en el código fuente"
+          },
+          {
+            "id": "H3",
+            "regla": "SEC-02",
+            "linea": 8,
+            "descripcion": "Consulta SQL construida mediante f-string vulnerable a inyección SQL"
+          },
+          {
+            "id": "H4",
+            "regla": "SEC-02",
+            "linea": 11,
+            "descripcion": "Consulta SQL de actualización construida mediante concatenación vulnerable a inyección SQL"
+          },
+          {
+            "id": "H5",
+            "regla": "SEC-07",
+            "linea": 10,
+            "descripcion": "Uso de float para cálculos monetarios en lugar de Decimal"
+          }
+        ]
+      },
+      "errores": [],
+      "intentos": 1,
+      "latencia_ms": 6002.459400042426,
+      "costo_usd": 0.0009203999999999999
+    },
+    {
+      "nombre": "explicar",
+      "prompt": "rev_explicar.v4",
+      "ok": true,
+      "salida": {
+        "hallazgos": [
+          {
+            "id": "H1",
+            "regla": "SEC-03",
+            "linea": 12,
+            "descripcion": "El registro muestra la CLABE de destino sin enmascarar",
+            "explicacion": "SEC-03, línea 12: el registro muestra la variable destino_clabe sin enmascarar, lo que incumple con las normas de privacidad y exposición de datos sensibles. El riesgo posible es la visualización no autorizada de información financiera en los archivos de registro. NO ESPECIFICADO la política exacta de enmascaramiento."
+          },
+          {
+            "id": "H2",
+            "regla": "SEC-01",
+            "linea": 3,
+            "descripcion": "Se encuentra una clave de API hardcodeada en el código fuente",
+            "explicacion": "SEC-01, línea 3: se declara una credencial mediante la variable API_KEY con un valor asignado estáticamente en el código. Esto incumple con la regla de gestión de secretos, generando el riesgo de exposición de credenciales en repositorios de código. NO ESPECIFICADO el método de almacenamiento seguro alternativo."
+          },
+          {
+            "id": "H3",
+            "regla": "SEC-02",
+            "linea": 8,
+            "descripcion": "Consulta SQL construida mediante f-string vulnerable a inyección SQL",
+            "explicacion": "SEC-02, línea 8: se utiliza una f-string para insertar el parámetro origen_id directamente dentro de la consulta SQL. Esto vulnera los controles de seguridad contra inyección SQL, facilitando la manipulación de la consulta en caso de recibir entradas maliciosas. NO ESPECIFICADO el uso de consultas parametrizadas como solución."
+          },
+          {
+            "id": "H4",
+            "regla": "SEC-02",
+            "linea": 11,
+            "descripcion": "Consulta SQL de actualización construida mediante concatenación vulnerable a inyección SQL",
+            "explicacion": "SEC-02, línea 11: se realiza una concatenación de cadenas para construir la sentencia SQL con monto y origen_id. Incumple la regla SEC-02 al permitir la inserción directa de valores externos, lo que conlleva un riesgo de inyección SQL y alteración no autorizada de datos. NO ESPECIFICADO el mecanismo de validación de entradas previo."
+          },
+          {
+            "id": "H5",
+            "regla": "SEC-07",
+            "linea": 10,
+            "descripcion": "Uso de float para cálculos monetarios en lugar de Decimal",
+            "explicacion": "SEC-07, línea 10: se emplea la conversión a float para operar con el parámetro monto en una comparación financiera. Incumple la regla de precisión monetaria debido a los problemas de representación de punto flotante, lo que presenta un riesgo de errores en los cálculos de saldos. NO ESPECIFICADO el estándar de redondeo aplicable."
+          }
+        ]
+      },
+      "errores": [],
+      "intentos": 1,
+      "latencia_ms": 8851.941800036002,
+      "costo_usd": 0.0020224
+    },
+    {
+      "nombre": "parche",
+      "prompt": "rev_parche.v4",
+      "ok": true,
+      "salida": {
+        "parches": [
+          {
+            "id": "H1",
+            "regla": "SEC-03",
+            "linea": 12,
+            "cambio": "Proponer el enmascaramiento de la CLABE de destino antes de registrarla en el log"
+          },
+          {
+            "id": "H2",
+            "regla": "SEC-01",
+            "linea": 3,
+            "cambio": "Proponer la carga de la clave de API desde una variable de entorno"
+          },
+          {
+            "id": "H3",
+            "regla": "SEC-02",
+            "linea": 8,
+            "cambio": "Proponer el uso de consultas parametrizadas para evitar la inyección SQL"
+          },
+          {
+            "id": "H4",
+            "regla": "SEC-02",
+            "linea": 11,
+            "cambio": "Proponer el uso de consultas parametrizadas con tupla de valores en la sentencia UPDATE"
+          },
+          {
+            "id": "H5",
+            "regla": "SEC-07",
+            "linea": 10,
+            "cambio": "Proponer el uso de la clase Decimal para operaciones monetarias precisas"
+          }
+        ],
+        "codigo_corregido": "import os\nfrom decimal import Decimal\nimport sqlite3\n\nAPI_KEY = os.environ.get(\"API_KEY\", \"\")\n\n\ndef transferir(conn, origen_id, destino_clabe, monto):\n    cur = conn.cursor()\n    cur.execute(\"SELECT saldo FROM cuentas WHERE id = ?\", (origen_id,))\n    saldo = cur.fetchone()[0]\n    if Decimal(str(monto)) <= Decimal(str(saldo)):\n        cur.execute(\"UPDATE cuentas SET saldo = saldo - ? WHERE id = ?\", (monto, origen_id))\n        clabe_enmascarada = f\"***{destino_clabe[-4:]}\" if destino_clabe else \"***\"\n        print(f\"transferencia {origen_id} -> {clabe_enmascarada} por {monto}\")\n        return True\n    return False\n"
+      },
+      "errores": [],
+      "intentos": 1,
+      "latencia_ms": 6485.099499986973,
+      "costo_usd": 0.001742
+    }
+  ],
+  "salidas": {
+    "detectar": {
+      "hallazgos": [
+        {
+          "id": "H1",
+          "regla": "SEC-03",
+          "linea": 12,
+          "descripcion": "El registro muestra la CLABE de destino sin enmascarar"
+        },
+        {
+          "id": "H2",
+          "regla": "SEC-01",
+          "linea": 3,
+          "descripcion": "Se encuentra una clave de API hardcodeada en el código fuente"
+        },
+        {
+          "id": "H3",
+          "regla": "SEC-02",
+          "linea": 8,
+          "descripcion": "Consulta SQL construida mediante f-string vulnerable a inyección SQL"
+        },
+        {
+          "id": "H4",
+          "regla": "SEC-02",
+          "linea": 11,
+          "descripcion": "Consulta SQL de actualización construida mediante concatenación vulnerable a inyección SQL"
+        },
+        {
+          "id": "H5",
+          "regla": "SEC-07",
+          "linea": 10,
+          "descripcion": "Uso de float para cálculos monetarios en lugar de Decimal"
+        }
+      ]
+    },
+    "explicar": {
+      "hallazgos": [
+        {
+          "id": "H1",
+          "regla": "SEC-03",
+          "linea": 12,
+          "descripcion": "El registro muestra la CLABE de destino sin enmascarar",
+          "explicacion": "SEC-03, línea 12: el registro muestra la variable destino_clabe sin enmascarar, lo que incumple con las normas de privacidad y exposición de datos sensibles. El riesgo posible es la visualización no autorizada de información financiera en los archivos de registro. NO ESPECIFICADO la política exacta de enmascaramiento."
+        },
+        {
+          "id": "H2",
+          "regla": "SEC-01",
+          "linea": 3,
+          "descripcion": "Se encuentra una clave de API hardcodeada en el código fuente",
+          "explicacion": "SEC-01, línea 3: se declara una credencial mediante la variable API_KEY con un valor asignado estáticamente en el código. Esto incumple con la regla de gestión de secretos, generando el riesgo de exposición de credenciales en repositorios de código. NO ESPECIFICADO el método de almacenamiento seguro alternativo."
+        },
+        {
+          "id": "H3",
+          "regla": "SEC-02",
+          "linea": 8,
+          "descripcion": "Consulta SQL construida mediante f-string vulnerable a inyección SQL",
+          "explicacion": "SEC-02, línea 8: se utiliza una f-string para insertar el parámetro origen_id directamente dentro de la consulta SQL. Esto vulnera los controles de seguridad contra inyección SQL, facilitando la manipulación de la consulta en caso de recibir entradas maliciosas. NO ESPECIFICADO el uso de consultas parametrizadas como solución."
+        },
+        {
+          "id": "H4",
+          "regla": "SEC-02",
+          "linea": 11,
+          "descripcion": "Consulta SQL de actualización construida mediante concatenación vulnerable a inyección SQL",
+          "explicacion": "SEC-02, línea 11: se realiza una concatenación de cadenas para construir la sentencia SQL con monto y origen_id. Incumple la regla SEC-02 al permitir la inserción directa de valores externos, lo que conlleva un riesgo de inyección SQL y alteración no autorizada de datos. NO ESPECIFICADO el mecanismo de validación de entradas previo."
+        },
+        {
+          "id": "H5",
+          "regla": "SEC-07",
+          "linea": 10,
+          "descripcion": "Uso de float para cálculos monetarios en lugar de Decimal",
+          "explicacion": "SEC-07, línea 10: se emplea la conversión a float para operar con el parámetro monto en una comparación financiera. Incumple la regla de precisión monetaria debido a los problemas de representación de punto flotante, lo que presenta un riesgo de errores en los cálculos de saldos. NO ESPECIFICADO el estándar de redondeo aplicable."
+        }
+      ]
+    },
+    "parche": {
+      "parches": [
+        {
+          "id": "H1",
+          "regla": "SEC-03",
+          "linea": 12,
+          "cambio": "Proponer el enmascaramiento de la CLABE de destino antes de registrarla en el log"
+        },
+        {
+          "id": "H2",
+          "regla": "SEC-01",
+          "linea": 3,
+          "cambio": "Proponer la carga de la clave de API desde una variable de entorno"
+        },
+        {
+          "id": "H3",
+          "regla": "SEC-02",
+          "linea": 8,
+          "cambio": "Proponer el uso de consultas parametrizadas para evitar la inyección SQL"
+        },
+        {
+          "id": "H4",
+          "regla": "SEC-02",
+          "linea": 11,
+          "cambio": "Proponer el uso de consultas parametrizadas con tupla de valores en la sentencia UPDATE"
+        },
+        {
+          "id": "H5",
+          "regla": "SEC-07",
+          "linea": 10,
+          "cambio": "Proponer el uso de la clase Decimal para operaciones monetarias precisas"
+        }
+      ],
+      "codigo_corregido": "import os\nfrom decimal import Decimal\nimport sqlite3\n\nAPI_KEY = os.environ.get(\"API_KEY\", \"\")\n\n\ndef transferir(conn, origen_id, destino_clabe, monto):\n    cur = conn.cursor()\n    cur.execute(\"SELECT saldo FROM cuentas WHERE id = ?\", (origen_id,))\n    saldo = cur.fetchone()[0]\n    if Decimal(str(monto)) <= Decimal(str(saldo)):\n        cur.execute(\"UPDATE cuentas SET saldo = saldo - ? WHERE id = ?\", (monto, origen_id))\n        clabe_enmascarada = f\"***{destino_clabe[-4:]}\" if destino_clabe else \"***\"\n        print(f\"transferencia {origen_id} -> {clabe_enmascarada} por {monto}\")\n        return True\n    return False\n"
+    }
+  },
+  "importacion_20261105": {
+    "tipo": "Evidencia histórica; NO es una ejecución nueva de esta copia",
+    "origen": "bitacora/lab2_cierre/casos/flujo_actual__transferencias.json",
+    "sha256_original": "7638c5dac7e8c955d0b58c6a5b9a5302663bcd8fc43e5637f7a31c6462c71892",
+    "alcance_publicado": "Etapas detectar, explicar y parche; la cuarta etapa se excluyó de esta copia."
+  }
+}

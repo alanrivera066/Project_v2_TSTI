@@ -1,0 +1,96 @@
+{
+  "caso": "flujo_v3__cuentas_api__inicial",
+  "archivo": "cuentas_api.py",
+  "repeticion": "inicial",
+  "modo": "flujo_completo",
+  "fecha_utc": "2026-11-01T05:36:35.350470+00:00",
+  "firma": {
+    "modelo": "gemini-3.5-flash-lite",
+    "proveedor": "gemini",
+    "codigo": {
+      "pipeline.py": "41f41ab3233a5f36a11117ab1b47aa9e8f434e1aa3b4e88ae9b9beead0be6e70",
+      "reglas.py": "d23739c847c4712d3cef276d74aea6e86b3e467f33e1a8a7682d9a302ec4e211"
+    },
+    "validadores": "lab2-revision-2",
+    "archivo_sha256": "a7ecbaba80a4ad2f18fbb39aecf66f88865f168af3a603acd301ef7fecc7a6c9",
+    "entrada_sha256": "b97a2734bc1fa830e70f5175c9122018f0b1963435ae33620f41b8e51302a099",
+    "semillas_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+    "prompts": {
+      "rev_detectar.v3": "a872302649b24a39122c1ed88a1657ee78d3211e8c92d56f88b8fdc3f3a6c91c",
+      "rev_explicar.v3": "03764fa5c8d991620acbd054538deedf99e8f4432270618631824793734e5dd2",
+      "rev_parche.v3": "6d78ac2e0785543f6c295d762322041780e38e5fc60a659b248732dbc8eeadb8"
+    },
+    "esquemas": {
+      "rev_detectar.v3": "269e5185105349b7e77dd4ec36481074e9acbdfbd117cf64e4a25ff8073b663c",
+      "rev_explicar.v3": "a600d4f47324ba0213833037c04ac4d2a42cc6d186ebc9e8aa8e82e05199b482",
+      "rev_parche.v3": "5761fb9023651cf21e5cb0746f4696398ccde07ef1948efeca717784a34573e5"
+    },
+    "temperatura": 0.2,
+    "reintentos_etapa": 1,
+    "intervalo_s": 7
+  },
+  "demo": false,
+  "semillas": null,
+  "estado": "completo",
+  "etapas": [
+    {
+      "nombre": "detectar",
+      "prompt": "rev_detectar.v3",
+      "ok": true,
+      "salida": {
+        "hallazgos": []
+      },
+      "errores": [],
+      "intentos": 1,
+      "latencia_ms": 6796.0119000053965,
+      "costo_usd": 0.0001736
+    },
+    {
+      "nombre": "explicar",
+      "prompt": "rev_explicar.v3",
+      "ok": true,
+      "salida": {
+        "hallazgos": []
+      },
+      "errores": [],
+      "intentos": 1,
+      "latencia_ms": 7198.087400000077,
+      "costo_usd": 0.0001475
+    },
+    {
+      "nombre": "parche",
+      "prompt": "rev_parche.v3",
+      "ok": true,
+      "salida": {
+        "parches": [],
+        "codigo_corregido": "from fastapi import FastAPI\n\napp = FastAPI()\nDB = {}\n\n\n@app.get(\"/v1/cuentas/{cuenta_id}/movimientos\")\ndef movimientos(cuenta_id: str, usuario=None):\n    # usuario viene del token, ya autenticado\n    try:\n        return DB[cuenta_id][\"movimientos\"]\n    except Exception:\n        pass\n"
+      },
+      "errores": [],
+      "intentos": 1,
+      "latencia_ms": 7046.163199993316,
+      "costo_usd": 0.00039119999999999997
+    }
+  ],
+  "salidas": {
+    "detectar": {
+      "hallazgos": []
+    },
+    "explicar": {
+      "hallazgos": []
+    },
+    "parche": {
+      "parches": [],
+      "codigo_corregido": "from fastapi import FastAPI\n\napp = FastAPI()\nDB = {}\n\n\n@app.get(\"/v1/cuentas/{cuenta_id}/movimientos\")\ndef movimientos(cuenta_id: str, usuario=None):\n    # usuario viene del token, ya autenticado\n    try:\n        return DB[cuenta_id][\"movimientos\"]\n    except Exception:\n        pass\n"
+    }
+  },
+  "entrada_modelo": {
+    "entrada": "from fastapi import FastAPI\n\napp = FastAPI()\nDB = {}\n\n\n@app.get(\"/v1/cuentas/{cuenta_id}/movimientos\")\ndef movimientos(cuenta_id: str, usuario=None):\n    # usuario viene del token, ya autenticado\n    try:\n        return DB[cuenta_id][\"movimientos\"]\n    except Exception:\n        pass\n",
+    "contexto": "(sin contexto: Mini-RAG pendiente del Laboratorio 3)"
+  },
+  "importacion_20261105": {
+    "tipo": "Evidencia histórica; NO es una ejecución nueva de esta copia",
+    "origen": "bitacora/lab2_revision/casos/flujo_v3__cuentas_api__inicial.json",
+    "sha256_original": "7187406c84ffce2ae4345b04d2f584064f73cd7a57a15496cdb22b7c5109f53a",
+    "alcance_publicado": "Etapas detectar, explicar y parche; la cuarta etapa se excluyó de esta copia."
+  }
+}

@@ -2,3 +2,12 @@
 bitacora/** text=auto eol=lf
 # Los prompts medidos son artefactos inmutables: conservar sus bytes al clonar.
 prompts/*.md -text
+# Conservar firmas y evidencias idénticas al publicar y clonar en Windows/Linux.
+src/finnorte/*.py -text
+prompts/esquemas/*.json -text
+corpus/v2-revisor/*.md -text
+datos/v2-revisor/codigo/*.py -text
+evals/v2-revisor.jsonl -text
+contrato_calidad.yaml -text
+guia/av1_configuraciones.py -text
+bitacora/** -text

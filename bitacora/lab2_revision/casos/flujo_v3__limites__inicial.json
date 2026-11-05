@@ -1,0 +1,96 @@
+{
+  "caso": "flujo_v3__limites__inicial",
+  "archivo": "limites.py",
+  "repeticion": "inicial",
+  "modo": "flujo_completo",
+  "fecha_utc": "2026-11-01T05:35:45.002738+00:00",
+  "firma": {
+    "modelo": "gemini-3.5-flash-lite",
+    "proveedor": "gemini",
+    "codigo": {
+      "pipeline.py": "41f41ab3233a5f36a11117ab1b47aa9e8f434e1aa3b4e88ae9b9beead0be6e70",
+      "reglas.py": "d23739c847c4712d3cef276d74aea6e86b3e467f33e1a8a7682d9a302ec4e211"
+    },
+    "validadores": "lab2-revision-2",
+    "archivo_sha256": "a0778967fe9bacc8f859df928657a18ca611df017c60690f7290e9a0077051b7",
+    "entrada_sha256": "b4d7f028db26a8a27897049c6300d47656fd06d9c7708d7a612bf5793f8d3556",
+    "semillas_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+    "prompts": {
+      "rev_detectar.v3": "a872302649b24a39122c1ed88a1657ee78d3211e8c92d56f88b8fdc3f3a6c91c",
+      "rev_explicar.v3": "03764fa5c8d991620acbd054538deedf99e8f4432270618631824793734e5dd2",
+      "rev_parche.v3": "6d78ac2e0785543f6c295d762322041780e38e5fc60a659b248732dbc8eeadb8"
+    },
+    "esquemas": {
+      "rev_detectar.v3": "269e5185105349b7e77dd4ec36481074e9acbdfbd117cf64e4a25ff8073b663c",
+      "rev_explicar.v3": "a600d4f47324ba0213833037c04ac4d2a42cc6d186ebc9e8aa8e82e05199b482",
+      "rev_parche.v3": "5761fb9023651cf21e5cb0746f4696398ccde07ef1948efeca717784a34573e5"
+    },
+    "temperatura": 0.2,
+    "reintentos_etapa": 1,
+    "intervalo_s": 7
+  },
+  "demo": false,
+  "semillas": null,
+  "estado": "completo",
+  "etapas": [
+    {
+      "nombre": "detectar",
+      "prompt": "rev_detectar.v3",
+      "ok": true,
+      "salida": {
+        "hallazgos": []
+      },
+      "errores": [],
+      "intentos": 1,
+      "latencia_ms": 1137.6688000163995,
+      "costo_usd": 0.00019279999999999997
+    },
+    {
+      "nombre": "explicar",
+      "prompt": "rev_explicar.v3",
+      "ok": true,
+      "salida": {
+        "hallazgos": []
+      },
+      "errores": [],
+      "intentos": 1,
+      "latencia_ms": 7199.410600005649,
+      "costo_usd": 0.00016669999999999999
+    },
+    {
+      "nombre": "parche",
+      "prompt": "rev_parche.v3",
+      "ok": true,
+      "salida": {
+        "parches": [],
+        "codigo_corregido": "from decimal import Decimal, ROUND_HALF_EVEN\n\nLIMITE_NIVEL_1 = Decimal(\"8000\")\nLIMITE_NIVEL_2 = Decimal(\"50000\")\n\n\ndef validar_monto(monto: Decimal, nivel: int) -> bool:\n    \"\"\"Devuelve True si el monto es válido para el nivel de cuenta.\"\"\"\n    if monto <= 0 or monto != monto.quantize(Decimal(\"0.01\"), rounding=ROUND_HALF_EVEN):\n        return False\n    limite = LIMITE_NIVEL_2 if nivel == 2 else LIMITE_NIVEL_1\n    return monto <= limite\n"
+      },
+      "errores": [],
+      "intentos": 1,
+      "latencia_ms": 7249.169400020037,
+      "costo_usd": 0.0006012000000000001
+    }
+  ],
+  "salidas": {
+    "detectar": {
+      "hallazgos": []
+    },
+    "explicar": {
+      "hallazgos": []
+    },
+    "parche": {
+      "parches": [],
+      "codigo_corregido": "from decimal import Decimal, ROUND_HALF_EVEN\n\nLIMITE_NIVEL_1 = Decimal(\"8000\")\nLIMITE_NIVEL_2 = Decimal(\"50000\")\n\n\ndef validar_monto(monto: Decimal, nivel: int) -> bool:\n    \"\"\"Devuelve True si el monto es válido para el nivel de cuenta.\"\"\"\n    if monto <= 0 or monto != monto.quantize(Decimal(\"0.01\"), rounding=ROUND_HALF_EVEN):\n        return False\n    limite = LIMITE_NIVEL_2 if nivel == 2 else LIMITE_NIVEL_1\n    return monto <= limite\n"
+    }
+  },
+  "entrada_modelo": {
+    "entrada": "from decimal import Decimal, ROUND_HALF_EVEN\n\nLIMITE_NIVEL_1 = Decimal(\"8000\")\nLIMITE_NIVEL_2 = Decimal(\"50000\")\n\n\ndef validar_monto(monto: Decimal, nivel: int) -> bool:\n    \"\"\"Devuelve True si el monto es válido para el nivel de cuenta.\"\"\"\n    if monto <= 0 or monto != monto.quantize(Decimal(\"0.01\"), rounding=ROUND_HALF_EVEN):\n        return False\n    limite = LIMITE_NIVEL_2 if nivel == 2 else LIMITE_NIVEL_1\n    return monto <= limite\n",
+    "contexto": "(sin contexto: Mini-RAG pendiente del Laboratorio 3)"
+  },
+  "importacion_20261105": {
+    "tipo": "Evidencia histórica; NO es una ejecución nueva de esta copia",
+    "origen": "bitacora/lab2_revision/casos/flujo_v3__limites__inicial.json",
+    "sha256_original": "c138cb5d6a2a81df71155ce020fd83766029163bc276f378fb3215a40a48aa80",
+    "alcance_publicado": "Etapas detectar, explicar y parche; la cuarta etapa se excluyó de esta copia."
+  }
+}

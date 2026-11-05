@@ -1,0 +1,35 @@
+{
+  "modelo": [
+    "gemini-3.5-flash-lite"
+  ],
+  "alan": {
+    "3": {
+      "referencias": 6,
+      "explicaciones": 9,
+      "validos": 2,
+      "casos": 3
+    },
+    "4": {
+      "referencias": 9,
+      "explicaciones": 9,
+      "validos": 3,
+      "casos": 3
+    }
+  },
+  "cesar": {
+    "3": {
+      "validos": 2,
+      "casos": 3
+    },
+    "4": {
+      "validos": 3,
+      "casos": 3
+    }
+  },
+  "importacion_20261105": {
+    "tipo": "Evidencia histórica; NO es una ejecución nueva de esta copia",
+    "origen": "bitacora/lab2_cierre/metricas.json",
+    "sha256_original": "dd5e86e5c1d2e7e0b4bc1650b1b1c41d9046114df933dac716ca17eb49da3160",
+    "alcance_publicado": "Etapas detectar, explicar y parche; la cuarta etapa se excluyó de esta copia."
+  }
+}

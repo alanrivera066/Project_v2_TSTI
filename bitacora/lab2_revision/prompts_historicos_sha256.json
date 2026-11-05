@@ -1,0 +1,14 @@
+{
+  "prompts\\rev_detectar.v1.md": "dff5075bfc11f0aa1689a6f0fab48f903357c047f9a2c847f46ff3c46c3fe86d",
+  "prompts\\rev_detectar.v2.md": "2562b34eea3d07112fc31ff9232c6029b32c68b8bcbb235033125adc484cda3a",
+  "prompts\\rev_explicar.v1.md": "f9bddafe1feca10228dac544202123c3b781446158c5e806b5e9027da9ce4ea5",
+  "prompts\\rev_explicar.v2.md": "0b02ebf8083d0faf9b12b5fb5e7170f73b8ae4570604d1556c063b09d87be4e5",
+  "prompts\\rev_parche.v1.md": "3e4981ef21f28ed50e24cf1ed8c75c78710e9595d76d3a0a2db690b401b4058f",
+  "prompts\\rev_parche.v2.md": "c649366b25e358d5c0407844aa787f35f296dc52be3050a8ae1e4622b2342a40",
+  "importacion_20261105": {
+    "tipo": "Evidencia histórica; NO es una ejecución nueva de esta copia",
+    "origen": "bitacora/lab2_revision/prompts_historicos_sha256.json",
+    "sha256_original": "76d7391768d7f2e78663e6015839adf0089e9e161f1b85e4dfe4aa74b50569df",
+    "alcance_publicado": "Etapas detectar, explicar y parche; la cuarta etapa se excluyó de esta copia."
+  }
+}

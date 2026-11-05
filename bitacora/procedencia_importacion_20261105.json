@@ -1,0 +1,287 @@
+{
+  "fecha_importacion_utc": "2026-11-05T08:54:30.048657+00:00",
+  "archivos": [
+    {
+      "archivo": "bitacora/a2_trazabilidad.json",
+      "sha256_original": "fcff9e5006fc0bd318212484e9716ed2fda3f9ca8ff554d1e0d23a29fa086bea",
+      "sha256_publicado": "2013eaab3abe8ffaa23e9b302a3e31bdcfa842c846c604f8519b1d7f8b0353b8",
+      "tratamiento": "copia histórica sin cuarta etapa; procedencia explícita"
+    },
+    {
+      "archivo": "bitacora/a2_trazabilidad_v1.json",
+      "sha256_original": "7554c802de896023c8adbfb4c256b23b71bc6bb66dcc78eec7e9bfd97c782fb9",
+      "sha256_publicado": "6928c3d20fc93b4268a4d5e422b7c13437fe6520f424caa8b1216de64c2f850e",
+      "tratamiento": "copia histórica sin cuarta etapa; procedencia explícita"
+    },
+    {
+      "archivo": "bitacora/lab2_revision/consistencia_por_etapa.json",
+      "sha256_original": "8ab95ba096959e362922ec8cb0bcb549fa1d46bd0f14ec849e1579f7999638ee",
+      "sha256_publicado": "09657f34dd52ffc6317d134899e3e6791a12e1f11f26d3fca0d16ab7c0514348",
+      "tratamiento": "copia histórica sin cuarta etapa; procedencia explícita"
+    },
+    {
+      "archivo": "bitacora/lab2_revision/revalidacion_historica.json",
+      "sha256_original": "6ec65a24dbf33644660cfc5b778eb166d28899c9f425ffa37d8d1dcc93eb44d8",
+      "sha256_publicado": "f0f72a3ec24231529b0307a98852bd85563546e58721072b0d1ff12dc1c03a50",
+      "tratamiento": "copia histórica sin cuarta etapa; procedencia explícita"
+    },
+    {
+      "archivo": "bitacora/lab2_revision/prompts_historicos_sha256.json",
+      "sha256_original": "76d7391768d7f2e78663e6015839adf0089e9e161f1b85e4dfe4aa74b50569df",
+      "sha256_publicado": "19cdaebd92111272273a86947b48b5d2cf882a57fe0165a4ffe01a1638928384",
+      "tratamiento": "copia histórica sin cuarta etapa; procedencia explícita"
+    },
+    {
+      "archivo": "bitacora/lab2_cierre/metricas.json",
+      "sha256_original": "dd5e86e5c1d2e7e0b4bc1650b1b1c41d9046114df933dac716ca17eb49da3160",
+      "sha256_publicado": "72c1be0125e864d679c034ec3bfff073ef13d2a6fb657357e44500ce4778256a",
+      "tratamiento": "copia histórica sin cuarta etapa; procedencia explícita"
+    },
+    {
+      "archivo": "bitacora/lab2_revision/casos/flujo_v3__comisiones__inicial.json",
+      "sha256_original": "d65c9f9d2e87b98744e5db235dfacb6ebb63c1cb743a5db126bc2890809a7f45",
+      "sha256_publicado": "30801344cd15e9afbc763bcc7fd048c44d667235057fb8933ed7f29bbd582917",
+      "tratamiento": "copia histórica sin cuarta etapa; procedencia explícita"
+    },
+    {
+      "archivo": "bitacora/lab2_revision/casos/flujo_v3__cuentas_api__inicial.json",
+      "sha256_original": "7187406c84ffce2ae4345b04d2f584064f73cd7a57a15496cdb22b7c5109f53a",
+      "sha256_publicado": "0733092fb561bbf8cd1fa0c9c1c06a0e27c12f3190c5243209f78692f4ee3b84",
+      "tratamiento": "copia histórica sin cuarta etapa; procedencia explícita"
+    },
+    {
+      "archivo": "bitacora/lab2_revision/casos/flujo_v3__limites__inicial.json",
+      "sha256_original": "c138cb5d6a2a81df71155ce020fd83766029163bc276f378fb3215a40a48aa80",
+      "sha256_publicado": "3329e823b165f9ce5c30bf150ea09f2a1970a48852b487b34cb768bc1e4603cb",
+      "tratamiento": "copia histórica sin cuarta etapa; procedencia explícita"
+    },
+    {
+      "archivo": "bitacora/lab2_revision/casos/flujo_v3__notificador__inicial.json",
+      "sha256_original": "b03b6c2f346a6743a5f0a3375b4762777424bd9f3c406ff1441950e187489672",
+      "sha256_publicado": "fdf09f2454829f636520e901e0baf4f8e50bf3788aa72247a6f50c4b4419584b",
+      "tratamiento": "copia histórica sin cuarta etapa; procedencia explícita"
+    },
+    {
+      "archivo": "bitacora/lab2_revision/casos/flujo_v3__reportes__inicial.json",
+      "sha256_original": "94e3e7c495752ad808443a65c93872b0eb133d75bb8913238e743f5a81229ba1",
+      "sha256_publicado": "16d6d6b09f44044ce94cb22ae63178047f68ec23aac32ef4df337032087db572",
+      "tratamiento": "copia histórica sin cuarta etapa; procedencia explícita"
+    },
+    {
+      "archivo": "bitacora/lab2_revision/casos/flujo_v3__tokens__inicial.json",
+      "sha256_original": "cbf51d1162b34d5cd5c8637d006f8cf50480a0d8508bdc92edd4d856e10ca6ec",
+      "sha256_publicado": "eddd5f06ed982f7ec42de92993fdddb524f8d954246971d575918eb0eed32c64",
+      "tratamiento": "copia histórica sin cuarta etapa; procedencia explícita"
+    },
+    {
+      "archivo": "bitacora/lab2_revision/casos/flujo_v3__transferencias__1.json",
+      "sha256_original": "4f6c8e45ec720ca93d9ab25e899bc90adeae927d0bce0dfa1f604f3e9d82e88a",
+      "sha256_publicado": "cd7e30349917095c38769a7c968e4e6277dd52a0fd2b7e754e05620aef50fa7c",
+      "tratamiento": "copia histórica sin cuarta etapa; procedencia explícita"
+    },
+    {
+      "archivo": "bitacora/lab2_revision/casos/flujo_v3__transferencias__2.json",
+      "sha256_original": "220e06848a8c46e5b4b373af530ef50613581cea595f4a755b0765cff704e762",
+      "sha256_publicado": "f9059e622d19d89ed39c840d784a69b57ab52eabcf6cb38ceb624d3bdefce87c",
+      "tratamiento": "copia histórica sin cuarta etapa; procedencia explícita"
+    },
+    {
+      "archivo": "bitacora/lab2_revision/casos/flujo_v3__transferencias__3.json",
+      "sha256_original": "d707c12aea3bd50dbb9611ee4cd6aa8a3eeddfc9802f68cbbb9069e619fe3719",
+      "sha256_publicado": "0455b2000508b5b161376113f116ab45a4ec3348e8fdf12325bed3862a6b096d",
+      "tratamiento": "copia histórica sin cuarta etapa; procedencia explícita"
+    },
+    {
+      "archivo": "bitacora/lab2_revision/casos/flujo_v3__transferencias__inicial.json",
+      "sha256_original": "046aab44a0be77c3c6856bfcc851a7fa2029d1435b5dec96471bf77a4874fe4b",
+      "sha256_publicado": "d5d7ddeec3ec4542fd903a79a0196a35db4f3bca131432562685f11da16c7513",
+      "tratamiento": "copia histórica sin cuarta etapa; procedencia explícita"
+    },
+    {
+      "archivo": "bitacora/lab2_revision/casos/flujo_v3__usuarios__inicial.json",
+      "sha256_original": "99069c46388dd29abd0a0463ff1c61e8d5582fa9cf5f0ac35c626dae2ba9abeb",
+      "sha256_publicado": "25375e2f5f822e5875722aeaf7f68471bc71236d500816e3ab3cf7d34c8615d0",
+      "tratamiento": "copia histórica sin cuarta etapa; procedencia explícita"
+    },
+    {
+      "archivo": "bitacora/lab2_cierre/casos/alan_trazabilidad__v3__r1.json",
+      "sha256_original": "56245cd6afa9fedff3d6d07c5b6d0163783a79c0d8bf990fa5f495477136aadd",
+      "sha256_publicado": "aea7bc3d828566ef7975748da06a0d63005ed80ee72c61a6bf1ebee11d0d9fec",
+      "tratamiento": "copia histórica sin cuarta etapa; procedencia explícita"
+    },
+    {
+      "archivo": "bitacora/lab2_cierre/casos/alan_trazabilidad__v3__r2.json",
+      "sha256_original": "e1872e49d96376ab615ba24900836b7940d84d25f9cafd4f56f120b8beefac36",
+      "sha256_publicado": "6e0d50d5b57d2c258d42a604e3d62ca977b72c990fccf8281bd3a56c99f91785",
+      "tratamiento": "copia histórica sin cuarta etapa; procedencia explícita"
+    },
+    {
+      "archivo": "bitacora/lab2_cierre/casos/alan_trazabilidad__v3__r3.json",
+      "sha256_original": "a3443e19e2d2aa87057a25d17eb1f612b0c257d8f498185bbefb86786b426a36",
+      "sha256_publicado": "25d73872ce6397b8ff00479c662b0414401dcde93304fc6d1aeab846c3af7fd2",
+      "tratamiento": "copia histórica sin cuarta etapa; procedencia explícita"
+    },
+    {
+      "archivo": "bitacora/lab2_cierre/casos/alan_trazabilidad__v4__r1.json",
+      "sha256_original": "c6573214390c2f74434a6b8f59ea57a7690713308e33e6cc33f967d241e22480",
+      "sha256_publicado": "e23d516a6544b9c9debe0c46f4fb84755cc32f710638c143ec8bd3dc448b6e80",
+      "tratamiento": "copia histórica sin cuarta etapa; procedencia explícita"
+    },
+    {
+      "archivo": "bitacora/lab2_cierre/casos/alan_trazabilidad__v4__r2.json",
+      "sha256_original": "8841b43af4c443c8b0fad611b580d22f7ad8f115db820a1643fcf032b4e3ef44",
+      "sha256_publicado": "49663c69177d1b2d781458339034edf8b6ef6b84e7659df7d306a31a166e6c88",
+      "tratamiento": "copia histórica sin cuarta etapa; procedencia explícita"
+    },
+    {
+      "archivo": "bitacora/lab2_cierre/casos/alan_trazabilidad__v4__r3.json",
+      "sha256_original": "1fcd5aa064fb430ab31a5b42ca7de28abf0392b413f6f23a3436a213319e1aaf",
+      "sha256_publicado": "952c9bf5338f6b16d11a6ac87f22331cc2197d75daa08e0154ac9e9e078f7e6d",
+      "tratamiento": "copia histórica sin cuarta etapa; procedencia explícita"
+    },
+    {
+      "archivo": "bitacora/lab2_cierre/casos/cesar_ejemplo__v3__r1.json",
+      "sha256_original": "f0b1d6db4a2ce5c7a77231041ff68474c92064b200083ed7931631e861ea1091",
+      "sha256_publicado": "c70a8020298d2133e4e97df927845aa7ce94cfdedce77a158c00c0faff27ce18",
+      "tratamiento": "copia histórica sin cuarta etapa; procedencia explícita"
+    },
+    {
+      "archivo": "bitacora/lab2_cierre/casos/cesar_ejemplo__v3__r2.json",
+      "sha256_original": "aaebf09eaa6a6cb6de191459195eb6225920df35c81b89ecdb8fc99276f5993d",
+      "sha256_publicado": "32f83c4299e25b9168067de7af75b277a77c4192b0e310a00929032af4daef17",
+      "tratamiento": "copia histórica sin cuarta etapa; procedencia explícita"
+    },
+    {
+      "archivo": "bitacora/lab2_cierre/casos/cesar_ejemplo__v3__r3.json",
+      "sha256_original": "8d22c44a0eeb3ca9f263200e1e289c50911804fb8858334f5675a2f985327ea6",
+      "sha256_publicado": "1e71ad120eed31b53ed8265e4e0cb33c5b51fc3de11f1e228cca8424fbdc8c2d",
+      "tratamiento": "copia histórica sin cuarta etapa; procedencia explícita"
+    },
+    {
+      "archivo": "bitacora/lab2_cierre/casos/cesar_ejemplo__v4__r1.json",
+      "sha256_original": "4af4ec6cb28f5e4b5bf5e8b0217fc88c68ee220b24db39629208d8dfc1343c4f",
+      "sha256_publicado": "49b098166689b33fd3d9a966aa5c4f0cb8b1b02c636f5e4a62b7dd82148ea312",
+      "tratamiento": "copia histórica sin cuarta etapa; procedencia explícita"
+    },
+    {
+      "archivo": "bitacora/lab2_cierre/casos/cesar_ejemplo__v4__r2.json",
+      "sha256_original": "7d9db7b968de91be6473bc81af380c6c1259daacaed59467bc420f265ac2146a",
+      "sha256_publicado": "b59c854a8f9606e1d02a96f3c5a7db7b80abd857ba2d7b136732dcf616ec9ee1",
+      "tratamiento": "copia histórica sin cuarta etapa; procedencia explícita"
+    },
+    {
+      "archivo": "bitacora/lab2_cierre/casos/cesar_ejemplo__v4__r3.json",
+      "sha256_original": "d9ce14327ad585b522045a143a2938d9963d8594db5b928343186ea551bb9ece",
+      "sha256_publicado": "b80977f863d2f26fd5ba32cac9c04517c3f5ba30d9d3992bfdcc6a4df669392f",
+      "tratamiento": "copia histórica sin cuarta etapa; procedencia explícita"
+    },
+    {
+      "archivo": "bitacora/lab2_cierre/casos/flujo_actual__limites.json",
+      "sha256_original": "7b83c6245b9f585a8d179ab37a2549f3c2cbaa769a06aa1f01edfedeeba20df0",
+      "sha256_publicado": "3ade8545243eb5f47c0b6f663853341c07d299a0d0d8e8024ed11ad66ea45e30",
+      "tratamiento": "copia histórica sin cuarta etapa; procedencia explícita"
+    },
+    {
+      "archivo": "bitacora/lab2_cierre/casos/flujo_actual__tokens.json",
+      "sha256_original": "4dd3e5c00b7146c800ad970f3e295c57079a20a4510285d45a94940a4e01d0ca",
+      "sha256_publicado": "df522eef13b2f7ba349a3efc066dd2cdeb48d839e35b4bd1ceab1384fd275598",
+      "tratamiento": "copia histórica sin cuarta etapa; procedencia explícita"
+    },
+    {
+      "archivo": "bitacora/lab2_cierre/casos/flujo_actual__transferencias.json",
+      "sha256_original": "7638c5dac7e8c955d0b58c6a5b9a5302663bcd8fc43e5637f7a31c6462c71892",
+      "sha256_publicado": "3d73635fc5b8b62dc34e2f2b73fb102f2c1cef7a84f4590fae29d1f981d63aee",
+      "tratamiento": "copia histórica sin cuarta etapa; procedencia explícita"
+    },
+    {
+      "archivo": "bitacora/lab2_tres_etapas/trazas.jsonl",
+      "origen": "bitacora/trazas.jsonl",
+      "sha256_original": "e18e882499f113931c81edb7f86a9d6339ca88d6a3d3023a97c30ca853cbfb8c",
+      "sha256_publicado": "031fa8c73c196a045994eeb1722d06868255cf887bff5018c57c7a6fb136c9cf",
+      "eventos": 445,
+      "tratamiento": "Eventos completos de las tres etapas y del caso guía; se excluyeron eventos de la cuarta etapa."
+    },
+    {
+      "archivo": "bitacora/lab2_tres_etapas/lab2_revision/trazas.jsonl",
+      "origen": "bitacora/lab2_revision/trazas.jsonl",
+      "sha256_original": "c9f120ea6e9ae9872b6f0ac4a173472d25e4e527901e23d2a963245ed6650d2d",
+      "sha256_publicado": "24e6a3659dd61b085067f4ff739f1eb2a8f44016d83baafbaa9bd8cda6d0d9b9",
+      "eventos": 154,
+      "tratamiento": "Eventos completos de las tres etapas y del caso guía; se excluyeron eventos de la cuarta etapa."
+    },
+    {
+      "archivo": "bitacora/lab2_tres_etapas/lab2_cierre/trazas.jsonl",
+      "origen": "bitacora/lab2_cierre/trazas.jsonl",
+      "sha256_original": "18dfd881e07517225efd0b7a42037ad294d7fe796dd0149dca9c10cb59c707a0",
+      "sha256_publicado": "48e832339daf8416f1c1fea31d0e3cd3dfe92151f8bd6a992e77ad2e238f0d3a",
+      "eventos": 111,
+      "tratamiento": "Eventos completos de las tres etapas y del caso guía; se excluyeron eventos de la cuarta etapa."
+    },
+    {
+      "archivo": "bitacora/av1_cierre/av1_A.json",
+      "sha256_original": "93fce9384b825d2b7c95397323f81ae4b06919e8f3aa586bb98060fca406b18f",
+      "sha256_publicado": "93fce9384b825d2b7c95397323f81ae4b06919e8f3aa586bb98060fca406b18f",
+      "tratamiento": "Copia íntegra de la medición histórica del 2 de noviembre; su firma NO corresponde a la copia publicada corregida."
+    },
+    {
+      "archivo": "bitacora/av1_cierre/av1_B.json",
+      "sha256_original": "175a57098749c1b74460fed0f523ac144e1136602cd01812ec795eb7eea71697",
+      "sha256_publicado": "175a57098749c1b74460fed0f523ac144e1136602cd01812ec795eb7eea71697",
+      "tratamiento": "Copia íntegra de la medición histórica del 2 de noviembre; su firma NO corresponde a la copia publicada corregida."
+    },
+    {
+      "archivo": "bitacora/av1_cierre/av1_C.json",
+      "sha256_original": "9e752ca3308003b399c6ac57d1416fd5aa0fba8c238920d7ce90ea8d343e9e69",
+      "sha256_publicado": "9e752ca3308003b399c6ac57d1416fd5aa0fba8c238920d7ce90ea8d343e9e69",
+      "tratamiento": "Copia íntegra de la medición histórica del 2 de noviembre; su firma NO corresponde a la copia publicada corregida."
+    },
+    {
+      "archivo": "bitacora/av1_cierre/av1_D.json",
+      "sha256_original": "a725e5f7b8a3aef4565273f066363e31fc1a19d9104c3d33b57c55d2edb25dbf",
+      "sha256_publicado": "a725e5f7b8a3aef4565273f066363e31fc1a19d9104c3d33b57c55d2edb25dbf",
+      "tratamiento": "Copia íntegra de la medición histórica del 2 de noviembre; su firma NO corresponde a la copia publicada corregida."
+    },
+    {
+      "archivo": "bitacora/av1_cierre/av1_resumen.json",
+      "sha256_original": "b5a1b1335fef6bf82fa8c7ecb75335859511214467c4ac2893c8fe7ac124c7bc",
+      "sha256_publicado": "b5a1b1335fef6bf82fa8c7ecb75335859511214467c4ac2893c8fe7ac124c7bc",
+      "tratamiento": "Copia íntegra de la medición histórica del 2 de noviembre; su firma NO corresponde a la copia publicada corregida."
+    },
+    {
+      "archivo": "bitacora/av1_cierre/trazas.jsonl",
+      "sha256_original": "676531a56580b83928000a8f1eab6c32bcb8450017fadde2a54a34a5d089325e",
+      "sha256_publicado": "676531a56580b83928000a8f1eab6c32bcb8450017fadde2a54a34a5d089325e",
+      "tratamiento": "Copia íntegra de la medición histórica del 2 de noviembre; su firma NO corresponde a la copia publicada corregida."
+    },
+    {
+      "archivo": "bitacora/a1_comparacion.json",
+      "sha256_original": "5e6c831c0def63716ae7757fec7d3b2e59b189b43769526203ba017880148854",
+      "sha256_publicado": "5e6c831c0def63716ae7757fec7d3b2e59b189b43769526203ba017880148854",
+      "tratamiento": "copia histórica íntegra, sin nuevas ejecuciones"
+    },
+    {
+      "archivo": "bitacora/s2_consistencia_plan_v1.json",
+      "sha256_original": "13e026c43f06874aa63975493612095ea91866ef67f98dfd9f0305c4d65c791b",
+      "sha256_publicado": "13e026c43f06874aa63975493612095ea91866ef67f98dfd9f0305c4d65c791b",
+      "tratamiento": "copia histórica íntegra, sin nuevas ejecuciones"
+    },
+    {
+      "archivo": "bitacora/s2_consistencia_plan_v2.json",
+      "sha256_original": "9ba50dfe1448dfd48759587f9a23677f0682dee35ac7c71047c24aee31586f3a",
+      "sha256_publicado": "9ba50dfe1448dfd48759587f9a23677f0682dee35ac7c71047c24aee31586f3a",
+      "tratamiento": "copia histórica íntegra, sin nuevas ejecuciones"
+    },
+    {
+      "archivo": "bitacora/s2_trazabilidad_plan_v1.json",
+      "sha256_original": "ffacbd90f56962eb8ea2908ce18484c027d6baf2c397aca6ac090c7712f5c791",
+      "sha256_publicado": "ffacbd90f56962eb8ea2908ce18484c027d6baf2c397aca6ac090c7712f5c791",
+      "tratamiento": "copia histórica íntegra, sin nuevas ejecuciones"
+    },
+    {
+      "archivo": "bitacora/s2_trazabilidad_plan_v2.json",
+      "sha256_original": "bc797fe78dff131c19b330a81121dbbd7a8582995b06738ebe98e52c7da69e1b",
+      "sha256_publicado": "bc797fe78dff131c19b330a81121dbbd7a8582995b06738ebe98e52c7da69e1b",
+      "tratamiento": "copia histórica íntegra, sin nuevas ejecuciones"
+    }
+  ]
+}

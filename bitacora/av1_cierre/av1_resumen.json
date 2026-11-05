@@ -1,0 +1,149 @@
+{
+  "metadata": {
+    "fecha_utc": "2026-11-02T20:43:22.919056+00:00",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.5-flash-lite",
+    "embeddings": "gemini-embedding-001",
+    "demo": false,
+    "etiqueta": "medición con API real",
+    "firma": "0765d0ca26646947741f5ca2f077a76e154ca917ddb008a225129652ccc90d45",
+    "repeticiones": 3,
+    "trabajadores": 1,
+    "intervalo_seg": 4.2,
+    "versiones": {
+      "A": [
+        1,
+        1,
+        1
+      ],
+      "BCD": [
+        4,
+        5,
+        5
+      ]
+    },
+    "dictamen": "PENDIENTE · Kevin",
+    "costo": "Estimación LLM; tokens reales, tarifa 0.30/2.50 USD por millón; excluye embeddings; no es factura",
+    "precios_fuente": "https://ai.google.dev/gemini-api/docs/pricing#gemini-3.5-flash-lite"
+  },
+  "tabla": [
+    {
+      "config": "A",
+      "casos": 20,
+      "ejecuciones": 60,
+      "exactitud": 0.5667,
+      "citas_correctas": 0.35,
+      "alucinacion": 0.0,
+      "fuga_pii": 0.0,
+      "abstencion_correcta": 0.8,
+      "consistencia": 0.85,
+      "latencia_p95_ms": 13169.0,
+      "costo_promedio_usd": 0.001225,
+      "errores_sistema": 0,
+      "exactitud_por_tipo": {
+        "normal": 0.6111,
+        "limite": 1.0,
+        "fuera": 0.0,
+        "adversarial": 1.0
+      },
+      "consistencia_acierto_legacy": 0.9,
+      "cumple": false
+    },
+    {
+      "config": "B",
+      "casos": 20,
+      "ejecuciones": 60,
+      "exactitud": 0.65,
+      "citas_correctas": 0.8833,
+      "alucinacion": 0.6333,
+      "fuga_pii": 0.0,
+      "abstencion_correcta": 0.8,
+      "consistencia": 0.95,
+      "latencia_p95_ms": 14587.8,
+      "costo_promedio_usd": 0.001677,
+      "errores_sistema": 0,
+      "exactitud_por_tipo": {
+        "normal": 0.8333,
+        "limite": 1.0,
+        "fuera": 0.0,
+        "adversarial": 0.5
+      },
+      "consistencia_acierto_legacy": 1.0,
+      "cumple": false
+    },
+    {
+      "config": "C",
+      "casos": 20,
+      "ejecuciones": 60,
+      "exactitud": 0.8,
+      "citas_correctas": 0.95,
+      "alucinacion": 0.0,
+      "fuga_pii": 0.0,
+      "abstencion_correcta": 0.8,
+      "consistencia": 0.85,
+      "latencia_p95_ms": 32341.9,
+      "costo_promedio_usd": 0.002501,
+      "errores_sistema": 0,
+      "exactitud_por_tipo": {
+        "normal": 1.0,
+        "limite": 1.0,
+        "fuera": 0.0,
+        "adversarial": 1.0
+      },
+      "consistencia_acierto_legacy": 1.0,
+      "cumple": false
+    },
+    {
+      "config": "D",
+      "casos": 20,
+      "ejecuciones": 60,
+      "exactitud": 0.95,
+      "citas_correctas": 0.95,
+      "alucinacion": 0.0,
+      "fuga_pii": 0.0,
+      "abstencion_correcta": 0.95,
+      "consistencia": 0.9,
+      "latencia_p95_ms": 21042.5,
+      "costo_promedio_usd": 0.002337,
+      "errores_sistema": 0,
+      "exactitud_por_tipo": {
+        "normal": 0.9167,
+        "limite": 1.0,
+        "fuera": 1.0,
+        "adversarial": 1.0
+      },
+      "consistencia_acierto_legacy": 1.0,
+      "cumple": false
+    }
+  ],
+  "intervalos_pareados_por_caso": {
+    "B-A": {
+      "diferencia": 0.0833,
+      "ic95": [
+        -0.0833,
+        0.25
+      ]
+    },
+    "C-B": {
+      "diferencia": 0.15,
+      "ic95": [
+        0.0,
+        0.3
+      ]
+    },
+    "D-C": {
+      "diferencia": 0.15,
+      "ic95": [
+        -0.05,
+        0.35
+      ]
+    },
+    "D-A": {
+      "diferencia": 0.3833,
+      "ic95": [
+        0.1333,
+        0.6333
+      ]
+    }
+  }
+}

@@ -1,0 +1,387 @@
+[
+  {
+    "repeticion": 1,
+    "riesgo": "alto",
+    "flujo_completo": true,
+    "etapas": [
+      {
+        "nombre": "analizar",
+        "prompt": "cambio_analizar.v1",
+        "ok": true,
+        "salida": {
+          "titulo": "Implementación de Idempotency-Key en POST /v1/transferencias",
+          "componentes": [
+            "pagos-api"
+          ],
+          "tipo": "funcionalidad",
+          "riesgo": "alto",
+          "justificacion_riesgo": "La modificación afecta directamente el procesamiento de transacciones financieras (dinero) y requiere cambios en la lógica de persistencia de datos.",
+          "preguntas_abiertas": [
+            "¿Cuál es el tiempo de expiración (TTL) para la clave de idempotencia?",
+            "¿Qué código de respuesta HTTP debe retornar el sistema cuando se detecta una solicitud duplicada?",
+            "¿Se requiere almacenar el resultado de la respuesta original para devolverla en solicitudes duplicadas?",
+            "¿Qué motor de almacenamiento se utilizará para gestionar las claves de idempotencia (ej. Redis, base de datos relacional)?"
+          ]
+        },
+        "errores": [],
+        "intentos": 1,
+        "latencia_ms": 1824.6867000125349,
+        "costo_usd": 0.0005777
+      },
+      {
+        "nombre": "plan",
+        "prompt": "cambio_plan.v1",
+        "ok": true,
+        "salida": {
+          "estrategia": "Canary Deployment (5% -> 50% -> 100%)",
+          "pasos": [
+            "Validar persistencia de claves en Redis con TTL de 24 horas",
+            "Despliegue en entorno Canary (5% de tráfico) con monitoreo de errores 4xx/5xx",
+            "Incremento a 50% de tráfico tras validación de métricas de latencia y consistencia",
+            "Despliegue total (100%) tras confirmación de integridad en transacciones duplicadas",
+            "Retorno de código HTTP 409 Conflict para solicitudes duplicadas con el cuerpo de respuesta original"
+          ],
+          "reversa": "Rollback inmediato a la versión anterior mediante despliegue de imagen previa y limpieza de claves en Redis si se detectan inconsistencias en el balance de cuentas",
+          "aprobaciones": [
+            "Lead de Ingeniería",
+            "QA Manager"
+          ],
+          "ventana": "Fuera de horario (Fin de semana o ventana de mantenimiento nocturna)"
+        },
+        "errores": [],
+        "intentos": 1,
+        "latencia_ms": 5016.706700029317,
+        "costo_usd": 0.0007157999999999999
+      },
+      {
+        "nombre": "checklist",
+        "prompt": "cambio_checklist.v1",
+        "ok": true,
+        "salida": {
+          "checklist": [
+            {
+              "punto": "¿Se ha definido el TTL de 24 horas para las claves en Redis?",
+              "origen": "plan.pasos",
+              "responsable": "dev"
+            },
+            {
+              "punto": "¿Se ha implementado el retorno del código HTTP 409 Conflict para solicitudes duplicadas?",
+              "origen": "plan.pasos",
+              "responsable": "dev"
+            },
+            {
+              "punto": "¿Se ha verificado que el cuerpo de la respuesta original se devuelve en el 409?",
+              "origen": "plan.pasos",
+              "responsable": "qa"
+            },
+            {
+              "punto": "¿El despliegue Canary cuenta con monitoreo activo de errores 4xx/5xx?",
+              "origen": "plan.pasos",
+              "responsable": "ops"
+            },
+            {
+              "punto": "¿Existe un procedimiento validado para el rollback y limpieza de Redis en caso de inconsistencias?",
+              "origen": "plan.reversa",
+              "responsable": "ops"
+            },
+            {
+              "punto": "¿Se ha validado la integridad de las transacciones financieras ante duplicados?",
+              "origen": "analisis.riesgo",
+              "responsable": "qa"
+            },
+            {
+              "punto": "¿Se cuenta con la aprobación formal del Lead de Ingeniería y QA Manager?",
+              "origen": "plan.aprobaciones",
+              "responsable": "qa"
+            },
+            {
+              "punto": "¿El despliegue está programado dentro de la ventana de mantenimiento definida?",
+              "origen": "plan.ventana",
+              "responsable": "ops"
+            }
+          ]
+        },
+        "errores": [],
+        "intentos": 1,
+        "latencia_ms": 5301.830300013535,
+        "costo_usd": 0.0012169000000000001
+      },
+      {
+        "nombre": "nota",
+        "prompt": "cambio_nota.v1",
+        "ok": true,
+        "salida": {
+          "titulo": "Implementación de seguridad en transferencias",
+          "que_cambia": "Se ha añadido un mecanismo de protección para evitar que una misma transferencia se procese dos veces por error, asegurando que cada solicitud sea única.",
+          "impacto_usuario": "Mayor seguridad y fiabilidad al realizar transferencias. Si se intenta enviar una solicitud duplicada, el sistema la identificará y evitará cargos adicionales.",
+          "fecha_estimada": "NO ESPECIFICADO",
+          "contacto": "equipo de ingeniería"
+        },
+        "errores": [],
+        "intentos": 1,
+        "latencia_ms": 4320.073099981528,
+        "costo_usd": 0.0004614
+      }
+    ],
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite",
+    "demo": false
+  },
+  {
+    "repeticion": 2,
+    "riesgo": "alto",
+    "flujo_completo": true,
+    "etapas": [
+      {
+        "nombre": "analizar",
+        "prompt": "cambio_analizar.v1",
+        "ok": true,
+        "salida": {
+          "titulo": "Implementación de Idempotency-Key en POST /v1/transferencias",
+          "componentes": [
+            "pagos-api"
+          ],
+          "tipo": "funcionalidad",
+          "riesgo": "alto",
+          "justificacion_riesgo": "La modificación afecta directamente el procesamiento de transacciones financieras (dinero) y requiere cambios en la lógica de persistencia de datos.",
+          "preguntas_abiertas": [
+            "¿Cuál es el tiempo de expiración (TTL) para la clave de idempotencia?",
+            "¿Qué código de estado HTTP debe retornar el sistema cuando se detecta una clave duplicada?",
+            "¿Se requiere persistencia en base de datos para almacenar las claves procesadas?",
+            "¿Existe algún formato específico requerido para la Idempotency-Key?"
+          ]
+        },
+        "errores": [],
+        "intentos": 1,
+        "latencia_ms": 5509.55320004141,
+        "costo_usd": 0.0005402
+      },
+      {
+        "nombre": "plan",
+        "prompt": "cambio_plan.v1",
+        "ok": true,
+        "salida": {
+          "estrategia": "Canary deployment (5% -> 50% -> 100%)",
+          "pasos": [
+            "Ejecutar pruebas de carga en entorno de staging con validación de integridad de transacciones",
+            "Despliegue de canary al 5% del tráfico en producción",
+            "Monitoreo de métricas de error 4xx/5xx y latencia durante 60 minutos",
+            "Escalamiento a 50% del tráfico tras validación exitosa",
+            "Monitoreo de consistencia en base de datos y logs de auditoría",
+            "Despliegue al 100% del tráfico"
+          ],
+          "reversa": "Rollback inmediato a la versión anterior mediante despliegue de imagen previa y limpieza de registros de idempotencia en caché/DB si fuera necesario",
+          "aprobaciones": [
+            "Líder Técnico de Pagos",
+            "Ingeniero de QA Senior"
+          ],
+          "ventana": "Fuera de horario comercial (martes o miércoles entre 01:00 AM y 04:00 AM UTC)"
+        },
+        "errores": [],
+        "intentos": 1,
+        "latencia_ms": 44517.68540003104,
+        "costo_usd": 0.0007563
+      },
+      {
+        "nombre": "checklist",
+        "prompt": "cambio_checklist.v1",
+        "ok": true,
+        "salida": {
+          "checklist": [
+            {
+              "punto": "¿Se ha definido el TTL para la clave de idempotencia?",
+              "origen": "analisis.preguntas_abiertas",
+              "responsable": "dev"
+            },
+            {
+              "punto": "¿Se ha estandarizado el código de respuesta HTTP para claves duplicadas?",
+              "origen": "analisis.preguntas_abiertas",
+              "responsable": "dev"
+            },
+            {
+              "punto": "¿Se ha validado la integridad de las transacciones en staging?",
+              "origen": "plan.pasos",
+              "responsable": "qa"
+            },
+            {
+              "punto": "¿Se cuenta con métricas de monitoreo para errores 4xx/5xx y latencia?",
+              "origen": "plan.pasos",
+              "responsable": "ops"
+            },
+            {
+              "punto": "¿Se ha verificado la consistencia en base de datos y logs de auditoría?",
+              "origen": "plan.pasos",
+              "responsable": "qa"
+            },
+            {
+              "punto": "¿El plan de rollback incluye la limpieza de registros en caché/DB?",
+              "origen": "plan.reversa",
+              "responsable": "ops"
+            },
+            {
+              "punto": "¿Se cuenta con la aprobación del Líder Técnico y QA Senior?",
+              "origen": "plan.aprobaciones",
+              "responsable": "qa"
+            },
+            {
+              "punto": "¿El despliegue está programado dentro de la ventana de mantenimiento definida?",
+              "origen": "plan.ventana",
+              "responsable": "ops"
+            }
+          ]
+        },
+        "errores": [],
+        "intentos": 1,
+        "latencia_ms": 1764.9972999934107,
+        "costo_usd": 0.0011928
+      },
+      {
+        "nombre": "nota",
+        "prompt": "cambio_nota.v1",
+        "ok": true,
+        "salida": {
+          "titulo": "Implementación de seguridad en el procesamiento de transferencias",
+          "que_cambia": "Se ha añadido un mecanismo de control para evitar el procesamiento duplicado de transferencias al realizar solicitudes a través de nuestra API de pagos.",
+          "impacto_usuario": "Mayor seguridad y fiabilidad al realizar transferencias, previniendo cargos múltiples accidentales ante reintentos de conexión.",
+          "fecha_estimada": "NO ESPECIFICADO",
+          "contacto": "equipo de ingeniería"
+        },
+        "errores": [],
+        "intentos": 1,
+        "latencia_ms": 4476.90110001713,
+        "costo_usd": 0.00044979999999999993
+      }
+    ],
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite",
+    "demo": false
+  },
+  {
+    "repeticion": 3,
+    "riesgo": "alto",
+    "flujo_completo": true,
+    "etapas": [
+      {
+        "nombre": "analizar",
+        "prompt": "cambio_analizar.v1",
+        "ok": true,
+        "salida": {
+          "titulo": "Implementación de Idempotency-Key en POST /v1/transferencias",
+          "componentes": [
+            "pagos-api"
+          ],
+          "tipo": "funcionalidad",
+          "riesgo": "alto",
+          "justificacion_riesgo": "La modificación afecta directamente el procesamiento de transacciones financieras (dinero) y requiere cambios en la lógica de persistencia de datos.",
+          "preguntas_abiertas": [
+            "¿Cuál es el tiempo de expiración (TTL) para la clave de idempotencia?",
+            "¿Qué código de estado HTTP debe retornar el sistema si se detecta una clave duplicada?",
+            "¿Se requiere persistencia en una base de datos específica (ej. Redis) para almacenar las claves?",
+            "¿Existe algún formato o longitud específica requerida para la Idempotency-Key?"
+          ]
+        },
+        "errores": [],
+        "intentos": 1,
+        "latencia_ms": 1324.7072999947704,
+        "costo_usd": 0.0005602000000000001
+      },
+      {
+        "nombre": "plan",
+        "prompt": "cambio_plan.v1",
+        "ok": true,
+        "salida": {
+          "estrategia": "Despliegue gradual (Canary) con monitoreo intensivo de métricas de negocio y latencia.",
+          "pasos": [
+            "Validar la configuración de Redis para el almacenamiento de claves de idempotencia.",
+            "Despliegue del 5% del tráfico en el entorno de producción para validación de logs y errores 4xx/5xx.",
+            "Incremento al 50% del tráfico tras 30 minutos de estabilidad sin anomalías en transacciones.",
+            "Despliegue al 100% del tráfico tras validación de integridad de datos en base de datos.",
+            "Monitoreo post-despliegue durante 2 horas."
+          ],
+          "reversa": "Rollback inmediato a la versión anterior mediante el orquestador de contenedores y limpieza de claves en Redis si se detectan inconsistencias en el procesamiento de pagos.",
+          "aprobaciones": [
+            "Lead de Ingeniería de Pagos",
+            "QA/SRE Senior"
+          ],
+          "ventana": "Fuera de horario comercial (01:00 AM - 04:00 AM UTC)"
+        },
+        "errores": [],
+        "intentos": 1,
+        "latencia_ms": 1655.31010000268,
+        "costo_usd": 0.0007612000000000001
+      },
+      {
+        "nombre": "checklist",
+        "prompt": "cambio_checklist.v1",
+        "ok": true,
+        "salida": {
+          "checklist": [
+            {
+              "punto": "¿Se ha definido y validado el TTL para la clave de idempotencia en Redis?",
+              "origen": "analisis.preguntas_abiertas",
+              "responsable": "dev"
+            },
+            {
+              "punto": "¿Se ha estandarizado el código de respuesta HTTP para claves duplicadas?",
+              "origen": "analisis.preguntas_abiertas",
+              "responsable": "dev"
+            },
+            {
+              "punto": "¿Se ha verificado la configuración de Redis para el almacenamiento de claves?",
+              "origen": "plan.pasos",
+              "responsable": "ops"
+            },
+            {
+              "punto": "¿El despliegue Canary cuenta con métricas de monitoreo para errores 4xx/5xx?",
+              "origen": "plan.pasos",
+              "responsable": "qa"
+            },
+            {
+              "punto": "¿Se ha validado la integridad de los datos en la base de datos tras el despliegue?",
+              "origen": "plan.pasos",
+              "responsable": "qa"
+            },
+            {
+              "punto": "¿El procedimiento de rollback incluye la limpieza de claves en Redis?",
+              "origen": "plan.reversa",
+              "responsable": "ops"
+            },
+            {
+              "punto": "¿Se cuenta con la aprobación formal del Lead de Ingeniería y QA/SRE?",
+              "origen": "plan.aprobaciones",
+              "responsable": "qa"
+            },
+            {
+              "punto": "¿El despliegue está programado dentro de la ventana de mantenimiento definida?",
+              "origen": "plan.ventana",
+              "responsable": "ops"
+            }
+          ]
+        },
+        "errores": [],
+        "intentos": 1,
+        "latencia_ms": 2070.0923999538645,
+        "costo_usd": 0.001223
+      },
+      {
+        "nombre": "nota",
+        "prompt": "cambio_nota.v1",
+        "ok": true,
+        "salida": {
+          "titulo": "Implementación de seguridad en el procesamiento de transferencias",
+          "que_cambia": "Se ha añadido un mecanismo de control para evitar que una misma transferencia se procese más de una vez por error, utilizando una clave única de identificación en cada solicitud.",
+          "impacto_usuario": "Mayor seguridad y fiabilidad al realizar transferencias, previniendo duplicados accidentales en caso de fallos de conexión o reintentos del sistema.",
+          "fecha_estimada": "NO ESPECIFICADO",
+          "contacto": "equipo de ingeniería"
+        },
+        "errores": [],
+        "intentos": 1,
+        "latencia_ms": 4775.267700024415,
+        "costo_usd": 0.000485
+      }
+    ],
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite",
+    "demo": false
+  }
+]

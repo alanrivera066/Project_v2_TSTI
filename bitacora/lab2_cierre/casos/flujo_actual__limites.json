@@ -1,0 +1,95 @@
+{
+  "caso": "flujo_actual__limites",
+  "grupo": "flujo_actual",
+  "archivo": "datos/v2-revisor/codigo/limites.py",
+  "version": "última por etapa",
+  "repeticion": "inicial",
+  "firma": {
+    "modelo": "gemini-3.5-flash-lite",
+    "proveedor": "gemini",
+    "codigo": {
+      "reglas.py": "711411f5052bfea5dc0bdcf9147e48e9d0936da115187f7d574463038bf2fadf",
+      "pipeline.py": "41f41ab3233a5f36a11117ab1b47aa9e8f434e1aa3b4e88ae9b9beead0be6e70"
+    },
+    "entrada": "db1679efb895ea1b756c9dc3ceeee14f2731a678eb786d74b039a08a1a6f0878",
+    "semillas": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+    "archivo": "a0778967fe9bacc8f859df928657a18ca611df017c60690f7290e9a0077051b7",
+    "prompts": {
+      "rev_detectar.v3": "a872302649b24a39122c1ed88a1657ee78d3211e8c92d56f88b8fdc3f3a6c91c",
+      "rev_explicar.v4": "baf3ad734b831a3ee9bdcb80a3cd4906710e8cfa5d2eca55885db4011d623fc2",
+      "rev_parche.v4": "432e12a4366f240a70ff391c95401a028043955047fae0f285d2119b45cfcbba"
+    },
+    "intervalo": 7,
+    "reintentos": {
+      "detectar": 1,
+      "explicar": 1,
+      "parche": 1
+    },
+    "temperatura": 0.2
+  },
+  "semillas": null,
+  "entrada": {
+    "entrada": "from decimal import Decimal, ROUND_HALF_EVEN\n\nLIMITE_NIVEL_1 = Decimal(\"8000\")\nLIMITE_NIVEL_2 = Decimal(\"50000\")\n\n\ndef validar_monto(monto: Decimal, nivel: int) -> bool:\n    \"\"\"Devuelve True si el monto es válido para el nivel de cuenta.\"\"\"\n    if monto <= 0 or monto != monto.quantize(Decimal(\"0.01\"), rounding=ROUND_HALF_EVEN):\n        return False\n    limite = LIMITE_NIVEL_2 if nivel == 2 else LIMITE_NIVEL_1\n    return monto <= limite\n",
+    "contexto": "(sin contexto)"
+  },
+  "fecha_utc": "2026-11-01T06:02:04.287056+00:00",
+  "demo": false,
+  "estado": "valido",
+  "etapas": [
+    {
+      "nombre": "detectar",
+      "prompt": "rev_detectar.v3",
+      "ok": true,
+      "salida": {
+        "hallazgos": []
+      },
+      "errores": [],
+      "intentos": 1,
+      "latencia_ms": 5029.648599971551,
+      "costo_usd": 0.0001895
+    },
+    {
+      "nombre": "explicar",
+      "prompt": "rev_explicar.v4",
+      "ok": true,
+      "salida": {
+        "hallazgos": []
+      },
+      "errores": [],
+      "intentos": 1,
+      "latencia_ms": 6851.274300017394,
+      "costo_usd": 0.000194
+    },
+    {
+      "nombre": "parche",
+      "prompt": "rev_parche.v4",
+      "ok": true,
+      "salida": {
+        "parches": [],
+        "codigo_corregido": "from decimal import Decimal, ROUND_HALF_EVEN\n\nLIMITE_NIVEL_1 = Decimal(\"8000\")\nLIMITE_NIVEL_2 = Decimal(\"50000\")\n\n\ndef validar_monto(monto: Decimal, nivel: int) -> bool:\n    \"\"\"Devuelve True si el monto es válido para el nivel de cuenta.\"\"\"\n    if monto <= 0 or monto != monto.quantize(Decimal(\"0.01\"), rounding=ROUND_HALF_EVEN):\n        return False\n    limite = LIMITE_NIVEL_2 if nivel == 2 else LIMITE_NIVEL_1\n    return monto <= limite\n"
+      },
+      "errores": [],
+      "intentos": 1,
+      "latencia_ms": 7677.8237000107765,
+      "costo_usd": 0.0006414
+    }
+  ],
+  "salidas": {
+    "detectar": {
+      "hallazgos": []
+    },
+    "explicar": {
+      "hallazgos": []
+    },
+    "parche": {
+      "parches": [],
+      "codigo_corregido": "from decimal import Decimal, ROUND_HALF_EVEN\n\nLIMITE_NIVEL_1 = Decimal(\"8000\")\nLIMITE_NIVEL_2 = Decimal(\"50000\")\n\n\ndef validar_monto(monto: Decimal, nivel: int) -> bool:\n    \"\"\"Devuelve True si el monto es válido para el nivel de cuenta.\"\"\"\n    if monto <= 0 or monto != monto.quantize(Decimal(\"0.01\"), rounding=ROUND_HALF_EVEN):\n        return False\n    limite = LIMITE_NIVEL_2 if nivel == 2 else LIMITE_NIVEL_1\n    return monto <= limite\n"
+    }
+  },
+  "importacion_20261105": {
+    "tipo": "Evidencia histórica; NO es una ejecución nueva de esta copia",
+    "origen": "bitacora/lab2_cierre/casos/flujo_actual__limites.json",
+    "sha256_original": "7b83c6245b9f585a8d179ab37a2549f3c2cbaa769a06aa1f01edfedeeba20df0",
+    "alcance_publicado": "Etapas detectar, explicar y parche; la cuarta etapa se excluyó de esta copia."
+  }
+}

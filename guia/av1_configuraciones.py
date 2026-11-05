@@ -14,6 +14,17 @@ CONFIGS={
  'C':dict(version_prompt=2,usar_rag=True,controles=False),
  'D':dict(version_prompt=2,usar_rag=True,controles=True)}
 
+def huella_medicion(casos='evals/v2-revisor.jsonl', contrato='contrato_calidad.yaml'):
+ """Incluye código, prompts, corpus, entradas, evaluaciones y contrato; nunca .env."""
+ paths={p for carpeta,patron in [('src/finnorte','*.py'),('prompts','*.md'),
+  ('prompts/esquemas','*.json'),('corpus/v2-revisor','*.md'),
+  ('datos/v2-revisor/codigo','*.py')] for p in (RAIZ/carpeta).glob(patron)}
+ paths.update([RAIZ/casos,RAIZ/contrato,Path(__file__)])
+ archivos={p.relative_to(RAIZ).as_posix():hashlib.sha256(p.read_bytes()).hexdigest()
+           for p in sorted(paths)}
+ firma=hashlib.sha256(json.dumps(archivos,sort_keys=True).encode('utf-8')).hexdigest()
+ return firma,archivos
+
 def recuperar_respuestas(origen, destino, metadata):
  """Copia evidencia a una carpeta nueva; solo repite fallos del proveedor."""
  origen, destino = Path(origen), Path(destino)
@@ -64,16 +75,17 @@ def main():
  a=ap.parse_args()
  if a.env: _cargar_env(Path(a.env))
  if a.rep<3: ap.error('Avance 1 requiere --rep >= 3')
+ if a.trabajadores<1: ap.error('trabajadores debe ser positivo')
  destino=RAIZ/a.salida; destino.mkdir(parents=True,exist_ok=True)
  os.environ['FINNORTE_DIR_TRAZAS']=str(destino)
  os.environ['LLM_INTERVALO_SEG']=str(a.intervalo)
  cfg=config(); demo=cfg.llm_proveedor=='fake' or cfg.emb_proveedor=='hash'
  casos=evaluacion.cargar_casos(RAIZ/a.casos); contrato=evaluacion.cargar_contrato(RAIZ/a.contrato)
- paths=[*(RAIZ/'src/finnorte').glob('*.py'),*(RAIZ/'prompts').glob('*.md'),*(RAIZ/'prompts/esquemas').glob('*.json'),RAIZ/a.casos]
- firma=hashlib.sha256(b''.join(p.read_bytes() for p in sorted(paths))).hexdigest()
+ firma,archivos=huella_medicion(a.casos,a.contrato)
  meta={'fecha_utc':datetime.now(timezone.utc).isoformat(),'proveedor':cfg.llm_proveedor,'modelo':cfg.llm_modelo,
   'embeddings':cfg.emb_modelo,'demo':demo,'etiqueta':'demostración sin modelo real, NO es medición' if demo else 'medición con API real',
-  'firma':firma,'repeticiones':a.rep,'trabajadores':a.trabajadores,'intervalo_seg':a.intervalo,'versiones':{'A':[1,1,1],'BCD':[4,5,5]},
+  'firma':firma,'metodo_firma':'sha256_manifest_v1','archivos':archivos,
+  'repeticiones':a.rep,'trabajadores':a.trabajadores,'intervalo_seg':a.intervalo,'versiones':{'A':[1,1,1],'BCD':[4,5,5]},
   'dictamen':'PENDIENTE · Kevin','costo':'Estimación LLM; tokens reales, tarifa 0.30/2.50 USD por millón; excluye embeddings; no es factura',
   'precios_fuente':'https://ai.google.dev/gemini-api/docs/pricing#gemini-3.5-flash-lite'}
  if a.recuperar_de:
@@ -102,7 +114,16 @@ def main():
   with ThreadPoolExecutor(max_workers=a.trabajadores) as pool:
    pendientes=[pool.submit(ejecutar,c,rep) for c in casos for rep in range(1,a.rep+1) if (c['id'],rep) not in hechos]
    for fut in as_completed(pendientes):
-    registros.append(fut.result())
+    registro=fut.result()
+    if str(registro['salida'].get('error','')).startswith('LLMError:'):
+     for pendiente in pendientes: pendiente.cancel()
+     interrupcion={'metadata':meta,'configuracion':letra,'caso':registro['id'],
+      'repeticion':registro['repeticion'],'error':registro['salida']['error'],
+      'estado':'PENDIENTE DE MEDIR: interrupción del proveedor; conservar respuestas válidas y reanudar con --continuar'}
+     (destino/'av1_interrupcion.json').write_text(json.dumps(interrupcion,ensure_ascii=False,indent=2),encoding='utf-8')
+     print(interrupcion['estado'],flush=True)
+     raise SystemExit(2)
+    registros.append(registro)
     ruta.write_text(json.dumps({'metadata':meta,'config':op,'ejecuciones_guardadas':registros},ensure_ascii=False,indent=2),encoding='utf-8')
     print(f'{letra}: {len(registros)}/{len(casos)*a.rep}',flush=True)
   mapa={(r['id'],r['repeticion']):r['salida'] for r in registros}

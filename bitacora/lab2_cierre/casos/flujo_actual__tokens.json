@@ -1,0 +1,139 @@
+{
+  "caso": "flujo_actual__tokens",
+  "grupo": "flujo_actual",
+  "archivo": "datos/v2-revisor/codigo/tokens.py",
+  "version": "última por etapa",
+  "repeticion": "inicial",
+  "firma": {
+    "modelo": "gemini-3.5-flash-lite",
+    "proveedor": "gemini",
+    "codigo": {
+      "reglas.py": "711411f5052bfea5dc0bdcf9147e48e9d0936da115187f7d574463038bf2fadf",
+      "pipeline.py": "41f41ab3233a5f36a11117ab1b47aa9e8f434e1aa3b4e88ae9b9beead0be6e70"
+    },
+    "entrada": "7f5a37fc67817b94babe9326687581d3cf2e93a71195fe42d8510fe339056166",
+    "semillas": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+    "archivo": "605b1334b0fa6dbd773c98cae0105f2f5ded672b0fcef45f83bbc1a910f94a34",
+    "prompts": {
+      "rev_detectar.v3": "a872302649b24a39122c1ed88a1657ee78d3211e8c92d56f88b8fdc3f3a6c91c",
+      "rev_explicar.v4": "baf3ad734b831a3ee9bdcb80a3cd4906710e8cfa5d2eca55885db4011d623fc2",
+      "rev_parche.v4": "432e12a4366f240a70ff391c95401a028043955047fae0f285d2119b45cfcbba"
+    },
+    "intervalo": 7,
+    "reintentos": {
+      "detectar": 1,
+      "explicar": 1,
+      "parche": 1
+    },
+    "temperatura": 0.2
+  },
+  "semillas": null,
+  "entrada": {
+    "entrada": "import time\nimport yaml\n\n\ndef leer_config(texto):\n    return yaml.load(texto)\n\n\ndef token_valido(token, guardado, expira):\n    return token == guardado and time.time() < expira\n",
+    "contexto": "(sin contexto)"
+  },
+  "fecha_utc": "2026-11-01T06:01:34.536271+00:00",
+  "demo": false,
+  "estado": "valido",
+  "etapas": [
+    {
+      "nombre": "detectar",
+      "prompt": "rev_detectar.v3",
+      "ok": true,
+      "salida": {
+        "hallazgos": [
+          {
+            "id": "H1",
+            "regla": "SEC-09",
+            "linea": 6,
+            "descripcion": "Uso inseguro de yaml.load() sin especificar un Loader seguro, lo que puede permitir ejecución arbitraria de código mediante deserialización insegura."
+          }
+        ]
+      },
+      "errores": [],
+      "intentos": 1,
+      "latencia_ms": 6880.890299973544,
+      "costo_usd": 0.000347
+    },
+    {
+      "nombre": "explicar",
+      "prompt": "rev_explicar.v4",
+      "ok": true,
+      "salida": {
+        "hallazgos": [
+          {
+            "id": "H1",
+            "regla": "SEC-09",
+            "linea": 6,
+            "descripcion": "Uso inseguro de yaml.load() sin especificar un Loader seguro, lo que puede permitir ejecución arbitraria de código mediante deserialización insegura.",
+            "explicacion": "SEC-09, línea 6: el código utiliza la función yaml.load() sin definir un cargador seguro, lo que se relaciona con la regla SEC-09 al deserializar datos sin restricciones; el riesgo posible es que se permita la ejecución arbitraria de código en el sistema si se procesan entradas manipuladas, y la decisión de negocio sobre el origen de los datos no se encuentra especificada."
+          }
+        ]
+      },
+      "errores": [],
+      "intentos": 1,
+      "latencia_ms": 7151.833300013095,
+      "costo_usd": 0.000604
+    },
+    {
+      "nombre": "parche",
+      "prompt": "rev_parche.v4",
+      "ok": true,
+      "salida": {
+        "parches": [
+          {
+            "id": "H1",
+            "regla": "SEC-09",
+            "linea": 6,
+            "cambio": "Proponer el uso de yaml.safe_load(texto) para evitar la ejecución arbitraria de código al deserializar, ya que no se especificó el origen de los datos."
+          }
+        ],
+        "codigo_corregido": "import time\nimport yaml\n\n\ndef leer_config(texto):\n    return yaml.safe_load(texto)\n\n\ndef token_valido(token, guardado, expira):\n    return token == guardado and time.time() < expira\n"
+      },
+      "errores": [],
+      "intentos": 1,
+      "latencia_ms": 8742.434400017373,
+      "costo_usd": 0.0006072
+    }
+  ],
+  "salidas": {
+    "detectar": {
+      "hallazgos": [
+        {
+          "id": "H1",
+          "regla": "SEC-09",
+          "linea": 6,
+          "descripcion": "Uso inseguro de yaml.load() sin especificar un Loader seguro, lo que puede permitir ejecución arbitraria de código mediante deserialización insegura."
+        }
+      ]
+    },
+    "explicar": {
+      "hallazgos": [
+        {
+          "id": "H1",
+          "regla": "SEC-09",
+          "linea": 6,
+          "descripcion": "Uso inseguro de yaml.load() sin especificar un Loader seguro, lo que puede permitir ejecución arbitraria de código mediante deserialización insegura.",
+          "explicacion": "SEC-09, línea 6: el código utiliza la función yaml.load() sin definir un cargador seguro, lo que se relaciona con la regla SEC-09 al deserializar datos sin restricciones; el riesgo posible es que se permita la ejecución arbitraria de código en el sistema si se procesan entradas manipuladas, y la decisión de negocio sobre el origen de los datos no se encuentra especificada."
+        }
+      ]
+    },
+    "parche": {
+      "parches": [
+        {
+          "id": "H1",
+          "regla": "SEC-09",
+          "linea": 6,
+          "cambio": "Proponer el uso de yaml.safe_load(texto) para evitar la ejecución arbitraria de código al deserializar, ya que no se especificó el origen de los datos."
+        }
+      ],
+      "codigo_corregido": "import time\nimport yaml\n\n\ndef leer_config(texto):\n    return yaml.safe_load(texto)\n\n\ndef token_valido(token, guardado, expira):\n    return token == guardado and time.time() < expira\n"
+    }
+  },
+  "importacion_20261105": {
+    "tipo": "Evidencia histórica; NO es una ejecución nueva de esta copia",
+    "origen": "bitacora/lab2_cierre/casos/flujo_actual__tokens.json",
+    "sha256_original": "4dd3e5c00b7146c800ad970f3e295c57079a20a4510285d45a94940a4e01d0ca",
+    "alcance_publicado": "Etapas detectar, explicar y parche; la cuarta etapa se excluyó de esta copia."
+  }
+}
