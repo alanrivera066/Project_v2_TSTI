@@ -83,3 +83,11 @@ Mantener el mismo proveedor, modelo, embeddings, contrato y archivos. `--env RUT
 ## Actividad 2
 
 Los borradores individuales están en `Actividad 2/Luis/`, `Actividad 2/Cesar/` y `Actividad 2/Alan/`. Sus comparaciones son históricas y sus fuentes de las tres etapas ahora están publicadas. Cada persona debe revisarlos y registrar su participación real. El documento técnico integrado sigue pendiente de la cuarta etapa.
+
+## Estado de la medición corregida · 5 de noviembre
+
+A terminó 60/60 ejecuciones y B conserva 2/60; C y D siguen pendientes. Hay 62/240 respuestas reales guardadas. Gemini respondió repetidamente HTTP 503 UNAVAILABLE y tiempos de espera; después de varios reintentos sin progreso se detuvo la corrida. No se sustituyeron respuestas por salidas fake ni se reutilizaron las 240 históricas de otra firma.
+
+Los 67 archivos de la firma coinciden byte por byte con la versión publicada. `bitacora/av1_verificacion_publicado_20261105.json` registra esa comprobación y el comando de continuación. La comparación nueva está **PENDIENTE DE MEDIR**: todavía no existe una tabla completa B/C/D ni intervalos nuevos. Los errores originales están guardados junto a los resultados parciales.
+
+La etiqueta `avance1` identifica esta entrega de tres etapas con la medición nueva expresamente parcial. No acredita las ejecuciones B/C/D pendientes ni la cuarta etapa o el documento final de Kevin. La evidencia histórica y los usos personales pendientes conservan sus etiquetas de procedencia.

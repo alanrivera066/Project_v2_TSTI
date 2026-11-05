@@ -1,0 +1,22 @@
+{
+  "fecha_utc": "2026-11-05T09:45:00.022946+00:00",
+  "estado": "PENDIENTE DE MEDIR: proveedor temporalmente no disponible",
+  "firma": "1fd3da80456dbb8ade55a0cba3093ba0ac8af2478bbd9e74e48efdd1e69f0230",
+  "fuente_codigo_commit": "a821dcebe4cab625d6e7861cd988f5f925863aa0",
+  "archivos_medidos_iguales_a_publicados": 67,
+  "respuestas_por_configuracion": {
+    "A": 60,
+    "B": 2,
+    "C": 0,
+    "D": 0
+  },
+  "respuestas_reales_guardadas": 62,
+  "respuestas_requeridas": 240,
+  "respuestas_pendientes": 178,
+  "tipo_de_fallo": "HTTP 503 UNAVAILABLE y tiempos de espera de Gemini",
+  "historia_av1_cierre": "240 respuestas originales del 2 de noviembre; firma distinta, no se reutilizaron para esta medición.",
+  "kevin": "PENDIENTE · Kevin",
+  "registros_personales_ia": "PENDIENTES por instrucción del usuario",
+  "comando_reanudar": "python guia/av1_configuraciones.py --casos evals/v2-revisor.jsonl --rep 3 --salida bitacora/av1_publicado_20261105 --continuar",
+  "comando_verificar": "python guia/verificar_evidencias.py"
+}
