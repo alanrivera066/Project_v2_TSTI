@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "parches",
+    "codigo_corregido"
+  ],
+  "properties": {
+    "parches": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "regla",
+          "linea",
+          "cambio"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^H[1-9][0-9]*$"
+          },
+          "regla": {
+            "enum": [
+              "SEC-01",
+              "SEC-02",
+              "SEC-03",
+              "SEC-04",
+              "SEC-05",
+              "SEC-06",
+              "SEC-07",
+              "SEC-08",
+              "SEC-09",
+              "SEC-10"
+            ]
+          },
+          "linea": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "cambio": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "codigo_corregido": {
+      "type": "string"
+    }
+  }
+}

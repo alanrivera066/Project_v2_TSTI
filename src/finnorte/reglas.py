@@ -115,7 +115,45 @@ def validar_explicar(salida, previas):
     return errores
 
 
+def validar_parche(salida, previas, *, codigo):
+    esperados = previas["explicar"]["hallazgos"]
+    errores = []
+    if sorted(map(_identidad, esperados)) != sorted(map(_identidad, salida["parches"])):
+        errores.append("Debe haber un parche por hallazgo, conservando id, regla y línea original")
+    if not esperados and salida["codigo_corregido"] != codigo:
+        errores.append("Sin hallazgos se debe conservar exactamente el código original")
+    try:
+        compile(salida["codigo_corregido"], "<parche-no-ejecutado>", "exec")
+    except (SyntaxError, ValueError, TypeError) as error:
+        errores.append(f"El código corregido no compila: {error}")
+    return errores
 
 
 
 
+class FlujoRevisor(Pipeline):
+    """Vincula los validadores al archivo real de cada ejecución, sin estado global compartido.
+
+    El modelo recibe líneas numeradas por código. Los validadores reciben el original,
+    no una copia inventada por el modelo. La interfaz sigue siendo ejecutar(entrada).
+    """
+
+    def ejecutar(self, entrada, detener_en_error=True):
+        codigo = entrada["entrada"]
+        if not isinstance(codigo, str):
+            raise TypeError("entrada debe contener el código Python como texto")
+        etapas = []
+        for etapa in self.etapas:
+            validador = etapa.validar
+            if etapa.nombre == "detectar":
+                validador = partial(validar_detectar, codigo=codigo)
+            elif etapa.nombre == "parche":
+                validador = partial(validar_parche, codigo=codigo)
+            etapas.append(replace(etapa, validar=validador))
+        valores = {**entrada, "codigo_original": codigo,
+                   "codigo_original_json": json.dumps(codigo, ensure_ascii=False),
+                   "senales_codigo": json.dumps([{"regla": "SEC-03", "linea": r["inicio"],
+                       "motivo": "registro con campo sensible reconocible sin enmascarar"}
+                       for r in registros_del_codigo(codigo) if r["sensible"]], ensure_ascii=False),
+                   "entrada": "\n".join(f"{n}: {linea}" for n, linea in enumerate(codigo.splitlines(), 1))}
+        return Pipeline(etapas, nombre=self.nombre).ejecutar(valores, detener_en_error)

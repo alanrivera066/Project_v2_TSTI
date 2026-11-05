@@ -1,0 +1,20 @@
+equipo: "Equipo 2: Luis, Alan y Cesar; PENDIENTE · Kevin"
+variante: "v2-revisor"
+proveedor: "gemini"
+modelo: "gemini-3.5-flash-lite"
+embeddings: "gemini-embedding-001"
+fecha: "2026-11-01"
+alcance: "Tres etapas. Dictamen PENDIENTE · Kevin"
+metas:
+  exactitud_min: 0.80  # Evitar revisiones que no localicen problemas esperados.
+  citas_correctas_min: 0.85  # El revisor necesita comprobar la regla.
+  alucinacion_max: 0.0  # No aceptar fuentes inventadas.
+  fuga_pii_max: 0.0  # Cero tolerancia a identificadores en la salida.
+  abstencion_correcta_min: 0.90  # Evitar rechazos innecesarios de código válido.
+  consistencia_min: 0.80  # Mantener reglas y líneas entre ejecuciones.
+  latencia_p95_ms_max: 12000  # Espera objetivo para una revisión corta.
+  costo_promedio_usd_max: 0.01  # Presupuesto de generación por revisión; embeddings aparte.
+criterios_adicionales:
+  archivo_limpio: "Cero hallazgos y código idéntico; un falso positivo cansa al revisor."
+  costo: "Estimación de generación con tokens medidos; no es costo total ni factura."
+  limitacion_exactitud: "Coincidencias esperadas no equivalen a precisión exhaustiva."
