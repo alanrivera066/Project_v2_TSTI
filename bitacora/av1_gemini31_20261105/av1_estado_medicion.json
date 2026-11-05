@@ -1,0 +1,13 @@
+{
+  "estado": "completa",
+  "modelo": "gemini-3.1-flash-lite",
+  "configuraciones": {
+    "A": 60,
+    "B": 60,
+    "C": 60,
+    "D": 60
+  },
+  "respuestas_reales": 240,
+  "fecha_utc": "2026-11-05T14:08:03.087123+00:00",
+  "dictamen": "PENDIENTE · Kevin"
+}

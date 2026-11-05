@@ -1,0 +1,14 @@
+{
+  "modelo_solicitado": "gemini-2.5-flash-lite",
+  "fecha_utc": "2026-11-05T12:33:23.807490+00:00",
+  "http": 404,
+  "latencia_ms": 373.3,
+  "respuesta": {
+    "error": {
+      "code": 404,
+      "message": "This model models/gemini-2.5-flash-lite is no longer available to new users. Please update your code to use models/gemini-3.5-flash-lite for the latest features and improvements. We recommend you to use the Interactions API (https://ai.google.dev/gemini-api/docs/get-started).",
+      "status": "NOT_FOUND"
+    }
+  },
+  "uso": "Prueba de disponibilidad; fuera de A/B/C/D"
+}

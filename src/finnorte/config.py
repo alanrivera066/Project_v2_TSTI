@@ -31,7 +31,7 @@ def _cargar_env(archivo: Path = RAIZ / ".env") -> None:
 _cargar_env()
 
 MODELOS_POR_DEFECTO = {
-    "gemini": "gemini-2.5-flash",
+    "gemini": "gemini-3.1-flash-lite",
     "groq": "llama-3.3-70b-versatile",
     "ollama": "llama3.2",
     "fake": "fake-1",
@@ -52,6 +52,18 @@ PRECIOS = {
     "ollama": (0.0, 0.0),
     "fake": (0.0, 0.0),
 }
+
+# Tarifas de texto Standard verificadas el 2026-11-05; USD por millón.
+# https://aistudio.google.com/docs/pricing
+# Son estimaciones a tarifa de pago, no cargos de la cuenta ni factura.
+PRECIOS_MODELO = {
+    ("gemini", "gemini-3.5-flash-lite"): (0.30, 2.50),
+    ("gemini", "gemini-3.1-flash-lite"): (0.25, 1.50),
+}
+
+
+def precios_llm(proveedor: str, modelo: str) -> tuple[float, float]:
+    return PRECIOS_MODELO.get((proveedor, modelo), PRECIOS.get(proveedor, (0.0, 0.0)))
 
 
 def _proveedor_llm() -> str:

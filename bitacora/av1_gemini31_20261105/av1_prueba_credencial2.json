@@ -1,0 +1,38 @@
+{
+  "modelo_solicitado": "gemini-3.1-flash-lite",
+  "fecha_utc": "2026-11-05T13:39:14.565847+00:00",
+  "http": 200,
+  "latencia_ms": 6100.6,
+  "respuesta": {
+    "candidates": [
+      {
+        "content": {
+          "parts": [
+            {
+              "text": "{\"ok\": true}",
+              "thoughtSignature": "EnIKcAFpFH0TmREq4m7FGKyZmHVd8BN5kRecs0apdJbXIfki5YZF99vmZ+87PCefU3pVxrAPU+eW0xnrwph4X4wu27x5ExOeCHpc+ui1vW+Cba3D+HShGWmqKfvd/JpVi8utHndJN35iUXkDgKjvK7hVaPI="
+            }
+          ],
+          "role": "model"
+        },
+        "finishReason": "STOP",
+        "index": 0
+      }
+    ],
+    "usageMetadata": {
+      "promptTokenCount": 12,
+      "candidatesTokenCount": 5,
+      "totalTokenCount": 17,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 12
+        }
+      ],
+      "serviceTier": "standard"
+    },
+    "modelVersion": "gemini-3.1-flash-lite",
+    "responseId": "_YbsaonBJv3DqtsP-Z67mQU"
+  },
+  "uso": "Prueba de disponibilidad; fuera de A/B/C/D"
+}

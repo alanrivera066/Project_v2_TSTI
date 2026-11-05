@@ -6,7 +6,7 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 RAIZ=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(RAIZ/'src'))
 from finnorte import evaluacion, trazas
-from finnorte.config import config, _cargar_env
+from finnorte.config import config, _cargar_env, precios_llm
 from finnorte.variante import sistema, indice
 CONFIGS={
  'A':dict(version_prompt=1,usar_rag=False,controles=False),
@@ -80,14 +80,17 @@ def main():
  os.environ['FINNORTE_DIR_TRAZAS']=str(destino)
  os.environ['LLM_INTERVALO_SEG']=str(a.intervalo)
  cfg=config(); demo=cfg.llm_proveedor=='fake' or cfg.emb_proveedor=='hash'
+ pin,pout=precios_llm(cfg.llm_proveedor,cfg.llm_modelo)
  casos=evaluacion.cargar_casos(RAIZ/a.casos); contrato=evaluacion.cargar_contrato(RAIZ/a.contrato)
  firma,archivos=huella_medicion(a.casos,a.contrato)
  meta={'fecha_utc':datetime.now(timezone.utc).isoformat(),'proveedor':cfg.llm_proveedor,'modelo':cfg.llm_modelo,
   'embeddings':cfg.emb_modelo,'demo':demo,'etiqueta':'demostración sin modelo real, NO es medición' if demo else 'medición con API real',
   'firma':firma,'metodo_firma':'sha256_manifest_v1','archivos':archivos,
   'repeticiones':a.rep,'trabajadores':a.trabajadores,'intervalo_seg':a.intervalo,'versiones':{'A':[1,1,1],'BCD':[4,5,5]},
-  'dictamen':'PENDIENTE · Kevin','costo':'Estimación LLM; tokens reales, tarifa 0.30/2.50 USD por millón; excluye embeddings; no es factura',
-  'precios_fuente':'https://ai.google.dev/gemini-api/docs/pricing#gemini-3.5-flash-lite'}
+  'dictamen':'PENDIENTE · Kevin',
+  'costo':f'Estimación LLM a tarifa de pago Standard; tokens reales, tarifa {pin:.2f}/{pout:.2f} USD por millón; excluye embeddings; no es factura',
+  'tarifa_usd_millon':{'entrada':pin,'salida':pout},
+  'precios_fuente':'https://aistudio.google.com/docs/pricing#'+cfg.llm_modelo}
  if a.recuperar_de:
   try: reutilizadas=recuperar_respuestas(RAIZ/a.recuperar_de,destino,meta)
   except ValueError as e: ap.error(str(e))

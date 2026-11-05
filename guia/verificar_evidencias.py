@@ -47,6 +47,6 @@ def verificar(carpeta):
 
 if __name__ == '__main__':
     ap = argparse.ArgumentParser(description=__doc__)
-    ap.add_argument('--carpeta', default='bitacora/av1_publicado_20261105')
+    ap.add_argument('--carpeta', default='bitacora/av1_gemini31_20261105')
     args = ap.parse_args()
     raise SystemExit(verificar(RAIZ/args.carpeta))

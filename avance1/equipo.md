@@ -50,6 +50,8 @@ A usa 1/1/1; B, C y D usan 4/5/5. El esquema y reintento están presentes en las
 | 2026-11-05 | Corregir r06/r09 y validar estructuralmente el archivo limpio | Evitar texto corrupto y falsos éxitos basados solo en una frase. |
 | 2026-11-05 | Separar los resultados históricos de la nueva medición | El código publicado cambió al excluir la cuarta etapa; una firma distinta requiere evidencia nueva. |
 | 2026-11-05 | Dejar los registros personales de IA como PENDIENTE | Instrucción expresa del usuario; no se inventan usos ni revisiones personales. |
+| 2026-11-05 | Iniciar otra comparación completa con Gemini 3.1 Flash-Lite | Autorización del usuario tras los errores 503 de Gemini 3.5. Sus 62 respuestas se conservan por separado; se actualizan modelo y tarifa, sin cambiar prompts ni metas. |
+| 2026-11-05 | Usar Lolmastercraft para los próximos cambios y publicaciones | Instrucción expresa del usuario. La cuenta que publica no acredita ejecución personal de las tres etapas. |
 
 ## Acuerdos de publicación
 

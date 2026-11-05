@@ -1,9 +1,9 @@
 equipo: "Equipo 2: Luis, Alan y Cesar; PENDIENTE · Kevin"
 variante: "v2-revisor"
 proveedor: "gemini"
-modelo: "gemini-3.5-flash-lite"
+modelo: "gemini-3.1-flash-lite"
 embeddings: "gemini-embedding-001"
-fecha: "2026-11-01"
+fecha: "2026-11-05"
 alcance: "Tres etapas. Dictamen PENDIENTE · Kevin"
 metas:
   exactitud_min: 0.80  # Evitar revisiones que no localicen problemas esperados.
