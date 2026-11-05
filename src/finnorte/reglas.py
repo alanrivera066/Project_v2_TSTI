@@ -95,6 +95,24 @@ def validar_detectar(salida, previas, *, codigo):
     return errores
 
 
+def validar_explicar(salida, previas):
+    originales = previas["detectar"]["hallazgos"]
+    recibidas = salida["hallazgos"]
+    if sorted(map(_identidad, originales)) != sorted(map(_identidad, recibidas)):
+        return ["La explicación debe conservar todos los ids, reglas y líneas, sin agregar ni quitar hallazgos"]
+    originales_por_id = {h["id"]: h for h in originales}
+    errores = [f"La explicación cambió la descripción original de {h['id']}"
+               for h in recibidas if h["descripcion"] != originales_por_id[h["id"]]["descripcion"]]
+    for h in recibidas:
+        if h["regla"] not in h["explicacion"]:
+            errores.append(f"La explicación de {h['id']} debe identificar su regla SEC")
+        if not re.search(rf"\b(?:l[ií]nea\s*:?\s*|L\s*){h['linea']}\b", h["explicacion"], re.I):
+            errores.append(f"La explicación de {h['id']} no identifica la línea {h['linea']}; el texto debe ser trazable por sí solo")
+        if re.search(r"\bsk_live_[A-Za-z0-9_-]{4,}", h["explicacion"]):
+            errores.append(f"La explicación de {h['id']} reproduce una credencial sk_live completa; usa una referencia enmascarada")
+        if re.search(r"(?<!\d)\d{18}(?!\d)", h["explicacion"]):
+            errores.append(f"La explicación de {h['id']} reproduce 18 dígitos completos; no muestres la CLABE completa")
+    return errores
 
 
 
