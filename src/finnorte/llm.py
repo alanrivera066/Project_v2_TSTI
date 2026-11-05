@@ -21,7 +21,7 @@ from typing import Any, Callable
 import requests
 
 from . import trazas
-from .config import PRECIOS, Config, config
+from .config import precios_llm, Config, config
 
 ERRORES_REINTENTABLES = {408, 429, 500, 502, 503, 504}
 _PAUSA_LOCK = threading.Lock()
@@ -46,7 +46,7 @@ class Respuesta:
 
     @property
     def costo_usd(self) -> float:
-        pin, pout = PRECIOS.get(self.proveedor, (0.0, 0.0))
+        pin, pout = precios_llm(self.proveedor, self.modelo)
         return (self.tokens_entrada * pin + self.tokens_salida * pout) / 1_000_000
 
 

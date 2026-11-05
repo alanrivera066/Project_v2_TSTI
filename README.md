@@ -57,6 +57,7 @@ Los 20 casos tienen 12 normales, 4 fuera de dominio y 4 límite/adversariales. r
 |---|---|
 | `bitacora/av1_cierre/` | Medición histórica completa del 2 de noviembre: 240 respuestas originales y trazas, con sus bytes conservados. Respalda antecedentes citados en A2; su firma no corresponde al código corregido. |
 | `bitacora/av1_publicado_20261105/` | Medición nueva del código corregido. Consultar su resumen o el estado **PENDIENTE DE MEDIR** si hubo interrupción. No mezclar firmas distintas. |
+| `bitacora/av1_gemini31_20261105/` | Comparación independiente iniciada el 5 de noviembre con Gemini 3.1 Flash-Lite. No reutiliza respuestas de Gemini 3.5. El resumen y el verificador indican si terminó. |
 | `bitacora/correccion_av1_pytest_antes.txt` | Pruebas de la copia antes de corregirla. |
 | `bitacora/correccion_av1_pytest_despues.txt` | Pruebas ejecutadas después de corregirla; sin modelo real. |
 
@@ -72,10 +73,10 @@ Termina con código 2 si falta medir; no certifica una comparación parcial como
 python guia/av1_configuraciones.py --casos evals/v2-revisor.jsonl --rep 3 --salida bitacora/av1_medicion_nueva
 ```
 
-Para continuar la medición corregida sin repetir respuestas válidas:
+Para continuar la comparación de Gemini 3.1, configura `LLM_MODEL=gemini-3.1-flash-lite`, `EMB_PROVIDER=gemini` y `EMB_MODEL=gemini-embedding-001` en el entorno o en tu `.env` local:
 
 ```text
-python guia/av1_configuraciones.py --casos evals/v2-revisor.jsonl --rep 3 --salida bitacora/av1_publicado_20261105 --continuar
+python guia/av1_configuraciones.py --casos evals/v2-revisor.jsonl --rep 3 --salida bitacora/av1_gemini31_20261105 --continuar
 ```
 
 Mantener el mismo proveedor, modelo, embeddings, contrato y archivos. `--env RUTA_AL_ENV` permite leer una configuración sin copiar la llave al repositorio. Los fallos del proveedor se registran aparte y detienen la corrida. Las metas se conservan aunque alguna no se alcance.
@@ -84,10 +85,18 @@ Mantener el mismo proveedor, modelo, embeddings, contrato y archivos. `--env RUT
 
 Los borradores individuales están en `Actividad 2/Luis/`, `Actividad 2/Cesar/` y `Actividad 2/Alan/`. Sus comparaciones son históricas y sus fuentes de las tres etapas ahora están publicadas. Cada persona debe revisarlos y registrar su participación real. El documento técnico integrado sigue pendiente de la cuarta etapa.
 
-## Estado de la medición corregida · 5 de noviembre
+## Antecedente de Gemini 3.5 · 5 de noviembre
 
 A terminó 60/60 ejecuciones y B conserva 2/60; C y D siguen pendientes. Hay 62/240 respuestas reales guardadas. Gemini respondió repetidamente HTTP 503 UNAVAILABLE y tiempos de espera; después de varios reintentos sin progreso se detuvo la corrida. No se sustituyeron respuestas por salidas fake ni se reutilizaron las 240 históricas de otra firma.
 
-Los 67 archivos de la firma coinciden byte por byte con la versión publicada. `bitacora/av1_verificacion_publicado_20261105.json` registra esa comprobación y el comando de continuación. La comparación nueva está **PENDIENTE DE MEDIR**: todavía no existe una tabla completa B/C/D ni intervalos nuevos. Los errores originales están guardados junto a los resultados parciales.
+Esas 62 respuestas corresponden al código del commit `87427960918c2c87fdcc277a70757da13eb157cb`, con firma `1fd3da80456dbb8ade55a0cba3093ba0ac8af2478bbd9e74e48efdd1e69f0230`. Se conservan intactas como comparación parcial anterior. Su manifiesto permite comprobar los 67 archivos en ese commit. No deben verificarse contra el código posterior ni mezclarse con Gemini 3.1.
 
 La etiqueta `avance1` identifica esta entrega de tres etapas con la medición nueva expresamente parcial. No acredita las ejecuciones B/C/D pendientes ni la cuarta etapa o el documento final de Kevin. La evidencia histórica y los usos personales pendientes conservan sus etiquetas de procedencia.
+
+## Nueva comparación con Gemini 3.1
+
+El usuario autorizó iniciar A/B/C/D desde cero con otro modelo porque Gemini 3.5 devolvió 503. Gemini 3.1 Flash-Lite respondió a una prueba real de disponibilidad; el buscador también respondió usando `gemini-embedding-001`. Ambas comprobaciones se guardan aparte de las 240 ejecuciones de evaluación.
+
+Se mantienen los prompts, casos, metas, embeddings y flujo de tres etapas. Solo cambian el modelo declarado y la estimación del costo por modelo: 0.25 USD de entrada y 1.50 USD de salida por millón de tokens de texto, a tarifa Standard de pago verificada el 5 de noviembre. Fuente: [precios de Google](https://aistudio.google.com/docs/pricing#gemini-3.1-flash-lite). Es una estimación con tokens reales; excluye embeddings y no representa una factura ni confirma cargos en una cuenta gratuita.
+
+El verificador usa por defecto `bitacora/av1_gemini31_20261105/`. La nueva firma distingue este código y contrato de las comparaciones anteriores. Las metas no se ajustan para hacer pasar resultados; la calidad se informa aunque no alcance el contrato. Los cambios se preparan y publican con la cuenta autorizada `Lolmastercraft`; eso no acredita ejecución independiente de cada integrante.
