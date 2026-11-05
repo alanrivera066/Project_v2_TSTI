@@ -1,0 +1,13 @@
+{
+  "fecha_registro_utc": "2026-11-05T13:41:11.797338+00:00",
+  "motivo": "El proyecto anterior agotó la cuota diaria de Gemini 3.1; el usuario proporcionó otra credencial privada.",
+  "respuestas_conservadas_al_reanudar": 163,
+  "pendientes_al_reanudar": 77,
+  "modelo": "gemini-3.1-flash-lite",
+  "embeddings": "gemini-embedding-001",
+  "proveedor": "gemini",
+  "configuraciones_y_fuentes": "Sin cambios; misma firma",
+  "archivo_privado_ejecutado": false,
+  "llave_copiada_al_repositorio": false,
+  "observacion": "Se cambió la credencial de acceso durante la corrida; conservar este antecedente al interpretar latencias y disponibilidad."
+}

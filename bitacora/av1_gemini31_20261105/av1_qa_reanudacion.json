@@ -1,0 +1,10 @@
+{
+  "fecha_utc": "2026-11-05T14:08:03.134691+00:00",
+  "resultado": "aprobada",
+  "comando": "python guia/av1_reanudar_gemini31.py --env RUTA_AL_ENV",
+  "respuestas_conservadas": 240,
+  "llamadas_llm_nuevas": 0,
+  "respuestas_alteradas": false,
+  "huella_respuestas": "57dec56b857b5e045b5f7de7b09fce43d86fbb8244c721dadb389bfb960629cf",
+  "uso": "Prueba de reanudación de una comparación completa; no es otra medición de calidad."
+}

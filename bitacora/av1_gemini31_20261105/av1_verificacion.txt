@@ -1,0 +1,8 @@
+{
+  "firma": "fe84d9381c304eb77e68b7a75843c4b98339c0bdac7cdc908444ecf33306c15f",
+  "archivos_verificados": 67,
+  "respuestas_reales_guardadas": 240,
+  "esperadas": 240,
+  "configuraciones_pendientes": []
+}
+Las 240 respuestas tienen la firma del código, entradas y contrato publicados.

@@ -1,0 +1,20 @@
+{
+  "fecha_utc": "2026-11-05T12:36:34.173229+00:00",
+  "proveedor": "gemini",
+  "embeddings": "gemini-embedding-001",
+  "uso": "Prueba de disponibilidad del buscador; fuera de A/B/C/D",
+  "resultados": [
+    {
+      "id": "sec-01#0",
+      "puntaje": 0.7949029207229614
+    },
+    {
+      "id": "sec-03#0",
+      "puntaje": 0.6712018847465515
+    },
+    {
+      "id": "sec-06#0",
+      "puntaje": 0.659211277961731
+    }
+  ]
+}

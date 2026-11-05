@@ -1,0 +1,11 @@
+{
+  "fecha_utc": "2026-11-05T14:10:34.492467+00:00",
+  "respuestas": 240,
+  "firma": "fe84d9381c304eb77e68b7a75843c4b98339c0bdac7cdc908444ecf33306c15f",
+  "llamadas_llm_con_tokens": 686,
+  "tarifas_de_trazas_verificadas": true,
+  "modelos_mezclados": false,
+  "respuestas_antiguas_reutilizadas": 0,
+  "costo_estimado_todas_las_trazas_llm_usd": 0.331492,
+  "alcance_costo_trazas": "Incluye etapas interrumpidas con tokens registrados; excluye embeddings y solicitudes sin reporte de tokens. No es factura."
+}

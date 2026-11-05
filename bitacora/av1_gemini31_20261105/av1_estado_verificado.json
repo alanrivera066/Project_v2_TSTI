@@ -1,0 +1,64 @@
+{
+  "estado": "PENDIENTE DE MEDIR",
+  "modelo": "gemini-3.1-flash-lite",
+  "firma": "fe84d9381c304eb77e68b7a75843c4b98339c0bdac7cdc908444ecf33306c15f",
+  "respuestas_reales": 163,
+  "configuraciones": {
+    "A": 60,
+    "B": 60,
+    "C": 43,
+    "D": 0
+  },
+  "faltantes": 77,
+  "limite_diario_observado": 500,
+  "reinicio_aproximado_utc": "2026-11-06T07:59:58.901686+00:00",
+  "reinicio_aproximado_cdmx": "2026-11-06T01:59:58.901686-06:00",
+  "llamadas_llm_con_tokens_registradas": 491,
+  "tarifa_de_trazas_verificada": true,
+  "metricas_completas": {
+    "A": {
+      "casos": 20,
+      "ejecuciones": 60,
+      "exactitud": 0.6,
+      "citas_correctas": 0.35,
+      "alucinacion": 0.0,
+      "fuga_pii": 0.05,
+      "abstencion_correcta": 0.8,
+      "consistencia": 0.9,
+      "latencia_p95_ms": 73083.6,
+      "costo_promedio_usd": 0.00104,
+      "errores_sistema": 0,
+      "exactitud_por_tipo": {
+        "normal": 0.8333,
+        "limite": 0.0,
+        "fuera": 0.0,
+        "adversarial": 1.0
+      },
+      "consistencia_acierto_legacy": 1.0
+    },
+    "B": {
+      "casos": 20,
+      "ejecuciones": 60,
+      "exactitud": 0.7,
+      "citas_correctas": 0.5667,
+      "alucinacion": 0.2667,
+      "fuga_pii": 0.05,
+      "abstencion_correcta": 0.8,
+      "consistencia": 0.9,
+      "latencia_p95_ms": 47378.0,
+      "costo_promedio_usd": 0.00117,
+      "errores_sistema": 0,
+      "exactitud_por_tipo": {
+        "normal": 0.9167,
+        "limite": 0.5,
+        "fuera": 0.0,
+        "adversarial": 1.0
+      },
+      "consistencia_acierto_legacy": 1.0
+    }
+  },
+  "C": "43 de 60; no se calcula una métrica final con casos incompletos",
+  "D": "PENDIENTE DE MEDIR; no hay ejecuciones",
+  "dictamen": "PENDIENTE · Kevin",
+  "respuestas_gemini35_reutilizadas": 0
+}

@@ -91,7 +91,7 @@ A terminó 60/60 ejecuciones y B conserva 2/60; C y D siguen pendientes. Hay 62/
 
 Esas 62 respuestas corresponden al código del commit `87427960918c2c87fdcc277a70757da13eb157cb`, con firma `1fd3da80456dbb8ade55a0cba3093ba0ac8af2478bbd9e74e48efdd1e69f0230`. Se conservan intactas como comparación parcial anterior. Su manifiesto permite comprobar los 67 archivos en ese commit. No deben verificarse contra el código posterior ni mezclarse con Gemini 3.1.
 
-La etiqueta `avance1` identifica esta entrega de tres etapas con la medición nueva expresamente parcial. No acredita las ejecuciones B/C/D pendientes ni la cuarta etapa o el documento final de Kevin. La evidencia histórica y los usos personales pendientes conservan sus etiquetas de procedencia.
+Antes de esta actualización, la etiqueta `avance1` identificaba la entrega de tres etapas con esa medición parcial. La nueva comparación completa está en el pull request de esta rama; la etiqueta se actualizará al estado final después de la revisión y fusión en `main`. Kevin y los usos personales conservan sus pendientes.
 
 ## Nueva comparación con Gemini 3.1
 
@@ -99,4 +99,34 @@ El usuario autorizó iniciar A/B/C/D desde cero con otro modelo porque Gemini 3.
 
 Se mantienen los prompts, casos, metas, embeddings y flujo de tres etapas. Solo cambian el modelo declarado y la estimación del costo por modelo: 0.25 USD de entrada y 1.50 USD de salida por millón de tokens de texto, a tarifa Standard de pago verificada el 5 de noviembre. Fuente: [precios de Google](https://aistudio.google.com/docs/pricing#gemini-3.1-flash-lite). Es una estimación con tokens reales; excluye embeddings y no representa una factura ni confirma cargos en una cuenta gratuita.
 
-El verificador usa por defecto `bitacora/av1_gemini31_20261105/`. La nueva firma distingue este código y contrato de las comparaciones anteriores. Las metas no se ajustan para hacer pasar resultados; la calidad se informa aunque no alcance el contrato. Los cambios se preparan y publican con la cuenta autorizada `Lolmastercraft`; eso no acredita ejecución independiente de cada integrante.
+El verificador usa por defecto `bitacora/av1_gemini31_20261105/`. La nueva firma distingue este código y contrato de las comparaciones anteriores. Las metas no se ajustan para hacer pasar resultados; la calidad se informa aunque no alcance el contrato.
+
+### Interrupción anterior: 163/240
+
+La corrida se interrumpió en A=60, B=60, C=43 y D=0. Gemini 3.1 devolvió HTTP 429 al alcanzar 500 llamadas diarias por proyecto/modelo. La respuesta completa está en `bitacora/av1_gemini31_20261105/av1_cuota_agotada.json`. El usuario proporcionó otra credencial autorizada y se continuaron las 77 ejecuciones restantes sin cambiar de modelo, embeddings, prompts, casos ni metas. El cambio de acceso se registra en `av1_cambio_credencial.json`; las dos llaves quedaron fuera de Git.
+
+Los archivos `av1_comparacion_parcial.md`, `av1_estado_verificado.json` y `av1_interrupcion*.json` conservan ese corte y sus errores como antecedentes. El estado final se consulta en `av1_estado_medicion.json`, `av1_resumen.json` y el verificador.
+
+### Resultado final: 240/240
+
+Las cuatro configuraciones completaron 20 casos con tres repeticiones. La firma de los 67 archivos coincide con el código publicado en esta rama. Fuente y tabla completa: `bitacora/av1_gemini31_20261105/av1_comparacion.md`; respuestas y métricas: `av1_A.json` a `av1_D.json` y `av1_resumen.json`.
+
+| Configuración | Ejecuciones | Exactitud | Consistencia |
+|---|---:|---:|---:|
+| A | 60 | 0.60 | 0.90 |
+| B | 60 | 0.70 | 0.90 |
+| C | 60 | 0.75 | 0.95 |
+| D | 60 | 0.95 | 0.95 |
+
+D obtuvo fuga PII=0.00, citas correctas=0.95 y abstención correcta=0.95 en estos casos. Cumplió siete de las ocho metas; falló latencia p95: 66,173.0 ms frente a 12,000 ms. El contrato completo no se declara aprobado. La estimación de costo por ejecución completada fue 0.001570 USD para D; excluye embeddings, ejecuciones interrumpidas y solicitudes sin reporte de tokens, y no es una factura. El costo de todas las llamadas con tokens registrados figura aparte en `av1_integridad.json`.
+
+Los intervalos pareados por caso están en `av1_resumen.json` y en la tabla completa. La prueba de reanudación conservó las 240 respuestas sin llamadas nuevas al modelo: `av1_qa_reanudacion.json`. La evidencia de pruebas locales y CI corresponde a 56 pruebas aprobadas, sin medir calidad de IA. La cuarta etapa y el documento final de Kevin siguen pendientes.
+
+Con cuota disponible en el proyecto actual o en otro proyecto autorizado, desde la raíz del repositorio:
+
+```text
+python guia/av1_reanudar_gemini31.py --env "RUTA_AL_ENV"
+python guia/verificar_evidencias.py
+```
+
+El primer comando funciona en Windows, Mac y Linux. Fuerza el mismo modelo y embeddings, lee la llave del archivo elegido y conserva las respuestas existentes. No guarda la llave. El segundo certifica las 240 ejecuciones; si faltan datos termina con código 2. Cambiar solo la llave dentro del mismo proyecto no aumenta su cuota.
