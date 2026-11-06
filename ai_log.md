@@ -28,7 +28,7 @@ Los resultados pueden consultarse en bitacora/lab2_cuatro_etapas_20261105/a2_mat
 PENDIENTE: herramienta / para qué / qué acepté / qué cambié / cómo lo validé. Lo completa la persona con su uso real.
 
 ## César
-PENDIENTE: herramienta / para qué / qué acepté / qué cambié / cómo lo validé. Lo completa la persona con su uso real.
+ChatGPT y Codex / Para comprender mi etapa de parches y analizar el prompt, el validador y las evidencias / Acepté las explicaciones y el apoyo para preparar mi documento / Solicité ajustes en la redacción y agregué mi commit y uso de IA / Con apoyo de Codex se revisaron las versiones del prompt y los resultados guardados, y se comprobaron casos de archivo limpio y sintaxis incorrecta.
 
 ## Kevin
 Ver «Etapa dictamen · 2026-11-05» al final de este archivo.
