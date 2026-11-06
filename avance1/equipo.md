@@ -15,7 +15,7 @@ La asignación indica quién debe revisar y defender cada parte. La preparación
 | César | MajesDo63 | parche · rev_parche | Hallazgos explicados y código original | Parches y codigo_corregido | Correspondencia por hallazgo, compilación sin ejecutar y archivo limpio idéntico |
 | Kevin | KevinAdmp | dictamen · rev_dictamen | Hallazgos explicados y parches propuestos | Estado, total, hallazgos con su cambio y resumen; reporte final armado por código | No omite, inventa ni cambia datos recibidos; resumen sin texto ajeno; coherencia de estado y total |
 
-El motor tiene cuatro etapas: detectar → explicar → parche → dictamen. La integración del documento final sigue pendiente.
+El motor tiene cuatro etapas: detectar → explicar → parche → dictamen.
 
 ## Versiones y reparto del Avance 1
 
