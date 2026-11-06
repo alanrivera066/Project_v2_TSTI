@@ -52,4 +52,4 @@ En los seis casos pedidos (dos limpios, tres con un problema y uno con dos), v2 
 
 Pull request: https://github.com/alanrivera066/Project_v2_TSTI/pull/3
 
-Usé Claude Code con Claude Opus 5.5 para redactar prompts, código, pruebas y este borrador. El registro está en `ai_log.md`.
+Usé Claude Code con Claude Opus 5.5 para el apoyo en redacción de prompts, código y pruebas. El registro está en `ai_log.md`.
