@@ -2,50 +2,47 @@
 
 Revisa código Python mediante detectar → explicar → parche → dictamen. El resultado es un reporte con los hallazgos, «sin hallazgos» o un aviso de revisión fallida. El documento técnico final está en `entregables/`.
 
-## Estado del cierre de cuatro etapas
+## Cierre con cuatro etapas
 
-La etapa dictamen y el documento de Kevin están integrados en esta rama. Sus prompts, código, pruebas y textos personales se conservaron. El documento actualizado mantiene sus conclusiones e identifica sus cifras como históricas de tres etapas.
+La nueva comparación A/B/C/D completó **240/240 ejecuciones del motor de cuatro etapas**, con Gemini 3.1 Flash-Lite. Los prompts de Kevin y sus escritos se conservaron. A usa 1/1/1/1 y B/C/D, 4/5/5/2. El contrato mantiene sus metas.
 
-**Medición nueva: 180/240 ejecuciones reales; faltan solo las 60 de D.** A=60, B=60, C=60, D=0. Las tres configuraciones autorizadas agotaron la cuota diaria de Gemini 3.1 Flash-Lite. El proveedor indicó reinicio el 6 de noviembre a las 02:00 de Ciudad de México. El usuario eligió dejar lista la continuación. No hay comparación final ni intervalos nuevos de las cuatro configuraciones.
+| Configuración | Exactitud | Citas | Alucinación | Fuga PII | Abstención correcta | Consistencia | p95 ms | Costo medio USD | Metas cumplidas |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---|
+| A | 0.6500 | 0.3500 | 0.0000 | 0.0000 | 0.8000 | 0.9500 | 49354.2 | 0.001696 | 4/8 |
+| B | 0.7000 | 0.5667 | 0.2833 | 0.0000 | 0.8000 | 0.9000 | 38478.4 | 0.001861 | 3/8 |
+| C | 0.8000 | 0.9500 | 0.0000 | 0.0000 | 0.8000 | 1.0000 | 39528.1 | 0.002506 | 6/8 |
+| D | 0.9500 | 0.9500 | 0.0000 | 0.0000 | 0.9500 | 0.9500 | 59517.3 | 0.002321 | 7/8 |
 
-Evidencia: `bitacora/av1_cuatro_etapas_20261105/av1_estado_medicion.json`, `av1_A.json`, `av1_B.json`, `av1_C.json`, trazas e interrupciones. El código medido se fijó en `00880ac`; la firma abarca 71 archivos. Con `--cuatro-etapas`, A usa 1/1/1/1 y B/C/D usan 4/5/5/2. Sin esa opción se conserva el modo de tres etapas.
+Evidencia actual: `bitacora/av1_cuatro_etapas_20261105/`. Los fallos se conservan; completar la corrida no significa cumplir todas las metas. La consistencia incluye estado, total y reglas/líneas del dictamen, además de los campos anteriores; no exige igualdad literal del texto.
 
-Resultados parciales nuevos: A=0.65, B=0.70 y C=0.80 de exactitud; metas cumplidas A=4/8, B=3/8 y C=6/8. **D: PENDIENTE DE MEDIR.** Tabla y alcance: `bitacora/av1_cuatro_etapas_20261105/av1_comparacion_parcial_180.md`. Las 59 respuestas iniciales y las 180 previas al último intento se verificaron sin cambios.
-
-Para continuar, configura en el entorno o en tu `.env` privado:
-
-```dotenv
-LLM_PROVIDER=gemini
-LLM_MODEL=gemini-3.1-flash-lite
-EMB_PROVIDER=gemini
-EMB_MODEL=gemini-embedding-001
-```
-
-Agrega la llave únicamente al `.env` local, excluido de Git. Desde la raíz del repositorio, en Windows o Mac/Linux:
+Para comprobar la comparación actual:
 
 ```text
-python guia/av1_configuraciones.py --casos evals/v2-revisor.jsonl --rep 3 --cuatro-etapas --salida bitacora/av1_cuatro_etapas_20261105 --continuar
 python guia/verificar_evidencias.py
 ```
 
-`--env RUTA_AL_ENV` permite leer otro archivo privado. Las variables ya definidas en el entorno tienen prioridad sobre ese archivo. Mantén modelo, embeddings, código, casos, metas y un trabajador. El verificador devuelve código 2 mientras falten respuestas; el medidor no repite las guardadas. Cuando termine, actualizar la tabla del documento y cerrar la integración antes de mover `avance1`.
+Para ejecutar otra comparación real, configura la llave en tu `.env` local y usa una carpeta nueva:
 
-**Laboratorio 2 terminado:** `bitacora/lab2_cuatro_etapas_20261105/` contiene las matrices, trazas y resultados. Se usaron transferencias.py, tokens.py y limites.py, y se repitió transferencias.py tres veces adicionales. Versión mejorada: 6/6 flujos completos; inicial: 4/6. Se conservaron los dos fallos reales. En ambas coincidieron reglas y líneas de las tres repeticiones; no se afirma exactitud exhaustiva.
+```text
+python guia/av1_configuraciones.py --casos evals/v2-revisor.jsonl --rep 3 --cuatro-etapas --salida bitacora/av1_cuatro_nueva
+```
+
+Si se interrumpe, repite el mismo comando con `--continuar`, sin cambiar código, modelo, prompts, casos ni contrato. No se recuperan respuestas de tres etapas.
+
+Laboratorio 2 completo: `bitacora/lab2_cuatro_etapas_20261105/a2_matriz.md`, `a2_matriz_v1.md`, trazabilidad y resumen. Se usaron las tres entradas oficiales y tres repeticiones adicionales de transferencias.py. Versión mejorada: 6/6 flujos completos; inicial: 4/6, con fallos reales guardados. Ambas repeticiones conservaron reglas y líneas; eso no acredita exactitud exhaustiva.
 
 ```text
 python guia/a2_flujo_variante.py --salida bitacora/lab2_cuatro_nuevo
 python guia/a2_flujo_variante.py --v1 --salida bitacora/lab2_cuatro_nuevo
 ```
 
-La etiqueta `avance1-medicion-3-etapas` conserva `5939a14` y las 240 respuestas históricas. `avance1` aún apunta a ese estado; queda pendiente moverla al cierre final. La evidencia antigua se puede comprobar desde esta rama sin modificar sus firmas:
+La etiqueta `avance1-medicion-3-etapas` conserva `5939a14` y sus 240 respuestas históricas. `avance1` se reserva para la entrega integrada al cerrar el PR #7. Para verificar el antecedente sin cambiar tu rama:
 
 ```text
 python guia/verificar_evidencias.py --carpeta bitacora/av1_gemini31_20261105 --revision avance1-medicion-3-etapas
 ```
 
-Pruebas: 92 iniciales; 98 después de los cambios. GitHub Actions también aprobó las 98. `main` está protegida; Lolmastercraft tiene escritura, sin administración. Los cuatro integrantes aparecen como colaboradores; el profesor será agregado después por el equipo. El PR #7 sigue en borrador por la medición pendiente.
-
-Las secciones históricas siguientes conservan la documentación anterior. Sus comandos de medición de tres etapas corresponden a `avance1-medicion-3-etapas`; para el estado actual usa los comandos de esta sección. Los registros personales siguen a cargo de sus autores.
+El documento técnico conserva literalmente las conclusiones de Kevin sobre la medición anterior y las identifica como tales. Las secciones 8 a 10 presentan la comparación nueva. Los registros personales de Luis, Alan y César siguen a cargo de sus autores. El profesor se agregará después por el equipo.
 
 ## Responsabilidades
 
@@ -121,27 +118,17 @@ Los 20 casos tienen 12 normales, 4 fuera de dominio y 4 límite/adversariales. r
 |---|---|
 | `bitacora/av1_cierre/` | Medición histórica completa del 2 de noviembre: 240 respuestas originales y trazas, con sus bytes conservados. Respalda antecedentes citados en A2; su firma no corresponde al código corregido. |
 | `bitacora/av1_publicado_20261105/` | Intento anterior con Gemini 3.5: 62/240 respuestas del commit 8742796, conservadas como antecedente de otra firma. |
-| `bitacora/av1_gemini31_20261105/` | Medición actual completa: 240/240 ejecuciones con Gemini 3.1 Flash-Lite, 60 por configuración. Firma verificada de 67 archivos. |
+| `bitacora/av1_gemini31_20261105/` | Medición histórica completa de tres etapas: 240/240 ejecuciones con Gemini 3.1 Flash-Lite, 60 por configuración. Firma de 67 archivos verificada en 5939a14. |
 | `bitacora/correccion_av1_pytest_antes.txt` | Pruebas de la copia antes de corregirla. |
 | `bitacora/correccion_av1_pytest_despues.txt` | Pruebas ejecutadas después de corregirla; sin modelo real. |
 
-La firma incluye código del sistema, prompts y esquemas, corpus, archivos de entrada, casos, contrato y medidor. Para comprobarla contra las respuestas guardadas:
+La firma histórica incluye código del sistema, prompts y esquemas, corpus, archivos de entrada, casos, contrato y medidor. Para comprobar esas respuestas desde la rama actual:
 
 ```text
-python guia/verificar_evidencias.py
+python guia/verificar_evidencias.py --carpeta bitacora/av1_gemini31_20261105 --revision avance1-medicion-3-etapas
 ```
 
-Termina con código 2 si falta medir; no certifica una comparación parcial como completa. La firma corresponde al código de tres etapas: agregar el dictamen la cambia, así que el verificador debe ejecutarse sobre la etiqueta `avance1` (`git checkout avance1`), donde sus 240 respuestas verifican. En la rama actual reporta firma distinta, y es lo esperado. Para una medición nueva con la llave real ya configurada:
-
-```text
-python guia/av1_configuraciones.py --casos evals/v2-revisor.jsonl --rep 3 --salida bitacora/av1_medicion_nueva
-```
-
-Para continuar la comparación de Gemini 3.1, configura `LLM_MODEL=gemini-3.1-flash-lite`, `EMB_PROVIDER=gemini` y `EMB_MODEL=gemini-embedding-001` en el entorno o en tu `.env` local:
-
-```text
-python guia/av1_configuraciones.py --casos evals/v2-revisor.jsonl --rep 3 --salida bitacora/av1_gemini31_20261105 --continuar
-```
+Ese comando consulta la firma de la etiqueta histórica sin cambiar tu rama ni llamar al modelo. El verificador devuelve código 2 si la evidencia está incompleta. La medición nueva de cuatro etapas se verifica contra el código actual con el comando del inicio; usa también las instrucciones del inicio para una nueva corrida.
 
 Mantener el mismo proveedor, modelo, embeddings, contrato y archivos. `--env RUTA_AL_ENV` permite leer una configuración sin copiar la llave al repositorio. Los fallos del proveedor se registran aparte y detienen la corrida. Las metas se conservan aunque alguna no se alcance.
 
@@ -163,7 +150,7 @@ El usuario autorizó iniciar A/B/C/D desde cero con otro modelo porque Gemini 3.
 
 Esa comparación mantuvo los prompts, casos, metas, embeddings y flujo de tres etapas. Solo cambian el modelo declarado y la estimación del costo por modelo: 0.25 USD de entrada y 1.50 USD de salida por millón de tokens de texto, a tarifa Standard de pago verificada el 5 de noviembre. Fuente: [precios de Google](https://aistudio.google.com/docs/pricing#gemini-3.1-flash-lite). Es una estimación con tokens reales; excluye embeddings y no representa una factura ni confirma cargos en una cuenta gratuita.
 
-El verificador usa por defecto `bitacora/av1_gemini31_20261105/`. La nueva firma distingue este código y contrato de las comparaciones anteriores. Las metas no se ajustan para hacer pasar resultados; la calidad se informa aunque no alcance el contrato.
+En la versión histórica de tres etapas, el verificador usaba por defecto `bitacora/av1_gemini31_20261105/`. En esta rama usa la comparación nueva de cuatro etapas; para la anterior indica carpeta y revisión como se explica al inicio. Las metas no se ajustan para hacer pasar resultados; la calidad se informa aunque no alcance el contrato.
 
 ### Interrupción anterior: 163/240
 
@@ -173,7 +160,7 @@ Los archivos `av1_comparacion_parcial.md`, `av1_estado_verificado.json` y `av1_i
 
 ### Resultado final: 240/240
 
-Las cuatro configuraciones completaron 20 casos con tres repeticiones. La firma de los 67 archivos coincide con el código publicado en esta rama. Fuente y tabla completa: `bitacora/av1_gemini31_20261105/av1_comparacion.md`; respuestas y métricas: `av1_A.json` a `av1_D.json` y `av1_resumen.json`.
+Las cuatro configuraciones completaron 20 casos con tres repeticiones. La firma de los 67 archivos coincide con el código de la etiqueta `avance1-medicion-3-etapas` (5939a14). Fuente y tabla completa: `bitacora/av1_gemini31_20261105/av1_comparacion.md`; respuestas y métricas: `av1_A.json` a `av1_D.json` y `av1_resumen.json`.
 
 | Configuración | Ejecuciones | Exactitud | Consistencia |
 |---|---:|---:|---:|
@@ -186,7 +173,7 @@ D obtuvo fuga PII=0.00, citas correctas=0.95 y abstención correcta=0.95 en esto
 
 Los intervalos pareados por caso están en `av1_resumen.json` y en la tabla completa. La prueba de reanudación conservó las 240 respuestas sin llamadas nuevas al modelo: `av1_qa_reanudacion.json`. La evidencia de pruebas locales y CI corresponde a 56 pruebas aprobadas, sin medir calidad de IA. La etapa dictamen se midió aparte y no forma parte de estas 240 ejecuciones.
 
-Con cuota disponible en el proyecto actual o en otro proyecto autorizado, desde la raíz del repositorio:
+Los dos comandos siguientes pertenecen al antecedente de tres etapas y se ejecutan solo sobre avance1-medicion-3-etapas:
 
 ```text
 python guia/av1_reanudar_gemini31.py --env "RUTA_AL_ENV"

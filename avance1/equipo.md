@@ -66,3 +66,7 @@ Se integra documento-final-kevin en el PR #7 conservando los textos de Kevin. Se
 ## Continuación de la medición · 2026-11-06
 
 El corte anterior de 59/240 es histórico. Ahora están guardadas 180/240: A=60, B=60, C=60 y D=0. Las tres configuraciones autorizadas agotaron la cuota diaria; el proveedor indicó reinicio a las 02:00 de Ciudad de México del 6 de noviembre. El usuario eligió dejar preparada la continuación. Se verificaron 71 archivos y la conservación de las respuestas anteriores. No se modifica el código medido. El PR #7 sigue en borrador; avance1 se moverá al cerrar la comparación y la integración. Evidencia: bitacora/av1_cuatro_etapas_20261105/av1_estado_medicion.json y av1_verificacion_parcial_180.txt.
+
+## Medición de cuatro etapas completada · 2026-11-06
+
+Los cortes de 59/240 y 180/240 registrados arriba son antecedentes. Ahora se completaron las 240 ejecuciones en bitacora/av1_cuatro_etapas_20261105/. Se integra el documento de Kevin sin reescribir sus textos. El antecedente de tres etapas conserva su firma y la etiqueta avance1-medicion-3-etapas. Los registros personales permanecen a cargo de cada autor; no se modifican los comentarios eliminados ni el historial.

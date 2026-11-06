@@ -97,3 +97,12 @@ Herramienta: ChatGPT mediante Codex; el identificador exacto del modelo del asis
 - Resultado: A, B y C terminaron con 60 ejecuciones cada una. Al comenzar D se agotó la cuota; otra configuración autorizada respondió a una prueba pequeña, pero la corrida y la comprobación posterior devolvieron 429 diario. El usuario decidió dejar lista la continuación tras el reinicio.
 - Cambios aceptados: conservar las 180 respuestas y todas las interrupciones; actualizar el estado compartido y el documento con ese corte. No se cambian textos de Kevin ni registros personales.
 - Validación: verificador con 71 archivos y 180 respuestas, código 2 por D pendiente; comparación de las 59 respuestas iniciales y de las 180 guardadas, sin modificaciones. La ejecución real sigue incompleta. Esta entrada no acredita revisión humana de los integrantes.
+
+## Medición de cuatro etapas completada · 2026-11-06
+
+Herramienta: ChatGPT mediante Codex. El identificador exacto del modelo del asistente no está verificado. El usuario pidió integrar el trabajo existente de Kevin, medir el flujo completo y actualizar evidencias, documentos y etiquetas, conservando los textos personales y las aportaciones de Kevin.
+
+- Medidor y verificación: el asistente añadió --cuatro-etapas, fijó dictamen v1 en A y v2 en B/C/D, protegió la reanudación frente a alcances distintos y permitió verificar firmas históricas contra un commit. Se conservaron todos los prompts medidos. Validación: 92 pruebas iniciales y 98 después de los cambios; la firma histórica se comprobó contra 5939a14.
+- Ejecuciones reales: el asistente ejecutó matrices del Lab 2 y las 240 respuestas A/B/C/D con Gemini 3.1 Flash-Lite, usando las configuraciones privadas autorizadas en memoria. Se conservaron fallos, intentos y datos históricos. El código calculó las métricas; no se atribuye a cada persona una ejecución independiente.
+- Documentación: el asistente actualizó resultados compartidos y referencias a partir de las nuevas bitácoras. Los textos de Kevin se conservaron y sus conclusiones anteriores se identificaron por su alcance. Se revisaron el Word y el PDF renderizado. Los registros personales de Luis, Alan y César siguen pendientes.
+- GitHub: publicación con Lolmastercraft y etiqueta histórica de tres etapas. La revisión humana del nuevo PR solo se dará por realizada si consta en GitHub; esta entrada no la acredita.

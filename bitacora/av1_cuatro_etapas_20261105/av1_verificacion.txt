@@ -1,0 +1,8 @@
+{
+  "firma": "9410eee198634c3b65ed5286b6216f8453b689c25b30f5c282e7a4b3ec7fad16",
+  "archivos_verificados": 71,
+  "respuestas_reales_guardadas": 240,
+  "esperadas": 240,
+  "configuraciones_pendientes": []
+}
+Las 240 respuestas tienen la firma del código, entradas y contrato del directorio actual.

@@ -4750,13 +4750,13 @@
   ],
   "errores_sistema": [],
   "consistencia_por_tipo": {
-    "normal": 1.0,
-    "fuera": 1.0,
     "adversarial": 1.0,
-    "limite": 1.0
+    "limite": 1.0,
+    "normal": 1.0,
+    "fuera": 1.0
   },
   "metadata": {
-    "fecha_utc": "2026-11-06T06:42:39.276358+00:00",
+    "fecha_utc": "2026-11-06T08:29:21.213692+00:00",
     "proveedor": "gemini",
     "modelo": "gemini-3.1-flash-lite",
     "embeddings": "gemini-embedding-001",

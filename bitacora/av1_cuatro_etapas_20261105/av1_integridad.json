@@ -1,0 +1,23 @@
+{
+  "fecha_utc": "2026-11-06T08:39:53.917613+00:00",
+  "respuestas": 240,
+  "etapas": 4,
+  "firma": "9410eee198634c3b65ed5286b6216f8453b689c25b30f5c282e7a4b3ec7fad16",
+  "archivos": 71,
+  "modelo": "gemini-3.1-flash-lite",
+  "embeddings": "gemini-embedding-001",
+  "reanudaciones_verificadas": {
+    "primeras_59_sin_cambios": true,
+    "primeras_180_sin_cambios": true
+  },
+  "llamadas_llm_con_tokens": 925,
+  "costo_estimado_todas_las_trazas_usd": 0.509114,
+  "costo_alcance": "Estimación de texto a tarifa Standard .25/1.50 USD por millón; incluye intentos con tokens, excluye embeddings y solicitudes sin tokens. No es factura.",
+  "prompts_kevin_sin_cambios": true,
+  "errores_sistema": {
+    "A": 0,
+    "B": 0,
+    "C": 0,
+    "D": 0
+  }
+}
