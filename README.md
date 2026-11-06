@@ -36,7 +36,7 @@ python guia/a2_flujo_variante.py --salida bitacora/lab2_cuatro_nuevo
 python guia/a2_flujo_variante.py --v1 --salida bitacora/lab2_cuatro_nuevo
 ```
 
-La etiqueta `avance1-medicion-3-etapas` conserva `5939a14` y sus 240 respuestas históricas. `avance1` se reserva para la entrega integrada al cerrar el PR #7. Para verificar el antecedente sin cambiar tu rama:
+La etiqueta `avance1-medicion-3-etapas` conserva `5939a14` y sus 240 respuestas históricas. El PR #7 ya está fusionado en main; `avance1` es la etiqueta de la entrega final de cuatro etapas. Para verificar el antecedente sin cambiar tu rama:
 
 ```text
 python guia/verificar_evidencias.py --carpeta bitacora/av1_gemini31_20261105 --revision avance1-medicion-3-etapas
