@@ -13,9 +13,9 @@ La asignación indica quién debe revisar y defender cada parte. La preparación
 | Luis | Lolmastercraft | detectar · rev_detectar | Archivo Python numerado y señales estáticas | Hallazgos: id, regla, linea y descripcion | Línea existente, regla permitida, duplicados y cobertura de registros sensibles reconocibles |
 | Alan | alanrivera066 | explicar · rev_explicar | Hallazgos de detectar y código | Los mismos hallazgos con explicación; en AV1 añade fuente | Conserva datos originales, regla y línea; esquema y reintento en pipeline.py |
 | César | MajesDo63 | parche · rev_parche | Hallazgos explicados y código original | Parches y codigo_corregido | Correspondencia por hallazgo, compilación sin ejecutar y archivo limpio idéntico |
-| Kevin | KevinAdmp | PENDIENTE · Kevin | Pendiente | Pendiente | Pendiente |
+| Kevin | KevinAdmp | dictamen · rev_dictamen | Hallazgos explicados y parches propuestos | Estado, total, hallazgos con su cambio y resumen; reporte final armado por código | No omite, inventa ni cambia datos recibidos; resumen sin texto ajeno; coherencia de estado y total |
 
-El motor publicado tiene tres etapas: detectar → explicar → parche. La cuarta etapa, su reporte, sus seis pruebas y la integración del documento final quedan pendientes y fuera de esta publicación.
+El motor tiene cuatro etapas: detectar → explicar → parche → dictamen. La integración del documento final sigue pendiente.
 
 ## Versiones y reparto del Avance 1
 
@@ -24,6 +24,7 @@ El motor publicado tiene tres etapas: detectar → explicar → parche. La cuart
 | Detección del Lab 2 | Luis | rev_detectar.v3 |
 | Explicación del Lab 2 | Alan | rev_explicar.v4 |
 | Parche del Lab 2 | César | rev_parche.v4 |
+| Dictamen y reporte final | Kevin | rev_dictamen.v2, dictamen.py y guia/a2_dictamen.py |
 | Detección con contexto, buscador y citas/abstención | Luis | rev_detectar.v4, retrieval.py y controles.py |
 | Explicación con fuente y 20 casos | Alan | rev_explicar.v5 y evals/v2-revisor.jsonl |
 | Parche con contexto y contrato | César | rev_parche.v5 y contrato_calidad.yaml |
@@ -52,6 +53,7 @@ A usa 1/1/1; B, C y D usan 4/5/5. El esquema y reintento están presentes en las
 | 2026-11-05 | Dejar los registros personales de IA como PENDIENTE | Instrucción expresa del usuario; no se inventan usos ni revisiones personales. |
 | 2026-11-05 | Iniciar otra comparación completa con Gemini 3.1 Flash-Lite | Autorización del usuario tras los errores 503 de Gemini 3.5. Sus 62 respuestas se conservan por separado; se actualizan modelo y tarifa, sin cambiar prompts ni metas. |
 | 2026-11-05 | Usar Lolmastercraft para los próximos cambios y publicaciones | Instrucción expresa del usuario. La cuenta que publica no acredita ejecución personal de las tres etapas. |
+| 2026-11-05 | Agregar dictamen como cuarta etapa, medida aparte, sin cambiar A/B/C/D | A/B/C/D midió tres etapas: el medidor apaga incluir_dictamen y sus 240 respuestas se verifican en la etiqueta avance1. Falta decidir si se vuelve a medir con cuatro etapas. |
 
 ## Acuerdos de publicación
 

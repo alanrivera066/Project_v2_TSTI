@@ -87,7 +87,7 @@ def main():
   'embeddings':cfg.emb_modelo,'demo':demo,'etiqueta':'demostración sin modelo real, NO es medición' if demo else 'medición con API real',
   'firma':firma,'metodo_firma':'sha256_manifest_v1','archivos':archivos,
   'repeticiones':a.rep,'trabajadores':a.trabajadores,'intervalo_seg':a.intervalo,'versiones':{'A':[1,1,1],'BCD':[4,5,5]},
-  'dictamen':'PENDIENTE · Kevin',
+  'dictamen':'no incluido en A/B/C/D',
   'costo':f'Estimación LLM a tarifa de pago Standard; tokens reales, tarifa {pin:.2f}/{pout:.2f} USD por millón; excluye embeddings; no es factura',
   'tarifa_usd_millon':{'entrada':pin,'salida':pout},
   'precios_fuente':'https://aistudio.google.com/docs/pricing#'+cfg.llm_modelo}
