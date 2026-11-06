@@ -62,3 +62,7 @@ Se verifica la rama remota antes de publicar y no se sobrescriben cambios ajenos
 ## Cierre de cuatro etapas · 2026-11-05
 
 Se integra documento-final-kevin en el PR #7 conservando los textos de Kevin. Se completaron las matrices reales del Lab 2: mejorada 6/6 e inicial 4/6 flujos completos. La comparación nueva quedó en 59/240 por cuota de ambas configuraciones autorizadas; faltan 181. Se conserva la firma de 71 archivos y se continúa con --cuatro-etapas --continuar. La etiqueta avance1-medicion-3-etapas conserva 5939a14; avance1 se moverá después del cierre. Los registros personales, los comentarios eliminados, el historial y agregar al profesor quedan fuera de estos cambios.
+
+## Continuación de la medición · 2026-11-06
+
+El corte anterior de 59/240 es histórico. Ahora están guardadas 180/240: A=60, B=60, C=60 y D=0. Las tres configuraciones autorizadas agotaron la cuota diaria; el proveedor indicó reinicio a las 02:00 de Ciudad de México del 6 de noviembre. El usuario eligió dejar preparada la continuación. Se verificaron 71 archivos y la conservación de las respuestas anteriores. No se modifica el código medido. El PR #7 sigue en borrador; avance1 se moverá al cerrar la comparación y la integración. Evidencia: bitacora/av1_cuatro_etapas_20261105/av1_estado_medicion.json y av1_verificacion_parcial_180.txt.

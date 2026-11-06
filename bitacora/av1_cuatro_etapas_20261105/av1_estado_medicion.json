@@ -1,39 +1,28 @@
 {
-  "fecha_utc": "2026-11-06T04:56:49.774693+00:00",
-  "estado": "PENDIENTE DE MEDIR",
-  "ejecuciones_guardadas": 59,
+  "fecha_utc": "2026-11-06T06:46:11.704843+00:00",
+  "estado": "parcial",
+  "ejecuciones_guardadas": 180,
   "esperadas": 240,
-  "faltan": 181,
+  "faltan": 60,
   "configuraciones": {
-    "A": 59,
-    "B": 0,
-    "C": 0,
+    "A": 60,
+    "B": 60,
+    "C": 60,
     "D": 0
   },
-  "modelo": "gemini-3.1-flash-lite",
-  "embeddings_configurados": "gemini-embedding-001",
-  "versiones": {
-    "A": [
-      1,
-      1,
-      1,
-      1
-    ],
-    "BCD": [
-      4,
-      5,
-      5,
-      2
-    ]
-  },
   "etapas": 4,
+  "modelo": "gemini-3.1-flash-lite",
+  "embeddings": "gemini-embedding-001",
   "firma": "9410eee198634c3b65ed5286b6216f8453b689c25b30f5c282e7a4b3ec7fad16",
   "archivos_verificados": 71,
   "codigo_base": "00880acb776c5a1fc9b00b30674ebfbb5bdda8ac",
-  "motivo": "HTTP 429; las dos credenciales autorizadas agotaron 500 llamadas diarias por proyecto/modelo.",
-  "reinicio_indicado_por_proveedor_utc": "2026-11-06T08:00:00Z",
-  "reinicio_ciudad_mexico": "2026-11-06 02:00",
-  "laboratorio2": "completo: matrices inicial y mejorada guardadas en bitacora/lab2_cuatro_etapas_20261105; se conservan los fallos reales.",
-  "comando": "python guia/av1_configuraciones.py --casos evals/v2-revisor.jsonl --rep 3 --cuatro-etapas --salida bitacora/av1_cuatro_etapas_20261105 --continuar --env RUTA_AL_ENV",
-  "condiciones": "Mantener proveedor gemini, modelo gemini-3.1-flash-lite, embeddings gemini-embedding-001, código, prompts, casos, metas y un trabajador. No mezclar las 240 respuestas históricas de tres etapas."
+  "primeras_59_conservadas": true,
+  "primeras_180_conservadas": true,
+  "verificador_codigo_salida": 2,
+  "bloqueo": "Las tres configuraciones autorizadas devolvieron HTTP 429 por límite diario de 500 llamadas. Una prueba pequeña respondió 200, pero no permitió completar una ejecución de D.",
+  "reinicio_indicado_utc": "2026-11-06T08:00:00+00:00",
+  "reinicio_indicado_ciudad_mexico": "2026-11-06 02:00",
+  "decision_usuario": "Dejar lista la continuación tras el reinicio; no continuar esperando ni publicar una medición completa.",
+  "continuar": "python guia/av1_configuraciones.py --casos evals/v2-revisor.jsonl --rep 3 --cuatro-etapas --salida bitacora/av1_cuatro_etapas_20261105 --continuar",
+  "notas": "A/B/C completas. D pendiente; no hay comparación final ni intervalos nuevos de las cuatro configuraciones. Históricos de tres etapas separados."
 }

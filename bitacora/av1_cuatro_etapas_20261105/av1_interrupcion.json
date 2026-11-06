@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "fecha_utc": "2026-11-06T04:54:43.639481+00:00",
+    "fecha_utc": "2026-11-06T06:42:39.276358+00:00",
     "proveedor": "gemini",
     "modelo": "gemini-3.1-flash-lite",
     "embeddings": "gemini-embedding-001",
@@ -106,9 +106,9 @@
     },
     "precios_fuente": "https://aistudio.google.com/docs/pricing#gemini-3.1-flash-lite"
   },
-  "configuracion": "A",
-  "caso": "r20",
-  "repeticion": 3,
+  "configuracion": "D",
+  "caso": "r01",
+  "repeticion": 1,
   "error": "LLMError: HTTP 429: {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-a",
   "estado": "PENDIENTE DE MEDIR: interrupción del proveedor; conservar respuestas válidas y reanudar con --continuar"
 }

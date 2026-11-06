@@ -1,0 +1,11 @@
+{
+  "fecha_utc": "2026-11-06T05:59:26.471189+00:00",
+  "motivo": "El usuario actualizó la credencial; la API del proyecto pasó a responder y se reanudó con el mismo modelo.",
+  "respuestas_previas_conservadas": 59,
+  "respuestas_previas_modificadas": 0,
+  "firma": "9410eee198634c3b65ed5286b6216f8453b689c25b30f5c282e7a4b3ec7fad16",
+  "modelo": "gemini-3.1-flash-lite",
+  "archivos_verificados": 71,
+  "llave": "Leída del archivo privado autorizado, en memoria; no se publica.",
+  "estado": "Reanudación en curso; no acredita todavía 240/240."
+}

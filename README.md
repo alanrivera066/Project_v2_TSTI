@@ -6,9 +6,11 @@ Revisa código Python mediante detectar → explicar → parche → dictamen. El
 
 La etapa dictamen y el documento de Kevin están integrados en esta rama. Sus prompts, código, pruebas y textos personales se conservaron. El documento actualizado mantiene sus conclusiones e identifica sus cifras como históricas de tres etapas.
 
-**Medición nueva: 59/240 ejecuciones reales, faltan 181.** A=59; B/C/D=0. Las dos credenciales autorizadas agotaron las 500 llamadas diarias de Gemini 3.1 Flash-Lite. El proveedor indicó reinicio el 6 de noviembre a las 02:00 de Ciudad de México. No hay una tabla final nueva ni se mezclan las respuestas anteriores.
+**Medición nueva: 180/240 ejecuciones reales; faltan solo las 60 de D.** A=60, B=60, C=60, D=0. Las tres configuraciones autorizadas agotaron la cuota diaria de Gemini 3.1 Flash-Lite. El proveedor indicó reinicio el 6 de noviembre a las 02:00 de Ciudad de México. El usuario eligió dejar lista la continuación. No hay comparación final ni intervalos nuevos de las cuatro configuraciones.
 
-Evidencia: `bitacora/av1_cuatro_etapas_20261105/av1_estado_medicion.json`, `av1_A.json`, trazas e interrupciones. El código medido se fijó en `00880ac`; la firma abarca 71 archivos. Con `--cuatro-etapas`, A usa 1/1/1/1 y B/C/D usan 4/5/5/2. Sin esa opción se conserva el modo de tres etapas.
+Evidencia: `bitacora/av1_cuatro_etapas_20261105/av1_estado_medicion.json`, `av1_A.json`, `av1_B.json`, `av1_C.json`, trazas e interrupciones. El código medido se fijó en `00880ac`; la firma abarca 71 archivos. Con `--cuatro-etapas`, A usa 1/1/1/1 y B/C/D usan 4/5/5/2. Sin esa opción se conserva el modo de tres etapas.
+
+Resultados parciales nuevos: A=0.65, B=0.70 y C=0.80 de exactitud; metas cumplidas A=4/8, B=3/8 y C=6/8. **D: PENDIENTE DE MEDIR.** Tabla y alcance: `bitacora/av1_cuatro_etapas_20261105/av1_comparacion_parcial_180.md`. Las 59 respuestas iniciales y las 180 previas al último intento se verificaron sin cambios.
 
 Para continuar, configura en el entorno o en tu `.env` privado:
 
