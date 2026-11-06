@@ -38,7 +38,8 @@ def preparar_demo(llm, respuestas_para, ruta, codigo):
     respuestas["Eres redactor técnico"] = {
         "estado": "con_hallazgos" if reglas else "sin_hallazgos", "total_hallazgos": len(reglas),
         "hallazgos": [dict(h, cambio="Corrección preparada") for h in explicados],
-        "resumen": f"Se encontraron {len(reglas)} hallazgos." if reglas else "sin hallazgos"}
+        "resumen": "; ".join(f"{r} en línea {l}" for r, l in reglas).join(
+            [f"Se encontraron {len(reglas)} hallazgos: ", ". Los parches son propuestas."]) if reglas else "sin hallazgos"}
     llm.fake.responder = lambda prompt, sistema: next(
         json.dumps(v, ensure_ascii=False) for marca, v in respuestas.items() if marca in sistema)
 
@@ -67,7 +68,8 @@ def escribir_matriz(ruta, datos):
                f"Dictamen válido al primer intento: {r['primer_intento']}/{r['con_dictamen']}. "
                f"Revisiones fallidas: {r['fallidas']}."]
     if r["repetidas"]:
-        lineas.append(f"Repetición de {r['repetidas']['caso']}: {r['repetidas']['firmas']}; iguales: {r['repetidas']['iguales']}.")
+        lineas.append(f"Repetición de {r['repetidas']['caso']}: {r['repetidas']['firmas']}; iguales: {r['repetidas']['iguales']}; "
+                      f"redacciones distintas del resumen: {r['repetidas']['resumenes_distintos']}.")
     ruta.write_text("\n".join(lineas) + "\n", encoding="utf-8")
 
 
@@ -75,11 +77,13 @@ def resumir(filas):
     dictamenes = [f for f in filas if f["intentos_dictamen"]]
     repetidas = [f for f in filas if isinstance(f["repeticion"], int)]
     firmas = [[f["reporte"], f["detectado_lineas"]] for f in repetidas]
+    resumenes = {f["reporte_texto"].split("\n\n")[0] for f in repetidas}
     return {"flujos": len(filas), "coinciden": sum(f["coincide"] for f in filas),
             "con_dictamen": len(dictamenes), "primer_intento": sum(f["primer_intento"] for f in dictamenes),
             "fallidas": sum(f["reporte"] == "fallida" for f in filas),
             "repetidas": {"caso": repetidas[0]["caso"], "firmas": firmas,
-                          "iguales": all(x == firmas[0] for x in firmas)} if repetidas else None}
+                          "iguales": all(x == firmas[0] for x in firmas),
+                          "resumenes_distintos": len(resumenes)} if repetidas else None}
 
 
 def main():
@@ -87,10 +91,11 @@ def main():
     ap.add_argument("modo", choices=["casos", "comparar"])
     ap.add_argument("--version", type=int, required=True, help="Versión de rev_dictamen")
     ap.add_argument("--demo", action="store_true")
+    ap.add_argument("--etiqueta", default="", help="Sufijo de carpeta para repetir una medición sin tocar la anterior")
     ap.add_argument("--continuar", action="store_true", help="Recupera lo guardado tras un fallo del proveedor")
     ap.add_argument("--intervalo", type=float, default=4.2, help="Segundos entre llamadas; cuota gratuita 15/min")
     a = ap.parse_args()
-    carpeta = RAIZ / "bitacora" / ("demo_dictamen" if a.demo else "dictamen") / f"{a.modo}_v{a.version}"
+    carpeta = RAIZ / "bitacora" / ("demo_dictamen" if a.demo else "dictamen") / (f"{a.modo}_v{a.version}" + (f"_{a.etiqueta}" if a.etiqueta else ""))
     if a.demo:
         os.environ.update(LLM_PROVIDER="fake", LLM_MODEL="fake-1")
     os.environ["FINNORTE_DIR_TRAZAS"] = str(carpeta)

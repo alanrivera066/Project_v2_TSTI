@@ -31,7 +31,9 @@ def respuestas_para(nombre, codigo):
     cambios = {p["id"]: p["cambio"] for p in parches}
     dictamen = {"estado": "con_hallazgos" if hallazgos else "sin_hallazgos", "total_hallazgos": len(hallazgos),
                 "hallazgos": [dict(h, cambio=cambios[h["id"]]) for h in explicados],
-                "resumen": f"Se encontraron {len(hallazgos)} hallazgos." if hallazgos else "sin hallazgos"}
+                "resumen": (f"Se encontraron {len(hallazgos)} hallazgos: "
+                            + "; ".join(f"{h['regla']} en línea {h['linea']}" for h in hallazgos)
+                            + ". Los parches son propuestas.") if hallazgos else "sin hallazgos"}
     return {
         "Eres revisor de seguridad": {"hallazgos": hallazgos},
         "Eres revisor técnico": {"hallazgos": explicados},

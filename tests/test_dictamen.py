@@ -21,6 +21,9 @@ H2 = {"id": "H2", "regla": "SEC-02", "linea": 8, "descripcion": "SQL con f-strin
       "explicacion": "SEC-02, línea 8: la consulta admite inyección."}
 
 
+RESUMEN = "Se encontraron 2 hallazgos: SEC-01 en línea 3; SEC-02 en línea 8. Los parches son propuestas y requieren revisión humana."
+
+
 def previas():
     return {"explicar": {"hallazgos": [copy.deepcopy(H1), copy.deepcopy(H2)]},
             "parche": {"parches": [{"id": "H1", "regla": "SEC-01", "linea": 3, "cambio": "Usar variable de entorno"},
@@ -31,7 +34,7 @@ def previas():
 def fiel():
     return {"estado": "con_hallazgos", "total_hallazgos": 2,
             "hallazgos": [dict(H1, cambio="Usar variable de entorno"), dict(H2, cambio="Parametrizar la consulta")],
-            "resumen": "Hay 2 hallazgos de SEC-01 y SEC-02. Los parches son propuestas por revisar."}
+            "resumen": RESUMEN}
 
 
 def test_reporte_fiel_pasa():
@@ -57,11 +60,22 @@ def test_reporte_fiel_pasa():
     (lambda d: d.update(resumen="La CLABE 123456789012345678 queda expuesta."), "18 dígitos"),
     (lambda d: d.update(resumen="Los problemas ya se corrigieron."), "propuesta"),
     (lambda d: d.update(resumen="El archivo es seguro."), "propuesta"),
+    (lambda d: d.update(resumen=RESUMEN.replace("SEC-02 en línea 8", "línea 8")), "omite SEC-02"),
+    (lambda d: d.update(resumen=RESUMEN.replace("2 hallazgos", "varios hallazgos")), "total de 2"),
+    (lambda d: d.update(resumen=RESUMEN + " Busca mitigar la vulnerabilidad."), "mitigar"),
 ])
 def test_cada_alteracion_se_rechaza(alterar, esperado):
     dictamen = fiel()
     alterar(dictamen)
     assert any(esperado in e for e in validar_dictamen(dictamen, previas()))
+
+
+def test_resumen_puede_usar_palabras_de_los_datos_recibidos():
+    dictamen = fiel()
+    dictamen["resumen"] = RESUMEN + " Revisar credencial y consulta."
+    assert any("revisar" in e for e in validar_dictamen(dictamen, previas()))
+    dictamen["resumen"] = RESUMEN + " Incluye credencial y consulta."
+    assert any("incluye" in e and "credencial" not in e for e in validar_dictamen(dictamen, previas()))
 
 
 def test_hallazgo_sin_parche_se_rechaza():

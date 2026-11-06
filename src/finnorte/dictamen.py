@@ -2,15 +2,31 @@
 from __future__ import annotations
 
 import re
+import unicodedata
 
 AVISO_FALLIDA = "REVISIÓN FALLIDA: {motivo}. No se emite dictamen; se requiere revisión humana."
 _CAMPOS_HALLAZGO = ("regla", "linea", "descripcion", "explicacion")
 _AFIRMA_CIERRE = re.compile(
     r"\b(?:ya\s+)?(?:se\s+corrigi|fue\s+corregid|fueron\s+corregid|qued[oó]\s+corregid|ya\s+est[aá]\s+corregid"
     r"|se\s+aplic|fue\s+aplicad|es\s+seguro|está\s+aprobad|esta\s+aprobad)", re.I)
+# Palabras neutras del reporte. Las de contenido deben venir de los datos recibidos.
+_VOCABULARIO_REPORTE = {"encontro", "encontraron", "identifico", "identificaron", "identificado", "identificados",
+                        "hallazgo", "hallazgos", "regla", "reglas", "linea", "lineas", "codigo", "fuente", "analizado",
+                        "parche", "parches", "propuesta", "propuestas", "propuesto", "propuestos", "requiere",
+                        "requieren", "revision", "humana", "incumple", "incumplen", "relacionado", "relacionada",
+                        "relacionados", "relacionadas", "estos", "estas", "mismo", "misma", "contra", "total"}
 
 
-def _datos_ajenos(resumen, esperados):
+def _palabras(texto):
+    limpio = "".join(c for c in unicodedata.normalize("NFD", texto.lower()) if unicodedata.category(c) != "Mn")
+    return {p for p in re.findall(r"[a-z]{5,}", limpio)}
+
+
+def _texto_recibido(esperados, cambios):
+    return " ".join([h[c] for h in esperados for c in ("descripcion", "explicacion")] + list(cambios.values()))
+
+
+def _datos_ajenos(resumen, esperados, cambios):
     errores = []
     reglas = {h["regla"] for h in esperados}
     lineas = {h["linea"] for h in esperados}
@@ -26,6 +42,14 @@ def _datos_ajenos(resumen, esperados):
         errores.append("El resumen reproduce una credencial o 18 dígitos; usa una referencia enmascarada")
     if _AFIRMA_CIERRE.search(resumen):
         errores.append("El resumen presenta una propuesta como aplicada o aprobada; los parches son propuestas")
+    if esperados:
+        for regla in sorted(reglas - set(re.findall(r"\bSEC-\d{2}\b", resumen))):
+            errores.append(f"El resumen omite {regla}")
+        if str(len(esperados)) not in re.findall(r"\d+", resumen):
+            errores.append(f"El resumen no indica el total de {len(esperados)} hallazgos")
+        ajenas = _palabras(resumen) - _palabras(_texto_recibido(esperados, cambios)) - _VOCABULARIO_REPORTE
+        if ajenas:
+            errores.append("El resumen agrega texto que no está en los datos recibidos: " + ", ".join(sorted(ajenas)))
     return errores
 
 
@@ -61,7 +85,7 @@ def validar_dictamen(salida, previas):
         errores.append(f"estado {salida['estado']} no coincide con {len(esperados)} hallazgos recibidos")
     if not esperados and salida["resumen"] != "sin hallazgos":
         errores.append('Sin hallazgos, resumen debe ser exactamente "sin hallazgos"')
-    return errores + _datos_ajenos(salida["resumen"], list(esperados.values()))
+    return errores + _datos_ajenos(salida["resumen"], list(esperados.values()), cambios)
 
 
 def reporte_final(resultado):
