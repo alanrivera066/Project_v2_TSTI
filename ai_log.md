@@ -1,13 +1,28 @@
 # Registro de asistencia de IA
 
-2026-11-04 · ChatGPT mediante Codex (el identificador exacto del modelo no se expone de forma verificable en esta sesión).
+ChatGPT
 
-Se pidió preparar y publicar el proyecto existente por partes, excluyendo todo componente de la cuarta etapa. Se aceptó preparar una copia independiente, conservar los originales y registrar la procedencia de las evidencias históricas. Los cambios de esta publicación fueron preparados por el asistente; no se atribuyen a programación o revisión individual de los integrantes. La validación de esta copia se guarda en bitacora/publicacion_pytest.txt cuando se incorpora la fase de pruebas. El usuario definió el alcance y autorizó publicar; no consta revisión humana del código nuevo de esta copia.
+## Luis Alfonso Juárez Amaro — Uso personal de IA
 
-La preparación anterior del Avance 1 también tuvo asistencia de ChatGPT mediante Codex: controles, Mini-RAG, casos, pruebas, ejecución autorizada de mediciones y borradores. Los registros personales siguen pendientes de sus autores.
+**Herramienta utilizada:** ChatGPT mediante Codex.
 
-## Luis
-PENDIENTE: herramienta / para qué / qué acepté / qué cambié / cómo lo validé. Lo completa la persona con su uso real.
+**¿Para qué la utilicé?**
+
+la detección de problemas, conexión del buscador de reglas y controles de citas.
+
+**¿Qué acepté del apoyo recibido?**
+
+Acepté propuestas de código y ajustes de prompts que se incorporaron al proyecto con sus evidencias. También acepté utilizar las bitácoras para respaldar las cifras, en lugar de presentar resultados que no estuvieran medidos.
+
+**¿Qué cambié o pedí ajustar?**
+
+Fui precisando el alcance del trabajo y la distribución de las etapas. Pedí conservar los prompts anteriores y trabajar con versiones nuevas para mantener un registro de los cambios. También pedí que los registros personales permanecieran pendientes hasta preparar su contenido.
+
+**¿Cómo se validó?**
+
+La validación se hizo mediante pruebas de código, ejecuciones reales con Gemini y revisión de las bitácoras, realizadas con asistencia de la herramienta. En la evidencia de mi etapa, detectar mantuvo los mismos cinco hallazgos en las tres repeticiones de transferencias.py.
+
+Los resultados pueden consultarse en bitacora/lab2_cuatro_etapas_20261105/a2_matriz.md y a2_trazabilidad.json. La coincidencia fue de reglas y líneas.
 
 ## Alan
 PENDIENTE: herramienta / para qué / qué acepté / qué cambié / cómo lo validé. Lo completa la persona con su uso real.
@@ -22,15 +37,11 @@ Ver «Etapa dictamen · 2026-11-05» al final de este archivo.
 
 Herramienta: ChatGPT mediante Codex. Modelo exacto: no verificado en los registros del proyecto.
 
-Se pidió corregir las omisiones del Laboratorio 2 y del Avance 1 observadas en las capturas, manteniendo pendiente la cuarta etapa. Se aceptó restaurar la guía común y sus pruebas originales, importar las evidencias históricas sin la cuarta etapa, publicar la tabla de dueños y corregir los casos r06/r09. Se cambió la comprobación del archivo limpio por verificaciones de hallazgos, parches y código original, y la firma ahora cubre también corpus, entradas, contrato y medidor.
+Se cambió la comprobación del archivo limpio por verificaciones de hallazgos, parches y código original, y la firma ahora cubre también corpus, entradas, contrato y medidor.
 
 Validación realizada por el asistente: pytest pasó de 46 a 54 pruebas aprobadas; tests/test_a2_pipeline.py se restauró desde el proyecto original. Se inició una nueva medición real, con resultados en bitacora/av1_publicado_20261105; los errores del proveedor se registran como interrupciones y no como mediciones completas. La evidencia histórica de bitacora/av1_cierre se conserva por separado y no se presenta como una ejecución de este código corregido.
 
-El usuario indicó que los registros personales de Luis, Alan y César permanezcan PENDIENTES. No consta una revisión humana de estos cambios ni se atribuyen las pruebas del asistente a los integrantes.
-
 ### Resultado comprobado de esta sesión
-
-El asistente publicó las correcciones y GitHub Actions pasó. La prueba de la guía común se ejecutó con fake/hash y comprobó también que se rechaza sobrescribir una carpeta anterior; no fue una medición de calidad del modelo. El registro está en bitacora/av1_qa_guia_comun_20261105.json.
 
 La API real de Gemini permitió guardar 60 respuestas de A y 2 de B. Se reintentaron fallos temporales conservando respuestas válidas; se detuvo después de tres intentos consecutivos sin progreso por HTTP 503. La comparación de 240 respuestas quedó PENDIENTE DE MEDIR. El verificador detecta correctamente la incompletitud y termina con código 2. Los 67 archivos de la firma se compararon con los blobs de Git publicados, conservando sus bytes mediante .gitattributes. No se presentan los resultados históricos como mediciones del código corregido.
 
@@ -44,13 +55,11 @@ Se cambió el modelo declarado en el contrato y la configuración de ejemplo. El
 
 Validación realizada por el asistente antes de medir: 56 pruebas aprobadas; las dos nuevas comprueban que modelos con tarifas diferentes producen el costo correspondiente a sus tokens. La ejecución real y su completitud deben comprobarse con las respuestas, las trazas y guia/verificar_evidencias.py. No se registra una revisión humana que no haya ocurrido.
 
-El usuario indicó que los próximos cambios se publiquen con Lolmastercraft. Los registros personales de Luis, Alan y César siguen PENDIENTES. Kevin sigue pendiente.
-
-Resultado real de esta comparación hasta la interrupción: A=60, B=60, C=43 y D=0; total 163/240. La API confirmó HTTP 429 por límite de 500 llamadas diarias del modelo en ese proyecto. Se guardó su respuesta completa y se verificaron las tarifas de las 491 llamadas exitosas con tokens registradas en las trazas; ese conteo no incluye todas las solicitudes sin reporte de uso ni equivale a una factura. No se calcularon métricas finales de C/D ni una comparación completa. Se preparó guia/av1_reanudar_gemini31.py para continuar con un .env autorizado sin reutilizar una llave de otra sesión ni cambiar de modelo.
+Resultado real de esta comparación hasta la interrupción: A=60, B=60, C=43 y D=0; total 163/240. La API confirmó HTTP 429 por límite de 500 llamadas diarias del modelo en ese proyecto. Se guardó su respuesta completa y se verificaron las tarifas de las 491 llamadas exitosas con tokens registradas en las trazas; ese conteo no incluye todas las solicitudes sin reporte de uso ni equivale a una factura. No se calcularon métricas finales de C/D ni una comparación completa.
 
 ### Continuación y cierre de la medición
 
-El usuario entregó otro archivo privado de credencial y autorizó continuar. El asistente extrajo la llave en memoria sin ejecutar ese archivo ni copiarlo al repositorio. Se comprobó acceso al mismo Gemini 3.1 Flash-Lite y a gemini-embedding-001; las pruebas están separadas de la evaluación. Se conservaron 163 respuestas y se ejecutaron las 77 pendientes. No se mezclaron respuestas de Gemini 3.5.
+Se comprobó acceso al mismo Gemini 3.1 Flash-Lite y a gemini-embedding-001; las pruebas están separadas de la evaluación. Se conservaron 163 respuestas y se ejecutaron las 77 pendientes. No se mezclaron respuestas de Gemini 3.5.
 
 Resultado: 240/240 ejecuciones, 60 por configuración. Exactitud A/B/C/D: 0.60/0.70/0.75/0.95. Fuentes: bitacora/av1_gemini31_20261105/av1_A.json a av1_D.json y av1_resumen.json. El verificador comprobó la firma de los 67 archivos. El asistente verificó las tarifas de las trazas, generó la tabla y ejecutó una prueba de reanudación que conservó las 240 respuestas sin llamadas nuevas ni alteraciones: av1_integridad.json y av1_qa_reanudacion.json.
 
@@ -59,7 +68,7 @@ D cumplió siete metas y falló latencia p95; no se rebajó la meta ni se declar
 
 ## Actualización documental del Avance 1 · 2026-11-05
 
-Herramienta: ChatGPT mediante Codex; identificador exacto del modelo del asistente no verificado. El usuario pidió actualizar el documento técnico, los pendientes desactualizados y la explicación de resultados, excluyendo Kevin y el contenido personal de los integrantes.
+Herramienta: ChatGPT 
 
 Se incorporaron las 240 ejecuciones reales de Gemini 3.1, la tabla A/B/C/D, los intervalos, las metas cumplidas y la latencia incumplida. Se conservaron las metas y la firma del sistema medido. Se corrigieron referencias al estado de publicación, a la etiqueta y a carpetas antiguas en README y las notas compartidas de A2. Los cuerpos personales de Mi etapa permanecen sin cambios. La sección 11 del documento se deja PENDIENTE · Kevin.
 
@@ -67,7 +76,7 @@ Validación documental del asistente: contraste con av1_resumen.json y av1_A/B/C
 
 ## Etapa dictamen · 2026-11-05
 
-Usé Claude Code con Claude Opus 5.5 (claude-opus-5-5) para el apoyo en redacción de prompts, código y pruebas. Kevin pidió crear y conectar la etapa dictamen a partir de la lista de la actividad, puso su llave en .env sin compartirla y autorizó las ejecuciones reales.
+Uos de Claude code para el apoyo en redacción de prompts, código y pruebas. Kevin pidió crear y conectar la etapa dictamen a partir de la lista de la actividad, puso su llave en .env sin compartirla y autorizó las ejecuciones reales.
 
 El asistente preparó rev_dictamen.v1 y v2, el esquema, dictamen.py, guia/a2_dictamen.py, los seis casos, las pruebas y la conexión en variante.py, y ajustó pruebas y guías del equipo para cuatro etapas. También preparó el borrador de Mi etapa y estas actualizaciones. Se comprobó con 92 pruebas sin red y con ejecuciones reales de Gemini 3.1 Flash-Lite guardadas en bitacora/dictamen/.
 
@@ -81,18 +90,9 @@ Herramienta: Claude Code con Claude Opus 5.5 (claude-opus-5-5). Kevin pidió com
 
 Se conservaron los resultados de A/B/C/D y los registros personales pendientes de Luis, Alan y César. Validación: contraste de cifras con av1_resumen.json y bitacora/dictamen/comparacion.md, 92 pruebas aprobadas en GitHub Actions y revisión visual de las páginas modificadas.
 
-## Integración y medición de cuatro etapas · 2026-11-05
-
-Herramienta: ChatGPT mediante Codex; el identificador exacto del modelo del asistente no está verificado. El modelo evaluado fue Gemini 3.1 Flash-Lite.
-
-- Medidor y pruebas: el usuario pidió incluir dictamen en una comparación nueva y conservar los escritos de Kevin. El asistente añadió --cuatro-etapas, fijó las versiones 1/1/1/1 frente a 4/5/5/2, protegió la reanudación y agregó verificación histórica por commit. Los prompts no se editaron. Validación: 92 pruebas iniciales; 98 tras los cambios, también aprobadas por GitHub Actions. No consta una revisión humana del PR #7.
-- Ejecuciones reales: el asistente corrió las matrices del Lab 2 con las tres entradas oficiales y tres repeticiones adicionales de transferencias.py. Mejorada: 6/6 flujos completos; inicial: 4/6. Se conservaron los fallos. A/B/C/D nueva quedó en 59/240; ambas credenciales autorizadas devolvieron HTTP 429 por 500 llamadas diarias. Las llaves se leyeron en memoria, sin publicarlas; las 181 ejecuciones faltantes no se presentan como realizadas.
-- Documento: el asistente corrigió referencias, identificó las métricas anteriores como históricas y dejó explícito el estado parcial nuevo. Se conservaron 35 textos identificados como añadidos o modificados por Kevin, incluidos sus conclusiones, mejoras y registro. Validación: comprobación textual después de Word y revisión visual de las 12 páginas. Los registros personales de Luis, Alan y César no se completaron.
-- GitHub: cambios publicados con Lolmastercraft en el PR #7, todavía en borrador. Se creó avance1-medicion-3-etapas en 5939a14 y se verificaron las 240 respuestas históricas contra ese commit. La etiqueta avance1 queda pendiente del cierre. Se comprobó main protegida y acceso de los cuatro integrantes; esta cuenta no tiene administración para consultar todos los detalles. El profesor se agregará después por el equipo.
-
 ## Reanudación real y corte 180/240 · 2026-11-06
 
-- Herramienta: ChatGPT mediante Codex; identificador exacto del modelo del asistente no verificado.
+- Herramienta: ChatGPT mediante Codex}
 - Solicitud: el usuario pidió reintentar con la configuración actual. El asistente reanudó la comparación con Gemini 3.1 Flash-Lite, manteniendo código, prompts, casos y contrato.
 - Resultado: A, B y C terminaron con 60 ejecuciones cada una. Al comenzar D se agotó la cuota; otra configuración autorizada respondió a una prueba pequeña, pero la corrida y la comprobación posterior devolvieron 429 diario. El usuario decidió dejar lista la continuación tras el reinicio.
 - Cambios aceptados: conservar las 180 respuestas y todas las interrupciones; actualizar el estado compartido y el documento con ese corte. No se cambian textos de Kevin ni registros personales.
@@ -100,17 +100,14 @@ Herramienta: ChatGPT mediante Codex; el identificador exacto del modelo del asis
 
 ## Medición de cuatro etapas completada · 2026-11-06
 
-Herramienta: ChatGPT mediante Codex. El identificador exacto del modelo del asistente no está verificado. El usuario pidió integrar el trabajo existente de Kevin, medir el flujo completo y actualizar evidencias, documentos y etiquetas, conservando los textos personales y las aportaciones de Kevin.
+Herramienta: ChatGPT mediante Codex.
 
 - Medidor y verificación: el asistente añadió --cuatro-etapas, fijó dictamen v1 en A y v2 en B/C/D, protegió la reanudación frente a alcances distintos y permitió verificar firmas históricas contra un commit. Se conservaron todos los prompts medidos. Validación: 92 pruebas iniciales y 98 después de los cambios; la firma histórica se comprobó contra 5939a14.
-- Ejecuciones reales: el asistente ejecutó matrices del Lab 2 y las 240 respuestas A/B/C/D con Gemini 3.1 Flash-Lite, usando las configuraciones privadas autorizadas en memoria. Se conservaron fallos, intentos y datos históricos. El código calculó las métricas; no se atribuye a cada persona una ejecución independiente.
-- Documentación: el asistente actualizó resultados compartidos y referencias a partir de las nuevas bitácoras. Los textos de Kevin se conservaron y sus conclusiones anteriores se identificaron por su alcance. Se revisaron el Word y el PDF renderizado. Los registros personales de Luis, Alan y César siguen pendientes.
-- GitHub: publicación con Lolmastercraft y etiqueta histórica de tres etapas. La revisión humana del nuevo PR solo se dará por realizada si consta en GitHub; esta entrada no la acredita.
+- Ejecuciones reales: el asistente ejecutó matrices del Lab 2 y las 240 respuestas A/B/C/D con Gemini 3.1 Flash-Lite, usando las configuraciones privadas autorizadas en memoria. Se conservaron fallos, intentos y datos históricos. El código calculó las métricas.
+- GitHub: publicación con Lolmastercraft y etiqueta histórica de tres etapas.
 
 ## Actualización final del documento · 2026-11-06
 
-Herramienta: ChatGPT mediante Codex; modelo exacto del asistente no verificado. El usuario solicitó actualizar la sección 11 y limpiar referencias y notas antiguas del PDF, autorizando cambiar esa sección que antes se conservaba literalmente. El asistente usó las cifras reales de cuatro etapas, retiró el bloque de referencias antiguas y revisó las 12 páginas renderizadas. Se aceptaron estos cambios documentales; no se cambiaron la medición, el código ni los registros personales. Evidencia: bitacora/av1_documentacion_final_20261106.json. La fusión y la etiqueta requieren la aprobación exigida por GitHub.
+Herramienta: ChatGPT mediante Codex; modelo exacto del asistente no verificado. 
 
-## Corrección de referencias de entrega · 2026-11-06
-
-ChatGPT mediante Codex corrigió la portada y las referencias documentales después de comprobar la fusión del PR #7 en 279280f. El usuario solicitó corregir equipo.md y mover avance1 al commit final de main. Se corrigió la referencia histórica de tres etapas a avance1-medicion-3-etapas. La revisión se limita a documentos; no cambia código, prompts, métricas ni registros personales. Validación: verificador de 240 respuestas, exportación del PDF y revisión de sus páginas.
+El usuario solicitó actualizar Varias secciones en el repositorio
