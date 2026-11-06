@@ -103,4 +103,4 @@ def test_recuperacion_rechaza_version_distinta_antes_de_escribir(tmp_path):
 
 
 def test_flujo_publicado_tiene_cuatro_etapas():
-    assert [(e.nombre,e.version) for e in variante.FLUJO.etapas]==[('detectar',3),('explicar',4),('parche',4),('dictamen',1)]
+    assert [(e.nombre,e.version) for e in variante.FLUJO.etapas]==[('detectar',3),('explicar',4),('parche',4),('dictamen',2)]

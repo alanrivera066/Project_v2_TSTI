@@ -71,7 +71,7 @@ def crear_flujo(version=None):
 
 FLUJO = crear_flujo()
 for e in FLUJO.etapas:
-    e.version = {"detectar": 3, "explicar": 4, "parche": 4, "dictamen": 1}[e.nombre]
+    e.version = {"detectar": 3, "explicar": 4, "parche": 4, "dictamen": 2}[e.nombre]
 FLUJO_V1 = crear_flujo(version=1)
 
 # Configuración del motor. guia/av1_configuraciones.py la cambia para medir A, B, C y D.
