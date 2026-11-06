@@ -1,0 +1,6 @@
+{"id": "d1", "tipo": "limpio", "entrada": {"archivo": "datos/v2-revisor/codigo/limites.py"}, "esperado": {"reglas": []}}
+{"id": "d2", "tipo": "limpio", "entrada": {"archivo": "datos/v2-revisor/dictamen/limpio_enmascarado.py"}, "esperado": {"reglas": []}}
+{"id": "d3", "tipo": "un_problema", "entrada": {"archivo": "datos/v2-revisor/dictamen/credencial.py"}, "esperado": {"reglas": ["SEC-01"]}}
+{"id": "d4", "tipo": "un_problema", "entrada": {"archivo": "datos/v2-revisor/dictamen/consulta_sql.py"}, "esperado": {"reglas": ["SEC-02"]}}
+{"id": "d5", "tipo": "un_problema", "entrada": {"archivo": "datos/v2-revisor/dictamen/deserializar.py"}, "esperado": {"reglas": ["SEC-09"]}}
+{"id": "d6", "tipo": "dos_problemas", "entrada": {"archivo": "datos/v2-revisor/dictamen/dos_problemas.py"}, "esperado": {"reglas": ["SEC-01", "SEC-02"]}}

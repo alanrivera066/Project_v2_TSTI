@@ -7,3 +7,4 @@ bitacora/**/emb_*.npy
 .venv/
 .DS_Store
 *.egg-info/
+bitacora/demo_dictamen/
