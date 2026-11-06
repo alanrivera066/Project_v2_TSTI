@@ -32,6 +32,7 @@ from .pipeline import Etapa, Pipeline
 from .retrieval import Indice, contexto_para_prompt, cargar_corpus, fragmentar
 from . import pii, trazas
 from .config import config as config_runtime
+from .dictamen import reporte_final, validar_dictamen
 from .reglas import (FlujoRevisor, validar_detectar,
                      validar_explicar, validar_parche)
 
@@ -64,12 +65,13 @@ def crear_flujo(version=None):
         Etapa("detectar", "rev_detectar", version=version, validar=validar_detectar),  # Luis: ligada al original
         Etapa("explicar", "rev_explicar", version=version, usa=["detectar"], validar=validar_explicar),  # Alan
         Etapa("parche", "rev_parche", version=version, usa=["explicar"], validar=validar_parche),  # Cesar
+        Etapa("dictamen", "rev_dictamen", version=version, usa=["explicar", "parche"], validar=validar_dictamen),  # Kevin
     ], nombre=VARIANTE)
 
 
 FLUJO = crear_flujo()
 for e in FLUJO.etapas:
-    e.version = {"detectar": 3, "explicar": 4, "parche": 4}[e.nombre]
+    e.version = {"detectar": 3, "explicar": 4, "parche": 4, "dictamen": 1}[e.nombre]
 FLUJO_V1 = crear_flujo(version=1)
 
 # Configuración del motor. guia/av1_configuraciones.py la cambia para medir A, B, C y D.
@@ -79,6 +81,7 @@ CONFIG_POR_DEFECTO = {
     "controles": True,     # abstención, filtrado de confidenciales, citas verificadas, saneo
     "k": 6,                # fragmentos a recuperar
     "umbral": 0.35,        # similitud mínima para no abstenerse (ajústalo con tus datos)
+    "incluir_dictamen": True,  # A/B/C/D lo apagan: esa medición fue de tres etapas
 }
 
 
@@ -140,7 +143,8 @@ def sistema(entrada: dict, config: dict | None = None) -> dict:
             out['respuesta'] = sanear_av1(out['respuesta'])
             out['artefacto'] = sanear_av1(out['artefacto'])
         out['demo'] = config_runtime().llm_proveedor == 'fake' or config_runtime().emb_proveedor == 'hash'
-        out['alcance'] = 'Tres etapas: detectar, explicar y parche'
+        out['alcance'] = ('Cuatro etapas: detectar, explicar, parche y dictamen' if cfg['incluir_dictamen']
+                          else 'Tres etapas: detectar, explicar y parche')
         out['recuperados'] = [r.fragmento.id for r in recuperados]
         trazas.registrar('av1_respuesta', config=cfg, consulta=consulta, **out)
         return out
@@ -154,6 +158,9 @@ def sistema(entrada: dict, config: dict | None = None) -> dict:
                    'parche': partial(validar_parche, codigo=texto)}
     etapas = [Etapa(n, 'rev_'+n, version=v, usa=[] if n=='detectar' else ['detectar' if n=='explicar' else 'explicar'],
                     validar=validadores[n] if cfg['controles'] else None) for n,v in versiones.items()]
+    if cfg['incluir_dictamen']:
+        etapas.append(Etapa('dictamen', 'rev_dictamen', usa=['explicar', 'parche'],
+                            validar=validar_dictamen if cfg['controles'] else None))
     from .reglas import registros_del_codigo
     valores = {'entrada': 'Solicitud de revisión: ' + str(entrada.get('solicitud','Revisar el archivo Python')) + '\nCódigo numerado:\n' + '\n'.join(f'{i}: {l}' for i,l in enumerate(texto.splitlines(),1)),
                'codigo_original': texto, 'codigo_original_json': json.dumps(texto, ensure_ascii=False),
@@ -161,7 +168,8 @@ def sistema(entrada: dict, config: dict | None = None) -> dict:
                'contexto': contexto_para_prompt(recuperados, max_chars=12000) or '(sin contexto)'}
     r = Pipeline(etapas, nombre='av1-'+VARIANTE).ejecutar(valores)
     if not r.ok:
-        return cerrar('No fue posible validar la revisión. Se requiere revisión humana.', abstuvo=True,
+        aviso = reporte_final(r) if cfg['incluir_dictamen'] else 'No fue posible validar la revisión. Se requiere revisión humana.'
+        return cerrar(aviso, abstuvo=True,
                       errores=[e for etapa in r.etapas for e in etapa.errores], costo=r.costo_usd)
     hallazgos = r.salidas['explicar']['hallazgos']
     fuentes = sorted({h.get('fuente','') for h in hallazgos if h.get('fuente')})
@@ -174,6 +182,9 @@ def sistema(entrada: dict, config: dict | None = None) -> dict:
                       errores=errores, costo=r.costo_usd)
     artefacto = {'hallazgos': hallazgos, **r.salidas['parche']}
     respuesta = 'sin hallazgos' if not hallazgos else json.dumps(artefacto, ensure_ascii=False)
+    if cfg['incluir_dictamen']:
+        artefacto['dictamen'] = r.salidas['dictamen']
+        respuesta = reporte_final(r)
     return cerrar(respuesta, fuentes, errores=errores, artefacto=artefacto, costo=r.costo_usd)
 
 

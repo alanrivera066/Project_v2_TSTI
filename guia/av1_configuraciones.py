@@ -9,10 +9,10 @@ from finnorte import evaluacion, trazas
 from finnorte.config import config, _cargar_env, precios_llm
 from finnorte.variante import sistema, indice
 CONFIGS={
- 'A':dict(version_prompt=1,usar_rag=False,controles=False),
- 'B':dict(version_prompt=2,usar_rag=False,controles=False),
- 'C':dict(version_prompt=2,usar_rag=True,controles=False),
- 'D':dict(version_prompt=2,usar_rag=True,controles=True)}
+ 'A':dict(version_prompt=1,usar_rag=False,controles=False,incluir_dictamen=False),
+ 'B':dict(version_prompt=2,usar_rag=False,controles=False,incluir_dictamen=False),
+ 'C':dict(version_prompt=2,usar_rag=True,controles=False,incluir_dictamen=False),
+ 'D':dict(version_prompt=2,usar_rag=True,controles=True,incluir_dictamen=False)}
 
 def huella_medicion(casos='evals/v2-revisor.jsonl', contrato='contrato_calidad.yaml'):
  """Incluye código, prompts, corpus, entradas, evaluaciones y contrato; nunca .env."""

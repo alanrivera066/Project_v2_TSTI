@@ -28,8 +28,13 @@ def respuestas_para(nombre, codigo):
         corregido = corregido.replace('{destino_clabe}', '{str(destino_clabe)[-4:]}')
     parches = [dict(id=h["id"], regla=h["regla"], linea=h["linea"], cambio="Corrección preparada para la demostración")
                for h in hallazgos]
+    cambios = {p["id"]: p["cambio"] for p in parches}
+    dictamen = {"estado": "con_hallazgos" if hallazgos else "sin_hallazgos", "total_hallazgos": len(hallazgos),
+                "hallazgos": [dict(h, cambio=cambios[h["id"]]) for h in explicados],
+                "resumen": f"Se encontraron {len(hallazgos)} hallazgos." if hallazgos else "sin hallazgos"}
     return {
         "Eres revisor de seguridad": {"hallazgos": hallazgos},
         "Eres revisor técnico": {"hallazgos": explicados},
         "Eres desarrollador Python": {"parches": parches, "codigo_corregido": corregido},
+        "Eres redactor técnico": dictamen,
     }

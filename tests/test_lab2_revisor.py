@@ -28,11 +28,11 @@ def instalar_respuestas(nombre, codigo, modificar=None):
 
 
 @pytest.mark.parametrize("nombre,total", [("transferencias.py", 4), ("tokens.py", 1), ("limites.py", 0)])
-def test_tres_archivos_recorran_tres_etapas(nombre, total):
+def test_tres_archivos_recorran_cuatro_etapas(nombre, total):
     codigo = (RAIZ / "datos/v2-revisor/codigo" / nombre).read_text(encoding="utf-8")
     instalar_respuestas(nombre, codigo)
     res = FLUJO_V1.ejecutar({"entrada": codigo, "contexto": "(sin contexto)"})
-    assert res.ok and len(res.etapas) == 3
+    assert res.ok and len(res.etapas) == 4
     assert len(res.salidas["detectar"]["hallazgos"]) == total
     assert len(res.salidas["parche"]["parches"]) == total
 

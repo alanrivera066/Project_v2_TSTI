@@ -10,7 +10,7 @@ from functools import partial
 from .pipeline import Pipeline
 
 REGLAS_SEC = {f"SEC-{i:02}" for i in range(1, 11)}
-REVISION_VALIDADORES = "lab2-revision-4"
+REVISION_VALIDADORES = "lab2-revision-5"
 _SENSIBLE = re.compile(r"clabe|curp|password|passwd|api_key|token|correo|email|telefono|tarjeta", re.I)
 _NIVELES_LOG = {"debug", "info", "warning", "warn", "error", "exception", "critical", "log"}
 
