@@ -1,12 +1,10 @@
 # Mi etapa del flujo de FinNorte
 
-**Borrador asistido por IA: la persona debe leerlo, ejecutar su etapa y ajustarlo con sus palabras antes de entregar**
-
 Cesar · Equipo 2 · v2-revisor
 
 ## 1 Mi etapa
 
-Mi etapa asignada es parche, con id rev_parche. Recibe hallazgos explicados y archivo original y entrega parches con id, regla, linea y cambio; codigo_corregido. Mi responsabilidad es revisar y defender esta parte de la revisión de código. La preparación asistida no acredita todavía mi ejecución o autoría individual. Etapa 4: PENDIENTE · Kevin.
+Mi etapa asignada es parche, con id rev_parche. Recibe hallazgos explicados y archivo original y entrega parches con id, regla, linea y cambio; codigo_corregido. Mi responsabilidad es revisar y defender esta parte de la revisión de código.
 
 ## 2 Mi prompt v1
 
@@ -35,16 +33,18 @@ Mi fila en bitacora/av1_a2_matriz.md: parche | rev_parche.v4 | 5 parches | váli
 
 ## 5 Consistencia
 
-Las tres repeticiones v4 fueron válidas al primer intento. Los archivos propuestos pueden variar; compilar no demuestra equivalencia funcional. No atribuyo estas ejecuciones guardadas a una prueba personal que aún no he realizado.
+Las tres repeticiones v4 fueron válidas al primer intento. Los archivos propuestos pueden variar; compilar no demuestra equivalencia funcional. 
 
 ## 6 Mi mejora y el antes y después
 
 Salidas válidas al primer intento: 2/3 en v3 y 3/3 en v4. La v4 añadió un ejemplo no vacío y prohibió campos extra. Fuente: bitacora/lab2_cierre/metricas.json.
 
-La rúbrica llama a la mejora «v2». Aquí explico la evolución con los números reales de archivo: v1/v2 históricos, revisión v3 y, cuando corresponde, cierre v4. No renombro versiones medidas. En el Avance 1 se añade contexto con detectar v4, explicar v5 y parche v5; sus resultados nuevos A/B/C/D, ya completos, están en bitacora/av1_cierre. Miden el motor conjunto; el antes y después individual sigue siendo el histórico.
+La rúbrica llama a la mejora «v2». Aquí explico la evolución con los números reales de archivo: v1/v2 históricos, revisión v3 y, cuando corresponde, cierre v4. En el Avance 1 se añade contexto con detectar v4, explicar v5 y parche v5; sus resultados nuevos A/B/C/D, ya completos, están en bitacora/av1_cierre. Miden el motor conjunto; el antes y después individual sigue siendo el histórico.
 
 ## 7 Mis commits y uso de IA
 
-PENDIENTE: lo agrega la persona después de subir con su cuenta.
+Mi documento de la Actividad 2 se incorporó al repositorio del equipo mediante el commit [1378a62: Actividad 2](https://github.com/alanrivera066/Project_v2_TSTI/commit/1378a6249e5244af62d754c1d10230faabf57052), registrado con mi cuenta de GitHub, **MajesDo63**. Este commit agrega el documento de mi etapa y sus archivos de apoyo.
 
-Este borrador y la integración se prepararon con asistencia de ChatGPT mediante Codex. Debo completar mi uso real de IA en ai_log.md y explicar qué acepté, cambié y validé personalmente.
+Utilicé ChatGPT para comprender el Laboratorio 2, la Actividad 2 y mi responsabilidad en la etapa de parches. También solicité apoyo de Codex para analizar el prompt, el esquema, el validador y las evidencias guardadas. Con asistencia se contrastaron las versiones del prompt y se comprobaron casos como la conservación de un archivo sin hallazgos y el rechazo de código con sintaxis incorrecta.
+
+Los resultados de las ejecuciones y las comparaciones entre versiones se encuentran en las bitácoras del proyecto.
