@@ -1,0 +1,332 @@
+{
+  "modo": "casos",
+  "version": 2,
+  "demo": false,
+  "proveedor": "gemini",
+  "modelo": "gemini-3.1-flash-lite",
+  "prompt": "rev_dictamen.v2",
+  "estado": "completo",
+  "fecha_utc": "2026-11-06T02:31:27.238921+00:00",
+  "filas": [
+    {
+      "caso": "d1",
+      "repeticion": "unica",
+      "archivo": "limites.py",
+      "tipo": "limpio",
+      "esperado": [],
+      "detectado": [],
+      "detectado_lineas": [],
+      "reporte": "sin hallazgos",
+      "coincide": true,
+      "intentos_dictamen": 1,
+      "primer_intento": true,
+      "errores_dictamen": [],
+      "etapas": [
+        {
+          "nombre": "detectar",
+          "prompt": "rev_detectar.v3",
+          "ok": true,
+          "intentos": 1,
+          "errores": []
+        },
+        {
+          "nombre": "explicar",
+          "prompt": "rev_explicar.v4",
+          "ok": true,
+          "intentos": 1,
+          "errores": []
+        },
+        {
+          "nombre": "parche",
+          "prompt": "rev_parche.v4",
+          "ok": true,
+          "intentos": 1,
+          "errores": []
+        },
+        {
+          "nombre": "dictamen",
+          "prompt": "rev_dictamen.v2",
+          "ok": true,
+          "intentos": 1,
+          "errores": []
+        }
+      ],
+      "reporte_texto": "sin hallazgos"
+    },
+    {
+      "caso": "d2",
+      "repeticion": "unica",
+      "archivo": "limpio_enmascarado.py",
+      "tipo": "limpio",
+      "esperado": [],
+      "detectado": [],
+      "detectado_lineas": [],
+      "reporte": "sin hallazgos",
+      "coincide": true,
+      "intentos_dictamen": 1,
+      "primer_intento": true,
+      "errores_dictamen": [],
+      "etapas": [
+        {
+          "nombre": "detectar",
+          "prompt": "rev_detectar.v3",
+          "ok": true,
+          "intentos": 1,
+          "errores": []
+        },
+        {
+          "nombre": "explicar",
+          "prompt": "rev_explicar.v4",
+          "ok": true,
+          "intentos": 1,
+          "errores": []
+        },
+        {
+          "nombre": "parche",
+          "prompt": "rev_parche.v4",
+          "ok": true,
+          "intentos": 2,
+          "errores": []
+        },
+        {
+          "nombre": "dictamen",
+          "prompt": "rev_dictamen.v2",
+          "ok": true,
+          "intentos": 1,
+          "errores": []
+        }
+      ],
+      "reporte_texto": "sin hallazgos"
+    },
+    {
+      "caso": "d3",
+      "repeticion": "unica",
+      "archivo": "credencial.py",
+      "tipo": "un_problema",
+      "esperado": [
+        "SEC-01"
+      ],
+      "detectado": [
+        "SEC-01"
+      ],
+      "detectado_lineas": [
+        [
+          "SEC-01",
+          1
+        ]
+      ],
+      "reporte": "hallazgos",
+      "coincide": true,
+      "intentos_dictamen": 1,
+      "primer_intento": true,
+      "errores_dictamen": [],
+      "etapas": [
+        {
+          "nombre": "detectar",
+          "prompt": "rev_detectar.v3",
+          "ok": true,
+          "intentos": 1,
+          "errores": []
+        },
+        {
+          "nombre": "explicar",
+          "prompt": "rev_explicar.v4",
+          "ok": true,
+          "intentos": 1,
+          "errores": []
+        },
+        {
+          "nombre": "parche",
+          "prompt": "rev_parche.v4",
+          "ok": true,
+          "intentos": 1,
+          "errores": []
+        },
+        {
+          "nombre": "dictamen",
+          "prompt": "rev_dictamen.v2",
+          "ok": true,
+          "intentos": 1,
+          "errores": []
+        }
+      ],
+      "reporte_texto": "Se encontró 1 hallazgo: SEC-01 en línea 1. El parche es una propuesta y requiere revisión humana.\n\nH1 · SEC-01 · línea 1: Se ha detectado una clave de API expuesta directamente en el código fuente.\n  Explicación: SEC-01, línea 1: la variable API_KEY contiene una credencial hardcodeada. La exposición de secretos en el repositorio aumenta el riesgo de acceso no autorizado a servicios externos. NO ESPECIFICADO respecto a la política de gestión de secretos.\n  Parche propuesto: Proponer la lectura de la credencial desde una variable de entorno para evitar la exposición de secretos en el código fuente."
+    },
+    {
+      "caso": "d4",
+      "repeticion": "unica",
+      "archivo": "consulta_sql.py",
+      "tipo": "un_problema",
+      "esperado": [
+        "SEC-02"
+      ],
+      "detectado": [
+        "SEC-02"
+      ],
+      "detectado_lineas": [
+        [
+          "SEC-02",
+          2
+        ]
+      ],
+      "reporte": "hallazgos",
+      "coincide": true,
+      "intentos_dictamen": 1,
+      "primer_intento": true,
+      "errores_dictamen": [],
+      "etapas": [
+        {
+          "nombre": "detectar",
+          "prompt": "rev_detectar.v3",
+          "ok": true,
+          "intentos": 1,
+          "errores": []
+        },
+        {
+          "nombre": "explicar",
+          "prompt": "rev_explicar.v4",
+          "ok": true,
+          "intentos": 1,
+          "errores": []
+        },
+        {
+          "nombre": "parche",
+          "prompt": "rev_parche.v4",
+          "ok": true,
+          "intentos": 1,
+          "errores": []
+        },
+        {
+          "nombre": "dictamen",
+          "prompt": "rev_dictamen.v2",
+          "ok": true,
+          "intentos": 1,
+          "errores": []
+        }
+      ],
+      "reporte_texto": "Se encontró 1 hallazgo: SEC-02 en línea 2. El parche es una propuesta y requiere revisión humana.\n\nH1 · SEC-02 · línea 2: La consulta SQL se construye mediante concatenación de cadenas, lo que permite ataques de inyección SQL.\n  Explicación: SEC-02, línea 2: el código utiliza concatenación directa de la variable nombre en la sentencia SQL. Esto permite que entradas maliciosas alteren la estructura de la consulta, lo que representa un riesgo de inyección SQL. La política de mitigación para este caso es NO ESPECIFICADO.\n  Parche propuesto: Reemplazar la concatenación de cadenas por consultas parametrizadas utilizando el método execute del cursor para prevenir inyecciones SQL."
+    },
+    {
+      "caso": "d5",
+      "repeticion": "unica",
+      "archivo": "deserializar.py",
+      "tipo": "un_problema",
+      "esperado": [
+        "SEC-09"
+      ],
+      "detectado": [
+        "SEC-09"
+      ],
+      "detectado_lineas": [
+        [
+          "SEC-09",
+          5
+        ]
+      ],
+      "reporte": "hallazgos",
+      "coincide": true,
+      "intentos_dictamen": 1,
+      "primer_intento": true,
+      "errores_dictamen": [],
+      "etapas": [
+        {
+          "nombre": "detectar",
+          "prompt": "rev_detectar.v3",
+          "ok": true,
+          "intentos": 1,
+          "errores": []
+        },
+        {
+          "nombre": "explicar",
+          "prompt": "rev_explicar.v4",
+          "ok": true,
+          "intentos": 1,
+          "errores": []
+        },
+        {
+          "nombre": "parche",
+          "prompt": "rev_parche.v4",
+          "ok": true,
+          "intentos": 1,
+          "errores": []
+        },
+        {
+          "nombre": "dictamen",
+          "prompt": "rev_dictamen.v2",
+          "ok": true,
+          "intentos": 1,
+          "errores": []
+        }
+      ],
+      "reporte_texto": "Se encontró 1 hallazgo: SEC-09 en línea 5. El parche es una propuesta y requiere revisión humana.\n\nH1 · SEC-09 · línea 5: Uso de pickle.loads con datos de entrada no confiables, lo que permite la ejecución remota de código.\n  Explicación: SEC-09, línea 5: la función utiliza pickle.loads para deserializar datos recibidos como argumento sin validación previa. Esto representa un riesgo de ejecución remota de código si los datos son manipulados por un tercero. La decisión de negocio sobre la validación de estos datos es NO ESPECIFICADO.\n  Parche propuesto: Reemplazar pickle por un formato seguro como json.loads. Se requiere validación de esquema o firma digital si se debe mantener la serialización de objetos complejos, lo cual no está especificado."
+    },
+    {
+      "caso": "d6",
+      "repeticion": "unica",
+      "archivo": "dos_problemas.py",
+      "tipo": "dos_problemas",
+      "esperado": [
+        "SEC-01",
+        "SEC-02"
+      ],
+      "detectado": [
+        "SEC-01",
+        "SEC-02"
+      ],
+      "detectado_lineas": [
+        [
+          "SEC-01",
+          1
+        ],
+        [
+          "SEC-02",
+          5
+        ]
+      ],
+      "reporte": "hallazgos",
+      "coincide": true,
+      "intentos_dictamen": 1,
+      "primer_intento": true,
+      "errores_dictamen": [],
+      "etapas": [
+        {
+          "nombre": "detectar",
+          "prompt": "rev_detectar.v3",
+          "ok": true,
+          "intentos": 1,
+          "errores": []
+        },
+        {
+          "nombre": "explicar",
+          "prompt": "rev_explicar.v4",
+          "ok": true,
+          "intentos": 1,
+          "errores": []
+        },
+        {
+          "nombre": "parche",
+          "prompt": "rev_parche.v4",
+          "ok": true,
+          "intentos": 1,
+          "errores": []
+        },
+        {
+          "nombre": "dictamen",
+          "prompt": "rev_dictamen.v2",
+          "ok": true,
+          "intentos": 1,
+          "errores": []
+        }
+      ],
+      "reporte_texto": "Se encontraron 2 hallazgos: SEC-01 en línea 1; SEC-02 en línea 5. Los parches son propuestas y requieren revisión humana.\n\nH1 · SEC-01 · línea 1: Se ha detectado una clave de API expuesta directamente en el código fuente.\n  Explicación: SEC-01, línea 1: la variable API_KEY contiene un valor sensible codificado directamente en el archivo. Esto contraviene las prácticas de gestión de secretos, aumentando el riesgo de exposición de credenciales en caso de acceso no autorizado al repositorio. NO ESPECIFICADO sobre el uso de gestores de secretos externos.\n  Parche propuesto: Reemplazar la clave hardcodeada por una lectura desde variables de entorno utilizando os.environ.\nH2 · SEC-02 · línea 5: La consulta SQL utiliza concatenación de cadenas, lo que permite ataques de inyección SQL.\n  Explicación: SEC-02, línea 5: la construcción de la consulta mediante concatenación directa de la variable nombre permite la manipulación de la estructura de la sentencia SQL. Esto representa un riesgo de seguridad al permitir la ejecución de comandos no previstos. NO ESPECIFICADO sobre el uso de consultas parametrizadas.\n  Parche propuesto: Utilizar consultas parametrizadas para prevenir inyecciones SQL, pasando los parámetros como una tupla al método execute."
+    }
+  ],
+  "resumen": {
+    "flujos": 6,
+    "coinciden": 6,
+    "con_dictamen": 6,
+    "primer_intento": 6,
+    "fallidas": 0,
+    "repetidas": null
+  }
+}
