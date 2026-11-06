@@ -106,3 +106,7 @@ Herramienta: ChatGPT mediante Codex. El identificador exacto del modelo del asis
 - Ejecuciones reales: el asistente ejecutó matrices del Lab 2 y las 240 respuestas A/B/C/D con Gemini 3.1 Flash-Lite, usando las configuraciones privadas autorizadas en memoria. Se conservaron fallos, intentos y datos históricos. El código calculó las métricas; no se atribuye a cada persona una ejecución independiente.
 - Documentación: el asistente actualizó resultados compartidos y referencias a partir de las nuevas bitácoras. Los textos de Kevin se conservaron y sus conclusiones anteriores se identificaron por su alcance. Se revisaron el Word y el PDF renderizado. Los registros personales de Luis, Alan y César siguen pendientes.
 - GitHub: publicación con Lolmastercraft y etiqueta histórica de tres etapas. La revisión humana del nuevo PR solo se dará por realizada si consta en GitHub; esta entrada no la acredita.
+
+## Actualización final del documento · 2026-11-06
+
+Herramienta: ChatGPT mediante Codex; modelo exacto del asistente no verificado. El usuario solicitó actualizar la sección 11 y limpiar referencias y notas antiguas del PDF, autorizando cambiar esa sección que antes se conservaba literalmente. El asistente usó las cifras reales de cuatro etapas, retiró el bloque de referencias antiguas y revisó las 12 páginas renderizadas. Se aceptaron estos cambios documentales; no se cambiaron la medición, el código ni los registros personales. Evidencia: bitacora/av1_documentacion_final_20261106.json. La fusión y la etiqueta requieren la aprobación exigida por GitHub.

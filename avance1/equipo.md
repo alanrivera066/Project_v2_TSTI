@@ -70,3 +70,7 @@ El corte anterior de 59/240 es histórico. Ahora están guardadas 180/240: A=60,
 ## Medición de cuatro etapas completada · 2026-11-06
 
 Los cortes de 59/240 y 180/240 registrados arriba son antecedentes. Ahora se completaron las 240 ejecuciones en bitacora/av1_cuatro_etapas_20261105/. Se integra el documento de Kevin sin reescribir sus textos. El antecedente de tres etapas conserva su firma y la etiqueta avance1-medicion-3-etapas. Los registros personales permanecen a cargo de cada autor; no se modifican los comentarios eliminados ni el historial.
+
+## Documento final · 2026-11-06
+
+Por solicitud del usuario se actualiza la sección 11 con los resultados de cuatro etapas y se retiran referencias obsoletas del anexo. PDF: 12 páginas, 11 secciones. La medición y los archivos personales permanecen intactos. La fusión del PR #7 y la etiqueta avance1 se cerrarán después de obtener la aprobación requerida en GitHub.

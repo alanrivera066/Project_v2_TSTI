@@ -42,7 +42,7 @@ La etiqueta `avance1-medicion-3-etapas` conserva `5939a14` y sus 240 respuestas 
 python guia/verificar_evidencias.py --carpeta bitacora/av1_gemini31_20261105 --revision avance1-medicion-3-etapas
 ```
 
-El documento técnico conserva literalmente las conclusiones de Kevin sobre la medición anterior y las identifica como tales. Las secciones 8 a 10 presentan la comparación nueva. Los registros personales de Luis, Alan y César siguen a cargo de sus autores. El profesor se agregará después por el equipo.
+El documento técnico presenta la medición de cuatro etapas en las secciones 8 a 11. La sección 11 y las referencias del anexo se actualizaron por solicitud del usuario el 6 de noviembre; el PDF conserva 12 páginas. Los registros personales de Luis, Alan y César siguen a cargo de sus autores. El profesor se agregará después por el equipo.
 
 ## Responsabilidades
 
