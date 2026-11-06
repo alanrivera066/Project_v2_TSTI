@@ -9,6 +9,8 @@ from finnorte.retrieval import Fragmento, Resultado
 
 
 def limpio(p, s):
+    if 'redactor técnico' in s:
+        return json.dumps({'estado': 'sin_hallazgos', 'total_hallazgos': 0, 'hallazgos': [], 'resumen': 'sin hallazgos'})
     if 'codigo_corregido' in p:
         return json.dumps({'parches': [], 'codigo_corregido': 'x = 1\n'})
     return json.dumps({'hallazgos': []})
@@ -22,7 +24,7 @@ def test_limpio_no_abstiene_por_baja_similitud(monkeypatch):
     r=variante.sistema({'codigo':'x = 1\n'}, {'umbral': 1})
     assert r['respuesta']=='sin hallazgos' and not r['abstuvo']
     assert r['artefacto']['codigo_corregido']=='x = 1\n'
-    assert set(r['artefacto'])=={'hallazgos','parches','codigo_corregido'}
+    assert set(r['artefacto'])=={'hallazgos','parches','codigo_corregido','dictamen'}
 
 
 def test_fuera_de_dominio_no_llama_modelo(monkeypatch):
@@ -100,5 +102,5 @@ def test_recuperacion_rechaza_version_distinta_antes_de_escribir(tmp_path):
     assert not list(destino.iterdir())
 
 
-def test_flujo_publicado_tiene_tres_etapas():
-    assert [(e.nombre,e.version) for e in variante.FLUJO.etapas]==[('detectar',3),('explicar',4),('parche',4)]
+def test_flujo_publicado_tiene_cuatro_etapas():
+    assert [(e.nombre,e.version) for e in variante.FLUJO.etapas]==[('detectar',3),('explicar',4),('parche',4),('dictamen',2)]

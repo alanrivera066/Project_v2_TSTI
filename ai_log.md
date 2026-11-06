@@ -15,7 +15,8 @@ PENDIENTE: herramienta / para qué / qué acepté / qué cambié / cómo lo vali
 ## César
 PENDIENTE: herramienta / para qué / qué acepté / qué cambié / cómo lo validé. Lo completa la persona con su uso real.
 
-Kevin: Pendiente.
+## Kevin
+Ver «Etapa dictamen · 2026-11-05» al final de este archivo.
 
 ## Corrección de evidencias · 2026-11-05
 
@@ -63,3 +64,13 @@ Herramienta: ChatGPT mediante Codex; identificador exacto del modelo del asisten
 Se incorporaron las 240 ejecuciones reales de Gemini 3.1, la tabla A/B/C/D, los intervalos, las metas cumplidas y la latencia incumplida. Se conservaron las metas y la firma del sistema medido. Se corrigieron referencias al estado de publicación, a la etiqueta y a carpetas antiguas en README y las notas compartidas de A2. Los cuerpos personales de Mi etapa permanecen sin cambios. La sección 11 del documento se deja PENDIENTE · Kevin.
 
 Validación documental del asistente: contraste con av1_resumen.json y av1_A/B/C/D.json, fuentes de las trazas, comprobación de las 11 secciones y revisión del DOCX exportado a PDF. La evidencia de la revisión visual y las comprobaciones se registra en bitacora/av1_documentacion_20261105.json. La aprobación de Alan al PR #1 acredita ese PR anterior; la revisión humana de esta actualización documental no se presume. Los registros personales siguen PENDIENTES.
+
+## Etapa dictamen · 2026-11-05
+
+Usé Claude Code con Claude Opus 5.5 (claude-opus-5-5) para el apoyo en redacción de prompts, código y pruebas. Kevin pidió crear y conectar la etapa dictamen a partir de la lista de la actividad, puso su llave en .env sin compartirla y autorizó las ejecuciones reales.
+
+El asistente preparó rev_dictamen.v1 y v2, el esquema, dictamen.py, guia/a2_dictamen.py, los seis casos, las pruebas y la conexión en variante.py, y ajustó pruebas y guías del equipo para cuatro etapas. También preparó el borrador de Mi etapa y estas actualizaciones. Se comprobó con 92 pruebas sin red y con ejecuciones reales de Gemini 3.1 Flash-Lite guardadas en bitacora/dictamen/.
+
+La v1 pasó 12/12 con el primer validador. Al leer sus resúmenes se vio texto ajeno a los datos y redacciones distintas; se agregó esa regla, se repitió la v1 sin editarla (1/6 válido al primer intento) y se creó la v2 (6/6). La regla se ajustó una vez tras probarla sobre salidas guardadas, porque rechazaba palabras neutras.
+
+Participación de Kevin: definió el alcance con la lista de la actividad, configuró su llave, autorizó las ejecuciones reales y la publicación del pull request #3, y ajustó la redacción del uso de IA en Mi etapa y en este registro. Los prompts, el código y las pruebas se aceptaron como los preparó el asistente, sin cambios propios. Su validación consta en las 92 pruebas sin red y en las ejecuciones reales de bitacora/dictamen/; la revisión del código queda a cargo del equipo en el pull request #3.

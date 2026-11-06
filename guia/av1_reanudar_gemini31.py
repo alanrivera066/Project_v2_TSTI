@@ -38,7 +38,7 @@ def main():
     estado = {'estado': 'completa' if resultado == 0 else 'PENDIENTE DE MEDIR',
               'modelo': 'gemini-3.1-flash-lite', 'configuraciones': cantidades,
               'respuestas_reales': sum(cantidades.values()),
-              'fecha_utc': datetime.now(timezone.utc).isoformat(), 'dictamen': 'PENDIENTE · Kevin'}
+              'fecha_utc': datetime.now(timezone.utc).isoformat(), 'dictamen': 'no incluido en A/B/C/D'}
     (destino/'av1_estado_medicion.json').write_text(json.dumps(estado, ensure_ascii=False, indent=2), encoding='utf-8')
     return resultado
 

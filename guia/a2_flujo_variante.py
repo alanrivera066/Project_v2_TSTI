@@ -44,7 +44,7 @@ def main():
     flujo = FLUJO_V1 if args.v1 else FLUJO
     huella = {"validadores": REVISION_VALIDADORES, "prompts": {},
               "codigo": {n: hashlib.sha256((RAIZ / "src/finnorte" / n).read_bytes()).hexdigest()
-                         for n in ("reglas.py", "pipeline.py")},
+                         for n in ("reglas.py", "pipeline.py", "dictamen.py")},
               "entradas": {n: hashlib.sha256((RAIZ / "datos/v2-revisor/codigo" / n).read_bytes()).hexdigest()
                            for n in entradas}}
     for etapa in flujo.etapas:
@@ -101,7 +101,7 @@ def main():
             llm.fake.responder = responder
         trazas.registrar("caso_lab2", entrada=nombre, repeticion=repeticion, demo=args.demo)
         res = flujo.ejecutar({"entrada": texto, "contexto": "(sin contexto: Mini-RAG pendiente del Laboratorio 3)"})
-        estado = "completo" if res.ok and len(res.etapas) == 3 else "incompleto"
+        estado = "completo" if res.ok and len(res.etapas) == len(flujo.etapas) else "incompleto"
         for e in res.etapas:
             if not e.ok:
                 artefacto = "Salida inválida: " + json.dumps(e.salida, ensure_ascii=False)[:100]
@@ -110,6 +110,8 @@ def main():
                     f"{h['id']} {h['regla']} L{h['linea']}" for h in e.salida["hallazgos"])
             elif e.nombre == "parche" and isinstance(e.salida, dict):
                 artefacto = f"{len(e.salida['parches'])} parches; archivo de {len(e.salida['codigo_corregido'].splitlines())} líneas"
+            elif e.nombre == "dictamen" and isinstance(e.salida, dict):
+                artefacto = f"{e.salida['estado']}: {e.salida['total_hallazgos']} hallazgos"
             else:
                 artefacto = json.dumps(e.salida, ensure_ascii=False)[:160]
             filas.append({"entrada": nombre, "repeticion": repeticion, "etapa": e.nombre,
@@ -121,7 +123,7 @@ def main():
         corridas.append({"entrada": nombre, "repeticion": repeticion, "estado": estado,
                          "etapas": res.bitacora(), "resultado": resultado})
         guardar_parcial()
-        print(f"{nombre} / {repeticion}: {estado}; {len(res.etapas)}/3 etapas")
+        print(f"{nombre} / {repeticion}: {estado}; {len(res.etapas)}/{len(flujo.etapas)} etapas")
         return resultado
 
     for nombre in entradas:

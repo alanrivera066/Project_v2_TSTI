@@ -1,0 +1,403 @@
+{
+  "modo": "comparar",
+  "version": 1,
+  "demo": false,
+  "proveedor": "gemini",
+  "modelo": "gemini-3.1-flash-lite",
+  "prompt": "rev_dictamen.v1",
+  "estado": "completo",
+  "fecha_utc": "2026-11-06T02:20:19.388917+00:00",
+  "filas": [
+    {
+      "caso": "d6",
+      "repeticion": "inicial",
+      "archivo": "dos_problemas.py",
+      "tipo": "dos_problemas",
+      "esperado": [
+        "SEC-01",
+        "SEC-02"
+      ],
+      "detectado": [
+        "SEC-01",
+        "SEC-02"
+      ],
+      "detectado_lineas": [
+        [
+          "SEC-01",
+          1
+        ],
+        [
+          "SEC-02",
+          5
+        ]
+      ],
+      "reporte": "hallazgos",
+      "coincide": true,
+      "intentos_dictamen": 1,
+      "primer_intento": true,
+      "errores_dictamen": [],
+      "etapas": [
+        {
+          "nombre": "detectar",
+          "prompt": "rev_detectar.v3",
+          "ok": true,
+          "intentos": 1,
+          "errores": []
+        },
+        {
+          "nombre": "explicar",
+          "prompt": "rev_explicar.v4",
+          "ok": true,
+          "intentos": 1,
+          "errores": []
+        },
+        {
+          "nombre": "parche",
+          "prompt": "rev_parche.v4",
+          "ok": true,
+          "intentos": 1,
+          "errores": []
+        },
+        {
+          "nombre": "dictamen",
+          "prompt": "rev_dictamen.v1",
+          "ok": true,
+          "intentos": 1,
+          "errores": []
+        }
+      ],
+      "reporte_texto": "Se han identificado 2 hallazgos en el código fuente. Estos incumplen las reglas de seguridad SEC-01 y SEC-02 relacionadas con la gestión de secretos y la integridad de consultas SQL.\n\nH1 · SEC-01 · línea 1: Se ha detectado una clave de API expuesta en el código fuente.\n  Explicación: SEC-01, línea 1: la variable API_KEY contiene una credencial hardcodeada en el código fuente, lo que permite el acceso no autorizado a servicios externos. La política de gestión de secretos es NO ESPECIFICADO.\n  Parche propuesto: Reemplazar la credencial hardcodeada por una lectura desde variables de entorno utilizando os.environ.\nH2 · SEC-02 · línea 5: La consulta SQL utiliza concatenación de cadenas, lo que permite ataques de inyección SQL.\n  Explicación: SEC-02, línea 5: la construcción de la consulta mediante concatenación directa de la variable nombre permite la manipulación de la estructura SQL, lo que podría derivar en la exposición o alteración de datos. El uso de consultas parametrizadas es NO ESPECIFICADO.\n  Parche propuesto: Utilizar consultas parametrizadas para evitar la inyección SQL, pasando los parámetros como una tupla al método execute."
+    },
+    {
+      "caso": "d3",
+      "repeticion": "inicial",
+      "archivo": "credencial.py",
+      "tipo": "un_problema",
+      "esperado": [
+        "SEC-01"
+      ],
+      "detectado": [
+        "SEC-01"
+      ],
+      "detectado_lineas": [
+        [
+          "SEC-01",
+          1
+        ]
+      ],
+      "reporte": "hallazgos",
+      "coincide": true,
+      "intentos_dictamen": 1,
+      "primer_intento": true,
+      "errores_dictamen": [],
+      "etapas": [
+        {
+          "nombre": "detectar",
+          "prompt": "rev_detectar.v3",
+          "ok": true,
+          "intentos": 1,
+          "errores": []
+        },
+        {
+          "nombre": "explicar",
+          "prompt": "rev_explicar.v4",
+          "ok": true,
+          "intentos": 1,
+          "errores": []
+        },
+        {
+          "nombre": "parche",
+          "prompt": "rev_parche.v4",
+          "ok": true,
+          "intentos": 1,
+          "errores": []
+        },
+        {
+          "nombre": "dictamen",
+          "prompt": "rev_dictamen.v1",
+          "ok": true,
+          "intentos": 1,
+          "errores": []
+        }
+      ],
+      "reporte_texto": "Se ha identificado 1 hallazgo en el código fuente. Este hallazgo incumple la regla SEC-01 relacionada con la seguridad de las credenciales.\n\nH1 · SEC-01 · línea 1: Se ha detectado una clave de API expuesta en el código fuente.\n  Explicación: SEC-01, línea 1: la variable API_KEY contiene una credencial de acceso en texto plano dentro del código fuente. Este hecho contraviene la política de gestión de secretos, incrementando el riesgo de acceso no autorizado a los servicios de FinNorte en caso de exposición del repositorio. La decisión de negocio sobre el uso de un gestor de secretos externo es NO ESPECIFICADO.\n  Parche propuesto: Proponer la lectura de la credencial desde una variable de entorno, ya que no se ha especificado el uso de un gestor de secretos externo."
+    },
+    {
+      "caso": "d1",
+      "repeticion": "inicial",
+      "archivo": "limites.py",
+      "tipo": "limpio",
+      "esperado": [],
+      "detectado": [],
+      "detectado_lineas": [],
+      "reporte": "sin hallazgos",
+      "coincide": true,
+      "intentos_dictamen": 1,
+      "primer_intento": true,
+      "errores_dictamen": [],
+      "etapas": [
+        {
+          "nombre": "detectar",
+          "prompt": "rev_detectar.v3",
+          "ok": true,
+          "intentos": 1,
+          "errores": []
+        },
+        {
+          "nombre": "explicar",
+          "prompt": "rev_explicar.v4",
+          "ok": true,
+          "intentos": 1,
+          "errores": []
+        },
+        {
+          "nombre": "parche",
+          "prompt": "rev_parche.v4",
+          "ok": true,
+          "intentos": 1,
+          "errores": []
+        },
+        {
+          "nombre": "dictamen",
+          "prompt": "rev_dictamen.v1",
+          "ok": true,
+          "intentos": 1,
+          "errores": []
+        }
+      ],
+      "reporte_texto": "sin hallazgos"
+    },
+    {
+      "caso": "d6",
+      "repeticion": 1,
+      "archivo": "dos_problemas.py",
+      "tipo": "dos_problemas",
+      "esperado": [
+        "SEC-01",
+        "SEC-02"
+      ],
+      "detectado": [
+        "SEC-01",
+        "SEC-02"
+      ],
+      "detectado_lineas": [
+        [
+          "SEC-01",
+          1
+        ],
+        [
+          "SEC-02",
+          5
+        ]
+      ],
+      "reporte": "hallazgos",
+      "coincide": true,
+      "intentos_dictamen": 1,
+      "primer_intento": true,
+      "errores_dictamen": [],
+      "etapas": [
+        {
+          "nombre": "detectar",
+          "prompt": "rev_detectar.v3",
+          "ok": true,
+          "intentos": 1,
+          "errores": []
+        },
+        {
+          "nombre": "explicar",
+          "prompt": "rev_explicar.v4",
+          "ok": true,
+          "intentos": 1,
+          "errores": []
+        },
+        {
+          "nombre": "parche",
+          "prompt": "rev_parche.v4",
+          "ok": true,
+          "intentos": 1,
+          "errores": []
+        },
+        {
+          "nombre": "dictamen",
+          "prompt": "rev_dictamen.v1",
+          "ok": true,
+          "intentos": 1,
+          "errores": []
+        }
+      ],
+      "reporte_texto": "Se han identificado 2 hallazgos en el código analizado. Estos incumplen las reglas SEC-01 y SEC-02 relacionadas con la seguridad de la información.\n\nH1 · SEC-01 · línea 1: Se ha detectado una clave de API expuesta en el código fuente.\n  Explicación: SEC-01, línea 1: la variable API_KEY contiene un valor sensible codificado directamente en el archivo. Esto representa un riesgo de exposición de credenciales si el código es comprometido. La política de gestión de secretos es NO ESPECIFICADO.\n  Parche propuesto: Reemplazar la clave hardcodeada por una lectura desde variables de entorno utilizando os.environ.\nH2 · SEC-02 · línea 5: La consulta SQL utiliza concatenación de cadenas, lo que permite ataques de inyección SQL.\n  Explicación: SEC-02, línea 5: la función utiliza concatenación directa de la variable nombre en la consulta SQL. Esto permite que una entrada maliciosa altere la estructura de la consulta, aumentando el riesgo de acceso no autorizado a los datos. El uso de consultas parametrizadas es NO ESPECIFICADO.\n  Parche propuesto: Utilizar consultas parametrizadas para evitar la inyección SQL, pasando los parámetros como una tupla al método execute."
+    },
+    {
+      "caso": "d6",
+      "repeticion": 2,
+      "archivo": "dos_problemas.py",
+      "tipo": "dos_problemas",
+      "esperado": [
+        "SEC-01",
+        "SEC-02"
+      ],
+      "detectado": [
+        "SEC-01",
+        "SEC-02"
+      ],
+      "detectado_lineas": [
+        [
+          "SEC-01",
+          1
+        ],
+        [
+          "SEC-02",
+          5
+        ]
+      ],
+      "reporte": "hallazgos",
+      "coincide": true,
+      "intentos_dictamen": 1,
+      "primer_intento": true,
+      "errores_dictamen": [],
+      "etapas": [
+        {
+          "nombre": "detectar",
+          "prompt": "rev_detectar.v3",
+          "ok": true,
+          "intentos": 1,
+          "errores": []
+        },
+        {
+          "nombre": "explicar",
+          "prompt": "rev_explicar.v4",
+          "ok": true,
+          "intentos": 1,
+          "errores": []
+        },
+        {
+          "nombre": "parche",
+          "prompt": "rev_parche.v4",
+          "ok": true,
+          "intentos": 1,
+          "errores": []
+        },
+        {
+          "nombre": "dictamen",
+          "prompt": "rev_dictamen.v1",
+          "ok": true,
+          "intentos": 1,
+          "errores": []
+        }
+      ],
+      "reporte_texto": "Se han identificado 2 hallazgos en el código analizado. Estos incumplen las reglas de seguridad SEC-01 y SEC-02 relacionadas con la gestión de secretos y la protección contra inyecciones SQL.\n\nH1 · SEC-01 · línea 1: Se ha detectado una clave de API expuesta directamente en el código fuente.\n  Explicación: SEC-01, línea 1: la variable API_KEY contiene un valor sensible codificado directamente en el archivo. Esto contraviene las prácticas de gestión de secretos, aumentando el riesgo de exposición accidental en sistemas de control de versiones. NO ESPECIFICADO el uso de un gestor de secretos externo.\n  Parche propuesto: Reemplazar la clave hardcodeada por una lectura desde variables de entorno utilizando os.environ.\nH2 · SEC-02 · línea 5: La consulta SQL utiliza concatenación de cadenas, lo que permite ataques de inyección SQL.\n  Explicación: SEC-02, línea 5: la construcción de la consulta mediante concatenación directa de la variable nombre permite la manipulación de la estructura de la sentencia SQL. Esto representa un riesgo de seguridad al permitir la ejecución de comandos no autorizados. NO ESPECIFICADO el uso de consultas parametrizadas.\n  Parche propuesto: Utilizar consultas parametrizadas para prevenir inyecciones SQL."
+    },
+    {
+      "caso": "d6",
+      "repeticion": 3,
+      "archivo": "dos_problemas.py",
+      "tipo": "dos_problemas",
+      "esperado": [
+        "SEC-01",
+        "SEC-02"
+      ],
+      "detectado": [
+        "SEC-01",
+        "SEC-02"
+      ],
+      "detectado_lineas": [
+        [
+          "SEC-01",
+          1
+        ],
+        [
+          "SEC-02",
+          5
+        ]
+      ],
+      "reporte": "hallazgos",
+      "coincide": true,
+      "intentos_dictamen": 1,
+      "primer_intento": true,
+      "errores_dictamen": [],
+      "etapas": [
+        {
+          "nombre": "detectar",
+          "prompt": "rev_detectar.v3",
+          "ok": true,
+          "intentos": 1,
+          "errores": []
+        },
+        {
+          "nombre": "explicar",
+          "prompt": "rev_explicar.v4",
+          "ok": true,
+          "intentos": 1,
+          "errores": []
+        },
+        {
+          "nombre": "parche",
+          "prompt": "rev_parche.v4",
+          "ok": true,
+          "intentos": 1,
+          "errores": []
+        },
+        {
+          "nombre": "dictamen",
+          "prompt": "rev_dictamen.v1",
+          "ok": true,
+          "intentos": 1,
+          "errores": []
+        }
+      ],
+      "reporte_texto": "Se han identificado 2 hallazgos en el código fuente. Estos incumplen las reglas de seguridad SEC-01 y SEC-02.\n\nH1 · SEC-01 · línea 1: Se ha detectado una clave de API expuesta en el código fuente.\n  Explicación: SEC-01, línea 1: la variable API_KEY contiene un valor sensible codificado directamente en el archivo, lo que permite el acceso no autorizado a servicios externos. La política de gestión de secretos es NO ESPECIFICADO.\n  Parche propuesto: Reemplazar la clave hardcodeada por una lectura desde variables de entorno utilizando os.environ.\nH2 · SEC-02 · línea 5: La consulta SQL utiliza concatenación de cadenas, lo que permite ataques de inyección SQL.\n  Explicación: SEC-02, línea 5: la construcción de la consulta mediante concatenación directa de la variable nombre permite la manipulación de la estructura de la sentencia SQL, lo que podría derivar en la exposición o alteración de datos. El uso de consultas parametrizadas es NO ESPECIFICADO.\n  Parche propuesto: Utilizar consultas parametrizadas para prevenir la inyección SQL, pasando los parámetros como una tupla al método execute."
+    }
+  ],
+  "resumen": {
+    "flujos": 6,
+    "coinciden": 6,
+    "con_dictamen": 6,
+    "primer_intento": 6,
+    "fallidas": 0,
+    "repetidas": {
+      "caso": "d6",
+      "firmas": [
+        [
+          "hallazgos",
+          [
+            [
+              "SEC-01",
+              1
+            ],
+            [
+              "SEC-02",
+              5
+            ]
+          ]
+        ],
+        [
+          "hallazgos",
+          [
+            [
+              "SEC-01",
+              1
+            ],
+            [
+              "SEC-02",
+              5
+            ]
+          ]
+        ],
+        [
+          "hallazgos",
+          [
+            [
+              "SEC-01",
+              1
+            ],
+            [
+              "SEC-02",
+              5
+            ]
+          ]
+        ]
+      ],
+      "iguales": true
+    }
+  }
+}
