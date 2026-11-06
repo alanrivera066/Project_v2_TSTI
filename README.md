@@ -1,6 +1,6 @@
 # FinNorte · Equipo 2 · v2-revisor
 
-Revisa código Python mediante detectar → explicar → parche → dictamen. El resultado es un reporte con los hallazgos, «sin hallazgos» o un aviso de revisión fallida. La integración del documento final sigue **PENDIENTE · Kevin**.
+Revisa código Python mediante detectar → explicar → parche → dictamen. El resultado es un reporte con los hallazgos, «sin hallazgos» o un aviso de revisión fallida. El documento técnico final está en `entregables/`.
 
 ## Responsabilidades
 
@@ -9,7 +9,7 @@ Revisa código Python mediante detectar → explicar → parche → dictamen. El
 | Luis · Lolmastercraft | Detectar, buscador, Mini-RAG, fuentes, citas y abstención |
 | Alan · alanrivera066 | Explicar, esquema y reintento, 20 casos de evaluación |
 | César · MajesDo63 | Parche, reglas de negocio y contrato de calidad |
-| Kevin · KevinAdmp | Dictamen, reporte final, seis casos e integración del documento final |
+| Kevin · KevinAdmp | Dictamen, reporte final, seis casos, conclusiones e integración del documento final |
 
 Dueños, entradas, salidas, fusión y decisiones fechadas: `avance1/equipo.md`. La preparación y las pruebas tienen asistencia de IA registrada en `ai_log.md`. Los usos personales quedan **PENDIENTES**, por instrucción del usuario; la asignación y la cuenta que publica no acreditan ejecución individual.
 
@@ -102,7 +102,7 @@ Mantener el mismo proveedor, modelo, embeddings, contrato y archivos. `--env RUT
 
 ## Actividad 2
 
-Los borradores individuales están en `Actividad 2/Luis/`, `Actividad 2/Cesar/` y `Actividad 2/Alan/`. Sus comparaciones son históricas y sus fuentes de las tres etapas ahora están publicadas. Cada persona debe revisarlos y registrar su participación real. Las secciones técnicas actualizadas del Avance 1 están en [Word](entregables/Documento_Tecnico_Avance1.docx) y [PDF](entregables/Documento_Tecnico_Avance1.pdf), con 11 secciones y la evidencia de Gemini 3.1. La página de Kevin está en `Actividad 2/Kevin/`, con sus evidencias en `bitacora/dictamen/`. Las conclusiones de la sección 11 y la integración final siguen **PENDIENTES · Kevin**.
+Los borradores individuales están en `Actividad 2/Luis/`, `Actividad 2/Cesar/` y `Actividad 2/Alan/`. Sus comparaciones son históricas y sus fuentes de las tres etapas ahora están publicadas. Cada persona debe revisarlos y registrar su participación real. Las secciones técnicas actualizadas del Avance 1 están en [Word](entregables/Documento_Tecnico_Avance1.docx) y [PDF](entregables/Documento_Tecnico_Avance1.pdf), con 11 secciones, las conclusiones y la evidencia de Gemini 3.1. La página de Kevin está en `Actividad 2/Kevin/`, con sus evidencias en `bitacora/dictamen/`.
 
 ## Antecedente de Gemini 3.5 · 5 de noviembre
 
@@ -110,7 +110,7 @@ Ese intento terminó con A=60 y B=2; C y D quedaron sin medir en Gemini 3.5. Se 
 
 Esas 62 respuestas corresponden al código del commit `87427960918c2c87fdcc277a70757da13eb157cb`, con firma `1fd3da80456dbb8ade55a0cba3093ba0ac8af2478bbd9e74e48efdd1e69f0230`. Se conservan intactas como comparación parcial anterior. Su manifiesto permite comprobar los 67 archivos en ese commit. No deben verificarse contra el código posterior ni mezclarse con Gemini 3.1.
 
-El PR [#1](https://github.com/alanrivera066/Project_v2_TSTI/pull/1) fue aprobado y fusionado por Alan. La etiqueta `avance1` se actualizó con Lolmastercraft al commit `3fc27aa5e4b6d4b1301bf310ff4d18ddbd322be3`, con la medición completa de 240 ejecuciones. GitHub Actions aprobó 56 pruebas en ese estado. Esa es la base de código y evidencia de la actualización documental; los usos personales de Luis, Alan y César y el documento final conservan sus pendientes.
+El PR [#1](https://github.com/alanrivera066/Project_v2_TSTI/pull/1) fue aprobado y fusionado por Alan. La etiqueta `avance1` se actualizó con Lolmastercraft al commit `3fc27aa5e4b6d4b1301bf310ff4d18ddbd322be3`, con la medición completa de 240 ejecuciones. GitHub Actions aprobó 56 pruebas en ese estado. Esa es la base de código y evidencia de la actualización documental; los usos personales de Luis, Alan y César conservan sus pendientes.
 
 ## Nueva comparación con Gemini 3.1
 
@@ -139,7 +139,7 @@ Las cuatro configuraciones completaron 20 casos con tres repeticiones. La firma 
 
 D obtuvo fuga PII=0.00, citas correctas=0.95 y abstención correcta=0.95 en estos casos. Cumplió siete de las ocho metas; falló latencia p95: 66,173.0 ms frente a 12,000 ms. El contrato completo no se declara aprobado. La estimación de costo por ejecución completada fue 0.001570 USD para D; excluye embeddings, ejecuciones interrumpidas y solicitudes sin reporte de tokens, y no es una factura. El costo de todas las llamadas con tokens registrados figura aparte en `av1_integridad.json`.
 
-Los intervalos pareados por caso están en `av1_resumen.json` y en la tabla completa. La prueba de reanudación conservó las 240 respuestas sin llamadas nuevas al modelo: `av1_qa_reanudacion.json`. La evidencia de pruebas locales y CI corresponde a 56 pruebas aprobadas, sin medir calidad de IA. El documento final sigue pendiente; la etapa dictamen se midió aparte y no forma parte de estas 240 ejecuciones.
+Los intervalos pareados por caso están en `av1_resumen.json` y en la tabla completa. La prueba de reanudación conservó las 240 respuestas sin llamadas nuevas al modelo: `av1_qa_reanudacion.json`. La evidencia de pruebas locales y CI corresponde a 56 pruebas aprobadas, sin medir calidad de IA. La etapa dictamen se midió aparte y no forma parte de estas 240 ejecuciones.
 
 Con cuota disponible en el proyecto actual o en otro proyecto autorizado, desde la raíz del repositorio:
 
