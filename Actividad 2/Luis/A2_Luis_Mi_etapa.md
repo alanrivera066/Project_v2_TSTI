@@ -1,50 +1,98 @@
-# Mi etapa del flujo de FinNorte
+# Actividad 2 Mi etapa
 
-**Borrador asistido por IA: la persona debe leerlo, ejecutar su etapa y ajustarlo con sus palabras antes de entregar**
+Luis Alfonso Juárez Amaro | Equipo 2 | v2-revisor
 
-Luis · Equipo 2 · v2-revisor
+Comenzamos a trabajar en el proyecto el 29 de octubre de 2026.
 
-## 1 Mi etapa
+## 1. Mi etapa y cómo ayuda al proyecto
 
-Mi etapa asignada es detectar, con id rev_detectar. Recibe código numerado y señales estáticas y entrega hallazgos con id, regla, linea y descripcion. Mi responsabilidad es revisar y defender esta parte de la revisión de código. La preparación asistida no acredita todavía mi ejecución o autoría individual. Etapa 4: PENDIENTE · Kevin.
+Mi etapa es detectar problemas de seguridad y su identificador es rev_detectar. Básicamente, recibe un archivo de Python con sus líneas numeradas y entrega una lista de hallazgos. Cada hallazgo incluye un identificador, una regla SEC, la línea donde aparece y una descripción.
 
-## 2 Mi prompt v1
+Esta parte ayuda a que las siguientes etapas tengan un punto de partida. Por ejemplo, si aparece una credencial escrita directamente en el código, detectar debe señalarla para que después Alan explique el problema y César proponga una corrección. Si el archivo está limpio, debe entregar la lista vacía.
 
-En prompts/rev_detectar.v1.md identifico un rol, restricciones, datos de entrada, formato JSON y manejo de información faltante. Un ejemplo literal es: «No inventes vulnerabilidades ni números de línea.». La tarea se divide en etapas; el formato permite comprobar resultados antes de continuar. Si falta información, se pide reconocer el límite y evitar inventar datos.
+En el Avance 1, mi parte también comprende el buscador de reglas y los controles de citas y abstención. El buscador permite proporcionar contexto a las etapas, evitando incluir el documento confidencial sec-11.
 
-## 3 Mi validación en código
+## 2. Mi prompt inicial
 
-Mi parte usa reglas.py y la validación de esquema de pipeline.py. Comprueba líneas existentes, reglas SEC permitidas, duplicados y cobertura de registros sensibles reconocibles. Es código porque debe rechazar el incumplimiento aunque el modelo ignore una instrucción.
+Mi primera versión está en prompts/rev_detectar.v1.md. El prompt establece el rol de revisor de seguridad, las reglas permitidas y el formato JSON que debe devolver.
 
-Caso guardado: La respuesta histórica v1 de transferencias.py omitía el registro. El error se obtuvo al revalidarla con el contrato ampliado; no fue un rechazo en vivo de aquella ejecución. Fuente: bitacora/lab2_revision/revalidacion_historica.json.
+Una instrucción de mi archivo es: “No inventes vulnerabilidades ni números de línea”. También indica que los comentarios del código se deben tratar como datos, porque podrían contener instrucciones que intenten cambiar la revisión.
 
-Referencia del error: Falta SEC-03: registro con dato sensible sin enmascarar en línea 12.
+Las técnicas que identifico son la asignación de un rol, las restricciones explícitas y la salida estructurada. Por ejemplo, un hallazgo puede indicar SEC-01, línea 3, por una credencial escrita en el código. Lo importante es que el resultado se pueda comprobar antes de pasar a la siguiente etapa.
 
-## 4 Evidencia de ejecución
+## 3. Mi validación en código
 
-Extracto del caso real bitacora/lab2_revision/casos/flujo_v3__transferencias__1.json:
+Para esta etapa se utiliza validar_detectar, en src/finnorte/reglas.py, además de la validación del esquema en pipeline.py. Se comprueba que la línea exista, que la regla esté permitida, que no se repita una misma regla y línea y que no se omitan ciertos registros sensibles que el programa puede reconocer.
 
-```text
-prompt: rev_detectar.v3
-modelo: gemini-3.5-flash-lite
-fecha UTC: 2026-11-01T05:38:27.305216+00:00
-etapa: detectar; valida: True; intentos: 1
-```
+Esto se revisa mediante código porque una instrucción en el prompt no garantiza que el modelo la cumpla. Si devuelve una línea que no existe, el programa debe rechazarla.
 
-Mi fila en bitacora/av1_a2_matriz.md: detectar | rev_detectar.v3 | 5 hallazgos | válida True | 1 intento(s). La matriz se generó a partir de JSON históricos y no representa nuevas ejecuciones.
+## 4. Evidencia de mi etapa
 
-## 5 Consistencia
+La trazabilidad nueva del Laboratorio 2 está en bitacora/lab2_cuatro_etapas_20261105/a2_trazabilidad.json. Un resumen del registro es:
 
-El reporte de consistencia conserva una firma estructural en las tres repeticiones v3; el texto varía. Fuente: bitacora/lab2_revision/consistencia_por_etapa.json. No atribuyo estas ejecuciones guardadas a una prueba personal que aún no he realizado.
+| Campo | Dato |
+| --- | --- |
+| Proveedor y modelo | gemini / gemini-3.1-flash-lite |
+| Fecha UTC del archivo | 2026-11-06T04:28:11.412938+00:00 |
+| Prompt y entrada | rev_detectar.v3 / transferencias.py |
+| Resultado | 5 hallazgos / Salida válida: true / Intentos: 1 |
 
-## 6 Mi mejora y el antes y después
+Mi fila en a2_matriz.md, dentro de esa misma carpeta, corresponde a:
 
-Cuatro hallazgos históricos frente a cinco en la revisión v3; las tres repeticiones de v3 mantuvieron cinco. Cambiaron prompt y preprocesamiento. El historial también usa otro modelo: esta diferencia es descriptiva, no una comparación causal del prompt.
+| Entrada | Etapa | Prompt | Resultado | Válida | Intentos |
+| --- | --- | --- | --- | --- | --- |
+| transferencias.py | detectar | rev_detectar.v3 | 5 hallazgos | Sí | 1 |
 
-La mejora académica «v2» se identifica aquí con las versiones reales, sin renombrarlas. El Avance 1 conecta contexto con detectar v4; su evaluación nueva A/B/C/D, ya completa, está en bitacora/av1_cierre. Es una medición conjunta del motor y no reemplaza el antes y después histórico de mi etapa.
+Estas evidencias permiten comprobar qué versión se utilizó y qué resultado entregó.
 
-## 7 Mis commits y uso de IA
+## 5. Consistencia en las tres repeticiones
 
-PENDIENTE: lo agrega la persona después de subir con su cuenta.
+En las tres repeticiones de transferencias.py, la versión mejorada mantuvo los mismos cinco pares de regla y línea: SEC-01 en la línea 3, SEC-02 en las líneas 8 y 11, SEC-03 en la línea 12 y SEC-07 en la línea 10.
 
-Este borrador y la integración se prepararon con asistencia de ChatGPT mediante Codex. Debo completar mi uso real de IA en ai_log.md y explicar qué acepté, cambié y validé personalmente.
+Para mí, esto es importante porque una revisión no debería cambiar sus hallazgos sin motivo cuando recibe el mismo archivo. La coincidencia fue de reglas y líneas; eso no significa que toda la redacción fuera idéntica ni que se hayan encontrado todos los problemas posibles.
+
+## 6. Mi mejora y el antes y después
+
+La mejora histórica pasó de cuatro a cinco hallazgos en transferencias.py, al cubrir el registro sensible de la línea 12. La versión mejorada del Laboratorio 2 quedó como rev_detectar.v3. Se añadieron instrucciones sobre SEC-03 y señales calculadas por el programa para ayudar a localizar registros sensibles.
+
+Ese cambio histórico incluye modificaciones de prompt, preprocesamiento y modelo, por lo que no puedo atribuir toda la diferencia únicamente al prompt.
+
+En las pruebas nuevas con Gemini 3.1 Flash-Lite, ambas versiones terminaron detectando cinco hallazgos. La diferencia observada fue que v1 necesitó dos intentos y v3 necesitó uno en la ejecución inicial y las tres repeticiones de transferencias.py.
+
+Para el Avance 1 se conserva otra versión, rev_detectar.v4, que incorpora el contexto recuperado por el buscador.
+
+## 7. Referencias de mi parte en GitHub
+
+Las contribuciones publicadas correspondientes a mi parte pueden consultarse en estos enlaces:
+
+- [Detección de problemas de seguridad](https://github.com/alanrivera066/Project_v2_TSTI/commit/3f6a97aa0a5f439f1840ca456d2e1fd83fe0b5f2)
+
+- [Búsqueda de reglas y controles de recuperación](https://github.com/alanrivera066/Project_v2_TSTI/commit/b0cd7757884f2f648c1f689cf2e28fc74e10466d)
+
+- [PR #1 publicado con mi cuenta Lolmastercraft](https://github.com/alanrivera066/Project_v2_TSTI/pull/1)
+
+Los enlaces permiten ubicar los cambios y sus evidencias. El apoyo de IA utilizado para preparar e integrar el trabajo se describe en mi registro.
+
+# Mi registro personal de uso de IA
+
+Luis Alfonso Juárez Amaro | Registro para ai_log.md y el anexo
+
+## Herramienta utilizada
+
+ChatGPT mediante Codex.
+
+## ¿Para qué la utilicé?
+
+Utilicé esta herramienta como apoyo para preparar la parte que me corresponde: la detección de problemas, la conexión del buscador de reglas y los controles de citas y abstención.
+
+## ¿Qué acepté del apoyo recibido?
+
+Acepté propuestas de código y ajustes de prompts que se incorporaron al proyecto con sus evidencias. También acepté utilizar las bitácoras para respaldar las cifras, en lugar de presentar resultados que no estuvieran medidos.
+
+## ¿Qué cambié o pedí ajustar?
+
+Fui precisando el alcance del trabajo y la distribución de las etapas. Pedí conservar los prompts anteriores, trabajar con versiones nuevas y mantener los registros personales pendientes hasta preparar su contenido.
+
+## ¿Cómo se validó?
+
+La validación se hizo mediante pruebas de código, ejecuciones reales con Gemini y revisión de las bitácoras, realizadas con asistencia de la herramienta. En la evidencia de mi etapa, detectar mantuvo los mismos cinco hallazgos en las tres repeticiones de transferencias.py.
