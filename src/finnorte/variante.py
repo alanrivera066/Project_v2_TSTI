@@ -159,7 +159,7 @@ def sistema(entrada: dict, config: dict | None = None) -> dict:
     etapas = [Etapa(n, 'rev_'+n, version=v, usa=[] if n=='detectar' else ['detectar' if n=='explicar' else 'explicar'],
                     validar=validadores[n] if cfg['controles'] else None) for n,v in versiones.items()]
     if cfg['incluir_dictamen']:
-        etapas.append(Etapa('dictamen', 'rev_dictamen', usa=['explicar', 'parche'],
+        etapas.append(Etapa('dictamen', 'rev_dictamen', version=cfg['version_prompt'], usa=['explicar', 'parche'],
                             validar=validar_dictamen if cfg['controles'] else None))
     from .reglas import registros_del_codigo
     valores = {'entrada': 'Solicitud de revisión: ' + str(entrada.get('solicitud','Revisar el archivo Python')) + '\nCódigo numerado:\n' + '\n'.join(f'{i}: {l}' for i,l in enumerate(texto.splitlines(),1)),
