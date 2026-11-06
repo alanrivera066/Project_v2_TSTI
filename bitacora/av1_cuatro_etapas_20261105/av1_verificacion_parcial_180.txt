@@ -1,0 +1,10 @@
+{
+  "firma": "9410eee198634c3b65ed5286b6216f8453b689c25b30f5c282e7a4b3ec7fad16",
+  "archivos_verificados": 71,
+  "respuestas_reales_guardadas": 180,
+  "esperadas": 240,
+  "configuraciones_pendientes": [
+    "D"
+  ]
+}
+PENDIENTE DE MEDIR. Reanudar el medidor con --continuar y la misma configuración.

@@ -14,6 +14,9 @@ CONFIGS={
  'C':dict(version_prompt=2,usar_rag=True,controles=False,incluir_dictamen=False),
  'D':dict(version_prompt=2,usar_rag=True,controles=True,incluir_dictamen=False)}
 
+def configuraciones(cuatro_etapas=False):
+ return {letra:{**op, 'incluir_dictamen':cuatro_etapas} for letra,op in CONFIGS.items()}
+
 def huella_medicion(casos='evals/v2-revisor.jsonl', contrato='contrato_calidad.yaml'):
  """Incluye código, prompts, corpus, entradas, evaluaciones y contrato; nunca .env."""
  paths={p for carpeta,patron in [('src/finnorte','*.py'),('prompts','*.md'),
@@ -35,8 +38,8 @@ def recuperar_respuestas(origen, destino, metadata):
   ruta=origen/f'av1_{letra}.json'
   if not ruta.exists(): continue
   anterior=json.loads(ruta.read_text(encoding='utf-8'))
-  for campo in ['firma','modelo','embeddings','repeticiones','demo']:
-   if anterior['metadata'][campo]!=metadata[campo]:
+  for campo in ['firma','modelo','embeddings','repeticiones','demo','dictamen']:
+   if anterior['metadata'].get(campo)!=metadata.get(campo):
     raise ValueError(f'Cambió {campo}; no se pueden reutilizar estas respuestas')
   filas=[]
   for r in anterior['ejecuciones_guardadas']:
@@ -60,19 +63,26 @@ def recuperar_respuestas(origen, destino, metadata):
 
 def firma_salida(out):
  a=out.get('artefacto',{})
- return json.dumps({'abstuvo':out.get('abstuvo'),'error':out.get('error'),
+ firma={'abstuvo':out.get('abstuvo'),'error':out.get('error'),
   'hallazgos':sorted((h['regla'],h['linea']) for h in a.get('hallazgos',[])),
-  'parches':sorted((h['regla'],h['linea']) for h in a.get('parches',[]))},sort_keys=True)
+  'parches':sorted((h['regla'],h['linea']) for h in a.get('parches',[]))}
+ if 'dictamen' in a:
+  d=a['dictamen']
+  firma['dictamen']={'estado':d['estado'],'total':d['total_hallazgos'],
+   'hallazgos':sorted((h['regla'],h['linea']) for h in d['hallazgos'])}
+ return json.dumps(firma,sort_keys=True)
 
 def main():
  ap=argparse.ArgumentParser(description=__doc__)
  ap.add_argument('--casos',required=True); ap.add_argument('--rep',type=int,default=3)
  ap.add_argument('--env',help='Lee una configuración .env existente en memoria, sin copiar la llave')
  ap.add_argument('--continuar',action='store_true'); ap.add_argument('--trabajadores',type=int,default=1)
+ ap.add_argument('--cuatro-etapas',action='store_true',help='Incluye dictamen v1 en A y v2 en B/C/D; guardar en una carpeta nueva')
  ap.add_argument('--recuperar-de',help='Reutiliza respuestas previas en una carpeta nueva y repite solo fallos del proveedor')
  ap.add_argument('--salida',default='bitacora/av1_medicion'); ap.add_argument('--contrato',default='contrato_calidad.yaml')
  ap.add_argument('--intervalo',type=float,default=4.2,help='Separación mínima entre llamadas al modelo; cuota gratuita 15/min')
  a=ap.parse_args()
+ opciones=configuraciones(a.cuatro_etapas)
  if a.env: _cargar_env(Path(a.env))
  if a.rep<3: ap.error('Avance 1 requiere --rep >= 3')
  if a.trabajadores<1: ap.error('trabajadores debe ser positivo')
@@ -86,8 +96,9 @@ def main():
  meta={'fecha_utc':datetime.now(timezone.utc).isoformat(),'proveedor':cfg.llm_proveedor,'modelo':cfg.llm_modelo,
   'embeddings':cfg.emb_modelo,'demo':demo,'etiqueta':'demostración sin modelo real, NO es medición' if demo else 'medición con API real',
   'firma':firma,'metodo_firma':'sha256_manifest_v1','archivos':archivos,
-  'repeticiones':a.rep,'trabajadores':a.trabajadores,'intervalo_seg':a.intervalo,'versiones':{'A':[1,1,1],'BCD':[4,5,5]},
-  'dictamen':'no incluido en A/B/C/D',
+  'repeticiones':a.rep,'trabajadores':a.trabajadores,'intervalo_seg':a.intervalo,
+  'versiones':{'A':[1,1,1,1],'BCD':[4,5,5,2]} if a.cuatro_etapas else {'A':[1,1,1],'BCD':[4,5,5]},
+  'dictamen':'incluido en A/B/C/D' if a.cuatro_etapas else 'no incluido en A/B/C/D',
   'costo':f'Estimación LLM a tarifa de pago Standard; tokens reales, tarifa {pin:.2f}/{pout:.2f} USD por millón; excluye embeddings; no es factura',
   'tarifa_usd_millon':{'entrada':pin,'salida':pout},
   'precios_fuente':'https://aistudio.google.com/docs/pricing#'+cfg.llm_modelo}
@@ -97,13 +108,14 @@ def main():
   a.continuar=True
   print(f'Respuestas reutilizadas: {reutilizadas}; originales conservados',flush=True)
  promedios={}; tablas=[]
- for letra,op in CONFIGS.items():
+ for letra,op in opciones.items():
   ruta=destino/f'av1_{letra}.json'; registros=[]
   if ruta.exists():
    anterior=json.loads(ruta.read_text(encoding='utf-8'))
    if not a.continuar: ap.error(f'{ruta} existe; usa --continuar o una carpeta nueva')
-   for k in ['firma','modelo','embeddings','repeticiones','demo']:
+   for k in ['firma','modelo','embeddings','repeticiones','demo','dictamen']:
     if anterior['metadata'][k]!=meta[k]: ap.error(f'Cambió {k}; usa otra carpeta de salida')
+   if anterior['config']!=op: ap.error('Cambió la configuración; usa otra carpeta de salida')
    registros=anterior['ejecuciones_guardadas']
   hechos={(r['id'],r['repeticion']) for r in registros}
   if op['usar_rag']: indice()  # Evita construcción simultánea de la caché.

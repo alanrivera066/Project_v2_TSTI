@@ -1,0 +1,15 @@
+{
+  "paginas": 12,
+  "textos_kevin_conservados": 35,
+  "secciones_oficiales": 11,
+  "docx_sha256": "690aca69380a149138e08c6d4b96d8efa9b54ebcedfb243130e558e482b8154f",
+  "pdf_sha256": "e3b195606329545ec98b6fe9dbdc82cef22da1a959f3007542c18f9e9d5d1160",
+  "revision_visual": "Las 12 páginas inspeccionadas; sin recortes, superposiciones ni tablas ilegibles.",
+  "fecha_utc": "2026-11-06T06:49:29.416908+00:00",
+  "estado_medicion": "180/240; A/B/C completas, D pendiente por cuota diaria.",
+  "pruebas_locales": "........................................................................ [ 73%]\n..........................                                               [100%]\n98 passed in 1.07s",
+  "fuente_kevin": "31ac3d3c6c013eb73bdf8190d00904463c9963c2",
+  "preservacion": "35 textos conservados literalmente; sección 11 intacta, con nota histórica de alcance. Archivos personales, prompts, código y pruebas de dictamen sin cambios.",
+  "auditoria_anterior": "av1_documentacion_cuatro_20261105.json corresponde al corte 59/240 publicado en e2a7cc3.",
+  "etiqueta_final": "Pendiente de completar D y cerrar el PR #7; sin cambios en este corte."
+}

@@ -1,0 +1,7 @@
+transferencias.py / inicial: completo; 4/4 etapas
+tokens.py / inicial: incompleto; 2/4 etapas
+limites.py / inicial: incompleto; 3/4 etapas
+transferencias.py / 1: completo; 4/4 etapas
+transferencias.py / 2: completo; 4/4 etapas
+transferencias.py / 3: completo; 4/4 etapas
+Matriz: C:\Users\multi\OneDrive\Documentos\ChatGPT\Avance del proyecto TSI\Cierre_Cuatro_Etapas_2026-11-05\bitacora\lab2_cuatro_etapas_20261105\a2_matriz_v1.md

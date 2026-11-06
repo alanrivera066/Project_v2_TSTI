@@ -1,0 +1,1684 @@
+{
+  "fecha_utc": "2026-11-06T04:31:25.915183+00:00",
+  "demo": false,
+  "proveedor": "gemini",
+  "modelo": "gemini-3.1-flash-lite",
+  "sin_rag": true,
+  "huella": {
+    "validadores": "lab2-revision-6",
+    "prompts": {
+      "rev_detectar.v1": "dff5075bfc11f0aa1689a6f0fab48f903357c047f9a2c847f46ff3c46c3fe86d",
+      "rev_explicar.v1": "f9bddafe1feca10228dac544202123c3b781446158c5e806b5e9027da9ce4ea5",
+      "rev_parche.v1": "3e4981ef21f28ed50e24cf1ed8c75c78710e9595d76d3a0a2db690b401b4058f",
+      "rev_dictamen.v1": "7b0e0d7eb78dee77842223543dab4ef1b8f979889ce415391f8dc8c493c34679"
+    },
+    "codigo": {
+      "reglas.py": "2f642cb9f795ba17ffa5ea82cb4022a849e42d9495934387f5d3cef6d224324e",
+      "pipeline.py": "0f34f5c9163e0378c4853f810f97c2029a48b9511e4c97419111f01e716e027c",
+      "dictamen.py": "9fff1d887d152c04af8e9e86b75df9036539b6d0acb73908a723e99b7daac31c"
+    },
+    "entradas": {
+      "transferencias.py": "17f2829ec34762c775a43917fa1822f8343a66583d03a2fc114161471ba4a21a",
+      "tokens.py": "34aba0eb860870fb99e8f699227d06a5923b253a391b0f8a8e56286fb3d361c5",
+      "limites.py": "fb2d0d2818eaa7be226e2e712435e59d2547a0c8afa72b094c244d0c8dcc318d"
+    }
+  },
+  "filas": [
+    {
+      "entrada": "transferencias.py",
+      "repeticion": "inicial",
+      "etapa": "detectar",
+      "prompt": "rev_detectar.v1",
+      "artefacto": "5 hallazgos: H1 SEC-01 L3, H2 SEC-02 L8, H3 SEC-02 L11, H4 SEC-03 L12, H5 SEC-07 L10",
+      "valida": true,
+      "intentos": 2,
+      "errores": [],
+      "latencia_ms": 5418.07,
+      "costo_usd": 0.001027
+    },
+    {
+      "entrada": "transferencias.py",
+      "repeticion": "inicial",
+      "etapa": "explicar",
+      "prompt": "rev_explicar.v1",
+      "artefacto": "5 hallazgos: H1 SEC-01 L3, H2 SEC-02 L8, H3 SEC-02 L11, H4 SEC-03 L12, H5 SEC-07 L10",
+      "valida": true,
+      "intentos": 2,
+      "errores": [],
+      "latencia_ms": 12664.52,
+      "costo_usd": 0.00198875
+    },
+    {
+      "entrada": "transferencias.py",
+      "repeticion": "inicial",
+      "etapa": "parche",
+      "prompt": "rev_parche.v1",
+      "artefacto": "5 parches; archivo de 17 líneas",
+      "valida": true,
+      "intentos": 1,
+      "errores": [],
+      "latencia_ms": 4066.44,
+      "costo_usd": 0.00106275
+    },
+    {
+      "entrada": "transferencias.py",
+      "repeticion": "inicial",
+      "etapa": "dictamen",
+      "prompt": "rev_dictamen.v1",
+      "artefacto": "con_hallazgos: 5 hallazgos",
+      "valida": true,
+      "intentos": 1,
+      "errores": [],
+      "latencia_ms": 4409.52,
+      "costo_usd": 0.001567
+    },
+    {
+      "entrada": "tokens.py",
+      "repeticion": "inicial",
+      "etapa": "detectar",
+      "prompt": "rev_detectar.v1",
+      "artefacto": "1 hallazgos: H1 SEC-09 L6",
+      "valida": true,
+      "intentos": 1,
+      "errores": [],
+      "latencia_ms": 2955.84,
+      "costo_usd": 0.0002115
+    },
+    {
+      "entrada": "tokens.py",
+      "repeticion": "inicial",
+      "etapa": "explicar",
+      "prompt": "rev_explicar.v1",
+      "artefacto": "Salida inválida: {\"hallazgos\": [{\"id\": \"H1\", \"regla\": \"SEC-09\", \"linea\": 6, \"descripcion\": \"Uso de yaml.load inseguro",
+      "valida": false,
+      "intentos": 2,
+      "errores": [
+        "La explicación de H1 debe identificar su regla SEC"
+      ],
+      "latencia_ms": 12531.2,
+      "costo_usd": 0.0006605000000000001
+    },
+    {
+      "entrada": "limites.py",
+      "repeticion": "inicial",
+      "etapa": "detectar",
+      "prompt": "rev_detectar.v1",
+      "artefacto": "0 hallazgos: ",
+      "valida": true,
+      "intentos": 1,
+      "errores": [],
+      "latencia_ms": 903.23,
+      "costo_usd": 0.0001435
+    },
+    {
+      "entrada": "limites.py",
+      "repeticion": "inicial",
+      "etapa": "explicar",
+      "prompt": "rev_explicar.v1",
+      "artefacto": "0 hallazgos: ",
+      "valida": true,
+      "intentos": 1,
+      "errores": [],
+      "latencia_ms": 4682.75,
+      "costo_usd": 0.000142
+    },
+    {
+      "entrada": "limites.py",
+      "repeticion": "inicial",
+      "etapa": "parche",
+      "prompt": "rev_parche.v1",
+      "artefacto": "Salida inválida: {\"parches\": [], \"codigo_corregido\": \"from decimal import Decimal, ROUND_HALF_EVEN\\n\\nLIMITE_NIVEL_1 ",
+      "valida": false,
+      "intentos": 2,
+      "errores": [
+        "Sin hallazgos se debe conservar exactamente el código original"
+      ],
+      "latencia_ms": 8604.72,
+      "costo_usd": 0.0007865
+    },
+    {
+      "entrada": "transferencias.py",
+      "repeticion": 1,
+      "etapa": "detectar",
+      "prompt": "rev_detectar.v1",
+      "artefacto": "5 hallazgos: H1 SEC-01 L3, H2 SEC-02 L8, H3 SEC-03 L12, H4 SEC-07 L10, H5 SEC-02 L11",
+      "valida": true,
+      "intentos": 2,
+      "errores": [],
+      "latencia_ms": 8384.03,
+      "costo_usd": 0.001024
+    },
+    {
+      "entrada": "transferencias.py",
+      "repeticion": 1,
+      "etapa": "explicar",
+      "prompt": "rev_explicar.v1",
+      "artefacto": "5 hallazgos: H1 SEC-01 L3, H2 SEC-02 L8, H3 SEC-03 L12, H4 SEC-07 L10, H5 SEC-02 L11",
+      "valida": true,
+      "intentos": 2,
+      "errores": [],
+      "latencia_ms": 8687.73,
+      "costo_usd": 0.00198775
+    },
+    {
+      "entrada": "transferencias.py",
+      "repeticion": 1,
+      "etapa": "parche",
+      "prompt": "rev_parche.v1",
+      "artefacto": "5 parches; archivo de 20 líneas",
+      "valida": true,
+      "intentos": 1,
+      "errores": [],
+      "latencia_ms": 4152.66,
+      "costo_usd": 0.001088
+    },
+    {
+      "entrada": "transferencias.py",
+      "repeticion": 1,
+      "etapa": "dictamen",
+      "prompt": "rev_dictamen.v1",
+      "artefacto": "con_hallazgos: 5 hallazgos",
+      "valida": true,
+      "intentos": 1,
+      "errores": [],
+      "latencia_ms": 65648.74,
+      "costo_usd": 0.00157225
+    },
+    {
+      "entrada": "transferencias.py",
+      "repeticion": 2,
+      "etapa": "detectar",
+      "prompt": "rev_detectar.v1",
+      "artefacto": "5 hallazgos: H1 SEC-01 L3, H2 SEC-02 L8, H3 SEC-07 L10, H4 SEC-02 L11, H5 SEC-03 L12",
+      "valida": true,
+      "intentos": 2,
+      "errores": [],
+      "latencia_ms": 7787.88,
+      "costo_usd": 0.0010314999999999999
+    },
+    {
+      "entrada": "transferencias.py",
+      "repeticion": 2,
+      "etapa": "explicar",
+      "prompt": "rev_explicar.v1",
+      "artefacto": "5 hallazgos: H1 SEC-01 L3, H2 SEC-02 L8, H3 SEC-07 L10, H4 SEC-02 L11, H5 SEC-03 L12",
+      "valida": true,
+      "intentos": 2,
+      "errores": [],
+      "latencia_ms": 8826.99,
+      "costo_usd": 0.00188625
+    },
+    {
+      "entrada": "transferencias.py",
+      "repeticion": 2,
+      "etapa": "parche",
+      "prompt": "rev_parche.v1",
+      "artefacto": "5 parches; archivo de 20 líneas",
+      "valida": true,
+      "intentos": 1,
+      "errores": [],
+      "latencia_ms": 4312.29,
+      "costo_usd": 0.00105725
+    },
+    {
+      "entrada": "transferencias.py",
+      "repeticion": 2,
+      "etapa": "dictamen",
+      "prompt": "rev_dictamen.v1",
+      "artefacto": "con_hallazgos: 5 hallazgos",
+      "valida": true,
+      "intentos": 1,
+      "errores": [],
+      "latencia_ms": 4103.84,
+      "costo_usd": 0.0014475
+    },
+    {
+      "entrada": "transferencias.py",
+      "repeticion": 3,
+      "etapa": "detectar",
+      "prompt": "rev_detectar.v1",
+      "artefacto": "5 hallazgos: H1 SEC-01 L3, H2 SEC-02 L8, H3 SEC-07 L10, H4 SEC-02 L11, H5 SEC-03 L12",
+      "valida": true,
+      "intentos": 2,
+      "errores": [],
+      "latencia_ms": 7604.67,
+      "costo_usd": 0.0010345
+    },
+    {
+      "entrada": "transferencias.py",
+      "repeticion": 3,
+      "etapa": "explicar",
+      "prompt": "rev_explicar.v1",
+      "artefacto": "5 hallazgos: H1 SEC-01 L3, H2 SEC-02 L8, H3 SEC-07 L10, H4 SEC-02 L11, H5 SEC-03 L12",
+      "valida": true,
+      "intentos": 2,
+      "errores": [],
+      "latencia_ms": 8972.76,
+      "costo_usd": 0.00187525
+    },
+    {
+      "entrada": "transferencias.py",
+      "repeticion": 3,
+      "etapa": "parche",
+      "prompt": "rev_parche.v1",
+      "artefacto": "5 parches; archivo de 19 líneas",
+      "valida": true,
+      "intentos": 1,
+      "errores": [],
+      "latencia_ms": 4274.44,
+      "costo_usd": 0.001013
+    },
+    {
+      "entrada": "transferencias.py",
+      "repeticion": 3,
+      "etapa": "dictamen",
+      "prompt": "rev_dictamen.v1",
+      "artefacto": "con_hallazgos: 5 hallazgos",
+      "valida": true,
+      "intentos": 1,
+      "errores": [],
+      "latencia_ms": 4400.61,
+      "costo_usd": 0.0014455
+    }
+  ],
+  "corridas": [
+    {
+      "entrada": "transferencias.py",
+      "repeticion": "inicial",
+      "estado": "completo",
+      "etapas": [
+        {
+          "nombre": "detectar",
+          "prompt": "rev_detectar.v1",
+          "ok": true,
+          "salida": {
+            "hallazgos": [
+              {
+                "id": "H1",
+                "regla": "SEC-01",
+                "linea": 3,
+                "descripcion": "Credencial escrita en el código"
+              },
+              {
+                "id": "H2",
+                "regla": "SEC-02",
+                "linea": 8,
+                "descripcion": "Consulta SQL construida con formato de cadena vulnerable a inyección"
+              },
+              {
+                "id": "H3",
+                "regla": "SEC-02",
+                "linea": 11,
+                "descripcion": "Consulta SQL construida con concatenación vulnerable a inyección"
+              },
+              {
+                "id": "H4",
+                "regla": "SEC-03",
+                "linea": 12,
+                "descripcion": "Registro de datos personales o sensibles sin enmascarar"
+              },
+              {
+                "id": "H5",
+                "regla": "SEC-07",
+                "linea": 10,
+                "descripcion": "Uso de punto flotante para operaciones financieras"
+              }
+            ]
+          },
+          "errores": [],
+          "intentos": 2,
+          "latencia_ms": 5418.066099984571,
+          "costo_usd": 0.001027
+        },
+        {
+          "nombre": "explicar",
+          "prompt": "rev_explicar.v1",
+          "ok": true,
+          "salida": {
+            "hallazgos": [
+              {
+                "id": "H1",
+                "regla": "SEC-01",
+                "linea": 3,
+                "descripcion": "Credencial escrita en el código",
+                "explicacion": "El hallazgo H1 bajo la regla SEC-01 en la línea 3 indica que una credencial está expuesta directamente en el código fuente, lo cual compromete la seguridad al ser visible en el control de versiones."
+              },
+              {
+                "id": "H2",
+                "regla": "SEC-02",
+                "linea": 8,
+                "descripcion": "Consulta SQL construida con formato de cadena vulnerable a inyección",
+                "explicacion": "El hallazgo H2 bajo la regla SEC-02 en la línea 8 señala que el uso de f-strings para construir consultas SQL permite la inyección de código malicioso al no parametrizar las entradas."
+              },
+              {
+                "id": "H3",
+                "regla": "SEC-02",
+                "linea": 11,
+                "descripcion": "Consulta SQL construida con concatenación vulnerable a inyección",
+                "explicacion": "El hallazgo H3 bajo la regla SEC-02 en la línea 11 identifica que la concatenación manual de cadenas en una consulta SQL facilita ataques de inyección, contraviniendo las prácticas de seguridad."
+              },
+              {
+                "id": "H4",
+                "regla": "SEC-03",
+                "linea": 12,
+                "descripcion": "Registro de datos personales o sensibles sin enmascarar",
+                "explicacion": "El hallazgo H4 bajo la regla SEC-03 en la línea 12 advierte que se están imprimiendo datos sensibles en los registros (logs) sin aplicar técnicas de enmascaramiento, exponiendo información confidencial."
+              },
+              {
+                "id": "H5",
+                "regla": "SEC-07",
+                "linea": 10,
+                "descripcion": "Uso de punto flotante para operaciones financieras",
+                "explicacion": "El hallazgo H5 bajo la regla SEC-07 en la línea 10 advierte que el uso de tipos de punto flotante para manejar dinero puede causar errores de precisión, lo cual es inadecuado para cálculos financieros."
+              }
+            ]
+          },
+          "errores": [],
+          "intentos": 2,
+          "latencia_ms": 12664.521099999547,
+          "costo_usd": 0.00198875
+        },
+        {
+          "nombre": "parche",
+          "prompt": "rev_parche.v1",
+          "ok": true,
+          "salida": {
+            "parches": [
+              {
+                "id": "H1",
+                "regla": "SEC-01",
+                "linea": 3,
+                "cambio": "Se reemplazó la credencial hardcodeada por una lectura desde variables de entorno usando os.environ."
+              },
+              {
+                "id": "H2",
+                "regla": "SEC-02",
+                "linea": 8,
+                "cambio": "Se utilizó parametrización de consultas (placeholder ?) para prevenir inyección SQL."
+              },
+              {
+                "id": "H3",
+                "regla": "SEC-02",
+                "linea": 11,
+                "cambio": "Se utilizó parametrización de consultas (placeholder ?) para prevenir inyección SQL."
+              },
+              {
+                "id": "H4",
+                "regla": "SEC-03",
+                "linea": 12,
+                "cambio": "Se enmascaró el destino_clabe en el log para evitar la exposición de datos sensibles."
+              },
+              {
+                "id": "H5",
+                "regla": "SEC-07",
+                "linea": 10,
+                "cambio": "Se utilizó la librería decimal para operaciones financieras, evitando errores de precisión de punto flotante. Nota: Se asume que el monto recibido es compatible con Decimal."
+              }
+            ],
+            "codigo_corregido": "import sqlite3\nimport os\nfrom decimal import Decimal\n\nAPI_KEY = os.getenv(\"API_KEY\")\n\n\ndef transferir(conn, origen_id, destino_clabe, monto):\n    cur = conn.cursor()\n    cur.execute(\"SELECT saldo FROM cuentas WHERE id = ?\", (origen_id,))\n    saldo = Decimal(str(cur.fetchone()[0]))\n    monto_dec = Decimal(str(monto))\n    if monto_dec <= saldo:\n        cur.execute(\"UPDATE cuentas SET saldo = saldo - ? WHERE id = ?\", (str(monto_dec), origen_id))\n        print(f\"transferencia {origen_id} -> {destino_clabe[:4]}**** por {monto_dec}\")\n        return True\n    return False"
+          },
+          "errores": [],
+          "intentos": 1,
+          "latencia_ms": 4066.4436999941245,
+          "costo_usd": 0.00106275
+        },
+        {
+          "nombre": "dictamen",
+          "prompt": "rev_dictamen.v1",
+          "ok": true,
+          "salida": {
+            "estado": "con_hallazgos",
+            "total_hallazgos": 5,
+            "hallazgos": [
+              {
+                "id": "H1",
+                "regla": "SEC-01",
+                "linea": 3,
+                "descripcion": "Credencial escrita en el código",
+                "explicacion": "El hallazgo H1 bajo la regla SEC-01 en la línea 3 indica que una credencial está expuesta directamente en el código fuente, lo cual compromete la seguridad al ser visible en el control de versiones.",
+                "cambio": "Se reemplazó la credencial hardcodeada por una lectura desde variables de entorno usando os.environ."
+              },
+              {
+                "id": "H2",
+                "regla": "SEC-02",
+                "linea": 8,
+                "descripcion": "Consulta SQL construida con formato de cadena vulnerable a inyección",
+                "explicacion": "El hallazgo H2 bajo la regla SEC-02 en la línea 8 señala que el uso de f-strings para construir consultas SQL permite la inyección de código malicioso al no parametrizar las entradas.",
+                "cambio": "Se utilizó parametrización de consultas (placeholder ?) para prevenir inyección SQL."
+              },
+              {
+                "id": "H3",
+                "regla": "SEC-02",
+                "linea": 11,
+                "descripcion": "Consulta SQL construida con concatenación vulnerable a inyección",
+                "explicacion": "El hallazgo H3 bajo la regla SEC-02 en la línea 11 identifica que la concatenación manual de cadenas en una consulta SQL facilita ataques de inyección, contraviniendo las prácticas de seguridad.",
+                "cambio": "Se utilizó parametrización de consultas (placeholder ?) para prevenir inyección SQL."
+              },
+              {
+                "id": "H4",
+                "regla": "SEC-03",
+                "linea": 12,
+                "descripcion": "Registro de datos personales o sensibles sin enmascarar",
+                "explicacion": "El hallazgo H4 bajo la regla SEC-03 en la línea 12 advierte que se están imprimiendo datos sensibles en los registros (logs) sin aplicar técnicas de enmascaramiento, exponiendo información confidencial.",
+                "cambio": "Se enmascaró el destino_clabe en el log para evitar la exposición de datos sensibles."
+              },
+              {
+                "id": "H5",
+                "regla": "SEC-07",
+                "linea": 10,
+                "descripcion": "Uso de punto flotante para operaciones financieras",
+                "explicacion": "El hallazgo H5 bajo la regla SEC-07 en la línea 10 advierte que el uso de tipos de punto flotante para manejar dinero puede causar errores de precisión, lo cual es inadecuado para cálculos financieros.",
+                "cambio": "Se utilizó la librería decimal para operaciones financieras, evitando errores de precisión de punto flotante. Nota: Se asume que el monto recibido es compatible con Decimal."
+              }
+            ],
+            "resumen": "Se identificaron 5 hallazgos en el código analizado. Estos incumplen las reglas SEC-01, SEC-02, SEC-03 y SEC-07."
+          },
+          "errores": [],
+          "intentos": 1,
+          "latencia_ms": 4409.519599983469,
+          "costo_usd": 0.001567
+        }
+      ],
+      "resultado": {
+        "ok": true,
+        "hallazgos": [
+          {
+            "id": "H1",
+            "regla": "SEC-01",
+            "linea": 3,
+            "descripcion": "Credencial escrita en el código"
+          },
+          {
+            "id": "H2",
+            "regla": "SEC-02",
+            "linea": 8,
+            "descripcion": "Consulta SQL construida con formato de cadena vulnerable a inyección"
+          },
+          {
+            "id": "H3",
+            "regla": "SEC-02",
+            "linea": 11,
+            "descripcion": "Consulta SQL construida con concatenación vulnerable a inyección"
+          },
+          {
+            "id": "H4",
+            "regla": "SEC-03",
+            "linea": 12,
+            "descripcion": "Registro de datos personales o sensibles sin enmascarar"
+          },
+          {
+            "id": "H5",
+            "regla": "SEC-07",
+            "linea": 10,
+            "descripcion": "Uso de punto flotante para operaciones financieras"
+          }
+        ],
+        "parche": {
+          "parches": [
+            {
+              "id": "H1",
+              "regla": "SEC-01",
+              "linea": 3,
+              "cambio": "Se reemplazó la credencial hardcodeada por una lectura desde variables de entorno usando os.environ."
+            },
+            {
+              "id": "H2",
+              "regla": "SEC-02",
+              "linea": 8,
+              "cambio": "Se utilizó parametrización de consultas (placeholder ?) para prevenir inyección SQL."
+            },
+            {
+              "id": "H3",
+              "regla": "SEC-02",
+              "linea": 11,
+              "cambio": "Se utilizó parametrización de consultas (placeholder ?) para prevenir inyección SQL."
+            },
+            {
+              "id": "H4",
+              "regla": "SEC-03",
+              "linea": 12,
+              "cambio": "Se enmascaró el destino_clabe en el log para evitar la exposición de datos sensibles."
+            },
+            {
+              "id": "H5",
+              "regla": "SEC-07",
+              "linea": 10,
+              "cambio": "Se utilizó la librería decimal para operaciones financieras, evitando errores de precisión de punto flotante. Nota: Se asume que el monto recibido es compatible con Decimal."
+            }
+          ],
+          "codigo_corregido": "import sqlite3\nimport os\nfrom decimal import Decimal\n\nAPI_KEY = os.getenv(\"API_KEY\")\n\n\ndef transferir(conn, origen_id, destino_clabe, monto):\n    cur = conn.cursor()\n    cur.execute(\"SELECT saldo FROM cuentas WHERE id = ?\", (origen_id,))\n    saldo = Decimal(str(cur.fetchone()[0]))\n    monto_dec = Decimal(str(monto))\n    if monto_dec <= saldo:\n        cur.execute(\"UPDATE cuentas SET saldo = saldo - ? WHERE id = ?\", (str(monto_dec), origen_id))\n        print(f\"transferencia {origen_id} -> {destino_clabe[:4]}**** por {monto_dec}\")\n        return True\n    return False"
+        }
+      }
+    },
+    {
+      "entrada": "tokens.py",
+      "repeticion": "inicial",
+      "estado": "incompleto",
+      "etapas": [
+        {
+          "nombre": "detectar",
+          "prompt": "rev_detectar.v1",
+          "ok": true,
+          "salida": {
+            "hallazgos": [
+              {
+                "id": "H1",
+                "regla": "SEC-09",
+                "linea": 6,
+                "descripcion": "Uso de yaml.load inseguro que permite la ejecución de código arbitrario"
+              }
+            ]
+          },
+          "errores": [],
+          "intentos": 1,
+          "latencia_ms": 2955.844000040088,
+          "costo_usd": 0.0002115
+        },
+        {
+          "nombre": "explicar",
+          "prompt": "rev_explicar.v1",
+          "ok": false,
+          "salida": {
+            "hallazgos": [
+              {
+                "id": "H1",
+                "regla": "SEC-09",
+                "linea": 6,
+                "descripcion": "Uso de yaml.load inseguro que permite la ejecución de código arbitrario",
+                "explicacion": "La función yaml.load en la línea 6 es vulnerable a la deserialización de objetos arbitrarios, lo que permite a un atacante ejecutar código malicioso al procesar entradas no confiables. Se debe utilizar yaml.safe_load para restringir la deserialización a tipos de datos básicos."
+              }
+            ]
+          },
+          "errores": [
+            "La explicación de H1 debe identificar su regla SEC"
+          ],
+          "intentos": 2,
+          "latencia_ms": 12531.196299998555,
+          "costo_usd": 0.0006605000000000001
+        }
+      ],
+      "resultado": {
+        "ok": false,
+        "hallazgos": [
+          {
+            "id": "H1",
+            "regla": "SEC-09",
+            "linea": 6,
+            "descripcion": "Uso de yaml.load inseguro que permite la ejecución de código arbitrario"
+          }
+        ],
+        "parche": null
+      }
+    },
+    {
+      "entrada": "limites.py",
+      "repeticion": "inicial",
+      "estado": "incompleto",
+      "etapas": [
+        {
+          "nombre": "detectar",
+          "prompt": "rev_detectar.v1",
+          "ok": true,
+          "salida": {
+            "hallazgos": []
+          },
+          "errores": [],
+          "intentos": 1,
+          "latencia_ms": 903.2312000053935,
+          "costo_usd": 0.0001435
+        },
+        {
+          "nombre": "explicar",
+          "prompt": "rev_explicar.v1",
+          "ok": true,
+          "salida": {
+            "hallazgos": []
+          },
+          "errores": [],
+          "intentos": 1,
+          "latencia_ms": 4682.747300015762,
+          "costo_usd": 0.000142
+        },
+        {
+          "nombre": "parche",
+          "prompt": "rev_parche.v1",
+          "ok": false,
+          "salida": {
+            "parches": [],
+            "codigo_corregido": "from decimal import Decimal, ROUND_HALF_EVEN\n\nLIMITE_NIVEL_1 = Decimal(\"8000\")\nLIMITE_NIVEL_2 = Decimal(\"50000\")\n\n\ndef validar_monto(monto: Decimal, nivel: int) -> bool:\n    \"\"\"Devuelve True si el monto es válido para el nivel de cuenta.\"\"\"\n    if monto <= 0 or monto != monto.quantize(Decimal(\"0.01\"), rounding=ROUND_HALF_EVEN):\n        return False\n    limite = LIMITE_NIVEL_2 if nivel == 2 else LIMITE_NIVEL_1\n    return monto <= limite"
+          },
+          "errores": [
+            "Sin hallazgos se debe conservar exactamente el código original"
+          ],
+          "intentos": 2,
+          "latencia_ms": 8604.721799958497,
+          "costo_usd": 0.0007865
+        }
+      ],
+      "resultado": {
+        "ok": false,
+        "hallazgos": [],
+        "parche": null
+      }
+    },
+    {
+      "entrada": "transferencias.py",
+      "repeticion": 1,
+      "estado": "completo",
+      "etapas": [
+        {
+          "nombre": "detectar",
+          "prompt": "rev_detectar.v1",
+          "ok": true,
+          "salida": {
+            "hallazgos": [
+              {
+                "id": "H1",
+                "regla": "SEC-01",
+                "linea": 3,
+                "descripcion": "Credencial escrita en el código"
+              },
+              {
+                "id": "H2",
+                "regla": "SEC-02",
+                "linea": 8,
+                "descripcion": "Consulta SQL construida con formato de cadena vulnerable a inyección"
+              },
+              {
+                "id": "H3",
+                "regla": "SEC-03",
+                "linea": 12,
+                "descripcion": "Registro de datos sensibles sin enmascarar"
+              },
+              {
+                "id": "H4",
+                "regla": "SEC-07",
+                "linea": 10,
+                "descripcion": "Uso de punto flotante para operaciones financieras"
+              },
+              {
+                "id": "H5",
+                "regla": "SEC-02",
+                "linea": 11,
+                "descripcion": "Consulta SQL construida con concatenación vulnerable a inyección"
+              }
+            ]
+          },
+          "errores": [],
+          "intentos": 2,
+          "latencia_ms": 8384.03150002705,
+          "costo_usd": 0.001024
+        },
+        {
+          "nombre": "explicar",
+          "prompt": "rev_explicar.v1",
+          "ok": true,
+          "salida": {
+            "hallazgos": [
+              {
+                "id": "H1",
+                "regla": "SEC-01",
+                "linea": 3,
+                "descripcion": "Credencial escrita en el código",
+                "explicacion": "El hallazgo H1 bajo la regla SEC-01 indica que en la línea 3 se ha expuesto una credencial directamente en el código fuente, lo cual compromete la seguridad al quedar registrada en el control de versiones."
+              },
+              {
+                "id": "H2",
+                "regla": "SEC-02",
+                "linea": 8,
+                "descripcion": "Consulta SQL construida con formato de cadena vulnerable a inyección",
+                "explicacion": "El hallazgo H2 bajo la regla SEC-02 señala que en la línea 8 se utiliza una f-string para construir una consulta SQL, permitiendo la inyección de comandos maliciosos al no parametrizar la entrada."
+              },
+              {
+                "id": "H3",
+                "regla": "SEC-03",
+                "linea": 12,
+                "descripcion": "Registro de datos sensibles sin enmascarar",
+                "explicacion": "El hallazgo H3 bajo la regla SEC-03 identifica que en la línea 12 se imprimen datos sensibles (origen, destino y monto) en los registros de logs sin ningún tipo de enmascaramiento o protección."
+              },
+              {
+                "id": "H4",
+                "regla": "SEC-07",
+                "linea": 10,
+                "descripcion": "Uso de punto flotante para operaciones financieras",
+                "explicacion": "El hallazgo H4 bajo la regla SEC-07 advierte que en la línea 10 se utiliza el tipo float para cálculos financieros, lo cual puede generar errores de precisión aritmética inaceptables para transacciones monetarias."
+              },
+              {
+                "id": "H5",
+                "regla": "SEC-02",
+                "linea": 11,
+                "descripcion": "Consulta SQL construida con concatenación vulnerable a inyección",
+                "explicacion": "El hallazgo H5 bajo la regla SEC-02 reporta que en la línea 11 se concatena directamente la variable monto en la consulta SQL, lo que facilita la manipulación de la base de datos mediante inyección."
+              }
+            ]
+          },
+          "errores": [],
+          "intentos": 2,
+          "latencia_ms": 8687.733399972785,
+          "costo_usd": 0.00198775
+        },
+        {
+          "nombre": "parche",
+          "prompt": "rev_parche.v1",
+          "ok": true,
+          "salida": {
+            "parches": [
+              {
+                "id": "H1",
+                "regla": "SEC-01",
+                "linea": 3,
+                "cambio": "Se reemplaza la credencial hardcodeada por una lectura desde variables de entorno para evitar exposición en el control de versiones."
+              },
+              {
+                "id": "H2",
+                "regla": "SEC-02",
+                "linea": 8,
+                "cambio": "Se utiliza parametrización de consultas (placeholders) para prevenir inyección SQL."
+              },
+              {
+                "id": "H3",
+                "regla": "SEC-03",
+                "linea": 12,
+                "cambio": "Se enmascaran los datos sensibles (origen y destino) en los logs para cumplir con políticas de privacidad."
+              },
+              {
+                "id": "H4",
+                "regla": "SEC-07",
+                "linea": 10,
+                "cambio": "Se utiliza el tipo Decimal para operaciones financieras para evitar errores de precisión de punto flotante."
+              },
+              {
+                "id": "H5",
+                "regla": "SEC-02",
+                "linea": 11,
+                "cambio": "Se utiliza parametrización de consultas para la actualización del saldo para prevenir inyección SQL."
+              }
+            ],
+            "codigo_corregido": "import sqlite3\nimport os\nfrom decimal import Decimal\n\nAPI_KEY = os.getenv(\"API_KEY\")\n\n\ndef transferir(conn, origen_id, destino_clabe, monto):\n    cur = conn.cursor()\n    cur.execute(\"SELECT saldo FROM cuentas WHERE id = ?\", (origen_id,))\n    resultado = cur.fetchone()\n    if resultado is None:\n        return False\n    saldo = Decimal(str(resultado[0]))\n    monto_dec = Decimal(str(monto))\n    if monto_dec <= saldo:\n        cur.execute(\"UPDATE cuentas SET saldo = saldo - ? WHERE id = ?\", (str(monto_dec), origen_id))\n        print(f\"transferencia {origen_id[:2]}**** -> {destino_clabe[:4]}**** por {monto_dec}\")\n        return True\n    return False"
+          },
+          "errores": [],
+          "intentos": 1,
+          "latencia_ms": 4152.6643999968655,
+          "costo_usd": 0.001088
+        },
+        {
+          "nombre": "dictamen",
+          "prompt": "rev_dictamen.v1",
+          "ok": true,
+          "salida": {
+            "estado": "con_hallazgos",
+            "total_hallazgos": 5,
+            "hallazgos": [
+              {
+                "id": "H1",
+                "regla": "SEC-01",
+                "linea": 3,
+                "descripcion": "Credencial escrita en el código",
+                "explicacion": "El hallazgo H1 bajo la regla SEC-01 indica que en la línea 3 se ha expuesto una credencial directamente en el código fuente, lo cual compromete la seguridad al quedar registrada en el control de versiones.",
+                "cambio": "Se reemplaza la credencial hardcodeada por una lectura desde variables de entorno para evitar exposición en el control de versiones."
+              },
+              {
+                "id": "H2",
+                "regla": "SEC-02",
+                "linea": 8,
+                "descripcion": "Consulta SQL construida con formato de cadena vulnerable a inyección",
+                "explicacion": "El hallazgo H2 bajo la regla SEC-02 señala que en la línea 8 se utiliza una f-string para construir una consulta SQL, permitiendo la inyección de comandos maliciosos al no parametrizar la entrada.",
+                "cambio": "Se utiliza parametrización de consultas (placeholders) para prevenir inyección SQL."
+              },
+              {
+                "id": "H3",
+                "regla": "SEC-03",
+                "linea": 12,
+                "descripcion": "Registro de datos sensibles sin enmascarar",
+                "explicacion": "El hallazgo H3 bajo la regla SEC-03 identifica que en la línea 12 se imprimen datos sensibles (origen, destino y monto) en los registros de logs sin ningún tipo de enmascaramiento o protección.",
+                "cambio": "Se enmascaran los datos sensibles (origen y destino) en los logs para cumplir con políticas de privacidad."
+              },
+              {
+                "id": "H4",
+                "regla": "SEC-07",
+                "linea": 10,
+                "descripcion": "Uso de punto flotante para operaciones financieras",
+                "explicacion": "El hallazgo H4 bajo la regla SEC-07 advierte que en la línea 10 se utiliza el tipo float para cálculos financieros, lo cual puede generar errores de precisión aritmética inaceptables para transacciones monetarias.",
+                "cambio": "Se utiliza el tipo Decimal para operaciones financieras para evitar errores de precisión de punto flotante."
+              },
+              {
+                "id": "H5",
+                "regla": "SEC-02",
+                "linea": 11,
+                "descripcion": "Consulta SQL construida con concatenación vulnerable a inyección",
+                "explicacion": "El hallazgo H5 bajo la regla SEC-02 reporta que en la línea 11 se concatena directamente la variable monto en la consulta SQL, lo que facilita la manipulación de la base de datos mediante inyección.",
+                "cambio": "Se utiliza parametrización de consultas para la actualización del saldo para prevenir inyección SQL."
+              }
+            ],
+            "resumen": "Se identificaron 5 hallazgos en el código analizado. Estos incumplen las reglas SEC-01, SEC-02, SEC-03 y SEC-07."
+          },
+          "errores": [],
+          "intentos": 1,
+          "latencia_ms": 65648.73739995528,
+          "costo_usd": 0.00157225
+        }
+      ],
+      "resultado": {
+        "ok": true,
+        "hallazgos": [
+          {
+            "id": "H1",
+            "regla": "SEC-01",
+            "linea": 3,
+            "descripcion": "Credencial escrita en el código"
+          },
+          {
+            "id": "H2",
+            "regla": "SEC-02",
+            "linea": 8,
+            "descripcion": "Consulta SQL construida con formato de cadena vulnerable a inyección"
+          },
+          {
+            "id": "H3",
+            "regla": "SEC-03",
+            "linea": 12,
+            "descripcion": "Registro de datos sensibles sin enmascarar"
+          },
+          {
+            "id": "H4",
+            "regla": "SEC-07",
+            "linea": 10,
+            "descripcion": "Uso de punto flotante para operaciones financieras"
+          },
+          {
+            "id": "H5",
+            "regla": "SEC-02",
+            "linea": 11,
+            "descripcion": "Consulta SQL construida con concatenación vulnerable a inyección"
+          }
+        ],
+        "parche": {
+          "parches": [
+            {
+              "id": "H1",
+              "regla": "SEC-01",
+              "linea": 3,
+              "cambio": "Se reemplaza la credencial hardcodeada por una lectura desde variables de entorno para evitar exposición en el control de versiones."
+            },
+            {
+              "id": "H2",
+              "regla": "SEC-02",
+              "linea": 8,
+              "cambio": "Se utiliza parametrización de consultas (placeholders) para prevenir inyección SQL."
+            },
+            {
+              "id": "H3",
+              "regla": "SEC-03",
+              "linea": 12,
+              "cambio": "Se enmascaran los datos sensibles (origen y destino) en los logs para cumplir con políticas de privacidad."
+            },
+            {
+              "id": "H4",
+              "regla": "SEC-07",
+              "linea": 10,
+              "cambio": "Se utiliza el tipo Decimal para operaciones financieras para evitar errores de precisión de punto flotante."
+            },
+            {
+              "id": "H5",
+              "regla": "SEC-02",
+              "linea": 11,
+              "cambio": "Se utiliza parametrización de consultas para la actualización del saldo para prevenir inyección SQL."
+            }
+          ],
+          "codigo_corregido": "import sqlite3\nimport os\nfrom decimal import Decimal\n\nAPI_KEY = os.getenv(\"API_KEY\")\n\n\ndef transferir(conn, origen_id, destino_clabe, monto):\n    cur = conn.cursor()\n    cur.execute(\"SELECT saldo FROM cuentas WHERE id = ?\", (origen_id,))\n    resultado = cur.fetchone()\n    if resultado is None:\n        return False\n    saldo = Decimal(str(resultado[0]))\n    monto_dec = Decimal(str(monto))\n    if monto_dec <= saldo:\n        cur.execute(\"UPDATE cuentas SET saldo = saldo - ? WHERE id = ?\", (str(monto_dec), origen_id))\n        print(f\"transferencia {origen_id[:2]}**** -> {destino_clabe[:4]}**** por {monto_dec}\")\n        return True\n    return False"
+        }
+      }
+    },
+    {
+      "entrada": "transferencias.py",
+      "repeticion": 2,
+      "estado": "completo",
+      "etapas": [
+        {
+          "nombre": "detectar",
+          "prompt": "rev_detectar.v1",
+          "ok": true,
+          "salida": {
+            "hallazgos": [
+              {
+                "id": "H1",
+                "regla": "SEC-01",
+                "linea": 3,
+                "descripcion": "Credencial escrita en el código"
+              },
+              {
+                "id": "H2",
+                "regla": "SEC-02",
+                "linea": 8,
+                "descripcion": "Consulta SQL construida con formato de cadena vulnerable a inyección"
+              },
+              {
+                "id": "H3",
+                "regla": "SEC-07",
+                "linea": 10,
+                "descripcion": "Uso de punto flotante para operaciones financieras"
+              },
+              {
+                "id": "H4",
+                "regla": "SEC-02",
+                "linea": 11,
+                "descripcion": "Consulta SQL construida con concatenación vulnerable a inyección"
+              },
+              {
+                "id": "H5",
+                "regla": "SEC-03",
+                "linea": 12,
+                "descripcion": "Registro de datos personales sensibles sin enmascarar"
+              }
+            ]
+          },
+          "errores": [],
+          "intentos": 2,
+          "latencia_ms": 7787.876499991398,
+          "costo_usd": 0.0010314999999999999
+        },
+        {
+          "nombre": "explicar",
+          "prompt": "rev_explicar.v1",
+          "ok": true,
+          "salida": {
+            "hallazgos": [
+              {
+                "id": "H1",
+                "regla": "SEC-01",
+                "linea": 3,
+                "descripcion": "Credencial escrita en el código",
+                "explicacion": "La regla SEC-01 prohíbe credenciales hardcodeadas en la línea 3, ya que su exposición en el control de versiones compromete la seguridad del sistema."
+              },
+              {
+                "id": "H2",
+                "regla": "SEC-02",
+                "linea": 8,
+                "descripcion": "Consulta SQL construida con formato de cadena vulnerable a inyección",
+                "explicacion": "La regla SEC-02 se incumple en la línea 8 al usar f-strings en consultas SQL, permitiendo que un atacante manipule la estructura de la base de datos."
+              },
+              {
+                "id": "H3",
+                "regla": "SEC-07",
+                "linea": 10,
+                "descripcion": "Uso de punto flotante para operaciones financieras",
+                "explicacion": "La regla SEC-07 advierte que el uso de float en la línea 10 provoca errores de precisión aritmética, lo cual es inaceptable para cálculos monetarios."
+              },
+              {
+                "id": "H4",
+                "regla": "SEC-02",
+                "linea": 11,
+                "descripcion": "Consulta SQL construida con concatenación vulnerable a inyección",
+                "explicacion": "La regla SEC-02 se incumple en la línea 11 mediante la concatenación directa de variables, facilitando ataques de inyección SQL."
+              },
+              {
+                "id": "H5",
+                "regla": "SEC-03",
+                "linea": 12,
+                "descripcion": "Registro de datos personales sensibles sin enmascarar",
+                "explicacion": "La regla SEC-03 se incumple en la línea 12 al imprimir identificadores personales en texto plano, violando las políticas de protección de datos."
+              }
+            ]
+          },
+          "errores": [],
+          "intentos": 2,
+          "latencia_ms": 8826.992799993604,
+          "costo_usd": 0.00188625
+        },
+        {
+          "nombre": "parche",
+          "prompt": "rev_parche.v1",
+          "ok": true,
+          "salida": {
+            "parches": [
+              {
+                "id": "H1",
+                "regla": "SEC-01",
+                "linea": 3,
+                "cambio": "Se reemplazó la credencial hardcodeada por una lectura desde variables de entorno usando os.getenv."
+              },
+              {
+                "id": "H2",
+                "regla": "SEC-02",
+                "linea": 8,
+                "cambio": "Se utilizó parametrización de consultas (placeholder ?) para prevenir inyección SQL."
+              },
+              {
+                "id": "H3",
+                "regla": "SEC-07",
+                "linea": 10,
+                "cambio": "Se utilizó la clase Decimal para operaciones financieras para evitar errores de precisión de punto flotante."
+              },
+              {
+                "id": "H4",
+                "regla": "SEC-02",
+                "linea": 11,
+                "cambio": "Se utilizó parametrización de consultas (placeholder ?) para prevenir inyección SQL."
+              },
+              {
+                "id": "H5",
+                "regla": "SEC-03",
+                "linea": 12,
+                "cambio": "Se enmascaró el identificador personal en el log para cumplir con la protección de datos."
+              }
+            ],
+            "codigo_corregido": "import sqlite3\nimport os\nfrom decimal import Decimal\n\nAPI_KEY = os.getenv(\"API_KEY\")\n\n\ndef transferir(conn, origen_id, destino_clabe, monto):\n    cur = conn.cursor()\n    cur.execute(\"SELECT saldo FROM cuentas WHERE id = ?\", (origen_id,))\n    resultado = cur.fetchone()\n    if resultado is None:\n        return False\n    saldo = Decimal(str(resultado[0]))\n    monto_dec = Decimal(str(monto))\n    if monto_dec <= saldo:\n        cur.execute(\"UPDATE cuentas SET saldo = saldo - ? WHERE id = ?\", (str(monto_dec), origen_id))\n        print(f\"transferencia {origen_id[:2]}**** -> {destino_clabe[:2]}**** por {monto_dec}\")\n        return True\n    return False"
+          },
+          "errores": [],
+          "intentos": 1,
+          "latencia_ms": 4312.291799986269,
+          "costo_usd": 0.00105725
+        },
+        {
+          "nombre": "dictamen",
+          "prompt": "rev_dictamen.v1",
+          "ok": true,
+          "salida": {
+            "estado": "con_hallazgos",
+            "total_hallazgos": 5,
+            "hallazgos": [
+              {
+                "id": "H1",
+                "regla": "SEC-01",
+                "linea": 3,
+                "descripcion": "Credencial escrita en el código",
+                "explicacion": "La regla SEC-01 prohíbe credenciales hardcodeadas en la línea 3, ya que su exposición en el control de versiones compromete la seguridad del sistema.",
+                "cambio": "Se reemplazó la credencial hardcodeada por una lectura desde variables de entorno usando os.getenv."
+              },
+              {
+                "id": "H2",
+                "regla": "SEC-02",
+                "linea": 8,
+                "descripcion": "Consulta SQL construida con formato de cadena vulnerable a inyección",
+                "explicacion": "La regla SEC-02 se incumple en la línea 8 al usar f-strings en consultas SQL, permitiendo que un atacante manipule la estructura de la base de datos.",
+                "cambio": "Se utilizó parametrización de consultas (placeholder ?) para prevenir inyección SQL."
+              },
+              {
+                "id": "H3",
+                "regla": "SEC-07",
+                "linea": 10,
+                "descripcion": "Uso de punto flotante para operaciones financieras",
+                "explicacion": "La regla SEC-07 advierte que el uso de float en la línea 10 provoca errores de precisión aritmética, lo cual es inaceptable para cálculos monetarios.",
+                "cambio": "Se utilizó la clase Decimal para operaciones financieras para evitar errores de precisión de punto flotante."
+              },
+              {
+                "id": "H4",
+                "regla": "SEC-02",
+                "linea": 11,
+                "descripcion": "Consulta SQL construida con concatenación vulnerable a inyección",
+                "explicacion": "La regla SEC-02 se incumple en la línea 11 mediante la concatenación directa de variables, facilitando ataques de inyección SQL.",
+                "cambio": "Se utilizó parametrización de consultas (placeholder ?) para prevenir inyección SQL."
+              },
+              {
+                "id": "H5",
+                "regla": "SEC-03",
+                "linea": 12,
+                "descripcion": "Registro de datos personales sensibles sin enmascarar",
+                "explicacion": "La regla SEC-03 se incumple en la línea 12 al imprimir identificadores personales en texto plano, violando las políticas de protección de datos.",
+                "cambio": "Se enmascaró el identificador personal en el log para cumplir con la protección de datos."
+              }
+            ],
+            "resumen": "Se identificaron 5 hallazgos en el código analizado. Estos incumplen las reglas de seguridad SEC-01, SEC-02, SEC-03 y SEC-07."
+          },
+          "errores": [],
+          "intentos": 1,
+          "latencia_ms": 4103.839499992318,
+          "costo_usd": 0.0014475
+        }
+      ],
+      "resultado": {
+        "ok": true,
+        "hallazgos": [
+          {
+            "id": "H1",
+            "regla": "SEC-01",
+            "linea": 3,
+            "descripcion": "Credencial escrita en el código"
+          },
+          {
+            "id": "H2",
+            "regla": "SEC-02",
+            "linea": 8,
+            "descripcion": "Consulta SQL construida con formato de cadena vulnerable a inyección"
+          },
+          {
+            "id": "H3",
+            "regla": "SEC-07",
+            "linea": 10,
+            "descripcion": "Uso de punto flotante para operaciones financieras"
+          },
+          {
+            "id": "H4",
+            "regla": "SEC-02",
+            "linea": 11,
+            "descripcion": "Consulta SQL construida con concatenación vulnerable a inyección"
+          },
+          {
+            "id": "H5",
+            "regla": "SEC-03",
+            "linea": 12,
+            "descripcion": "Registro de datos personales sensibles sin enmascarar"
+          }
+        ],
+        "parche": {
+          "parches": [
+            {
+              "id": "H1",
+              "regla": "SEC-01",
+              "linea": 3,
+              "cambio": "Se reemplazó la credencial hardcodeada por una lectura desde variables de entorno usando os.getenv."
+            },
+            {
+              "id": "H2",
+              "regla": "SEC-02",
+              "linea": 8,
+              "cambio": "Se utilizó parametrización de consultas (placeholder ?) para prevenir inyección SQL."
+            },
+            {
+              "id": "H3",
+              "regla": "SEC-07",
+              "linea": 10,
+              "cambio": "Se utilizó la clase Decimal para operaciones financieras para evitar errores de precisión de punto flotante."
+            },
+            {
+              "id": "H4",
+              "regla": "SEC-02",
+              "linea": 11,
+              "cambio": "Se utilizó parametrización de consultas (placeholder ?) para prevenir inyección SQL."
+            },
+            {
+              "id": "H5",
+              "regla": "SEC-03",
+              "linea": 12,
+              "cambio": "Se enmascaró el identificador personal en el log para cumplir con la protección de datos."
+            }
+          ],
+          "codigo_corregido": "import sqlite3\nimport os\nfrom decimal import Decimal\n\nAPI_KEY = os.getenv(\"API_KEY\")\n\n\ndef transferir(conn, origen_id, destino_clabe, monto):\n    cur = conn.cursor()\n    cur.execute(\"SELECT saldo FROM cuentas WHERE id = ?\", (origen_id,))\n    resultado = cur.fetchone()\n    if resultado is None:\n        return False\n    saldo = Decimal(str(resultado[0]))\n    monto_dec = Decimal(str(monto))\n    if monto_dec <= saldo:\n        cur.execute(\"UPDATE cuentas SET saldo = saldo - ? WHERE id = ?\", (str(monto_dec), origen_id))\n        print(f\"transferencia {origen_id[:2]}**** -> {destino_clabe[:2]}**** por {monto_dec}\")\n        return True\n    return False"
+        }
+      }
+    },
+    {
+      "entrada": "transferencias.py",
+      "repeticion": 3,
+      "estado": "completo",
+      "etapas": [
+        {
+          "nombre": "detectar",
+          "prompt": "rev_detectar.v1",
+          "ok": true,
+          "salida": {
+            "hallazgos": [
+              {
+                "id": "H1",
+                "regla": "SEC-01",
+                "linea": 3,
+                "descripcion": "Credencial escrita en el código"
+              },
+              {
+                "id": "H2",
+                "regla": "SEC-02",
+                "linea": 8,
+                "descripcion": "Consulta SQL construida con formato de cadena vulnerable a inyección"
+              },
+              {
+                "id": "H3",
+                "regla": "SEC-07",
+                "linea": 10,
+                "descripcion": "Uso de punto flotante para operaciones financieras"
+              },
+              {
+                "id": "H4",
+                "regla": "SEC-02",
+                "linea": 11,
+                "descripcion": "Consulta SQL construida con concatenación vulnerable a inyección"
+              },
+              {
+                "id": "H5",
+                "regla": "SEC-03",
+                "linea": 12,
+                "descripcion": "Registro de datos sensibles sin enmascarar"
+              }
+            ]
+          },
+          "errores": [],
+          "intentos": 2,
+          "latencia_ms": 7604.671799985226,
+          "costo_usd": 0.0010345
+        },
+        {
+          "nombre": "explicar",
+          "prompt": "rev_explicar.v1",
+          "ok": true,
+          "salida": {
+            "hallazgos": [
+              {
+                "id": "H1",
+                "regla": "SEC-01",
+                "linea": 3,
+                "descripcion": "Credencial escrita en el código",
+                "explicacion": "La regla SEC-01 prohíbe credenciales en el código fuente (línea 3); su exposición en el repositorio compromete la seguridad del sistema."
+              },
+              {
+                "id": "H2",
+                "regla": "SEC-02",
+                "linea": 8,
+                "descripcion": "Consulta SQL construida con formato de cadena vulnerable a inyección",
+                "explicacion": "La regla SEC-02 exige consultas parametrizadas; la línea 8 usa f-strings, permitiendo que un atacante manipule la estructura de la consulta SQL."
+              },
+              {
+                "id": "H3",
+                "regla": "SEC-07",
+                "linea": 10,
+                "descripcion": "Uso de punto flotante para operaciones financieras",
+                "explicacion": "La regla SEC-07 prohíbe el uso de float para dinero (línea 10) debido a errores de precisión aritmética que pueden causar pérdidas financieras."
+              },
+              {
+                "id": "H4",
+                "regla": "SEC-02",
+                "linea": 11,
+                "descripcion": "Consulta SQL construida con concatenación vulnerable a inyección",
+                "explicacion": "La regla SEC-02 requiere evitar la concatenación de strings en SQL (línea 11), ya que facilita ataques de inyección al no separar datos de comandos."
+              },
+              {
+                "id": "H5",
+                "regla": "SEC-03",
+                "linea": 12,
+                "descripcion": "Registro de datos sensibles sin enmascarar",
+                "explicacion": "La regla SEC-03 indica que los logs no deben contener datos personales o sensibles (línea 12); la impresión directa expone información confidencial."
+              }
+            ]
+          },
+          "errores": [],
+          "intentos": 2,
+          "latencia_ms": 8972.757300012745,
+          "costo_usd": 0.00187525
+        },
+        {
+          "nombre": "parche",
+          "prompt": "rev_parche.v1",
+          "ok": true,
+          "salida": {
+            "parches": [
+              {
+                "id": "H1",
+                "regla": "SEC-01",
+                "linea": 3,
+                "cambio": "Se reemplazó la credencial hardcodeada por una lectura desde variables de entorno para evitar exposición en el repositorio."
+              },
+              {
+                "id": "H2",
+                "regla": "SEC-02",
+                "linea": 8,
+                "cambio": "Se implementó el uso de consultas parametrizadas para prevenir inyección SQL."
+              },
+              {
+                "id": "H3",
+                "regla": "SEC-07",
+                "linea": 10,
+                "cambio": "Se reemplazó el uso de float por decimal.Decimal para garantizar precisión aritmética en operaciones financieras."
+              },
+              {
+                "id": "H4",
+                "regla": "SEC-02",
+                "linea": 11,
+                "cambio": "Se reemplazó la concatenación de strings por parámetros vinculados en la consulta SQL."
+              },
+              {
+                "id": "H5",
+                "regla": "SEC-03",
+                "linea": 12,
+                "cambio": "Se eliminó la impresión de datos sensibles en los logs para cumplir con la política de protección de información."
+              }
+            ],
+            "codigo_corregido": "import sqlite3\nimport os\nfrom decimal import Decimal\n\nAPI_KEY = os.getenv(\"API_KEY\")\n\n\ndef transferir(conn, origen_id, destino_clabe, monto):\n    cur = conn.cursor()\n    cur.execute(\"SELECT saldo FROM cuentas WHERE id = ?\", (origen_id,))\n    resultado = cur.fetchone()\n    if resultado is None:\n        return False\n    saldo = Decimal(str(resultado[0]))\n    monto_dec = Decimal(str(monto))\n    if monto_dec <= saldo:\n        cur.execute(\"UPDATE cuentas SET saldo = saldo - ? WHERE id = ?\", (str(monto_dec), origen_id))\n        return True\n    return False"
+          },
+          "errores": [],
+          "intentos": 1,
+          "latencia_ms": 4274.437299987767,
+          "costo_usd": 0.001013
+        },
+        {
+          "nombre": "dictamen",
+          "prompt": "rev_dictamen.v1",
+          "ok": true,
+          "salida": {
+            "estado": "con_hallazgos",
+            "total_hallazgos": 5,
+            "hallazgos": [
+              {
+                "id": "H1",
+                "regla": "SEC-01",
+                "linea": 3,
+                "descripcion": "Credencial escrita en el código",
+                "explicacion": "La regla SEC-01 prohíbe credenciales en el código fuente (línea 3); su exposición en el repositorio compromete la seguridad del sistema.",
+                "cambio": "Se reemplazó la credencial hardcodeada por una lectura desde variables de entorno para evitar exposición en el repositorio."
+              },
+              {
+                "id": "H2",
+                "regla": "SEC-02",
+                "linea": 8,
+                "descripcion": "Consulta SQL construida con formato de cadena vulnerable a inyección",
+                "explicacion": "La regla SEC-02 exige consultas parametrizadas; la línea 8 usa f-strings, permitiendo que un atacante manipule la estructura de la consulta SQL.",
+                "cambio": "Se implementó el uso de consultas parametrizadas para prevenir inyección SQL."
+              },
+              {
+                "id": "H3",
+                "regla": "SEC-07",
+                "linea": 10,
+                "descripcion": "Uso de punto flotante para operaciones financieras",
+                "explicacion": "La regla SEC-07 prohíbe el uso de float para dinero (línea 10) debido a errores de precisión aritmética que pueden causar pérdidas financieras.",
+                "cambio": "Se reemplazó el uso de float por decimal.Decimal para garantizar precisión aritmética en operaciones financieras."
+              },
+              {
+                "id": "H4",
+                "regla": "SEC-02",
+                "linea": 11,
+                "descripcion": "Consulta SQL construida con concatenación vulnerable a inyección",
+                "explicacion": "La regla SEC-02 requiere evitar la concatenación de strings en SQL (línea 11), ya que facilita ataques de inyección al no separar datos de comandos.",
+                "cambio": "Se reemplazó la concatenación de strings por parámetros vinculados en la consulta SQL."
+              },
+              {
+                "id": "H5",
+                "regla": "SEC-03",
+                "linea": 12,
+                "descripcion": "Registro de datos sensibles sin enmascarar",
+                "explicacion": "La regla SEC-03 indica que los logs no deben contener datos personales o sensibles (línea 12); la impresión directa expone información confidencial.",
+                "cambio": "Se eliminó la impresión de datos sensibles en los logs para cumplir con la política de protección de información."
+              }
+            ],
+            "resumen": "Se identificaron 5 hallazgos en el código analizado. Estos incumplen las reglas de seguridad SEC-01, SEC-02, SEC-03 y SEC-07."
+          },
+          "errores": [],
+          "intentos": 1,
+          "latencia_ms": 4400.6139999837615,
+          "costo_usd": 0.0014455
+        }
+      ],
+      "resultado": {
+        "ok": true,
+        "hallazgos": [
+          {
+            "id": "H1",
+            "regla": "SEC-01",
+            "linea": 3,
+            "descripcion": "Credencial escrita en el código"
+          },
+          {
+            "id": "H2",
+            "regla": "SEC-02",
+            "linea": 8,
+            "descripcion": "Consulta SQL construida con formato de cadena vulnerable a inyección"
+          },
+          {
+            "id": "H3",
+            "regla": "SEC-07",
+            "linea": 10,
+            "descripcion": "Uso de punto flotante para operaciones financieras"
+          },
+          {
+            "id": "H4",
+            "regla": "SEC-02",
+            "linea": 11,
+            "descripcion": "Consulta SQL construida con concatenación vulnerable a inyección"
+          },
+          {
+            "id": "H5",
+            "regla": "SEC-03",
+            "linea": 12,
+            "descripcion": "Registro de datos sensibles sin enmascarar"
+          }
+        ],
+        "parche": {
+          "parches": [
+            {
+              "id": "H1",
+              "regla": "SEC-01",
+              "linea": 3,
+              "cambio": "Se reemplazó la credencial hardcodeada por una lectura desde variables de entorno para evitar exposición en el repositorio."
+            },
+            {
+              "id": "H2",
+              "regla": "SEC-02",
+              "linea": 8,
+              "cambio": "Se implementó el uso de consultas parametrizadas para prevenir inyección SQL."
+            },
+            {
+              "id": "H3",
+              "regla": "SEC-07",
+              "linea": 10,
+              "cambio": "Se reemplazó el uso de float por decimal.Decimal para garantizar precisión aritmética en operaciones financieras."
+            },
+            {
+              "id": "H4",
+              "regla": "SEC-02",
+              "linea": 11,
+              "cambio": "Se reemplazó la concatenación de strings por parámetros vinculados en la consulta SQL."
+            },
+            {
+              "id": "H5",
+              "regla": "SEC-03",
+              "linea": 12,
+              "cambio": "Se eliminó la impresión de datos sensibles en los logs para cumplir con la política de protección de información."
+            }
+          ],
+          "codigo_corregido": "import sqlite3\nimport os\nfrom decimal import Decimal\n\nAPI_KEY = os.getenv(\"API_KEY\")\n\n\ndef transferir(conn, origen_id, destino_clabe, monto):\n    cur = conn.cursor()\n    cur.execute(\"SELECT saldo FROM cuentas WHERE id = ?\", (origen_id,))\n    resultado = cur.fetchone()\n    if resultado is None:\n        return False\n    saldo = Decimal(str(resultado[0]))\n    monto_dec = Decimal(str(monto))\n    if monto_dec <= saldo:\n        cur.execute(\"UPDATE cuentas SET saldo = saldo - ? WHERE id = ?\", (str(monto_dec), origen_id))\n        return True\n    return False"
+        }
+      }
+    }
+  ],
+  "consistencia": {
+    "repeticiones": [
+      {
+        "ok": true,
+        "hallazgos": [
+          {
+            "id": "H1",
+            "regla": "SEC-01",
+            "linea": 3,
+            "descripcion": "Credencial escrita en el código"
+          },
+          {
+            "id": "H2",
+            "regla": "SEC-02",
+            "linea": 8,
+            "descripcion": "Consulta SQL construida con formato de cadena vulnerable a inyección"
+          },
+          {
+            "id": "H3",
+            "regla": "SEC-03",
+            "linea": 12,
+            "descripcion": "Registro de datos sensibles sin enmascarar"
+          },
+          {
+            "id": "H4",
+            "regla": "SEC-07",
+            "linea": 10,
+            "descripcion": "Uso de punto flotante para operaciones financieras"
+          },
+          {
+            "id": "H5",
+            "regla": "SEC-02",
+            "linea": 11,
+            "descripcion": "Consulta SQL construida con concatenación vulnerable a inyección"
+          }
+        ],
+        "parche": {
+          "parches": [
+            {
+              "id": "H1",
+              "regla": "SEC-01",
+              "linea": 3,
+              "cambio": "Se reemplaza la credencial hardcodeada por una lectura desde variables de entorno para evitar exposición en el control de versiones."
+            },
+            {
+              "id": "H2",
+              "regla": "SEC-02",
+              "linea": 8,
+              "cambio": "Se utiliza parametrización de consultas (placeholders) para prevenir inyección SQL."
+            },
+            {
+              "id": "H3",
+              "regla": "SEC-03",
+              "linea": 12,
+              "cambio": "Se enmascaran los datos sensibles (origen y destino) en los logs para cumplir con políticas de privacidad."
+            },
+            {
+              "id": "H4",
+              "regla": "SEC-07",
+              "linea": 10,
+              "cambio": "Se utiliza el tipo Decimal para operaciones financieras para evitar errores de precisión de punto flotante."
+            },
+            {
+              "id": "H5",
+              "regla": "SEC-02",
+              "linea": 11,
+              "cambio": "Se utiliza parametrización de consultas para la actualización del saldo para prevenir inyección SQL."
+            }
+          ],
+          "codigo_corregido": "import sqlite3\nimport os\nfrom decimal import Decimal\n\nAPI_KEY = os.getenv(\"API_KEY\")\n\n\ndef transferir(conn, origen_id, destino_clabe, monto):\n    cur = conn.cursor()\n    cur.execute(\"SELECT saldo FROM cuentas WHERE id = ?\", (origen_id,))\n    resultado = cur.fetchone()\n    if resultado is None:\n        return False\n    saldo = Decimal(str(resultado[0]))\n    monto_dec = Decimal(str(monto))\n    if monto_dec <= saldo:\n        cur.execute(\"UPDATE cuentas SET saldo = saldo - ? WHERE id = ?\", (str(monto_dec), origen_id))\n        print(f\"transferencia {origen_id[:2]}**** -> {destino_clabe[:4]}**** por {monto_dec}\")\n        return True\n    return False"
+        }
+      },
+      {
+        "ok": true,
+        "hallazgos": [
+          {
+            "id": "H1",
+            "regla": "SEC-01",
+            "linea": 3,
+            "descripcion": "Credencial escrita en el código"
+          },
+          {
+            "id": "H2",
+            "regla": "SEC-02",
+            "linea": 8,
+            "descripcion": "Consulta SQL construida con formato de cadena vulnerable a inyección"
+          },
+          {
+            "id": "H3",
+            "regla": "SEC-07",
+            "linea": 10,
+            "descripcion": "Uso de punto flotante para operaciones financieras"
+          },
+          {
+            "id": "H4",
+            "regla": "SEC-02",
+            "linea": 11,
+            "descripcion": "Consulta SQL construida con concatenación vulnerable a inyección"
+          },
+          {
+            "id": "H5",
+            "regla": "SEC-03",
+            "linea": 12,
+            "descripcion": "Registro de datos personales sensibles sin enmascarar"
+          }
+        ],
+        "parche": {
+          "parches": [
+            {
+              "id": "H1",
+              "regla": "SEC-01",
+              "linea": 3,
+              "cambio": "Se reemplazó la credencial hardcodeada por una lectura desde variables de entorno usando os.getenv."
+            },
+            {
+              "id": "H2",
+              "regla": "SEC-02",
+              "linea": 8,
+              "cambio": "Se utilizó parametrización de consultas (placeholder ?) para prevenir inyección SQL."
+            },
+            {
+              "id": "H3",
+              "regla": "SEC-07",
+              "linea": 10,
+              "cambio": "Se utilizó la clase Decimal para operaciones financieras para evitar errores de precisión de punto flotante."
+            },
+            {
+              "id": "H4",
+              "regla": "SEC-02",
+              "linea": 11,
+              "cambio": "Se utilizó parametrización de consultas (placeholder ?) para prevenir inyección SQL."
+            },
+            {
+              "id": "H5",
+              "regla": "SEC-03",
+              "linea": 12,
+              "cambio": "Se enmascaró el identificador personal en el log para cumplir con la protección de datos."
+            }
+          ],
+          "codigo_corregido": "import sqlite3\nimport os\nfrom decimal import Decimal\n\nAPI_KEY = os.getenv(\"API_KEY\")\n\n\ndef transferir(conn, origen_id, destino_clabe, monto):\n    cur = conn.cursor()\n    cur.execute(\"SELECT saldo FROM cuentas WHERE id = ?\", (origen_id,))\n    resultado = cur.fetchone()\n    if resultado is None:\n        return False\n    saldo = Decimal(str(resultado[0]))\n    monto_dec = Decimal(str(monto))\n    if monto_dec <= saldo:\n        cur.execute(\"UPDATE cuentas SET saldo = saldo - ? WHERE id = ?\", (str(monto_dec), origen_id))\n        print(f\"transferencia {origen_id[:2]}**** -> {destino_clabe[:2]}**** por {monto_dec}\")\n        return True\n    return False"
+        }
+      },
+      {
+        "ok": true,
+        "hallazgos": [
+          {
+            "id": "H1",
+            "regla": "SEC-01",
+            "linea": 3,
+            "descripcion": "Credencial escrita en el código"
+          },
+          {
+            "id": "H2",
+            "regla": "SEC-02",
+            "linea": 8,
+            "descripcion": "Consulta SQL construida con formato de cadena vulnerable a inyección"
+          },
+          {
+            "id": "H3",
+            "regla": "SEC-07",
+            "linea": 10,
+            "descripcion": "Uso de punto flotante para operaciones financieras"
+          },
+          {
+            "id": "H4",
+            "regla": "SEC-02",
+            "linea": 11,
+            "descripcion": "Consulta SQL construida con concatenación vulnerable a inyección"
+          },
+          {
+            "id": "H5",
+            "regla": "SEC-03",
+            "linea": 12,
+            "descripcion": "Registro de datos sensibles sin enmascarar"
+          }
+        ],
+        "parche": {
+          "parches": [
+            {
+              "id": "H1",
+              "regla": "SEC-01",
+              "linea": 3,
+              "cambio": "Se reemplazó la credencial hardcodeada por una lectura desde variables de entorno para evitar exposición en el repositorio."
+            },
+            {
+              "id": "H2",
+              "regla": "SEC-02",
+              "linea": 8,
+              "cambio": "Se implementó el uso de consultas parametrizadas para prevenir inyección SQL."
+            },
+            {
+              "id": "H3",
+              "regla": "SEC-07",
+              "linea": 10,
+              "cambio": "Se reemplazó el uso de float por decimal.Decimal para garantizar precisión aritmética en operaciones financieras."
+            },
+            {
+              "id": "H4",
+              "regla": "SEC-02",
+              "linea": 11,
+              "cambio": "Se reemplazó la concatenación de strings por parámetros vinculados en la consulta SQL."
+            },
+            {
+              "id": "H5",
+              "regla": "SEC-03",
+              "linea": 12,
+              "cambio": "Se eliminó la impresión de datos sensibles en los logs para cumplir con la política de protección de información."
+            }
+          ],
+          "codigo_corregido": "import sqlite3\nimport os\nfrom decimal import Decimal\n\nAPI_KEY = os.getenv(\"API_KEY\")\n\n\ndef transferir(conn, origen_id, destino_clabe, monto):\n    cur = conn.cursor()\n    cur.execute(\"SELECT saldo FROM cuentas WHERE id = ?\", (origen_id,))\n    resultado = cur.fetchone()\n    if resultado is None:\n        return False\n    saldo = Decimal(str(resultado[0]))\n    monto_dec = Decimal(str(monto))\n    if monto_dec <= saldo:\n        cur.execute(\"UPDATE cuentas SET saldo = saldo - ? WHERE id = ?\", (str(monto_dec), origen_id))\n        return True\n    return False"
+        }
+      }
+    ],
+    "coinciden_reglas_y_lineas": true
+  }
+}

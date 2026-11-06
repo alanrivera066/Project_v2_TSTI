@@ -1,0 +1,22 @@
+{
+  "fecha_utc": "2026-11-06T06:42:37.284004+00:00",
+  "motivo": "HTTP 429 en la configuración utilizada para continuar; otra configuración previamente autorizada respondió HTTP 200.",
+  "configuracion_disponible": "Primera configuración autorizada: Api gemini 2.py. Llave leída solo en memoria.",
+  "modelo": "gemini-3.1-flash-lite",
+  "guardadas": 180,
+  "faltan": 60,
+  "configuraciones": {
+    "A": 60,
+    "B": 60,
+    "C": 60,
+    "D": 0
+  },
+  "firma": "9410eee198634c3b65ed5286b6216f8453b689c25b30f5c282e7a4b3ec7fad16",
+  "huellas_respuestas": {
+    "A": "a759acffd45676b890391309fe26aa22ffe6f0bf145dfe56313d6dca25ca35af",
+    "B": "13c6a4be940f373f6cf70b45f52fc45ec7265d366176c534b504a2b8912b0ce2",
+    "C": "307b3a407bf2733003ffb84a05206dd4d19ff4c5fe6fb8dbb2949298233ae520"
+  },
+  "evidencia_disponibilidad": "av1_disponibilidad_20261106T064149467572Z.json",
+  "estado": "Continuación desde 180/240; este registro no acredita la terminación."
+}

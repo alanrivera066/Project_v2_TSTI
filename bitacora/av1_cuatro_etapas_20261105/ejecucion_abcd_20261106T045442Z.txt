@@ -1,0 +1,1 @@
+PENDIENTE DE MEDIR: interrupción del proveedor; conservar respuestas válidas y reanudar con --continuar

@@ -1,0 +1,27 @@
+{
+  "paginas": 12,
+  "textos_kevin_conservados": 35,
+  "secciones_oficiales": 11,
+  "docx_sha256": "10ee39b8281a885c66f5237068ea5ff5ebd3cebdbe6d1e51259dbf9cd4530b41",
+  "pdf_sha256": "8398dd735ec304802ca898356715c17554e1669c89dd21543f4c16ac2def9a03",
+  "revision_visual": "Completada: todas las páginas inspeccionadas",
+  "fecha_utc": "2026-11-06T08:42:34.909723+00:00",
+  "herramienta_revision": "Renderizado con Microsoft Word; todas las páginas rasterizadas con PDFium e inspeccionadas por el asistente.",
+  "medicion_actual": {
+    "ejecuciones": 240,
+    "etapas": 4,
+    "codigo_base": "00880acb776c5a1fc9b00b30674ebfbb5bdda8ac",
+    "firma": "9410eee198634c3b65ed5286b6216f8453b689c25b30f5c282e7a4b3ec7fad16"
+  },
+  "originales_kevin": "31ac3d3c6c013eb73bdf8190d00904463c9963c2",
+  "archivos_personales_y_dictamen_sin_cambios": [
+    "Actividad 2",
+    "prompts/rev_dictamen.v1.md",
+    "prompts/rev_dictamen.v2.md",
+    "src/finnorte/dictamen.py",
+    "tests/test_dictamen.py"
+  ],
+  "pruebas_locales": "........................................................................ [ 73%]\n..........................                                               [100%]\n98 passed in 1.07s",
+  "alcance": "Actualización técnica compartida. No acredita revisión humana ni completa registros personales.",
+  "auditoria_anterior": "av1_documentacion_cuatro_20261105.json describe el corte 59/240 de e2a7cc3; av1_documentacion_cuatro_180_20261106.json describe el corte 180/240 de ea046ae. Sus hashes corresponden a esas versiones históricas."
+}

@@ -1,0 +1,125 @@
+{
+  "fecha_utc": "2026-11-06T04:33:53.240767+00:00",
+  "modelo": "gemini-3.1-flash-lite",
+  "demo": false,
+  "versiones": {
+    "mejorada": {
+      "prompts": [
+        3,
+        4,
+        4,
+        2
+      ],
+      "flujos": 6,
+      "completos": 6,
+      "consistencia_reglas_lineas": true,
+      "fallos": []
+    },
+    "inicial": {
+      "prompts": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "flujos": 6,
+      "completos": 4,
+      "consistencia_reglas_lineas": true,
+      "fallos": [
+        {
+          "entrada": "tokens.py",
+          "repeticion": "inicial",
+          "etapas": [
+            {
+              "nombre": "detectar",
+              "prompt": "rev_detectar.v1",
+              "ok": true,
+              "salida": {
+                "hallazgos": [
+                  {
+                    "id": "H1",
+                    "regla": "SEC-09",
+                    "linea": 6,
+                    "descripcion": "Uso de yaml.load inseguro que permite la ejecución de código arbitrario"
+                  }
+                ]
+              },
+              "errores": [],
+              "intentos": 1,
+              "latencia_ms": 2955.844000040088,
+              "costo_usd": 0.0002115
+            },
+            {
+              "nombre": "explicar",
+              "prompt": "rev_explicar.v1",
+              "ok": false,
+              "salida": {
+                "hallazgos": [
+                  {
+                    "id": "H1",
+                    "regla": "SEC-09",
+                    "linea": 6,
+                    "descripcion": "Uso de yaml.load inseguro que permite la ejecución de código arbitrario",
+                    "explicacion": "La función yaml.load en la línea 6 es vulnerable a la deserialización de objetos arbitrarios, lo que permite a un atacante ejecutar código malicioso al procesar entradas no confiables. Se debe utilizar yaml.safe_load para restringir la deserialización a tipos de datos básicos."
+                  }
+                ]
+              },
+              "errores": [
+                "La explicación de H1 debe identificar su regla SEC"
+              ],
+              "intentos": 2,
+              "latencia_ms": 12531.196299998555,
+              "costo_usd": 0.0006605000000000001
+            }
+          ]
+        },
+        {
+          "entrada": "limites.py",
+          "repeticion": "inicial",
+          "etapas": [
+            {
+              "nombre": "detectar",
+              "prompt": "rev_detectar.v1",
+              "ok": true,
+              "salida": {
+                "hallazgos": []
+              },
+              "errores": [],
+              "intentos": 1,
+              "latencia_ms": 903.2312000053935,
+              "costo_usd": 0.0001435
+            },
+            {
+              "nombre": "explicar",
+              "prompt": "rev_explicar.v1",
+              "ok": true,
+              "salida": {
+                "hallazgos": []
+              },
+              "errores": [],
+              "intentos": 1,
+              "latencia_ms": 4682.747300015762,
+              "costo_usd": 0.000142
+            },
+            {
+              "nombre": "parche",
+              "prompt": "rev_parche.v1",
+              "ok": false,
+              "salida": {
+                "parches": [],
+                "codigo_corregido": "from decimal import Decimal, ROUND_HALF_EVEN\n\nLIMITE_NIVEL_1 = Decimal(\"8000\")\nLIMITE_NIVEL_2 = Decimal(\"50000\")\n\n\ndef validar_monto(monto: Decimal, nivel: int) -> bool:\n    \"\"\"Devuelve True si el monto es válido para el nivel de cuenta.\"\"\"\n    if monto <= 0 or monto != monto.quantize(Decimal(\"0.01\"), rounding=ROUND_HALF_EVEN):\n        return False\n    limite = LIMITE_NIVEL_2 if nivel == 2 else LIMITE_NIVEL_1\n    return monto <= limite"
+              },
+              "errores": [
+                "Sin hallazgos se debe conservar exactamente el código original"
+              ],
+              "intentos": 2,
+              "latencia_ms": 8604.721799958497,
+              "costo_usd": 0.0007865
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "alcance_consistencia": "Coincidencia de reglas y líneas en las tres repeticiones de transferencias.py; no igualdad literal del reporte ni exactitud exhaustiva."
+}

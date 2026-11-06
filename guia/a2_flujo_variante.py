@@ -20,6 +20,7 @@ def main():
     parser.add_argument("--v1", action="store_true", help="Fijar la versión inicial de todos los prompts")
     parser.add_argument("--demo", action="store_true", help="Respuestas preparadas; no mide calidad de IA")
     parser.add_argument("--continuar", action="store_true", help="Recuperar los casos guardados si el proveedor interrumpió la ejecución")
+    parser.add_argument("--salida", default="bitacora/publicacion_lab2/flujo", help="Carpeta nueva para conservar las matrices anteriores")
     args = parser.parse_args()
     if args.demo:
         os.environ.update(LLM_PROVIDER="fake", LLM_MODEL="fake-1",
@@ -33,7 +34,7 @@ def main():
 
     cfg = config()
     if not args.demo:
-        os.environ["FINNORTE_DIR_TRAZAS"] = str(RAIZ / "bitacora" / "publicacion_lab2" / "flujo")
+        os.environ["FINNORTE_DIR_TRAZAS"] = str(RAIZ / args.salida)
         cfg = config()
     if cfg.llm_proveedor == "fake" and not args.demo:
         parser.error("Configura Gemini en .env o usa --demo para probar sin conexión.")
@@ -55,6 +56,8 @@ def main():
     filas, corridas = [], []
     sufijo = "_v1" if args.v1 else ""
     archivo_datos = cfg.dir_trazas / f"a2_trazabilidad{sufijo}.json"
+    if archivo_datos.exists() and not args.continuar and not args.demo:
+        parser.error("Ya hay evidencia: usa --continuar o una --salida nueva.")
     if args.continuar and archivo_datos.exists():
         anterior = json.loads(archivo_datos.read_text(encoding="utf-8"))
         if (anterior["modelo"], anterior["proveedor"], anterior["demo"]) != (cfg.llm_modelo, cfg.llm_proveedor, args.demo):

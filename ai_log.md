@@ -74,3 +74,39 @@ El asistente preparó rev_dictamen.v1 y v2, el esquema, dictamen.py, guia/a2_dic
 La v1 pasó 12/12 con el primer validador. Al leer sus resúmenes se vio texto ajeno a los datos y redacciones distintas; se agregó esa regla, se repitió la v1 sin editarla (1/6 válido al primer intento) y se creó la v2 (6/6). La regla se ajustó una vez tras probarla sobre salidas guardadas, porque rechazaba palabras neutras.
 
 Participación de Kevin: definió el alcance con la lista de la actividad, configuró su llave, autorizó las ejecuciones reales y la publicación del pull request #3, y ajustó la redacción del uso de IA en Mi etapa y en este registro. Los prompts, el código y las pruebas se aceptaron como los preparó el asistente, sin cambios propios. Su validación consta en las 92 pruebas sin red y en las ejecuciones reales de bitacora/dictamen/; la revisión del código queda a cargo del equipo en el pull request #3.
+
+## Documento técnico final · 2026-11-05
+
+Herramienta: Claude Code con Claude Opus 5.5 (claude-opus-5-5). Kevin pidió completar su documentación después de que Alan fusionara el PR #3. El asistente redactó la sección 11, integró la etapa dictamen en las secciones 4, 5, 10 y el anexo, y exportó el PDF con Word.
+
+Se conservaron los resultados de A/B/C/D y los registros personales pendientes de Luis, Alan y César. Validación: contraste de cifras con av1_resumen.json y bitacora/dictamen/comparacion.md, 92 pruebas aprobadas en GitHub Actions y revisión visual de las páginas modificadas.
+
+## Integración y medición de cuatro etapas · 2026-11-05
+
+Herramienta: ChatGPT mediante Codex; el identificador exacto del modelo del asistente no está verificado. El modelo evaluado fue Gemini 3.1 Flash-Lite.
+
+- Medidor y pruebas: el usuario pidió incluir dictamen en una comparación nueva y conservar los escritos de Kevin. El asistente añadió --cuatro-etapas, fijó las versiones 1/1/1/1 frente a 4/5/5/2, protegió la reanudación y agregó verificación histórica por commit. Los prompts no se editaron. Validación: 92 pruebas iniciales; 98 tras los cambios, también aprobadas por GitHub Actions. No consta una revisión humana del PR #7.
+- Ejecuciones reales: el asistente corrió las matrices del Lab 2 con las tres entradas oficiales y tres repeticiones adicionales de transferencias.py. Mejorada: 6/6 flujos completos; inicial: 4/6. Se conservaron los fallos. A/B/C/D nueva quedó en 59/240; ambas credenciales autorizadas devolvieron HTTP 429 por 500 llamadas diarias. Las llaves se leyeron en memoria, sin publicarlas; las 181 ejecuciones faltantes no se presentan como realizadas.
+- Documento: el asistente corrigió referencias, identificó las métricas anteriores como históricas y dejó explícito el estado parcial nuevo. Se conservaron 35 textos identificados como añadidos o modificados por Kevin, incluidos sus conclusiones, mejoras y registro. Validación: comprobación textual después de Word y revisión visual de las 12 páginas. Los registros personales de Luis, Alan y César no se completaron.
+- GitHub: cambios publicados con Lolmastercraft en el PR #7, todavía en borrador. Se creó avance1-medicion-3-etapas en 5939a14 y se verificaron las 240 respuestas históricas contra ese commit. La etiqueta avance1 queda pendiente del cierre. Se comprobó main protegida y acceso de los cuatro integrantes; esta cuenta no tiene administración para consultar todos los detalles. El profesor se agregará después por el equipo.
+
+## Reanudación real y corte 180/240 · 2026-11-06
+
+- Herramienta: ChatGPT mediante Codex; identificador exacto del modelo del asistente no verificado.
+- Solicitud: el usuario pidió reintentar con la configuración actual. El asistente reanudó la comparación con Gemini 3.1 Flash-Lite, manteniendo código, prompts, casos y contrato.
+- Resultado: A, B y C terminaron con 60 ejecuciones cada una. Al comenzar D se agotó la cuota; otra configuración autorizada respondió a una prueba pequeña, pero la corrida y la comprobación posterior devolvieron 429 diario. El usuario decidió dejar lista la continuación tras el reinicio.
+- Cambios aceptados: conservar las 180 respuestas y todas las interrupciones; actualizar el estado compartido y el documento con ese corte. No se cambian textos de Kevin ni registros personales.
+- Validación: verificador con 71 archivos y 180 respuestas, código 2 por D pendiente; comparación de las 59 respuestas iniciales y de las 180 guardadas, sin modificaciones. La ejecución real sigue incompleta. Esta entrada no acredita revisión humana de los integrantes.
+
+## Medición de cuatro etapas completada · 2026-11-06
+
+Herramienta: ChatGPT mediante Codex. El identificador exacto del modelo del asistente no está verificado. El usuario pidió integrar el trabajo existente de Kevin, medir el flujo completo y actualizar evidencias, documentos y etiquetas, conservando los textos personales y las aportaciones de Kevin.
+
+- Medidor y verificación: el asistente añadió --cuatro-etapas, fijó dictamen v1 en A y v2 en B/C/D, protegió la reanudación frente a alcances distintos y permitió verificar firmas históricas contra un commit. Se conservaron todos los prompts medidos. Validación: 92 pruebas iniciales y 98 después de los cambios; la firma histórica se comprobó contra 5939a14.
+- Ejecuciones reales: el asistente ejecutó matrices del Lab 2 y las 240 respuestas A/B/C/D con Gemini 3.1 Flash-Lite, usando las configuraciones privadas autorizadas en memoria. Se conservaron fallos, intentos y datos históricos. El código calculó las métricas; no se atribuye a cada persona una ejecución independiente.
+- Documentación: el asistente actualizó resultados compartidos y referencias a partir de las nuevas bitácoras. Los textos de Kevin se conservaron y sus conclusiones anteriores se identificaron por su alcance. Se revisaron el Word y el PDF renderizado. Los registros personales de Luis, Alan y César siguen pendientes.
+- GitHub: publicación con Lolmastercraft y etiqueta histórica de tres etapas. La revisión humana del nuevo PR solo se dará por realizada si consta en GitHub; esta entrada no la acredita.
+
+## Actualización final del documento · 2026-11-06
+
+Herramienta: ChatGPT mediante Codex; modelo exacto del asistente no verificado. El usuario solicitó actualizar la sección 11 y limpiar referencias y notas antiguas del PDF, autorizando cambiar esa sección que antes se conservaba literalmente. El asistente usó las cifras reales de cuatro etapas, retiró el bloque de referencias antiguas y revisó las 12 páginas renderizadas. Se aceptaron estos cambios documentales; no se cambiaron la medición, el código ni los registros personales. Evidencia: bitacora/av1_documentacion_final_20261106.json. La fusión y la etiqueta requieren la aprobación exigida por GitHub.

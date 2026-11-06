@@ -1,0 +1,13 @@
+{
+  "paginas": 12,
+  "secciones_oficiales": 11,
+  "docx_sha256": "e3124416764ea3aabca9867e9f31fd7352d7ab3dd57a700c8582e84db6a35ddd",
+  "pdf_sha256": "bbace28738be1f2ac95d5f6d8772208c713ce0bc5fe14ff1e18c06acbe4bd783",
+  "revision_visual": "Completada: las 12 páginas inspeccionadas",
+  "fecha_utc": "2026-11-06T09:51:45.160673+00:00",
+  "alcance": "Solicitud expresa del usuario: actualizar sección 11 con cuatro etapas y retirar notas y referencias obsoletas. Los textos de esa sección pueden diferir de la versión previa de Kevin.",
+  "medicion": "240 respuestas reales; firma de 71 archivos sin cambios. Ver bitacora/av1_cuatro_etapas_20261105/av1_integridad.json.",
+  "antecedente_documental": "b5171f3; auditoría anterior av1_documentacion_cuatro_completa_20261106.json",
+  "registros_personales": "Sin cambios; pendientes de sus autores.",
+  "etiqueta": "Se moverá a main tras la fusión aprobada del PR #7."
+}

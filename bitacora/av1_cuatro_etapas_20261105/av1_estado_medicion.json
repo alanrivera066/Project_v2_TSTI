@@ -1,0 +1,20 @@
+{
+  "fecha_utc": "2026-11-06T08:39:54.009555+00:00",
+  "estado": "completa",
+  "ejecuciones_guardadas": 240,
+  "esperadas": 240,
+  "faltan": 0,
+  "configuraciones": {
+    "A": 60,
+    "B": 60,
+    "C": 60,
+    "D": 60
+  },
+  "etapas": 4,
+  "modelo": "gemini-3.1-flash-lite",
+  "embeddings": "gemini-embedding-001",
+  "firma": "9410eee198634c3b65ed5286b6216f8453b689c25b30f5c282e7a4b3ec7fad16",
+  "archivos_verificados": 71,
+  "codigo_base": "00880acb776c5a1fc9b00b30674ebfbb5bdda8ac",
+  "interrupciones": "Históricas: ver archivos av1_interrupcion*, av1_estado_parcial_59.json y av1_estado_parcial_180.json. No son el estado final."
+}

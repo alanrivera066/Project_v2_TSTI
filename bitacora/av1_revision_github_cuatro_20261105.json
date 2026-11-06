@@ -1,0 +1,29 @@
+{
+  "fecha_utc": "2026-11-06T04:56:49.791148+00:00",
+  "cuenta_operadora": "Lolmastercraft",
+  "rama_main_protegida": true,
+  "permisos_cuenta": "write; sin administración",
+  "detalle_proteccion": "REST devolvió 404; GraphQL no mostró las reglas. No se concluye que falte protección: branches/main devuelve protected=true.",
+  "colaboradores": [
+    "Lolmastercraft",
+    "alanrivera066",
+    "MajesDo63",
+    "KevinAdmp"
+  ],
+  "profesor": "Fuera de alcance; el usuario indicó que el equipo lo agregará después.",
+  "ci": {
+    "sha": "94423174277f471dc0894d7ca22af26178f3fe30",
+    "run": 42163767463,
+    "job": 127715306220,
+    "resultado": "success",
+    "pytest": "98 passed in 0.76s"
+  },
+  "etiqueta_historica": {
+    "nombre": "avance1-medicion-3-etapas",
+    "objeto": "7aa9f6d9df192523f9b11c7a553b56fba82a2b55",
+    "commit": "5939a140bc84a2f63633cff412b67e703b54beca"
+  },
+  "pr": "https://github.com/alanrivera066/Project_v2_TSTI/pull/7",
+  "estado_pr": "borrador; medición pendiente",
+  "avance1": "Todavía en 5939a14; actualizar solo al cerrar la integración final."
+}
