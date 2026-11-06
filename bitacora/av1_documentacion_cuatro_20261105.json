@@ -1,0 +1,16 @@
+{
+  "paginas": 12,
+  "textos_kevin_conservados": 35,
+  "secciones_oficiales": 11,
+  "docx_sha256": "605a878b37919b17b5ce1a1e20d1efb9affefd53e471acadd2cfc0d58fdf5940",
+  "pdf_sha256": "d4461eb3cd028396224c92e2da2557a75a0ae9de4f4641332f4269111997e02d",
+  "revision_visual": "Las 12 páginas inspeccionadas; sin recortes, superposiciones ni tablas ilegibles.",
+  "fecha_utc": "2026-11-06T05:02:30.749466+00:00",
+  "estado_medicion": "59/240; faltan 181; HTTP 429",
+  "pruebas_locales": "........................................................................ [ 73%]\n..........................                                               [100%]\n98 passed in 1.07s",
+  "fuente_kevin": "31ac3d3c6c013eb73bdf8190d00904463c9963c2",
+  "preservacion": "35 textos conservados literalmente; las dos referencias antiguas de portada se trasladaron al anexo con una nota histórica. Sección 11 intacta, con nota de alcance añadida.",
+  "modificados_personales": false,
+  "etiqueta_historica": "avance1-medicion-3-etapas",
+  "etiqueta_final": "Pendiente del cierre"
+}

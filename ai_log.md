@@ -80,3 +80,12 @@ Participación de Kevin: definió el alcance con la lista de la actividad, confi
 Herramienta: Claude Code con Claude Opus 5.5 (claude-opus-5-5). Kevin pidió completar su documentación después de que Alan fusionara el PR #3. El asistente redactó la sección 11, integró la etapa dictamen en las secciones 4, 5, 10 y el anexo, y exportó el PDF con Word.
 
 Se conservaron los resultados de A/B/C/D y los registros personales pendientes de Luis, Alan y César. Validación: contraste de cifras con av1_resumen.json y bitacora/dictamen/comparacion.md, 92 pruebas aprobadas en GitHub Actions y revisión visual de las páginas modificadas.
+
+## Integración y medición de cuatro etapas · 2026-11-05
+
+Herramienta: ChatGPT mediante Codex; el identificador exacto del modelo del asistente no está verificado. El modelo evaluado fue Gemini 3.1 Flash-Lite.
+
+- Medidor y pruebas: el usuario pidió incluir dictamen en una comparación nueva y conservar los escritos de Kevin. El asistente añadió --cuatro-etapas, fijó las versiones 1/1/1/1 frente a 4/5/5/2, protegió la reanudación y agregó verificación histórica por commit. Los prompts no se editaron. Validación: 92 pruebas iniciales; 98 tras los cambios, también aprobadas por GitHub Actions. No consta una revisión humana del PR #7.
+- Ejecuciones reales: el asistente corrió las matrices del Lab 2 con las tres entradas oficiales y tres repeticiones adicionales de transferencias.py. Mejorada: 6/6 flujos completos; inicial: 4/6. Se conservaron los fallos. A/B/C/D nueva quedó en 59/240; ambas credenciales autorizadas devolvieron HTTP 429 por 500 llamadas diarias. Las llaves se leyeron en memoria, sin publicarlas; las 181 ejecuciones faltantes no se presentan como realizadas.
+- Documento: el asistente corrigió referencias, identificó las métricas anteriores como históricas y dejó explícito el estado parcial nuevo. Se conservaron 35 textos identificados como añadidos o modificados por Kevin, incluidos sus conclusiones, mejoras y registro. Validación: comprobación textual después de Word y revisión visual de las 12 páginas. Los registros personales de Luis, Alan y César no se completaron.
+- GitHub: cambios publicados con Lolmastercraft en el PR #7, todavía en borrador. Se creó avance1-medicion-3-etapas en 5939a14 y se verificaron las 240 respuestas históricas contra ese commit. La etiqueta avance1 queda pendiente del cierre. Se comprobó main protegida y acceso de los cuatro integrantes; esta cuenta no tiene administración para consultar todos los detalles. El profesor se agregará después por el equipo.

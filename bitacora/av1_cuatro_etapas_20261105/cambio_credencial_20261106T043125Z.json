@@ -1,0 +1,9 @@
+{
+  "fecha_utc": "2026-11-06T04:54:42.928292+00:00",
+  "trabajo": "abcd",
+  "motivo": "HTTP 429: cuota del proveedor",
+  "credencial_saliente": 1,
+  "siguiente_credencial_autorizada": 2,
+  "modelo": "gemini-3.1-flash-lite",
+  "respuestas_conservadas": true
+}

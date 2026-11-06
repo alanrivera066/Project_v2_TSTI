@@ -30,14 +30,14 @@ El motor tiene cuatro etapas: detectar → explicar → parche → dictamen.
 | Parche con contexto y contrato | César | rev_parche.v5 y contrato_calidad.yaml |
 | Conexión del motor y comparación A/B/C/D | Compartido | variante.py y guia/av1_configuraciones.py |
 
-A usa 1/1/1; B, C y D usan 4/5/5. El esquema y reintento están presentes en las cuatro configuraciones. D añade controles de negocio, dominio, citas y saneo. La exclusión mínima del corpus confidencial está activa también en C; no completa los controles del Avance 2.
+La comparación histórica usa A=1/1/1 y B/C/D=4/5/5. La nueva opción --cuatro-etapas fija A=1/1/1/1 y B/C/D=4/5/5/2. El esquema y reintento están presentes en las cuatro configuraciones. D añade controles de negocio, dominio, citas y saneo. La exclusión mínima del corpus confidencial está activa también en C; no completa los controles del Avance 2.
 
 ## Decisión de fusión
 
 | Pieza | Decisión | Evidencia |
 |---|---|---|
 | Buscador | Mantener el buscador de Luis | bitacora/a1_comparacion.json: semántico acierto@1 9/10 y @3 10/10; BM25 8/10 en ambos. Son resultados históricos. |
-| Motor | Mantener Pipeline y el flujo de tres etapas | tests/test_a2_pipeline.py y tests/test_lab2_revisor.py |
+| Motor | Mantener Pipeline y el flujo integrado de cuatro etapas | tests/test_a2_pipeline.py, tests/test_lab2_revisor.py y tests/test_dictamen.py |
 | Prompts | Conservar todas las versiones medidas sin editarlas | prompts/ y procedencia de bitacora/ |
 | Evidencias | Publicar el historial sin la cuarta etapa y medir por separado el código corregido | bitacora/procedencia_importacion_20261105.json y bitacora/av1_publicado_20261105/ |
 
@@ -58,3 +58,7 @@ A usa 1/1/1; B, C y D usan 4/5/5. El esquema y reintento están presentes en las
 ## Acuerdos de publicación
 
 Se verifica la rama remota antes de publicar y no se sobrescriben cambios ajenos. Las llaves permanecen fuera de Git. Las pruebas sin red comprueban funcionamiento; las métricas de modelo requieren API real y bitácora guardada. No se da por realizada una revisión humana que no conste.
+
+## Cierre de cuatro etapas · 2026-11-05
+
+Se integra documento-final-kevin en el PR #7 conservando los textos de Kevin. Se completaron las matrices reales del Lab 2: mejorada 6/6 e inicial 4/6 flujos completos. La comparación nueva quedó en 59/240 por cuota de ambas configuraciones autorizadas; faltan 181. Se conserva la firma de 71 archivos y se continúa con --cuatro-etapas --continuar. La etiqueta avance1-medicion-3-etapas conserva 5939a14; avance1 se moverá después del cierre. Los registros personales, los comentarios eliminados, el historial y agregar al profesor quedan fuera de estos cambios.

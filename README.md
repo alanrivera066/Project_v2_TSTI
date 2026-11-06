@@ -2,6 +2,49 @@
 
 Revisa código Python mediante detectar → explicar → parche → dictamen. El resultado es un reporte con los hallazgos, «sin hallazgos» o un aviso de revisión fallida. El documento técnico final está en `entregables/`.
 
+## Estado del cierre de cuatro etapas
+
+La etapa dictamen y el documento de Kevin están integrados en esta rama. Sus prompts, código, pruebas y textos personales se conservaron. El documento actualizado mantiene sus conclusiones e identifica sus cifras como históricas de tres etapas.
+
+**Medición nueva: 59/240 ejecuciones reales, faltan 181.** A=59; B/C/D=0. Las dos credenciales autorizadas agotaron las 500 llamadas diarias de Gemini 3.1 Flash-Lite. El proveedor indicó reinicio el 6 de noviembre a las 02:00 de Ciudad de México. No hay una tabla final nueva ni se mezclan las respuestas anteriores.
+
+Evidencia: `bitacora/av1_cuatro_etapas_20261105/av1_estado_medicion.json`, `av1_A.json`, trazas e interrupciones. El código medido se fijó en `00880ac`; la firma abarca 71 archivos. Con `--cuatro-etapas`, A usa 1/1/1/1 y B/C/D usan 4/5/5/2. Sin esa opción se conserva el modo de tres etapas.
+
+Para continuar, configura en el entorno o en tu `.env` privado:
+
+```dotenv
+LLM_PROVIDER=gemini
+LLM_MODEL=gemini-3.1-flash-lite
+EMB_PROVIDER=gemini
+EMB_MODEL=gemini-embedding-001
+```
+
+Agrega la llave únicamente al `.env` local, excluido de Git. Desde la raíz del repositorio, en Windows o Mac/Linux:
+
+```text
+python guia/av1_configuraciones.py --casos evals/v2-revisor.jsonl --rep 3 --cuatro-etapas --salida bitacora/av1_cuatro_etapas_20261105 --continuar
+python guia/verificar_evidencias.py
+```
+
+`--env RUTA_AL_ENV` permite leer otro archivo privado. Las variables ya definidas en el entorno tienen prioridad sobre ese archivo. Mantén modelo, embeddings, código, casos, metas y un trabajador. El verificador devuelve código 2 mientras falten respuestas; el medidor no repite las guardadas. Cuando termine, actualizar la tabla del documento y cerrar la integración antes de mover `avance1`.
+
+**Laboratorio 2 terminado:** `bitacora/lab2_cuatro_etapas_20261105/` contiene las matrices, trazas y resultados. Se usaron transferencias.py, tokens.py y limites.py, y se repitió transferencias.py tres veces adicionales. Versión mejorada: 6/6 flujos completos; inicial: 4/6. Se conservaron los dos fallos reales. En ambas coincidieron reglas y líneas de las tres repeticiones; no se afirma exactitud exhaustiva.
+
+```text
+python guia/a2_flujo_variante.py --salida bitacora/lab2_cuatro_nuevo
+python guia/a2_flujo_variante.py --v1 --salida bitacora/lab2_cuatro_nuevo
+```
+
+La etiqueta `avance1-medicion-3-etapas` conserva `5939a14` y las 240 respuestas históricas. `avance1` aún apunta a ese estado; queda pendiente moverla al cierre final. La evidencia antigua se puede comprobar desde esta rama sin modificar sus firmas:
+
+```text
+python guia/verificar_evidencias.py --carpeta bitacora/av1_gemini31_20261105 --revision avance1-medicion-3-etapas
+```
+
+Pruebas: 92 iniciales; 98 después de los cambios. GitHub Actions también aprobó las 98. `main` está protegida; Lolmastercraft tiene escritura, sin administración. Los cuatro integrantes aparecen como colaboradores; el profesor será agregado después por el equipo. El PR #7 sigue en borrador por la medición pendiente.
+
+Las secciones históricas siguientes conservan la documentación anterior. Sus comandos de medición de tres etapas corresponden a `avance1-medicion-3-etapas`; para el estado actual usa los comandos de esta sección. Los registros personales siguen a cargo de sus autores.
+
 ## Responsabilidades
 
 | Persona | Parte asignada |
@@ -66,7 +109,7 @@ python guia/a2_dictamen.py comparar --version 2
 
 Los seis casos con v2 dieron 6/6 reportes correctos. La v1 había pasado 12/12 con el primer validador; leer sus resúmenes mostró texto ajeno a los datos, y por eso se agregó la regla con la que se comparan ambas versiones. Detalle: `bitacora/dictamen/comparacion.md`. Son pocas ejecuciones y archivos pequeños: no demuestran el comportamiento con archivos grandes. El aviso de revisión fallida solo se ha comprobado en pruebas sin red; no ocurrió en estas ejecuciones reales.
 
-## Avance 1 y mediciones
+## Antecedente de tres etapas y sus mediciones
 
 Versiones del Lab 2: detectar v3, explicar v4, parche v4, dictamen v2. Perfil mejorado del Avance 1: v4/v5/v5. A usa v1/v1/v1; B, C y D usan el perfil mejorado. Los prompts medidos no se editaron. El esquema y reintento están activos en las cuatro configuraciones; D añade controles de negocio, dominio, citas y saneo. A/B/C/D midió tres etapas y conserva esa configuración: `incluir_dictamen` está apagado en el medidor.
 
@@ -112,7 +155,7 @@ Esas 62 respuestas corresponden al código del commit `87427960918c2c87fdcc277a7
 
 El PR [#1](https://github.com/alanrivera066/Project_v2_TSTI/pull/1) fue aprobado y fusionado por Alan. La etiqueta `avance1` se actualizó con Lolmastercraft al commit `3fc27aa5e4b6d4b1301bf310ff4d18ddbd322be3`, con la medición completa de 240 ejecuciones. GitHub Actions aprobó 56 pruebas en ese estado. Esa es la base de código y evidencia de la actualización documental; los usos personales de Luis, Alan y César conservan sus pendientes.
 
-## Nueva comparación con Gemini 3.1
+## Comparación histórica de tres etapas con Gemini 3.1
 
 El usuario autorizó iniciar A/B/C/D desde cero con otro modelo porque Gemini 3.5 devolvió 503. Gemini 3.1 Flash-Lite respondió a una prueba real de disponibilidad; el buscador también respondió usando `gemini-embedding-001`. Ambas comprobaciones se guardan aparte de las 240 ejecuciones de evaluación.
 
