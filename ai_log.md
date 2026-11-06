@@ -67,9 +67,9 @@ Validación documental del asistente: contraste con av1_resumen.json y av1_A/B/C
 
 ## Etapa dictamen · 2026-11-05
 
-Herramienta: Claude Code con Claude Opus 5.5 (claude-opus-5-5). Kevin pidió crear y conectar la etapa dictamen a partir de la lista de la actividad, puso su llave en .env sin compartirla y autorizó las ejecuciones reales.
+Usé Claude Code con Claude Opus 5.5 (claude-opus-5-5) para el apoyo en redacción de prompts, código y pruebas. Kevin pidió crear y conectar la etapa dictamen a partir de la lista de la actividad, puso su llave en .env sin compartirla y autorizó las ejecuciones reales.
 
-El asistente redactó rev_dictamen.v1 y v2, el esquema, dictamen.py, guia/a2_dictamen.py, los seis casos, las pruebas y la conexión en variante.py, y ajustó pruebas y guías del equipo para cuatro etapas. También redactó el borrador de Mi etapa y estas actualizaciones. Se comprobó con 92 pruebas sin red y con ejecuciones reales de Gemini 3.1 Flash-Lite guardadas en bitacora/dictamen/.
+El asistente preparó rev_dictamen.v1 y v2, el esquema, dictamen.py, guia/a2_dictamen.py, los seis casos, las pruebas y la conexión en variante.py, y ajustó pruebas y guías del equipo para cuatro etapas. También preparó el borrador de Mi etapa y estas actualizaciones. Se comprobó con 92 pruebas sin red y con ejecuciones reales de Gemini 3.1 Flash-Lite guardadas en bitacora/dictamen/.
 
 La v1 pasó 12/12 con el primer validador. Al leer sus resúmenes se vio texto ajeno a los datos y redacciones distintas; se agregó esa regla, se repitió la v1 sin editarla (1/6 válido al primer intento) y se creó la v2 (6/6). La regla se ajustó una vez tras probarla sobre salidas guardadas, porque rechazaba palabras neutras.
 
