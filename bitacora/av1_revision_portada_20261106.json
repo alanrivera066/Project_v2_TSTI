@@ -1,0 +1,11 @@
+{
+  "paginas": 12,
+  "secciones_oficiales": 11,
+  "docx_sha256": "bafd2e99ff83227569705d43120dfc3ab4bfe54eb9103cea86fd439bced01589",
+  "pdf_sha256": "49e659b70763ec625d3ced844d3248d23fcaf12946ff6101ef971db2277105f4",
+  "revision_visual": "Las 12 páginas inspeccionadas; sin recortes ni superposiciones.",
+  "fecha_utc": "2026-11-06T10:20:29.697494+00:00",
+  "verificacion": "{\n  \"firma\": \"9410eee198634c3b65ed5286b6216f8453b689c25b30f5c282e7a4b3ec7fad16\",\n  \"archivos_verificados\": 71,\n  \"respuestas_reales_guardadas\": 240,\n  \"esperadas\": 240,\n  \"configuraciones_pendientes\": []\n}\nLas 240 respuestas tienen la firma del código, entradas y contrato del directorio actual.\n",
+  "motivo": "Corregir portada y referencias después de fusionar PR #7 en 279280f; etiqueta histórica de tres etapas separada de la entrega actual.",
+  "auditoria_anterior": "av1_documentacion_final_20261106.json corresponde a la versión de 8fb7526, integrada en 279280f."
+}

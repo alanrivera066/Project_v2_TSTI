@@ -110,3 +110,7 @@ Herramienta: ChatGPT mediante Codex. El identificador exacto del modelo del asis
 ## Actualización final del documento · 2026-11-06
 
 Herramienta: ChatGPT mediante Codex; modelo exacto del asistente no verificado. El usuario solicitó actualizar la sección 11 y limpiar referencias y notas antiguas del PDF, autorizando cambiar esa sección que antes se conservaba literalmente. El asistente usó las cifras reales de cuatro etapas, retiró el bloque de referencias antiguas y revisó las 12 páginas renderizadas. Se aceptaron estos cambios documentales; no se cambiaron la medición, el código ni los registros personales. Evidencia: bitacora/av1_documentacion_final_20261106.json. La fusión y la etiqueta requieren la aprobación exigida por GitHub.
+
+## Corrección de referencias de entrega · 2026-11-06
+
+ChatGPT mediante Codex corrigió la portada y las referencias documentales después de comprobar la fusión del PR #7 en 279280f. El usuario solicitó corregir equipo.md y mover avance1 al commit final de main. Se corrigió la referencia histórica de tres etapas a avance1-medicion-3-etapas. La revisión se limita a documentos; no cambia código, prompts, métricas ni registros personales. Validación: verificador de 240 respuestas, exportación del PDF y revisión de sus páginas.

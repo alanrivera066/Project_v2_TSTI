@@ -53,7 +53,7 @@ La comparación histórica usa A=1/1/1 y B/C/D=4/5/5. La nueva opción --cuatro-
 | 2026-11-05 | Dejar los registros personales de IA como PENDIENTE | Instrucción expresa del usuario; no se inventan usos ni revisiones personales. |
 | 2026-11-05 | Iniciar otra comparación completa con Gemini 3.1 Flash-Lite | Autorización del usuario tras los errores 503 de Gemini 3.5. Sus 62 respuestas se conservan por separado; se actualizan modelo y tarifa, sin cambiar prompts ni metas. |
 | 2026-11-05 | Usar Lolmastercraft para los próximos cambios y publicaciones | Instrucción expresa del usuario. La cuenta que publica no acredita ejecución personal de las tres etapas. |
-| 2026-11-05 | Agregar dictamen como cuarta etapa, medida aparte, sin cambiar A/B/C/D | A/B/C/D midió tres etapas: el medidor apaga incluir_dictamen y sus 240 respuestas se verifican en la etiqueta avance1. Falta decidir si se vuelve a medir con cuatro etapas. |
+| 2026-11-05 | Agregar dictamen como cuarta etapa, medida aparte, sin cambiar A/B/C/D | Decisión histórica: esa comparación midió tres etapas; sus 240 respuestas se verifican en avance1-medicion-3-etapas (5939a14). La comparación posterior de cuatro etapas quedó completa y fue integrada en main mediante PR #7. |
 
 ## Acuerdos de publicación
 
@@ -74,3 +74,7 @@ Los cortes de 59/240 y 180/240 registrados arriba son antecedentes. Ahora se com
 ## Documento final · 2026-11-06
 
 Por solicitud del usuario se actualiza la sección 11 con los resultados de cuatro etapas y se retiran referencias obsoletas del anexo. PDF: 12 páginas, 11 secciones. La medición y los archivos personales permanecen intactos. La fusión del PR #7 y la etiqueta avance1 se cerrarán después de obtener la aprobación requerida en GitHub.
+
+## Referencias de la entrega · 2026-11-06
+
+El PR #7 quedó fusionado en main, commit 279280f. La etiqueta de entrega es avance1 y debe identificar el commit final de main con estas correcciones documentales. Las 240 respuestas históricas de tres etapas se verifican con avance1-medicion-3-etapas; las 240 actuales de cuatro etapas verifican con el código integrado. Los cortes y acuerdos anteriores se conservan como historial.
