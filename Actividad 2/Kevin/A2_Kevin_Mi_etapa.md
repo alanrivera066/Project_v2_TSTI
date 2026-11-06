@@ -50,6 +50,6 @@ En los seis casos pedidos (dos limpios, tres con un problema y uno con dos), v2 
 
 ## 7. Mis commits y uso de IA
 
-Commits: https://github.com/alanrivera066/Project_v2_TSTI/commits/etapa4-dictamen
+Pull request: https://github.com/alanrivera066/Project_v2_TSTI/pull/3
 
 Usé Claude Code con Claude Opus 5.5 para redactar prompts, código, pruebas y este borrador. El registro está en `ai_log.md`.
