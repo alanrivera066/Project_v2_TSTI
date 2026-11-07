@@ -12,5 +12,3 @@ Qué no se comparte: datos restringidos o confidenciales (ver Clasificación de 
 Revisión humana: todo código, prueba o documento generado con IA se revisa como si lo hubiera escrito una persona nueva en el equipo. La persona autora del PR responde por él.
 
 Registro: los PR asistidos por IA llevan la etiqueta "asistido-por-ia". Los sistemas que usan modelos en producción registran versión del modelo, versión del prompt, fuentes usadas y resultado de las validaciones.
-
-Sistemas con IA para clientes: deben tener una ruta hacia una persona, no ejecutar operaciones de dinero sin confirmación explícita del cliente y evaluarse antes de cada cambio de modelo o de prompt.
