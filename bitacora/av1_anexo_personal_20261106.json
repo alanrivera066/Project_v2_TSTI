@@ -1,0 +1,19 @@
+{
+  "paginas": 12,
+  "secciones_oficiales": 11,
+  "docx_sha256": "f82cb8eb2bd01644faa99845fdd65c097f7e03f1bc30688cf727b9955f7cb5d3",
+  "pdf_sha256": "1a7858441af79c10b2d992da359d6420cbf4da7a15553583f6e89775c86a39fb",
+  "revision_visual": "Las 12 páginas inspeccionadas; sin recortes ni superposiciones.",
+  "fecha_utc": "2026-11-07T03:17:43.013169+00:00",
+  "motivo": "Retirar la frase desactualizada del anexo y resumir los registros personales existentes de Luis, Alan, César y Kevin.",
+  "fuente_registros": "ai_log.md",
+  "commit_fuente": "51fd5ea827e14f631fe4e06f8030697f6f197c01",
+  "fuente_sha256": "bcccdd48d4448f2e1445a55a5e2a7abaae38cec0e5279a13cf94b63250fa51f7",
+  "evidencias_verificadas": {
+    "archivos": 71,
+    "respuestas_reales": 240,
+    "firma": "9410eee198634c3b65ed5286b6216f8453b689c25b30f5c282e7a4b3ec7fad16"
+  },
+  "alcance": "Solo documentación y este registro. Código, prompts, contrato y mediciones conservados.",
+  "auditoria_anterior": "av1_revision_portada_20261106.json conserva la revisión anterior del documento."
+}
