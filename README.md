@@ -42,8 +42,7 @@ La etiqueta `avance1-medicion-3-etapas` conserva `5939a14` y sus 240 respuestas 
 python guia/verificar_evidencias.py --carpeta bitacora/av1_gemini31_20261105 --revision avance1-medicion-3-etapas
 ```
 
-El documento técnico presenta la medición de cuatro etapas en las secciones 8 a 11. La sección 11 y las referencias del anexo se actualizaron por solicitud del usuario el 6 de noviembre; el PDF conserva 12 páginas. Los registros personales de Luis, Alan y César siguen a cargo de sus autores. El profesor se agregará después por el equipo.
-
+El documento técnico presenta la medición de cuatro etapas en las secciones 8 a 11. La sección 11 y las referencias del anexo se actualizaron por solicitud del usuario el 6 de noviembre; el PDF conserva 12 páginas.
 ## Responsabilidades
 
 | Persona | Parte asignada |
@@ -53,8 +52,7 @@ El documento técnico presenta la medición de cuatro etapas en las secciones 8 
 | César · MajesDo63 | Parche, reglas de negocio y contrato de calidad |
 | Kevin · KevinAdmp | Dictamen, reporte final, seis casos, conclusiones e integración del documento final |
 
-Dueños, entradas, salidas, fusión y decisiones fechadas: `avance1/equipo.md`. La preparación y las pruebas tienen asistencia de IA registrada en `ai_log.md`. Los usos personales quedan **PENDIENTES**, por instrucción del usuario; la asignación y la cuenta que publica no acreditan ejecución individual.
-
+Dueños, entradas, salidas, fusión y decisiones fechadas: `avance1/equipo.md`. La preparación y las pruebas tienen asistencia de IA registrada en `ai_log.md`. 
 ## Instalación y pruebas
 
 Python 3.10 o posterior:
@@ -131,10 +129,6 @@ python guia/verificar_evidencias.py --carpeta bitacora/av1_gemini31_20261105 --r
 Ese comando consulta la firma de la etiqueta histórica sin cambiar tu rama ni llamar al modelo. El verificador devuelve código 2 si la evidencia está incompleta. La medición nueva de cuatro etapas se verifica contra el código actual con el comando del inicio; usa también las instrucciones del inicio para una nueva corrida.
 
 Mantener el mismo proveedor, modelo, embeddings, contrato y archivos. `--env RUTA_AL_ENV` permite leer una configuración sin copiar la llave al repositorio. Los fallos del proveedor se registran aparte y detienen la corrida. Las metas se conservan aunque alguna no se alcance.
-
-## Actividad 2
-
-Los borradores individuales están en `Actividad 2/Luis/`, `Actividad 2/Cesar/` y `Actividad 2/Alan/`. Sus comparaciones son históricas y sus fuentes de las tres etapas ahora están publicadas. Cada persona debe revisarlos y registrar su participación real. Las secciones técnicas actualizadas del Avance 1 están en [Word](entregables/Documento_Tecnico_Avance1.docx) y [PDF](entregables/Documento_Tecnico_Avance1.pdf), con 11 secciones, las conclusiones y la evidencia de Gemini 3.1. La página de Kevin está en `Actividad 2/Kevin/`, con sus evidencias en `bitacora/dictamen/`.
 
 ## Antecedente de Gemini 3.5 · 5 de noviembre
 
