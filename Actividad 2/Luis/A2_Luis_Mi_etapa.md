@@ -26,6 +26,8 @@ Para esta etapa se utiliza validar_detectar, en src/finnorte/reglas.py, además 
 
 Esto se revisa mediante código porque una instrucción en el prompt no garantiza que el modelo la cumpla. Si devuelve una línea que no existe, el programa debe rechazarla.
 
+Al revisar `transferencias.py`, mi validador rechazó el primer intento de `rev_detectar.v1` en la ejecución inicial y en las tres repeticiones. Los cuatro rechazos dieron el mismo error: «Falta SEC-03: registro con dato sensible sin enmascarar en línea 12». Los cuatro reintentos pasaron. Evidencia: `bitacora/lab2_cuatro_etapas_20261105/trazas.jsonl` (líneas 81, 119, 136 y 153).
+
 ## 4. Evidencia de mi etapa
 
 La trazabilidad nueva del Laboratorio 2 está en bitacora/lab2_cuatro_etapas_20261105/a2_trazabilidad.json. Un resumen del registro es:
