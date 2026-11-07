@@ -1,4 +1,6 @@
-# Comparación A/B/C/D · Gemini 3.1 Flash-Lite
+# Comparación histórica A/B/C/D de tres etapas · Gemini 3.1 Flash-Lite
+
+Esta medición es un antecedente de tres etapas: detectar, explicar y parche. La [comparación final de cuatro etapas](../av1_cuatro_etapas_20261105/av1_comparacion.md) incluye también dictamen y conserva sus propias 240 respuestas. Los resultados de ambas mediciones se mantienen separados.
 
 Fuente: av1_A.json, av1_B.json, av1_C.json, av1_D.json y av1_resumen.json de esta carpeta.
 240 ejecuciones reales: 20 casos × 3 repeticiones × 4 configuraciones. Las 62 respuestas anteriores de Gemini 3.5 no se reutilizaron.
@@ -16,7 +18,7 @@ La consistencia compara los pares (regla, línea) de hallazgos y parches, la abs
 
 El costo medio corresponde a ejecuciones completadas. Se estima con tokens reales y tarifa Standard de pago (0.25/1.50 USD por millón de entrada/salida); excluye embeddings, intentos de ejecuciones interrumpidas y llamadas sin reporte de tokens. No representa una factura. La latencia incluye pausas y reintentos de cada ejecución conservada.
 
-Las metas se mantienen aunque no se alcancen. Kevin sigue PENDIENTE.
+Las metas se mantienen aunque no se alcancen. El dictamen todavía no formaba parte de esta medición histórica; su integración se documenta en la comparación posterior de cuatro etapas citada arriba.
 
 ## Diferencias pareadas por caso
 
