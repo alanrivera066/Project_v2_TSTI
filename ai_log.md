@@ -24,8 +24,29 @@ La validación se hizo mediante pruebas de código, ejecuciones reales con Gemin
 
 Los resultados pueden consultarse en bitacora/lab2_cuatro_etapas_20261105/a2_matriz.md y a2_trazabilidad.json. La coincidencia fue de reglas y líneas.
 
-## Alan
-PENDIENTE: herramienta / para qué / qué acepté / qué cambié / cómo lo validé. Lo completa la persona con su uso real.
+## Alan — Uso personal de IA
+
+**Herramienta utilizada:** ChatGPT mediante Codex.
+
+**¿Para qué la utilicé?**
+
+Para comprender mi etapa `rev_explicar`, revisar las evidencias del proyecto y completar mi documento «Mi etapa» y este registro.
+
+**¿Qué acepté del apoyo recibido?**
+
+Acepté las explicaciones sobre el funcionamiento de mi etapa y el apoyo para comprobar los resultados de la bitácora, localizar mis aportaciones en GitHub y preparar los ajustes del documento y su PDF.
+
+**¿Qué cambié o pedí ajustar?**
+
+Pedí conservar las secciones existentes y concentrar los cambios en los avisos de borrador, los pendientes y las referencias desactualizadas. Aclaré que realicé personalmente las tres repeticiones de v4 sobre reportes.py. También solicité incluir mis aprobaciones de propuestas del equipo y conservar la fuente, los colores y el formato original del PDF.
+
+**¿Cómo lo validé?**
+
+Realicé las tres ejecuciones de v4 sobre reportes.py registradas en `bitacora/lab2_cierre/casos/alan_trazabilidad__v4__r1.json`, `r2.json` y `r3.json`, con el mismo prefijo de nombre.
+
+Con asistencia de Codex se contrastaron el documento, el prompt, las validaciones y las evidencias. Se comprobaron nueve aprobaciones de mi cuenta en ocho PR.
+
+Los ajustes de mi documento y PDF quedaron publicados e incorporados mediante el [PR #19](https://github.com/alanrivera066/Project_v2_TSTI/pull/19). Estas actualizaciones documentales no representan nuevas ejecuciones del modelo.
 
 ## César
 ChatGPT y Codex / Para comprender mi etapa de parches y analizar el prompt, el validador y las evidencias / Acepté las explicaciones y el apoyo para preparar mi documento / Solicité ajustes en la redacción y agregué mi commit y uso de IA / Con apoyo de Codex se revisaron las versiones del prompt y los resultados guardados, y se comprobaron casos de archivo limpio y sintaxis incorrecta.
