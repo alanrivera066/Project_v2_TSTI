@@ -1,0 +1,16 @@
+{
+  "caso": "c02",
+  "repeticion": 2,
+  "config": "A",
+  "fecha_utc": "2026-11-25T00:30:17.412958+00:00",
+  "modelo": "gemini-3.1-flash-lite",
+  "salida": {
+    "respuesta": "En un entorno profesional de desarrollo de software, un Pull Request (PR) que toca **autenticación** se considera una **modificación de alto riesgo**.\n\nPor lo tanto, no existe un número único universal, pero la práctica recomendada (y el estándar en empresas con buenos procesos de seguridad) es:\n\n### 1. El estándar mínimo: 2 aprobaciones\n*   **Un revisor técnico (Peer Review):** Alguien de tu equipo que entienda la lógica del código y los estándares de arquitectura.\n*   **Un revisor de seguridad o \"Senior\":** Alguien con conocimiento profundo en seguridad (o un arquitecto) que pueda detectar vulnerabilidades comunes como:\n    *   Inyección de dependencias maliciosas.\n    *   Exposición de tokens o secretos.\n    *   Fallos en la lógica de validación de sesiones.\n    *   Problemas de *Rate Limiting* o ataques de fuerza bruta.\n\n### 2. ¿Quiénes deben aprobar?\n*   **El dueño del módulo (Code Owner):** Si tu repositorio tiene un archivo `CODEOWNERS`, es obligatorio que la persona o equipo responsable de la capa de seguridad apruebe el cambio.\n*   **Seguridad (si aplica):** En empresas con equipos de *AppSec* (Application Security), es común que ellos deban dar el visto bueno si el cambio afecta el flujo de login, registro o manejo de JWTs/Cookies.\n\n### 3. Factores que pueden aumentar el número de aprobaciones\nSi el PR toca alguna de estas áreas, deberías considerar **más de 2 aprobaciones** o una revisión formal:\n*   **Cambios en el esquema de la base de datos de usuarios.**\n*   **Modificaciones en el cifrado o hashing de contraseñas.**\n*   **Cambios en los scopes de OAuth o permisos de acceso (RBAC/ABAC).**\n*   **Integración con proveedores externos** (Auth0, Firebase Auth, AWS Cognito, etc.).\n\n### Recomendación Pro:\nSi estás definiendo esto para tu equipo, te sugiero configurar **\"Branch Protection Rules\"** en GitHub/GitLab/Bitbucket con estas condiciones:\n1.  **Require pull request reviews before merging.**\n2.  **Require approvals:** Mínimo 2.\n3.  **Require review from Code Owners:** Asegúrate de que el equipo de seguridad o los arquitectos estén listados como dueños del archivo donde reside la lógica de autenticación.\n\n**En resumen:** Si es un cambio crítico, **nunca lo apruebes tú solo**. Busca siempre un \"segundo par de ojos\" que tenga experiencia en seguridad, aunque el PR parezca pequeño. Un error en autenticación suele ser el más costoso de corregir.",
+    "fuentes": [],
+    "abstuvo": false,
+    "errores_citas": [],
+    "latencia_ms": 3672.7,
+    "costo_usd": 0.0014757000000000001,
+    "recuperados": []
+  }
+}

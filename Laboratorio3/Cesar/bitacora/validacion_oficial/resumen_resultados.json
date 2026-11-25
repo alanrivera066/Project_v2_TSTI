@@ -1,0 +1,25 @@
+{
+  "ejecucion": "20261125T010049Z",
+  "grupos": [
+    {
+      "grupo": "controles_lab3",
+      "aprobadas": 3,
+      "omitidas": 0,
+      "junit": "bitacora/validacion_oficial/20261125T010049Z/controles_lab3.xml"
+    },
+    {
+      "grupo": "suite_local",
+      "aprobadas": 51,
+      "omitidas": 6,
+      "junit": "bitacora/validacion_oficial/20261125T010049Z/suite_local.xml"
+    },
+    {
+      "grupo": "equipo_a1_a2_av1",
+      "aprobadas": 11,
+      "omitidas": 0,
+      "junit": "bitacora/validacion_oficial/20261125T010049Z/equipo_a1_a2_av1.xml"
+    }
+  ],
+  "alcance_equipo": "Instantanea parcial de A1/A2/AV1, no suite completa del repositorio",
+  "commit_equipo": "6c1835b1a556240382c3d678ecec6bf0af6f5948"
+}

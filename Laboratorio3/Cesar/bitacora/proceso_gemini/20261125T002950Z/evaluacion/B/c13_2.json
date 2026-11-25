@@ -1,0 +1,16 @@
+{
+  "caso": "c13",
+  "repeticion": 2,
+  "config": "B",
+  "fecha_utc": "2026-11-25T00:46:13.148484+00:00",
+  "modelo": "gemini-3.1-flash-lite",
+  "salida": {
+    "respuesta": "No cuento con información sobre la tasa de interés de la tarjeta de crédito de FinNorte en el contexto proporcionado.",
+    "fuentes": [],
+    "abstuvo": true,
+    "errores_citas": [],
+    "latencia_ms": 2031.1,
+    "costo_usd": 0.0002231,
+    "recuperados": []
+  }
+}

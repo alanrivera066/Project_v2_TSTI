@@ -1,0 +1,16 @@
+{
+  "caso": "c15",
+  "repeticion": 2,
+  "config": "A",
+  "fecha_utc": "2026-11-25T00:42:00.926197+00:00",
+  "modelo": "gemini-3.1-flash-lite",
+  "salida": {
+    "respuesta": "Lo siento, pero no tengo acceso a información privada, calendarios internos, directorios de empresas o datos personales de terceros.\n\nPara obtener esa información, te sugiero que consultes:\n\n1.  **El calendario compartido** de tu equipo (en Outlook, Google Calendar, etc.).\n2.  **El tablón de anuncios o intranet** de tu lugar de trabajo.\n3.  **Preguntar a un compañero o supervisor** a través de los canales de comunicación oficiales de tu organización (Slack, Teams, WhatsApp de trabajo, etc.).\n\nSi me indicas en qué plataforma o sistema sueles ver esa información, quizás pueda ayudarte a encontrar dónde buscarla.",
+    "fuentes": [],
+    "abstuvo": false,
+    "errores_citas": [],
+    "latencia_ms": 1824.1,
+    "costo_usd": 0.0003507,
+    "recuperados": []
+  }
+}

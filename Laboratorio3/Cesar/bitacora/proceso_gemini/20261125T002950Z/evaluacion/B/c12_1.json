@@ -1,0 +1,16 @@
+{
+  "caso": "c12",
+  "repeticion": 1,
+  "config": "B",
+  "fecha_utc": "2026-11-25T00:45:48.782264+00:00",
+  "modelo": "gemini-3.1-flash-lite",
+  "salida": {
+    "respuesta": "El contexto proporcionado no contiene información sobre las políticas de despliegue los viernes por la tarde.",
+    "fuentes": [],
+    "abstuvo": true,
+    "errores_citas": [],
+    "latencia_ms": 1666.8,
+    "costo_usd": 0.0002113,
+    "recuperados": []
+  }
+}

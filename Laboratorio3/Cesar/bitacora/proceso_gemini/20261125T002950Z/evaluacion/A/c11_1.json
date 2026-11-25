@@ -1,0 +1,16 @@
+{
+  "caso": "c11",
+  "repeticion": 1,
+  "config": "A",
+  "fecha_utc": "2026-11-25T00:40:38.010669+00:00",
+  "modelo": "gemini-3.1-flash-lite",
+  "salida": {
+    "respuesta": "En el ámbito de la ciberseguridad y el desarrollo de software, no existe una regla única universal, pero sí **estándares de la industria** que dictan los tiempos de respuesta esperados para una vulnerabilidad crítica (aquellas con un puntaje CVSS de 9.0 a 10.0).\n\nAquí te detallo los plazos según los marcos de referencia más aceptados:\n\n### 1. El estándar de la industria (SLA)\nLa mayoría de las organizaciones que siguen marcos como **ISO 27001** o **SOC2** establecen los siguientes tiempos para vulnerabilidades críticas:\n*   **Plazo recomendado:** Entre **24 y 48 horas**.\n*   **Plazo máximo aceptable:** **7 días** (aunque esto ya se considera un riesgo alto para una vulnerabilidad crítica).\n\n### 2. Según el marco de cumplimiento (Compliance)\n*   **PCI DSS (para pagos con tarjeta):** Exige la corrección de vulnerabilidades críticas en un plazo máximo de **30 días**, aunque recomienda encarecidamente hacerlo lo antes posible.\n*   **CISA (Gobierno de EE. UU. - BOD 22-01):** Para vulnerabilidades explotadas activamente (conocidas como KEV), el plazo es de **15 días** para agencias federales, pero para una \"crítica\" sin explotar, se espera una respuesta inmediata.\n\n### 3. Factores que determinan la urgencia real\nMás allá del número, el tiempo real depende de:\n*   **Exposición:** ¿La aplicación es pública o está en una red interna aislada? Si es pública, el tiempo es **inmediato (horas)**.\n*   **Explotabilidad:** ¿Existe un *exploit* público (PoC) disponible en internet? Si la respuesta es sí, el tiempo de corrección debe ser de **menos de 24 horas**.\n*   **Criticidad del dato:** ¿La dependencia tiene acceso a datos sensibles (PII, tarjetas de crédito, credenciales)? Si es así, la prioridad es máxima.\n\n### ¿Qué hacer si no puedes corregirla en 24-48 horas?\nSi el parche no está disponible o requiere una refactorización mayor del código, debes aplicar **medidas de mitigación (compensatory controls)**:\n1.  **WAF (Web Application Firewall):** Configurar reglas para bloquear los patrones de ataque que explotan esa vulnerabilidad.\n2.  **Aislamiento:** Desconectar el servicio o la funcionalidad afectada.\n3.  **Virtual Patching:** Implementar parches a nivel de red o de servidor que bloqueen la entrada del exploit sin tocar el código fuente.\n\n### Resumen para tu equipo:\n*   **Si es crítica y pública:** El objetivo debe ser **\"lo antes posible\" (idealmente < 24h)**.\n*   **Si es crítica pero interna:** Tienes una ventana de **2 a 5 días** para probar y desplegar el parche.\n\n**Consejo profesional:** Si la vulnerabilidad es crítica, **no esperes al ciclo de despliegue normal (Sprint)**. Se debe tratar como un *Hotfix* de emergencia fuera de ciclo.",
+    "fuentes": [],
+    "abstuvo": false,
+    "errores_citas": [],
+    "latencia_ms": 3779.6,
+    "costo_usd": 0.0017365999999999998,
+    "recuperados": []
+  }
+}

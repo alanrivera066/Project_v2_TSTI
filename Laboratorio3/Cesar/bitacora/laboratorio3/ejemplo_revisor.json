@@ -1,0 +1,108 @@
+{
+  "respuesta": "{\"hallazgos\": [{\"regla\": \"SEC-01\", \"linea\": 3, \"severidad\": \"critica\", \"explicacion\": \"Secreto literal; usar variables de entorno o gestor y revocar la credencial.\", \"parche\": \"import os\\nAPI_KEY = os.environ['API_KEY']\"}, {\"regla\": \"SEC-04\", \"linea\": 6, \"severidad\": \"alta\", \"explicacion\": \"Operación monetaria sin validación explícita del monto positivo.\", \"parche\": \"from decimal import Decimal\\nif Decimal(str(monto)) <= 0:\\n    raise ValueError('Monto no positivo')\"}, {\"regla\": \"SEC-02\", \"linea\": 8, \"severidad\": \"critica\", \"explicacion\": \"SQL interpolado o concatenado; usar parámetros.\", \"parche\": \"cursor.execute('SELECT saldo FROM cuentas WHERE id = ?', (origen_id,))\"}, {\"regla\": \"SEC-07\", \"linea\": 10, \"severidad\": \"alta\", \"explicacion\": \"Dinero con float/round; usar Decimal y ROUND_HALF_EVEN al final.\", \"parche\": \"from decimal import Decimal, ROUND_HALF_EVEN\\nimporte = Decimal(str(monto)).quantize(Decimal('0.01'), rounding=ROUND_HALF_EVEN)\"}, {\"regla\": \"SEC-02\", \"linea\": 11, \"severidad\": \"critica\", \"explicacion\": \"SQL interpolado o concatenado; usar parámetros.\", \"parche\": \"cursor.execute('SELECT saldo FROM cuentas WHERE id = ?', (origen_id,))\"}, {\"regla\": \"SEC-03\", \"linea\": 12, \"severidad\": \"alta\", \"explicacion\": \"PII completa en print/log; registrar identificadores o enmascarar.\", \"parche\": \"log.info('operacion completada; trace_id=%s', trace_id)\"}], \"fuentes\": [\"sec-01\", \"sec-02\", \"sec-03\", \"sec-04\", \"sec-07\"], \"estado\": \"hallazgos\"}",
+  "fuentes": [
+    "sec-01",
+    "sec-02",
+    "sec-03",
+    "sec-04",
+    "sec-07"
+  ],
+  "abstuvo": false,
+  "errores_citas": [],
+  "artefacto": {
+    "hallazgos": [
+      {
+        "regla": "SEC-01",
+        "linea": 3,
+        "severidad": "critica",
+        "explicacion": "Secreto literal; usar variables de entorno o gestor y revocar la credencial.",
+        "parche": "import os\nAPI_KEY = os.environ['API_KEY']"
+      },
+      {
+        "regla": "SEC-04",
+        "linea": 6,
+        "severidad": "alta",
+        "explicacion": "Operación monetaria sin validación explícita del monto positivo.",
+        "parche": "from decimal import Decimal\nif Decimal(str(monto)) <= 0:\n    raise ValueError('Monto no positivo')"
+      },
+      {
+        "regla": "SEC-02",
+        "linea": 8,
+        "severidad": "critica",
+        "explicacion": "SQL interpolado o concatenado; usar parámetros.",
+        "parche": "cursor.execute('SELECT saldo FROM cuentas WHERE id = ?', (origen_id,))"
+      },
+      {
+        "regla": "SEC-07",
+        "linea": 10,
+        "severidad": "alta",
+        "explicacion": "Dinero con float/round; usar Decimal y ROUND_HALF_EVEN al final.",
+        "parche": "from decimal import Decimal, ROUND_HALF_EVEN\nimporte = Decimal(str(monto)).quantize(Decimal('0.01'), rounding=ROUND_HALF_EVEN)"
+      },
+      {
+        "regla": "SEC-02",
+        "linea": 11,
+        "severidad": "critica",
+        "explicacion": "SQL interpolado o concatenado; usar parámetros.",
+        "parche": "cursor.execute('SELECT saldo FROM cuentas WHERE id = ?', (origen_id,))"
+      },
+      {
+        "regla": "SEC-03",
+        "linea": 12,
+        "severidad": "alta",
+        "explicacion": "PII completa en print/log; registrar identificadores o enmascarar.",
+        "parche": "log.info('operacion completada; trace_id=%s', trace_id)"
+      }
+    ],
+    "fuentes": [
+      "sec-01",
+      "sec-02",
+      "sec-03",
+      "sec-04",
+      "sec-07"
+    ],
+    "estado": "hallazgos"
+  },
+  "latencia_ms": 27.5,
+  "costo_usd": 0.0,
+  "avisos": [],
+  "simulado": true,
+  "etapas": [
+    {
+      "nombre": "reglas",
+      "prompt": "revisor_reglas.v2",
+      "ok": true,
+      "errores": [],
+      "intentos": 1,
+      "latencia_ms": 3.0,
+      "costo_usd": 0.0
+    },
+    {
+      "nombre": "explicar",
+      "prompt": "revisor_explicar.v2",
+      "ok": true,
+      "errores": [],
+      "intentos": 1,
+      "latencia_ms": 3.6,
+      "costo_usd": 0.0
+    },
+    {
+      "nombre": "parche",
+      "prompt": "revisor_parche.v2",
+      "ok": true,
+      "errores": [],
+      "intentos": 1,
+      "latencia_ms": 3.6,
+      "costo_usd": 0.0
+    },
+    {
+      "nombre": "verificar",
+      "prompt": "revisor_verificar.v2",
+      "ok": true,
+      "errores": [],
+      "intentos": 1,
+      "latencia_ms": 2.7,
+      "costo_usd": 0.0
+    }
+  ]
+}

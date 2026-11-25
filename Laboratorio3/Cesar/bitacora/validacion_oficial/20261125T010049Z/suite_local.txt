@@ -1,0 +1,58 @@
+........sss.ss..........................................                 [100%]
+=================================== PASSES ====================================
+- generated xml file: C:\Users\cesar\OneDrive\Documentos\ChatGPT\Estudiar\laboratorio3_finnorte\finnorte-ia-alumno\bitacora\validacion_oficial\20261125T010049Z\suite_local.xml -
+=========================== short test summary info ===========================
+PASSED tests/test_a1_vectores.py::test_normalizar_filas_unitarias
+PASSED tests/test_a1_vectores.py::test_normalizar_vector_cero_no_explota
+PASSED tests/test_a1_vectores.py::test_coseno_casos_conocidos
+PASSED tests/test_a1_vectores.py::test_buscar_devuelve_k_ordenados
+PASSED tests/test_a2_pipeline.py::test_validar_esquema_detecta_errores
+PASSED tests/test_a2_pipeline.py::test_flujo_encadena_cuatro_etapas
+PASSED tests/test_a2_pipeline.py::test_reintenta_cuando_el_json_no_cumple
+PASSED tests/test_a2_pipeline.py::test_regla_de_negocio_en_codigo_se_dispara
+PASSED tests/test_a4_openapi.py::test_especificacion_es_valida_y_no_usa_api11
+PASSED tests/test_api_privacidad.py::test_error_del_proveedor_no_expone_llave
+PASSED tests/test_av1_controles.py::test_citas_inventadas_se_detectan
+PASSED tests/test_av1_controles.py::test_abstencion_por_umbral
+PASSED tests/test_av1_controles.py::test_asistente_rechaza_cita_alucinada
+PASSED tests/test_av2_seguridad.py::test_enmascara_pii_comun
+PASSED tests/test_av2_seguridad.py::test_bloque_confidencial_no_sale
+PASSED tests/test_av2_seguridad.py::test_filtra_documentos_confidenciales
+PASSED tests/test_av2_seguridad.py::test_sanea_imagenes_y_urls_externas
+PASSED tests/test_control_cuota.py::test_cuota_diaria_detiene_y_oculta_clave
+PASSED tests/test_control_cuota.py::test_cuota_minuto_permite_reintento
+PASSED tests/test_control_cuota.py::test_pausa_respeta_intervalo
+PASSED tests/test_evaluacion.py::test_calificar_caso_y_contrato
+PASSED tests/test_evaluacion.py::test_bootstrap_diferencia
+PASSED tests/test_revisor_unittest.py::RevisorTests::test_archivos
+PASSED tests/test_revisor_unittest.py::RevisorTests::test_asistente
+PASSED tests/test_revisor_unittest.py::RevisorTests::test_busqueda
+PASSED tests/test_revisor_unittest.py::RevisorTests::test_cita_falsa
+PASSED tests/test_revisor_unittest.py::RevisorTests::test_citas
+PASSED tests/test_revisor_unittest.py::RevisorTests::test_confidencial
+PASSED tests/test_revisor_unittest.py::RevisorTests::test_coseno
+PASSED tests/test_revisor_unittest.py::RevisorTests::test_crypto_alias
+PASSED tests/test_revisor_unittest.py::RevisorTests::test_cuatro_etapas
+PASSED tests/test_revisor_unittest.py::RevisorTests::test_dependencia
+PASSED tests/test_revisor_unittest.py::RevisorTests::test_fuera
+PASSED tests/test_revisor_unittest.py::RevisorTests::test_inyeccion
+PASSED tests/test_revisor_unittest.py::RevisorTests::test_json_invalido
+PASSED tests/test_revisor_unittest.py::RevisorTests::test_limpio
+PASSED tests/test_revisor_unittest.py::RevisorTests::test_lineas_omisiones
+PASSED tests/test_revisor_unittest.py::RevisorTests::test_no_ejecucion
+PASSED tests/test_revisor_unittest.py::RevisorTests::test_normalizar
+PASSED tests/test_revisor_unittest.py::RevisorTests::test_parche_invalido
+PASSED tests/test_revisor_unittest.py::RevisorTests::test_pii
+PASSED tests/test_revisor_unittest.py::RevisorTests::test_prompts
+PASSED tests/test_revisor_unittest.py::RevisorTests::test_reintento
+PASSED tests/test_revisor_unittest.py::RevisorTests::test_ruta
+PASSED tests/test_revisor_unittest.py::RevisorTests::test_saneo
+PASSED tests/test_revisor_unittest.py::RevisorTests::test_sha_archivo
+PASSED tests/test_revisor_unittest.py::RevisorTests::test_shell
+PASSED tests/test_revisor_unittest.py::RevisorTests::test_sql_seguro
+PASSED tests/test_revisor_unittest.py::RevisorTests::test_sql_variable
+PASSED tests/test_revisor_unittest.py::RevisorTests::test_umbral
+PASSED tests/test_revisor_unittest.py::RevisorTests::test_yaml_seguro
+SKIPPED [1] tests\test_s4_api.py:3: could not import 'fastapi': No module named 'fastapi'
+SKIPPED [5] tests\conftest.py:40: Pendiente: A4
+51 passed, 6 skipped in 1.27s

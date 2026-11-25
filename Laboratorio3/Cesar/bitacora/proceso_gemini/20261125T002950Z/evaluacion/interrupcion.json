@@ -1,0 +1,8 @@
+{
+  "fecha_utc": "2026-11-25T00:30:53.527035+00:00",
+  "config": "A",
+  "caso": "c06",
+  "repeticion": 1,
+  "tipo": "LLMError",
+  "error": "HTTP 429: {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/do"
+}

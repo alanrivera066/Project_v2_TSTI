@@ -1,0 +1,36 @@
+{
+  "caso": "c01",
+  "repeticion": 2,
+  "config": "C",
+  "fecha_utc": "2026-11-25T00:47:25.466226+00:00",
+  "modelo": "gemini-3.1-flash-lite",
+  "salida": {
+    "respuesta": "Los secretos de producción se rotan cada 30 días, siempre que el servicio lo permita.",
+    "fuentes": [
+      "ing-02#1",
+      "ing-02#0"
+    ],
+    "abstuvo": false,
+    "errores_citas": [],
+    "latencia_ms": 2343.2,
+    "costo_usd": 0.0004135,
+    "recuperados": [
+      [
+        "ing-02#1",
+        0.796
+      ],
+      [
+        "ing-02#0",
+        0.794
+      ],
+      [
+        "ing-10#0",
+        0.65
+      ],
+      [
+        "ing-14#0",
+        0.637
+      ]
+    ]
+  }
+}

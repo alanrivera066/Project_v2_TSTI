@@ -1,0 +1,16 @@
+{
+  "caso": "c08",
+  "repeticion": 2,
+  "config": "A",
+  "fecha_utc": "2026-11-25T00:39:44.622022+00:00",
+  "modelo": "gemini-3.1-flash-lite",
+  "salida": {
+    "respuesta": "¡Actúa rápido! No entres en pánico, pero **tienes que asumir que esa llave ya fue comprometida**. Sigue estos pasos en orden:\n\n### 1. Invalida la llave inmediatamente\nNo intentes \"borrar\" el commit primero. Lo primero es **revocar o regenerar la llave** desde el panel de control del servicio (AWS, Google Cloud, Stripe, OpenAI, etc.). \n*   Si la llave sigue activa, cualquier bot que escanee GitHub (y lo hacen en segundos) ya la tiene y la está usando.\n\n### 2. Elimina la llave del historial de Git\nBorrar el archivo en un nuevo commit **no sirve**, porque la llave sigue existiendo en el historial de Git. Tienes dos opciones:\n\n*   **Opción A (Si el repo es privado y solo tú trabajas en él):**\n    Puedes usar [BFG Repo-Cleaner](https://rtyley.github.io/bfg-repo-cleaner/) o `git filter-repo` para eliminar el archivo de todo el historial.\n*   **Opción B (La más segura):**\n    Si no tienes experiencia con `filter-repo`, lo más rápido es:\n    1.  Borrar el archivo.\n    2.  Hacer un commit.\n    3.  Si el repo es muy reciente, considera borrar el repositorio y crearlo de nuevo (si no pierdes historial crítico).\n    4.  **Importante:** Si el repo es público, aunque borres el commit, GitHub guarda los objetos. Debes contactar a soporte de GitHub si la llave era extremadamente sensible.\n\n### 3. Cambia todas las credenciales relacionadas\nSi la llave tenía acceso a otros recursos (bases de datos, buckets de S3, etc.), asume que esos recursos también están comprometidos. Revisa los logs de actividad de esos servicios para ver si hubo accesos sospechosos.\n\n### 4. Evita que vuelva a pasar (Prevención)\nPara que no te vuelva a ocurrir, implementa estas medidas hoy mismo:\n\n*   **Usa variables de entorno:** Nunca escribas llaves en el código. Usa un archivo `.env` (y asegúrate de que esté en tu `.gitignore`).\n*   **Usa herramientas de escaneo:**\n    *   **[git-secrets](https://github.com/awslabs/git-secrets):** Te impide hacer commit si detecta patrones de llaves.\n    *   **[TruffleHog](https://github.com/trufflesecurity/truffleHog):** Escanea tu historial en busca de secretos expuestos.\n    *   **[Gitleaks](https://github.com/gitleaks/gitleaks):** Muy popular para CI/CD.\n*   **GitHub Secret Scanning:** Asegúrate de que la opción esté activada en la configuración de tu repositorio (GitHub suele avisarte automáticamente si detecta una llave conocida).\n\n**Resumen:** Primero **revoca**, luego **limpia el historial**, y finalmente **asegura tu entorno**. ¡Suerte!",
+    "fuentes": [],
+    "abstuvo": false,
+    "errores_citas": [],
+    "latencia_ms": 5798.1,
+    "costo_usd": 0.0016713,
+    "recuperados": []
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "caso": "c07",
+  "repeticion": 2,
+  "config": "A",
+  "fecha_utc": "2026-11-25T00:39:24.584044+00:00",
+  "modelo": "gemini-3.1-flash-lite",
+  "salida": {
+    "respuesta": "Al no haber un contexto específico (como una política de empresa, una herramienta de gestión de accesos o un estándar de industria), la respuesta corta es: **lo que defina la política de seguridad de tu organización**, pero generalmente sigue estas reglas:\n\n### 1. La regla de oro: \"Just-in-Time\" (JIT)\nEn entornos modernos (DevOps/Cloud), el acceso temporal no debería durar más de lo necesario para completar la tarea específica.\n*   **Duración común:** Entre **1 y 4 horas**.\n*   **Máximo estándar:** **8 horas** (una jornada laboral). Si el acceso se requiere por más tiempo, se considera un acceso permanente o una excepción que debe ser auditada.\n\n### 2. Factores que determinan la duración\nLa duración depende de la criticidad y el propósito:\n*   **Emergencias (Break-glass):** Suelen durar lo que dure la resolución del incidente (ej. 2 a 4 horas). Una vez cerrado el ticket de soporte, el acceso se revoca automáticamente.\n*   **Despliegues (Deployments):** Si es un acceso para un pipeline de CI/CD, dura solo los minutos que tarda el despliegue.\n*   **Tareas de mantenimiento:** Si es una tarea programada (ej. migración de base de datos), se otorga por una ventana de tiempo específica (ej. de 2:00 AM a 4:00 AM).\n\n### 3. ¿Cómo se gestiona esto técnicamente?\nSi estás implementando esto, lo ideal es no usar contraseñas compartidas, sino herramientas de **Privileged Access Management (PAM)**:\n*   **AWS IAM Roles:** Puedes configurar sesiones temporales (STS) que expiran automáticamente en un tiempo definido.\n*   **HashiCorp Vault:** Genera credenciales dinámicas que se destruyen al expirar el TTL (*Time To Live*).\n*   **Azure PIM (Privileged Identity Management):** Permite solicitar acceso \"elevado\" que se desactiva solo después de X horas.\n\n### 4. Recomendación de seguridad\nSi estás definiendo una política para tu equipo:\n1.  **Nunca otorgues acceso indefinido** bajo la etiqueta de \"temporal\".\n2.  **Implementa revocación automática:** El acceso debe morir solo, sin intervención humana.\n3.  **Auditoría:** Todo acceso temporal debe estar vinculado a un **ticket de Jira/ServiceNow** o un número de incidente.\n\n**¿Estás preguntando por una normativa específica (como ISO 27001 o SOC2) o por cómo configurarlo en alguna herramienta en particular?** Si me das más detalle, puedo ser más preciso.",
+    "fuentes": [],
+    "abstuvo": false,
+    "errores_citas": [],
+    "latencia_ms": 3761.3,
+    "costo_usd": 0.0014645,
+    "recuperados": []
+  }
+}

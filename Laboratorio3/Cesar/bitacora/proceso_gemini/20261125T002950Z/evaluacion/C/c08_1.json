@@ -1,0 +1,35 @@
+{
+  "caso": "c08",
+  "repeticion": 1,
+  "config": "C",
+  "fecha_utc": "2026-11-25T00:49:26.352711+00:00",
+  "modelo": "gemini-3.1-flash-lite",
+  "salida": {
+    "respuesta": "Debes revocar la llave de API en un máximo de 1 hora desde su detección. Se debe abrir un incidente de severidad 2 y realizar una revisión del historial de uso del secreto durante los últimos 30 días. Ten en cuenta que borrar el commit no es suficiente, ya que el secreto permanece en el historial del repositorio.",
+    "fuentes": [
+      "ing-02#1"
+    ],
+    "abstuvo": false,
+    "errores_citas": [],
+    "latencia_ms": 3223.0,
+    "costo_usd": 0.000513,
+    "recuperados": [
+      [
+        "ing-02#1",
+        0.732
+      ],
+      [
+        "ing-02#0",
+        0.711
+      ],
+      [
+        "ing-06#0",
+        0.635
+      ],
+      [
+        "ing-07#1",
+        0.624
+      ]
+    ]
+  }
+}

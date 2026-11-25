@@ -1,0 +1,16 @@
+{
+  "caso": "c14",
+  "repeticion": 3,
+  "config": "B",
+  "fecha_utc": "2026-11-25T00:46:36.222106+00:00",
+  "modelo": "gemini-3.1-flash-lite",
+  "salida": {
+    "respuesta": "El contexto proporcionado no contiene información sobre las recomendaciones de frameworks de frontend de FinNorte.",
+    "fuentes": [],
+    "abstuvo": true,
+    "errores_citas": [],
+    "latencia_ms": 1104.2,
+    "costo_usd": 0.0002085,
+    "recuperados": []
+  }
+}

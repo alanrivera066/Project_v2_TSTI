@@ -1,0 +1,16 @@
+{
+  "caso": "c01",
+  "repeticion": 1,
+  "config": "B",
+  "fecha_utc": "2026-11-25T00:42:30.862631+00:00",
+  "modelo": "gemini-3.1-flash-lite",
+  "salida": {
+    "respuesta": "No cuento con información en el contexto proporcionado sobre la frecuencia de rotación de los secretos de producción en FinNorte.",
+    "fuentes": [],
+    "abstuvo": true,
+    "errores_citas": [],
+    "latencia_ms": 1760.4,
+    "costo_usd": 0.00022380000000000002,
+    "recuperados": []
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "caso": "c07",
+  "repeticion": 1,
+  "config": "A",
+  "fecha_utc": "2026-11-25T00:39:20.820943+00:00",
+  "modelo": "gemini-3.1-flash-lite",
+  "salida": {
+    "respuesta": "Al no haber un contexto específico (como una política de empresa, una herramienta de gestión de accesos o un estándar de seguridad), la respuesta depende totalmente de la **política de seguridad de la organización** y del **propósito** del acceso.\n\nSin embargo, en entornos profesionales de TI y ciberseguridad, se aplican las siguientes reglas generales:\n\n### 1. Según el estándar de la industria (Buenas prácticas)\n*   **Acceso \"Just-in-Time\" (JIT):** Es el estándar de oro. El acceso dura **solo el tiempo necesario para completar la tarea específica** (ej. 1 hora, 4 horas o hasta que se cierre el ticket de incidencia). Una vez finalizada la tarea, el acceso se revoca automáticamente.\n*   **Ventana de mantenimiento:** Si es para un despliegue o parcheo, el acceso suele durar lo que dure la ventana de mantenimiento (ej. de 2 a 8 horas).\n\n### 2. Según el tipo de acceso\n*   **Acceso de emergencia (Break-glass):** Suele durar **24 horas**. Es un acceso de privilegios elevados que se activa cuando el sistema principal de gestión de identidades falla. Después de 24 horas, la contraseña o el token se invalidan automáticamente y se requiere una auditoría.\n*   **Acceso para soporte técnico (Vendor/Consultor):** Puede durar desde **un día hasta una semana**, dependiendo de la complejidad del soporte requerido.\n\n### 3. Factores que definen la duración\nSi estás definiendo una política para tu equipo, considera estos puntos:\n*   **Principio de menor privilegio:** El acceso debe durar el tiempo mínimo indispensable.\n*   **Automatización:** Lo ideal es que el acceso expire automáticamente (usando herramientas como *HashiCorp Boundary, AWS IAM Identity Center, CyberArk* o *Azure PIM*).\n*   **Auditoría:** Cualquier acceso temporal debe quedar registrado en un log inmutable.\n\n### Resumen: ¿Qué es lo normal?\n*   **Lo ideal:** El tiempo que dure la tarea (ej. 1-2 horas).\n*   **Lo máximo aceptable:** 24 horas (siempre que esté justificado).\n*   **Lo que se debe evitar:** Accesos temporales que duran \"una semana\" o \"un mes\" sin revisión, ya que se convierten en riesgos de seguridad permanentes.\n\n**¿Estás preguntando por alguna herramienta específica (como AWS, Azure, Kubernetes) o por una política interna de tu empresa?** Si me das más detalles, puedo darte una respuesta más técnica.",
+    "fuentes": [],
+    "abstuvo": false,
+    "errores_citas": [],
+    "latencia_ms": 19989.2,
+    "costo_usd": 0.0014045,
+    "recuperados": []
+  }
+}

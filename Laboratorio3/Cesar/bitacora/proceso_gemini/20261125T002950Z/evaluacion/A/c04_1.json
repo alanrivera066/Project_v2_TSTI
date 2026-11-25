@@ -1,0 +1,16 @@
+{
+  "caso": "c04",
+  "repeticion": 1,
+  "config": "A",
+  "fecha_utc": "2026-11-25T00:30:34.784066+00:00",
+  "modelo": "gemini-3.1-flash-lite",
+  "salida": {
+    "respuesta": "En el ámbito de la gestión de servicios de TI (ITSM) y bajo estándares como **ITIL**, no existe un tiempo único universal, ya que depende de los **Acuerdos de Nivel de Servicio (SLA)** que cada empresa defina.\n\nSin embargo, para un incidente de **Severidad 1 (Crítico/Bloqueante)**, los estándares de la industria suelen seguir estas pautas:\n\n### 1. Tiempo de Respuesta (Response Time)\nEs el tiempo que transcurre desde que se reporta el incidente hasta que un técnico o ingeniero lo reconoce y comienza a trabajar en él.\n*   **Estándar común:** Entre **15 y 30 minutos**.\n*   En entornos de misión crítica, muchas empresas exigen una respuesta en menos de 15 minutos, las 24 horas del día, los 7 días de la semana.\n\n### 2. Tiempo de Resolución (Resolution Time)\nEs el tiempo máximo para restaurar el servicio.\n*   **Estándar común:** Entre **2 y 4 horas**.\n*   Al ser un incidente de Severidad 1 (ej. caída total de un sistema de producción, pérdida de datos, sitio web caído), el objetivo es la **mitigación inmediata** (restaurar el servicio, aunque sea con una solución temporal o *workaround*) antes que la solución definitiva.\n\n---\n\n### Factores que definen estos tiempos:\nSi estás definiendo estos tiempos para tu organización, considera lo siguiente:\n\n*   **Disponibilidad del equipo:** ¿Tienes un equipo de guardia (on-call) 24/7? Si no, el tiempo de respuesta se verá afectado por el tiempo que tarde el personal en conectarse.\n*   **Impacto en el negocio:** ¿Cuánto dinero pierde la empresa por cada minuto de inactividad? Si el costo es muy alto, el SLA debe ser lo más agresivo posible (ej. 15 min de respuesta).\n*   **Complejidad técnica:** A veces, el tiempo de resolución se mide como \"tiempo de actividad\" (uptime) y no como \"tiempo de reparación\", debido a la complejidad de los sistemas.\n\n### Resumen de mejores prácticas:\n| Métrica | Objetivo típico (Sev 1) |\n| :--- | :--- |\n| **Tiempo de Respuesta** | < 15 - 30 minutos |\n| **Actualizaciones (Updates)** | Cada 30 - 60 minutos |\n| **Tiempo de Resolución** | < 4 horas |\n\n**¿Es para un entorno real o para un examen/certificación?** Si es para una empresa específica, lo ideal es revisar el documento de **SLA (Service Level Agreement)** vigente, ya que es el contrato legal o técnico que obliga al equipo de soporte.",
+    "fuentes": [],
+    "abstuvo": false,
+    "errores_citas": [],
+    "latencia_ms": 2704.7,
+    "costo_usd": 0.0014912999999999999,
+    "recuperados": []
+  }
+}

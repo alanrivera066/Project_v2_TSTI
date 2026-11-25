@@ -1,0 +1,35 @@
+{
+  "caso": "c04",
+  "repeticion": 2,
+  "config": "C",
+  "fecha_utc": "2026-11-25T00:48:18.846741+00:00",
+  "modelo": "gemini-3.1-flash-lite",
+  "salida": {
+    "respuesta": "Para un incidente de severidad 1, el tiempo de respuesta requerido es de 15 minutos.",
+    "fuentes": [
+      "ing-05#0"
+    ],
+    "abstuvo": false,
+    "errores_citas": [],
+    "latencia_ms": 1721.2,
+    "costo_usd": 0.0004515,
+    "recuperados": [
+      [
+        "ing-05#0",
+        0.797
+      ],
+      [
+        "ing-05#1",
+        0.753
+      ],
+      [
+        "ing-11#0",
+        0.655
+      ],
+      [
+        "ing-12#0",
+        0.634
+      ]
+    ]
+  }
+}

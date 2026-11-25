@@ -1,0 +1,16 @@
+{
+  "caso": "c08",
+  "repeticion": 3,
+  "config": "A",
+  "fecha_utc": "2026-11-25T00:39:49.904780+00:00",
+  "modelo": "gemini-3.1-flash-lite",
+  "salida": {
+    "respuesta": "Actúa rápido. Sigue estos pasos en orden para minimizar el riesgo:\n\n### 1. Invalida la llave inmediatamente\nNo intentes \"borrar\" el commit primero. **Lo primero es desactivar la llave.**\n*   Ve al panel de control del servicio (AWS, Google Cloud, Stripe, OpenAI, etc.) y **revoca o elimina la llave** que subiste.\n*   Genera una nueva llave solo cuando estés seguro de que el repositorio está limpio.\n\n### 2. Elimina la llave del historial de Git\nBorrar el archivo en un nuevo commit no sirve, porque la llave sigue existiendo en el historial de Git. Tienes dos opciones:\n\n**Opción A: Usar `BFG Repo-Cleaner` (Recomendado)**\nEs la herramienta más sencilla y rápida.\n1. Descarga [BFG](https://rtyley.github.io/bfg-repo-cleaner/).\n2. Ejecuta: `java -jar bfg.jar --delete-files tu_archivo_con_la_llave.ext`\n3. Luego limpia el historial: `git reflog expire --expire=now --all && git gc --prune=now --aggressive`\n4. Fuerza el push: `git push --force`\n\n**Opción B: Usar `git filter-repo` (Más moderno)**\nSi tienes instalado `git-filter-repo`:\n1. `git filter-repo --path ruta/al/archivo/con/la/llave --invert-paths`\n2. `git push --force --all`\n\n### 3. Avisa a tu equipo\nSi el repositorio es compartido, **todos los que hayan hecho `git pull` tienen esa llave en su historial local**. Deben borrarla de sus máquinas o, idealmente, clonar el repo de nuevo desde cero después de que hayas limpiado el historial.\n\n### 4. Cambia cualquier otra cosa que estuviera en ese archivo\nSi en el mismo archivo había otros secretos (contraseñas, tokens de base de datos, etc.), **asúmelos como comprometidos**. Cámbialos todos.\n\n---\n\n### ¿Cómo evitar que pase de nuevo?\nPara que no te vuelva a ocurrir, implementa estas medidas:\n\n1.  **Usa variables de entorno:** Nunca escribas llaves directamente en el código. Usa archivos `.env` (y asegúrate de que `.env` esté en tu `.gitignore`).\n2.  **Usa herramientas de escaneo:**\n    *   **[git-secrets](https://github.com/awslabs/git-secrets):** Te impide hacer commit si detecta patrones de llaves.\n    *   **[TruffleHog](https://github.com/trufflesecurity/trufflehog):** Escanea tu historial en busca de secretos.\n    *   **[Gitleaks](https://github.com/gitleaks/gitleaks):** Muy efectivo para detectar secretos antes de hacer push.\n3.  **Hooks de pre-commit:** Configura un `pre-commit hook` que analice los archivos antes de que el commit se realice.\n\n**Nota importante:** Si el repositorio es **público** (en GitHub, por ejemplo), asume que la llave fue robada en segundos por bots. No pierdas tiempo comprobando si alguien la usó; simplemente revócala y cámbiala.",
+    "fuentes": [],
+    "abstuvo": false,
+    "errores_citas": [],
+    "latencia_ms": 5079.9,
+    "costo_usd": 0.0018438,
+    "recuperados": []
+  }
+}

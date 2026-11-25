@@ -1,0 +1,16 @@
+{
+  "caso": "c12",
+  "repeticion": 3,
+  "config": "B",
+  "fecha_utc": "2026-11-25T00:46:01.476653+00:00",
+  "modelo": "gemini-3.1-flash-lite",
+  "salida": {
+    "respuesta": "El contexto proporcionado no contiene información sobre las políticas de despliegue de FinNorte, por lo que no es posible confirmar si se permite desplegar los viernes por la tarde.",
+    "fuentes": [],
+    "abstuvo": true,
+    "errores_citas": [],
+    "latencia_ms": 2360.2,
+    "costo_usd": 0.0002538,
+    "recuperados": []
+  }
+}

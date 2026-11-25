@@ -1,0 +1,16 @@
+{
+  "caso": "c03",
+  "repeticion": 1,
+  "config": "A",
+  "fecha_utc": "2026-11-25T00:30:24.881198+00:00",
+  "modelo": "gemini-3.1-flash-lite",
+  "salida": {
+    "respuesta": "En el ámbito de la gestión de servicios de TI (ITSM) y las buenas prácticas de **ITIL**, no existe una regla única universal, pero el estándar de la industria para cambios de **riesgo alto** es el siguiente:\n\n### 1. Horario de \"Baja Actividad\" (Maintenance Window)\nLos cambios de riesgo alto se despliegan casi exclusivamente en **horarios fuera de oficina** (*off-hours*). Esto suele ser:\n*   **Noches:** Generalmente entre las 22:00 y las 06:00 (hora local del usuario principal).\n*   **Fines de semana:** Preferiblemente los sábados o domingos por la madrugada, cuando el tráfico de usuarios es mínimo.\n\n### 2. ¿Por qué en este horario?\n*   **Minimización del impacto:** Si algo sale mal, el número de usuarios afectados es el menor posible.\n*   **Disponibilidad de equipos:** Permite que los ingenieros, desarrolladores y especialistas de soporte estén despiertos y concentrados para resolver incidentes de forma inmediata (*rollback* o *fix forward*).\n*   **Menor carga en sistemas:** Los procesos de respaldo (*backups*) y la carga transaccional de las bases de datos suelen ser más estables en estas horas.\n\n### 3. Consideraciones adicionales (Buenas Prácticas)\n*   **Evitar los viernes:** Se recomienda no desplegar cambios de riesgo alto los viernes por la tarde o noche, ya que, si surge un problema grave, el equipo de soporte tendría que trabajar durante todo el fin de semana para estabilizar el sistema.\n*   **Días de \"congelación\" (*Freeze periods*):** Muchas empresas prohíben cambios de riesgo alto durante fechas críticas (ej. Black Friday, cierres contables, o lanzamientos de productos masivos).\n*   **Plan de Rollback:** Independientemente del horario, un cambio de riesgo alto **nunca** debe ejecutarse sin un plan de reversión probado y validado.\n\n### ¿Cómo se define en tu organización?\nSi estás implementando esto en tu empresa, el horario debe estar definido en tu **Política de Gestión de Cambios** y debe ser aprobado por el **CAB** (*Change Advisory Board*).\n\n**¿Necesitas ayuda para redactar una política de despliegue o para justificar un horario específico ante un comité?**",
+    "fuentes": [],
+    "abstuvo": false,
+    "errores_citas": [],
+    "latencia_ms": 2897.1,
+    "costo_usd": 0.001281,
+    "recuperados": []
+  }
+}

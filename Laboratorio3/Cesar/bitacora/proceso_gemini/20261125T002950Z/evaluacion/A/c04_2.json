@@ -1,0 +1,16 @@
+{
+  "caso": "c04",
+  "repeticion": 2,
+  "config": "A",
+  "fecha_utc": "2026-11-25T00:30:37.466837+00:00",
+  "modelo": "gemini-3.1-flash-lite",
+  "salida": {
+    "respuesta": "En el ámbito de la gestión de servicios de TI (ITSM) y bajo estándares como **ITIL**, no existe un tiempo único universal, ya que depende de los **Acuerdos de Nivel de Servicio (SLA)** que cada empresa defina.\n\nSin embargo, para un incidente de **Severidad 1 (Crítico/Bloqueante)**, los estándares de la industria suelen seguir estas pautas:\n\n### 1. Tiempo de Respuesta (Response Time)\nEs el tiempo que transcurre desde que se reporta el incidente hasta que un técnico o ingeniero lo reconoce y comienza a trabajar en él.\n*   **Estándar común:** Entre **15 y 30 minutos**.\n*   En entornos de misión crítica (banca, salud, infraestructura crítica), el objetivo suele ser **inmediato** (menos de 15 minutos).\n\n### 2. Tiempo de Resolución (Resolution Time)\nEs el tiempo total para restaurar el servicio.\n*   **Estándar común:** Entre **2 y 4 horas**.\n*   Muchas empresas establecen un objetivo de \"restauración del servicio\" (no necesariamente solución definitiva) en un máximo de 4 horas para severidad 1.\n\n---\n\n### Factores que definen estos tiempos:\n*   **Disponibilidad 24/7:** Un incidente de severidad 1 implica que el equipo de guardia (*on-call*) debe estar disponible las 24 horas del día, los 7 días de la semana.\n*   **Prioridad del Negocio:** Si el incidente detiene la facturación, la operación principal o pone en riesgo la seguridad de los datos, el SLA suele ser más estricto.\n*   **Escalamiento:** Si no se responde en el tiempo estipulado, el incidente debe escalar automáticamente a niveles superiores (gerencia o directores técnicos).\n\n### ¿Qué se considera Severidad 1?\nPara que un incidente califique como \"Sev 1\", generalmente debe cumplir con:\n1.  **Impacto total:** El sistema está caído o inaccesible para todos los usuarios.\n2.  **Sin alternativa:** No existe una solución temporal (workaround) disponible.\n3.  **Urgencia extrema:** El impacto financiero o reputacional es inmediato y grave.\n\n**Recomendación:** Si estás definiendo esto para tu empresa, lo ideal es empezar con un **SLA de 30 minutos para respuesta y 4 horas para resolución**, y ajustar según la capacidad operativa y la tolerancia al riesgo de tu negocio.\n\n¿Necesitas ayuda para redactar una política de SLAs o definir estos tiempos para un equipo específico?",
+    "fuentes": [],
+    "abstuvo": false,
+    "errores_citas": [],
+    "latencia_ms": 2681.4,
+    "costo_usd": 0.0014062999999999999,
+    "recuperados": []
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "fecha_utc": "2026-11-25T01:13:02.371166+00:00",
+  "repositorio": "alanrivera066/Project_v2_TSTI",
+  "estado": "pendiente_permiso_escritura",
+  "accion": "Crear blob de la entrega para una rama de propuesta",
+  "http_status": 403,
+  "mensaje": "Resource not accessible by integration",
+  "cambios_publicados": false,
+  "rama_creada": false,
+  "pr_creado": false,
+  "commit_main": "6c1835b1a556240382c3d678ecec6bf0af6f5948",
+  "propuesta_local": "../github_entrega_cesar",
+  "proximo_paso": "Habilitar escritura de la conexion GitHub para este repositorio o cargar la entrega desde una cuenta con acceso."
+}

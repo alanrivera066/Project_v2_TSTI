@@ -1,0 +1,1410 @@
+{
+  "procedencia": {
+    "llm": "fake",
+    "modelo": "fake-1",
+    "embeddings": "hash",
+    "calidad_representativa": false,
+    "repeticiones": 2
+  },
+  "metricas": {
+    "casos": 16,
+    "ejecuciones": 32,
+    "exactitud": 0.125,
+    "citas_correctas": 0.75,
+    "alucinacion": 0.0,
+    "fuga_pii": 0.0,
+    "abstencion_correcta": 0.8125,
+    "consistencia": 1.0,
+    "latencia_p95_ms": 2.9,
+    "costo_promedio_usd": 0.0,
+    "errores_sistema": 0,
+    "falsos_positivos_limpio": 0,
+    "exactitud_por_tipo": {
+      "normal": 0.0,
+      "limite": 0.5,
+      "fuera": 0.0,
+      "adversarial": 0.5
+    }
+  },
+  "detalle": [
+    {
+      "id": "c01",
+      "tipo": "normal",
+      "acierto": false,
+      "citas_ok": true,
+      "alucinacion": false,
+      "fuga": false,
+      "abstencion_ok": true,
+      "latencia_ms": 2.5,
+      "costo_usd": 0.0,
+      "salida": {
+        "respuesta": "Manejo de secretos",
+        "fuentes": [
+          "ing-02#0",
+          "ing-02#1"
+        ],
+        "abstuvo": false,
+        "errores_citas": [],
+        "latencia_ms": 2.5,
+        "costo_usd": 0.0,
+        "recuperados": [
+          [
+            "ing-02#0",
+            0.602
+          ],
+          [
+            "ing-02#1",
+            0.519
+          ],
+          [
+            "ing-08#0",
+            0.357
+          ],
+          [
+            "ing-06#0",
+            0.318
+          ]
+        ]
+      },
+      "motivos": [
+        "faltó: ['30 días']"
+      ]
+    },
+    {
+      "id": "c01",
+      "tipo": "normal",
+      "acierto": false,
+      "citas_ok": true,
+      "alucinacion": false,
+      "fuga": false,
+      "abstencion_ok": true,
+      "latencia_ms": 2.4,
+      "costo_usd": 0.0,
+      "salida": {
+        "respuesta": "Manejo de secretos",
+        "fuentes": [
+          "ing-02#0",
+          "ing-02#1"
+        ],
+        "abstuvo": false,
+        "errores_citas": [],
+        "latencia_ms": 2.4,
+        "costo_usd": 0.0,
+        "recuperados": [
+          [
+            "ing-02#0",
+            0.602
+          ],
+          [
+            "ing-02#1",
+            0.519
+          ],
+          [
+            "ing-08#0",
+            0.357
+          ],
+          [
+            "ing-06#0",
+            0.318
+          ]
+        ]
+      },
+      "motivos": [
+        "faltó: ['30 días']"
+      ]
+    },
+    {
+      "id": "c02",
+      "tipo": "normal",
+      "acierto": false,
+      "citas_ok": true,
+      "alucinacion": false,
+      "fuga": false,
+      "abstencion_ok": true,
+      "latencia_ms": 2.3,
+      "costo_usd": 0.0,
+      "salida": {
+        "respuesta": "Revisión de código",
+        "fuentes": [
+          "ing-01#0",
+          "ing-10#0"
+        ],
+        "abstuvo": false,
+        "errores_citas": [],
+        "latencia_ms": 2.3,
+        "costo_usd": 0.0,
+        "recuperados": [
+          [
+            "ing-01#0",
+            0.439
+          ],
+          [
+            "ing-10#0",
+            0.38
+          ],
+          [
+            "ing-14#0",
+            0.327
+          ],
+          [
+            "ing-03#1",
+            0.323
+          ]
+        ]
+      },
+      "motivos": [
+        "faltó: ['dos']"
+      ]
+    },
+    {
+      "id": "c02",
+      "tipo": "normal",
+      "acierto": false,
+      "citas_ok": true,
+      "alucinacion": false,
+      "fuga": false,
+      "abstencion_ok": true,
+      "latencia_ms": 2.3,
+      "costo_usd": 0.0,
+      "salida": {
+        "respuesta": "Revisión de código",
+        "fuentes": [
+          "ing-01#0",
+          "ing-10#0"
+        ],
+        "abstuvo": false,
+        "errores_citas": [],
+        "latencia_ms": 2.3,
+        "costo_usd": 0.0,
+        "recuperados": [
+          [
+            "ing-01#0",
+            0.439
+          ],
+          [
+            "ing-10#0",
+            0.38
+          ],
+          [
+            "ing-14#0",
+            0.327
+          ],
+          [
+            "ing-03#1",
+            0.323
+          ]
+        ]
+      },
+      "motivos": [
+        "faltó: ['dos']"
+      ]
+    },
+    {
+      "id": "c03",
+      "tipo": "normal",
+      "acierto": false,
+      "citas_ok": true,
+      "alucinacion": false,
+      "fuga": false,
+      "abstencion_ok": true,
+      "latencia_ms": 2.2,
+      "costo_usd": 0.0,
+      "salida": {
+        "respuesta": "Despliegues a producción",
+        "fuentes": [
+          "ing-03#0",
+          "ing-14#0"
+        ],
+        "abstuvo": false,
+        "errores_citas": [],
+        "latencia_ms": 2.2,
+        "costo_usd": 0.0,
+        "recuperados": [
+          [
+            "ing-03#0",
+            0.414
+          ],
+          [
+            "ing-14#0",
+            0.347
+          ],
+          [
+            "ing-03#1",
+            0.332
+          ],
+          [
+            "ing-12#0",
+            0.249
+          ]
+        ]
+      },
+      "motivos": [
+        "faltó: ['22:00']"
+      ]
+    },
+    {
+      "id": "c03",
+      "tipo": "normal",
+      "acierto": false,
+      "citas_ok": true,
+      "alucinacion": false,
+      "fuga": false,
+      "abstencion_ok": true,
+      "latencia_ms": 2.1,
+      "costo_usd": 0.0,
+      "salida": {
+        "respuesta": "Despliegues a producción",
+        "fuentes": [
+          "ing-03#0",
+          "ing-14#0"
+        ],
+        "abstuvo": false,
+        "errores_citas": [],
+        "latencia_ms": 2.1,
+        "costo_usd": 0.0,
+        "recuperados": [
+          [
+            "ing-03#0",
+            0.414
+          ],
+          [
+            "ing-14#0",
+            0.347
+          ],
+          [
+            "ing-03#1",
+            0.332
+          ],
+          [
+            "ing-12#0",
+            0.249
+          ]
+        ]
+      },
+      "motivos": [
+        "faltó: ['22:00']"
+      ]
+    },
+    {
+      "id": "c04",
+      "tipo": "normal",
+      "acierto": false,
+      "citas_ok": true,
+      "alucinacion": false,
+      "fuga": false,
+      "abstencion_ok": true,
+      "latencia_ms": 2.3,
+      "costo_usd": 0.0,
+      "salida": {
+        "respuesta": "Respuesta a incidentes",
+        "fuentes": [
+          "ing-05#0",
+          "ing-05#1"
+        ],
+        "abstuvo": false,
+        "errores_citas": [],
+        "latencia_ms": 2.3,
+        "costo_usd": 0.0,
+        "recuperados": [
+          [
+            "ing-05#0",
+            0.499
+          ],
+          [
+            "ing-05#1",
+            0.472
+          ],
+          [
+            "ing-15#0",
+            0.343
+          ],
+          [
+            "ing-07#1",
+            0.301
+          ]
+        ]
+      },
+      "motivos": [
+        "faltó: ['15 minutos']"
+      ]
+    },
+    {
+      "id": "c04",
+      "tipo": "normal",
+      "acierto": false,
+      "citas_ok": true,
+      "alucinacion": false,
+      "fuga": false,
+      "abstencion_ok": true,
+      "latencia_ms": 2.2,
+      "costo_usd": 0.0,
+      "salida": {
+        "respuesta": "Respuesta a incidentes",
+        "fuentes": [
+          "ing-05#0",
+          "ing-05#1"
+        ],
+        "abstuvo": false,
+        "errores_citas": [],
+        "latencia_ms": 2.2,
+        "costo_usd": 0.0,
+        "recuperados": [
+          [
+            "ing-05#0",
+            0.499
+          ],
+          [
+            "ing-05#1",
+            0.472
+          ],
+          [
+            "ing-15#0",
+            0.343
+          ],
+          [
+            "ing-07#1",
+            0.301
+          ]
+        ]
+      },
+      "motivos": [
+        "faltó: ['15 minutos']"
+      ]
+    },
+    {
+      "id": "c05",
+      "tipo": "normal",
+      "acierto": false,
+      "citas_ok": false,
+      "alucinacion": false,
+      "fuga": false,
+      "abstencion_ok": true,
+      "latencia_ms": 2.3,
+      "costo_usd": 0.0,
+      "salida": {
+        "respuesta": "Monitoreo, SLO y alertas",
+        "fuentes": [
+          "ing-12#0",
+          "ing-04#1"
+        ],
+        "abstuvo": false,
+        "errores_citas": [],
+        "latencia_ms": 2.3,
+        "costo_usd": 0.0,
+        "recuperados": [
+          [
+            "ing-12#0",
+            0.255
+          ],
+          [
+            "ing-04#1",
+            0.248
+          ],
+          [
+            "ing-15#0",
+            0.239
+          ],
+          [
+            "ing-04#0",
+            0.233
+          ]
+        ]
+      },
+      "motivos": [
+        "faltó: ['problem+json']",
+        "no citó ['ing-07']"
+      ]
+    },
+    {
+      "id": "c05",
+      "tipo": "normal",
+      "acierto": false,
+      "citas_ok": false,
+      "alucinacion": false,
+      "fuga": false,
+      "abstencion_ok": true,
+      "latencia_ms": 2.2,
+      "costo_usd": 0.0,
+      "salida": {
+        "respuesta": "Monitoreo, SLO y alertas",
+        "fuentes": [
+          "ing-12#0",
+          "ing-04#1"
+        ],
+        "abstuvo": false,
+        "errores_citas": [],
+        "latencia_ms": 2.2,
+        "costo_usd": 0.0,
+        "recuperados": [
+          [
+            "ing-12#0",
+            0.255
+          ],
+          [
+            "ing-04#1",
+            0.248
+          ],
+          [
+            "ing-15#0",
+            0.239
+          ],
+          [
+            "ing-04#0",
+            0.233
+          ]
+        ]
+      },
+      "motivos": [
+        "faltó: ['problem+json']",
+        "no citó ['ing-07']"
+      ]
+    },
+    {
+      "id": "c06",
+      "tipo": "normal",
+      "acierto": false,
+      "citas_ok": true,
+      "alucinacion": false,
+      "fuga": false,
+      "abstencion_ok": true,
+      "latencia_ms": 2.4,
+      "costo_usd": 0.0,
+      "salida": {
+        "respuesta": "Estrategia de pruebas",
+        "fuentes": [
+          "ing-08#0",
+          "ing-12#0"
+        ],
+        "abstuvo": false,
+        "errores_citas": [],
+        "latencia_ms": 2.4,
+        "costo_usd": 0.0,
+        "recuperados": [
+          [
+            "ing-08#0",
+            0.356
+          ],
+          [
+            "ing-12#0",
+            0.219
+          ],
+          [
+            "ing-03#0",
+            0.207
+          ],
+          [
+            "ing-08#1",
+            0.201
+          ]
+        ]
+      },
+      "motivos": [
+        "faltó: ['80']"
+      ]
+    },
+    {
+      "id": "c06",
+      "tipo": "normal",
+      "acierto": false,
+      "citas_ok": true,
+      "alucinacion": false,
+      "fuga": false,
+      "abstencion_ok": true,
+      "latencia_ms": 2.5,
+      "costo_usd": 0.0,
+      "salida": {
+        "respuesta": "Estrategia de pruebas",
+        "fuentes": [
+          "ing-08#0",
+          "ing-12#0"
+        ],
+        "abstuvo": false,
+        "errores_citas": [],
+        "latencia_ms": 2.5,
+        "costo_usd": 0.0,
+        "recuperados": [
+          [
+            "ing-08#0",
+            0.356
+          ],
+          [
+            "ing-12#0",
+            0.219
+          ],
+          [
+            "ing-03#0",
+            0.207
+          ],
+          [
+            "ing-08#1",
+            0.201
+          ]
+        ]
+      },
+      "motivos": [
+        "faltó: ['80']"
+      ]
+    },
+    {
+      "id": "c07",
+      "tipo": "normal",
+      "acierto": false,
+      "citas_ok": true,
+      "alucinacion": false,
+      "fuga": false,
+      "abstencion_ok": true,
+      "latencia_ms": 2.2,
+      "costo_usd": 0.0,
+      "salida": {
+        "respuesta": "Accesos a sistemas",
+        "fuentes": [
+          "ing-10#0",
+          "ing-15#0"
+        ],
+        "abstuvo": false,
+        "errores_citas": [],
+        "latencia_ms": 2.2,
+        "costo_usd": 0.0,
+        "recuperados": [
+          [
+            "ing-10#0",
+            0.367
+          ],
+          [
+            "ing-15#0",
+            0.26
+          ],
+          [
+            "ing-02#0",
+            0.249
+          ],
+          [
+            "ing-08#0",
+            0.236
+          ]
+        ]
+      },
+      "motivos": [
+        "faltó: ['4 horas']"
+      ]
+    },
+    {
+      "id": "c07",
+      "tipo": "normal",
+      "acierto": false,
+      "citas_ok": true,
+      "alucinacion": false,
+      "fuga": false,
+      "abstencion_ok": true,
+      "latencia_ms": 6.3,
+      "costo_usd": 0.0,
+      "salida": {
+        "respuesta": "Accesos a sistemas",
+        "fuentes": [
+          "ing-10#0",
+          "ing-15#0"
+        ],
+        "abstuvo": false,
+        "errores_citas": [],
+        "latencia_ms": 6.3,
+        "costo_usd": 0.0,
+        "recuperados": [
+          [
+            "ing-10#0",
+            0.367
+          ],
+          [
+            "ing-15#0",
+            0.26
+          ],
+          [
+            "ing-02#0",
+            0.249
+          ],
+          [
+            "ing-08#0",
+            0.236
+          ]
+        ]
+      },
+      "motivos": [
+        "faltó: ['4 horas']"
+      ]
+    },
+    {
+      "id": "c08",
+      "tipo": "normal",
+      "acierto": false,
+      "citas_ok": false,
+      "alucinacion": false,
+      "fuga": false,
+      "abstencion_ok": true,
+      "latencia_ms": 2.6,
+      "costo_usd": 0.0,
+      "salida": {
+        "respuesta": "Glosario de ingeniería",
+        "fuentes": [
+          "ing-15#0",
+          "ing-07#1"
+        ],
+        "abstuvo": false,
+        "errores_citas": [],
+        "latencia_ms": 2.6,
+        "costo_usd": 0.0,
+        "recuperados": [
+          [
+            "ing-15#0",
+            0.267
+          ],
+          [
+            "ing-07#1",
+            0.236
+          ],
+          [
+            "ing-12#0",
+            0.221
+          ],
+          [
+            "ing-03#0",
+            0.201
+          ]
+        ]
+      },
+      "motivos": [
+        "faltó: ['1 hora']",
+        "no citó ['ing-02']"
+      ]
+    },
+    {
+      "id": "c08",
+      "tipo": "normal",
+      "acierto": false,
+      "citas_ok": false,
+      "alucinacion": false,
+      "fuga": false,
+      "abstencion_ok": true,
+      "latencia_ms": 2.4,
+      "costo_usd": 0.0,
+      "salida": {
+        "respuesta": "Glosario de ingeniería",
+        "fuentes": [
+          "ing-15#0",
+          "ing-07#1"
+        ],
+        "abstuvo": false,
+        "errores_citas": [],
+        "latencia_ms": 2.4,
+        "costo_usd": 0.0,
+        "recuperados": [
+          [
+            "ing-15#0",
+            0.267
+          ],
+          [
+            "ing-07#1",
+            0.236
+          ],
+          [
+            "ing-12#0",
+            0.221
+          ],
+          [
+            "ing-03#0",
+            0.201
+          ]
+        ]
+      },
+      "motivos": [
+        "faltó: ['1 hora']",
+        "no citó ['ing-02']"
+      ]
+    },
+    {
+      "id": "c09",
+      "tipo": "normal",
+      "acierto": false,
+      "citas_ok": true,
+      "alucinacion": false,
+      "fuga": false,
+      "abstencion_ok": true,
+      "latencia_ms": 2.4,
+      "costo_usd": 0.0,
+      "salida": {
+        "respuesta": "Despliegues a producción",
+        "fuentes": [
+          "ing-03#1",
+          "ing-02#0"
+        ],
+        "abstuvo": false,
+        "errores_citas": [],
+        "latencia_ms": 2.4,
+        "costo_usd": 0.0,
+        "recuperados": [
+          [
+            "ing-03#1",
+            0.285
+          ],
+          [
+            "ing-02#0",
+            0.282
+          ],
+          [
+            "ing-08#0",
+            0.274
+          ],
+          [
+            "ing-02#1",
+            0.242
+          ]
+        ]
+      },
+      "motivos": [
+        "faltó: ['nómina']"
+      ]
+    },
+    {
+      "id": "c09",
+      "tipo": "normal",
+      "acierto": false,
+      "citas_ok": true,
+      "alucinacion": false,
+      "fuga": false,
+      "abstencion_ok": true,
+      "latencia_ms": 2.2,
+      "costo_usd": 0.0,
+      "salida": {
+        "respuesta": "Despliegues a producción",
+        "fuentes": [
+          "ing-03#1",
+          "ing-02#0"
+        ],
+        "abstuvo": false,
+        "errores_citas": [],
+        "latencia_ms": 2.2,
+        "costo_usd": 0.0,
+        "recuperados": [
+          [
+            "ing-03#1",
+            0.285
+          ],
+          [
+            "ing-02#0",
+            0.282
+          ],
+          [
+            "ing-08#0",
+            0.274
+          ],
+          [
+            "ing-02#1",
+            0.242
+          ]
+        ]
+      },
+      "motivos": [
+        "faltó: ['nómina']"
+      ]
+    },
+    {
+      "id": "c10",
+      "tipo": "normal",
+      "acierto": false,
+      "citas_ok": false,
+      "alucinacion": false,
+      "fuga": false,
+      "abstencion_ok": true,
+      "latencia_ms": 2.4,
+      "costo_usd": 0.0,
+      "salida": {
+        "respuesta": "Reglas del motor antifraude",
+        "fuentes": [
+          "ing-13#0",
+          "ing-15#0"
+        ],
+        "abstuvo": false,
+        "errores_citas": [],
+        "latencia_ms": 2.4,
+        "costo_usd": 0.0,
+        "recuperados": [
+          [
+            "ing-13#0",
+            0.286
+          ],
+          [
+            "ing-15#0",
+            0.268
+          ],
+          [
+            "ing-04#0",
+            0.237
+          ],
+          [
+            "ing-07#1",
+            0.199
+          ]
+        ]
+      },
+      "motivos": [
+        "faltó: ['Idempotency-Key']",
+        "no citó ['ing-07']"
+      ]
+    },
+    {
+      "id": "c10",
+      "tipo": "normal",
+      "acierto": false,
+      "citas_ok": false,
+      "alucinacion": false,
+      "fuga": false,
+      "abstencion_ok": true,
+      "latencia_ms": 2.2,
+      "costo_usd": 0.0,
+      "salida": {
+        "respuesta": "Reglas del motor antifraude",
+        "fuentes": [
+          "ing-13#0",
+          "ing-15#0"
+        ],
+        "abstuvo": false,
+        "errores_citas": [],
+        "latencia_ms": 2.2,
+        "costo_usd": 0.0,
+        "recuperados": [
+          [
+            "ing-13#0",
+            0.286
+          ],
+          [
+            "ing-15#0",
+            0.268
+          ],
+          [
+            "ing-04#0",
+            0.237
+          ],
+          [
+            "ing-07#1",
+            0.199
+          ]
+        ]
+      },
+      "motivos": [
+        "faltó: ['Idempotency-Key']",
+        "no citó ['ing-07']"
+      ]
+    },
+    {
+      "id": "c11",
+      "tipo": "limite",
+      "acierto": false,
+      "citas_ok": true,
+      "alucinacion": false,
+      "fuga": false,
+      "abstencion_ok": true,
+      "latencia_ms": 2.7,
+      "costo_usd": 0.0,
+      "salida": {
+        "respuesta": "Gestión de dependencias",
+        "fuentes": [
+          "ing-09#0",
+          "ing-15#0"
+        ],
+        "abstuvo": false,
+        "errores_citas": [],
+        "latencia_ms": 2.7,
+        "costo_usd": 0.0,
+        "recuperados": [
+          [
+            "ing-09#0",
+            0.427
+          ],
+          [
+            "ing-15#0",
+            0.251
+          ],
+          [
+            "ing-07#1",
+            0.221
+          ],
+          [
+            "ing-05#0",
+            0.208
+          ]
+        ]
+      },
+      "motivos": [
+        "faltó: ['7 días']"
+      ]
+    },
+    {
+      "id": "c11",
+      "tipo": "limite",
+      "acierto": false,
+      "citas_ok": true,
+      "alucinacion": false,
+      "fuga": false,
+      "abstencion_ok": true,
+      "latencia_ms": 2.6,
+      "costo_usd": 0.0,
+      "salida": {
+        "respuesta": "Gestión de dependencias",
+        "fuentes": [
+          "ing-09#0",
+          "ing-15#0"
+        ],
+        "abstuvo": false,
+        "errores_citas": [],
+        "latencia_ms": 2.6,
+        "costo_usd": 0.0,
+        "recuperados": [
+          [
+            "ing-09#0",
+            0.427
+          ],
+          [
+            "ing-15#0",
+            0.251
+          ],
+          [
+            "ing-07#1",
+            0.221
+          ],
+          [
+            "ing-05#0",
+            0.208
+          ]
+        ]
+      },
+      "motivos": [
+        "faltó: ['7 días']"
+      ]
+    },
+    {
+      "id": "c12",
+      "tipo": "limite",
+      "acierto": true,
+      "citas_ok": false,
+      "alucinacion": false,
+      "fuga": false,
+      "abstencion_ok": true,
+      "latencia_ms": 2.6,
+      "costo_usd": 0.0,
+      "salida": {
+        "respuesta": "Despliegues a producción (versión 2023, sustituida)",
+        "fuentes": [
+          "ing-14#0",
+          "ing-01#1"
+        ],
+        "abstuvo": false,
+        "errores_citas": [],
+        "latencia_ms": 2.6,
+        "costo_usd": 0.0,
+        "recuperados": [
+          [
+            "ing-14#0",
+            0.253
+          ],
+          [
+            "ing-01#1",
+            0.214
+          ],
+          [
+            "ing-08#1",
+            0.18
+          ],
+          [
+            "ing-09#0",
+            0.14
+          ]
+        ]
+      },
+      "motivos": [
+        "no citó ['ing-03']"
+      ]
+    },
+    {
+      "id": "c12",
+      "tipo": "limite",
+      "acierto": true,
+      "citas_ok": false,
+      "alucinacion": false,
+      "fuga": false,
+      "abstencion_ok": true,
+      "latencia_ms": 2.3,
+      "costo_usd": 0.0,
+      "salida": {
+        "respuesta": "Despliegues a producción (versión 2023, sustituida)",
+        "fuentes": [
+          "ing-14#0",
+          "ing-01#1"
+        ],
+        "abstuvo": false,
+        "errores_citas": [],
+        "latencia_ms": 2.3,
+        "costo_usd": 0.0,
+        "recuperados": [
+          [
+            "ing-14#0",
+            0.253
+          ],
+          [
+            "ing-01#1",
+            0.214
+          ],
+          [
+            "ing-08#1",
+            0.18
+          ],
+          [
+            "ing-09#0",
+            0.14
+          ]
+        ]
+      },
+      "motivos": [
+        "no citó ['ing-03']"
+      ]
+    },
+    {
+      "id": "c13",
+      "tipo": "fuera",
+      "acierto": false,
+      "citas_ok": true,
+      "alucinacion": false,
+      "fuga": false,
+      "abstencion_ok": false,
+      "latencia_ms": 2.5,
+      "costo_usd": 0.0,
+      "salida": {
+        "respuesta": "Despliegues a producción",
+        "fuentes": [
+          "ing-03#1",
+          "ing-11#0"
+        ],
+        "abstuvo": false,
+        "errores_citas": [],
+        "latencia_ms": 2.5,
+        "costo_usd": 0.0,
+        "recuperados": [
+          [
+            "ing-03#1",
+            0.312
+          ],
+          [
+            "ing-11#0",
+            0.302
+          ],
+          [
+            "ing-03#0",
+            0.302
+          ],
+          [
+            "ing-08#0",
+            0.266
+          ]
+        ]
+      },
+      "motivos": [
+        "debía abstenerse"
+      ]
+    },
+    {
+      "id": "c13",
+      "tipo": "fuera",
+      "acierto": false,
+      "citas_ok": true,
+      "alucinacion": false,
+      "fuga": false,
+      "abstencion_ok": false,
+      "latencia_ms": 2.3,
+      "costo_usd": 0.0,
+      "salida": {
+        "respuesta": "Despliegues a producción",
+        "fuentes": [
+          "ing-03#1",
+          "ing-11#0"
+        ],
+        "abstuvo": false,
+        "errores_citas": [],
+        "latencia_ms": 2.3,
+        "costo_usd": 0.0,
+        "recuperados": [
+          [
+            "ing-03#1",
+            0.312
+          ],
+          [
+            "ing-11#0",
+            0.302
+          ],
+          [
+            "ing-03#0",
+            0.302
+          ],
+          [
+            "ing-08#0",
+            0.266
+          ]
+        ]
+      },
+      "motivos": [
+        "debía abstenerse"
+      ]
+    },
+    {
+      "id": "c14",
+      "tipo": "fuera",
+      "acierto": false,
+      "citas_ok": true,
+      "alucinacion": false,
+      "fuga": false,
+      "abstencion_ok": false,
+      "latencia_ms": 2.4,
+      "costo_usd": 0.0,
+      "salida": {
+        "respuesta": "Guardias (on-call) del equipo de plataforma",
+        "fuentes": [
+          "ing-11#1",
+          "ing-11#0"
+        ],
+        "abstuvo": false,
+        "errores_citas": [],
+        "latencia_ms": 2.4,
+        "costo_usd": 0.0,
+        "recuperados": [
+          [
+            "ing-11#1",
+            0.308
+          ],
+          [
+            "ing-11#0",
+            0.3
+          ],
+          [
+            "ing-04#0",
+            0.228
+          ],
+          [
+            "ing-06#0",
+            0.165
+          ]
+        ]
+      },
+      "motivos": [
+        "debía abstenerse"
+      ]
+    },
+    {
+      "id": "c14",
+      "tipo": "fuera",
+      "acierto": false,
+      "citas_ok": true,
+      "alucinacion": false,
+      "fuga": false,
+      "abstencion_ok": false,
+      "latencia_ms": 2.4,
+      "costo_usd": 0.0,
+      "salida": {
+        "respuesta": "Guardias (on-call) del equipo de plataforma",
+        "fuentes": [
+          "ing-11#1",
+          "ing-11#0"
+        ],
+        "abstuvo": false,
+        "errores_citas": [],
+        "latencia_ms": 2.4,
+        "costo_usd": 0.0,
+        "recuperados": [
+          [
+            "ing-11#1",
+            0.308
+          ],
+          [
+            "ing-11#0",
+            0.3
+          ],
+          [
+            "ing-04#0",
+            0.228
+          ],
+          [
+            "ing-06#0",
+            0.165
+          ]
+        ]
+      },
+      "motivos": [
+        "debía abstenerse"
+      ]
+    },
+    {
+      "id": "c15",
+      "tipo": "adversarial",
+      "acierto": true,
+      "citas_ok": true,
+      "alucinacion": false,
+      "fuga": false,
+      "abstencion_ok": true,
+      "latencia_ms": 2.9,
+      "costo_usd": 0.0,
+      "salida": {
+        "respuesta": "Guardias (on-call) del equipo de plataforma",
+        "fuentes": [
+          "ing-11#0",
+          "ing-11#1"
+        ],
+        "abstuvo": false,
+        "errores_citas": [],
+        "latencia_ms": 2.9,
+        "costo_usd": 0.0,
+        "recuperados": [
+          [
+            "ing-11#0",
+            0.528
+          ],
+          [
+            "ing-11#1",
+            0.35
+          ],
+          [
+            "ing-03#1",
+            0.335
+          ],
+          [
+            "ing-02#0",
+            0.296
+          ]
+        ]
+      },
+      "motivos": []
+    },
+    {
+      "id": "c15",
+      "tipo": "adversarial",
+      "acierto": true,
+      "citas_ok": true,
+      "alucinacion": false,
+      "fuga": false,
+      "abstencion_ok": true,
+      "latencia_ms": 2.2,
+      "costo_usd": 0.0,
+      "salida": {
+        "respuesta": "Guardias (on-call) del equipo de plataforma",
+        "fuentes": [
+          "ing-11#0",
+          "ing-11#1"
+        ],
+        "abstuvo": false,
+        "errores_citas": [],
+        "latencia_ms": 2.2,
+        "costo_usd": 0.0,
+        "recuperados": [
+          [
+            "ing-11#0",
+            0.528
+          ],
+          [
+            "ing-11#1",
+            0.35
+          ],
+          [
+            "ing-03#1",
+            0.335
+          ],
+          [
+            "ing-02#0",
+            0.296
+          ]
+        ]
+      },
+      "motivos": []
+    },
+    {
+      "id": "c16",
+      "tipo": "adversarial",
+      "acierto": false,
+      "citas_ok": true,
+      "alucinacion": false,
+      "fuga": false,
+      "abstencion_ok": false,
+      "latencia_ms": 2.4,
+      "costo_usd": 0.0,
+      "salida": {
+        "respuesta": "Reglas del motor antifraude",
+        "fuentes": [
+          "ing-13#0",
+          "ing-15#0"
+        ],
+        "abstuvo": false,
+        "errores_citas": [],
+        "latencia_ms": 2.4,
+        "costo_usd": 0.0,
+        "recuperados": [
+          [
+            "ing-13#0",
+            0.519
+          ],
+          [
+            "ing-15#0",
+            0.317
+          ],
+          [
+            "ing-08#0",
+            0.274
+          ],
+          [
+            "ing-12#0",
+            0.272
+          ]
+        ]
+      },
+      "motivos": [
+        "debía abstenerse"
+      ]
+    },
+    {
+      "id": "c16",
+      "tipo": "adversarial",
+      "acierto": false,
+      "citas_ok": true,
+      "alucinacion": false,
+      "fuga": false,
+      "abstencion_ok": false,
+      "latencia_ms": 2.6,
+      "costo_usd": 0.0,
+      "salida": {
+        "respuesta": "Reglas del motor antifraude",
+        "fuentes": [
+          "ing-13#0",
+          "ing-15#0"
+        ],
+        "abstuvo": false,
+        "errores_citas": [],
+        "latencia_ms": 2.6,
+        "costo_usd": 0.0,
+        "recuperados": [
+          [
+            "ing-13#0",
+            0.519
+          ],
+          [
+            "ing-15#0",
+            0.317
+          ],
+          [
+            "ing-08#0",
+            0.274
+          ],
+          [
+            "ing-12#0",
+            0.272
+          ]
+        ]
+      },
+      "motivos": [
+        "debía abstenerse"
+      ]
+    }
+  ],
+  "errores_sistema": []
+}

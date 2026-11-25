@@ -1,0 +1,16 @@
+{
+  "caso": "c03",
+  "repeticion": 2,
+  "config": "A",
+  "fecha_utc": "2026-11-25T00:30:28.381145+00:00",
+  "modelo": "gemini-3.1-flash-lite",
+  "salida": {
+    "respuesta": "Aunque esto depende estrictamente de las políticas internas de cada empresa (específicamente de su **política de gestión de cambios**), existen estándares en la industria de TI (como ITIL) que dictan las mejores prácticas:\n\n### 1. El horario estándar (La \"Ventana de Mantenimiento\")\nLos cambios de riesgo alto se despliegan casi invariablemente en **horarios de baja actividad** para minimizar el impacto en caso de fallo. Esto suele ser:\n*   **Madrugada:** Entre las 00:00 y las 05:00 AM (hora local del mercado principal).\n*   **Fines de semana:** Generalmente los sábados o domingos por la madrugada, cuando el tráfico de usuarios es mínimo.\n\n### 2. ¿Por qué se eligen estos horarios?\n*   **Menor impacto:** Si algo sale mal, hay menos usuarios afectados.\n*   **Disponibilidad de personal:** Los equipos de ingeniería, QA y soporte están \"frescos\" o disponibles para realizar un *rollback* (reversión) inmediato antes de que comience la jornada laboral.\n*   **Menor carga en sistemas:** Los procesos batch o de respaldo suelen estar terminados o no han comenzado, lo que reduce la complejidad del despliegue.\n\n### 3. Factores que pueden cambiar este horario\n*   **Sistemas Globales (Follow the Sun):** Si la empresa opera en múltiples zonas horarias (ej. Nueva York, Londres y Tokio), no existe un \"horario de baja actividad\" real. En estos casos, se despliega en el horario de menor tráfico global o se utilizan técnicas de **despliegue azul-verde (Blue-Green)** o **canary releases** para evitar ventanas de mantenimiento.\n*   **Naturaleza del servicio:** Si el servicio es crítico 24/7 (como un sistema bancario o de salud), los cambios de riesgo alto requieren protocolos de alta disponibilidad donde el despliegue no implica una caída del servicio.\n\n### 4. ¿Qué define a un cambio como \"de riesgo alto\"?\nPara que un cambio sea clasificado así, generalmente debe cumplir con:\n*   Modificaciones en la base de datos (esquemas).\n*   Cambios en la arquitectura de red o seguridad.\n*   Actualizaciones de versiones mayores de software.\n*   Cambios que afectan a un gran porcentaje de la base de usuarios.\n\n---\n\n**Recomendación:**\nSi estás trabajando en una organización, **debes consultar el documento de \"Change Management Policy\"** de tu empresa. Si no existe, lo ideal es:\n1.  **Evitar los viernes:** Nunca se despliega algo de riesgo alto un viernes (la regla de oro de \"Friday Deployment\").\n2.  **Definir una ventana:** Establecer una ventana de mantenimiento comunicada con al menos 48-72 horas de antelación a los *stakeholders*.\n3.  **Tener un plan de Rollback:** Si no tienes un plan de reversión probado, el horario no importa; el riesgo sigue siendo inaceptable.\n\n**¿Necesitas ayuda para redactar una política de cambios o para planificar un despliegue específico?**",
+    "fuentes": [],
+    "abstuvo": false,
+    "errores_citas": [],
+    "latencia_ms": 3498.9,
+    "costo_usd": 0.001716,
+    "recuperados": []
+  }
+}

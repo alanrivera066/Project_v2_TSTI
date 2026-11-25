@@ -1,0 +1,25 @@
+{
+  "estado": "calibrado_evaluacion_parcial",
+  "umbral": 0.6386449460169339,
+  "respuestas_guardadas": 15,
+  "respuestas_previstas": 192,
+  "interrupcion": "HTTP 429 cuota; tipo no identificable por mensaje truncado",
+  "politica_reanudacion": "Pausa de 6 segundos fuera de latencia, reintentos acotados, parada ante cuota diaria",
+  "sha256_respuestas_previas": {
+    "bitacora\\proceso_gemini\\20261125T002950Z\\evaluacion\\A\\c01_1.json": "3eafff904b2c51e4b6b20a20c8d97ae5fb40eafdae5556b948b241f6f8f18065",
+    "bitacora\\proceso_gemini\\20261125T002950Z\\evaluacion\\A\\c01_2.json": "aa69307533c140bf0f167ee73d19d5e9bb344712dd3b621044d1d5e67ca040fd",
+    "bitacora\\proceso_gemini\\20261125T002950Z\\evaluacion\\A\\c01_3.json": "18c3ad651d82ea4aa0eee0635f368bb44049f52f1b425bf6e2ca7944508dab42",
+    "bitacora\\proceso_gemini\\20261125T002950Z\\evaluacion\\A\\c02_1.json": "73b8e156422e9dae83428a37c1c29f474f048d2f7c30d857625d215c65a15c1b",
+    "bitacora\\proceso_gemini\\20261125T002950Z\\evaluacion\\A\\c02_2.json": "dfcee736084d2d69a5137a85052dc31c68d60a30af4ac36217bad82bf435f06b",
+    "bitacora\\proceso_gemini\\20261125T002950Z\\evaluacion\\A\\c02_3.json": "b4802340e8894cb56504d805b2cae5ba60063b44f1eb892261bfd36efea36783",
+    "bitacora\\proceso_gemini\\20261125T002950Z\\evaluacion\\A\\c03_1.json": "e20dafc0708c39ca46a5af145539ddc9f625e0bdd7a0762ab16c78b31887ee5e",
+    "bitacora\\proceso_gemini\\20261125T002950Z\\evaluacion\\A\\c03_2.json": "cfd14f64947535fae327cc0e971fb4ba00ee53adf93f677a38e497ab460eb1e6",
+    "bitacora\\proceso_gemini\\20261125T002950Z\\evaluacion\\A\\c03_3.json": "0b187974c6ace5cc77d7da319ae7a210fdbdced5c95224c0e3a89bfa9bc98253",
+    "bitacora\\proceso_gemini\\20261125T002950Z\\evaluacion\\A\\c04_1.json": "96388cf270f673ee83558908f76c916aab14d99ff97b39b5dcd48fe31479391f",
+    "bitacora\\proceso_gemini\\20261125T002950Z\\evaluacion\\A\\c04_2.json": "31f805be914002c5c9523a034f3cb253f0d06dc01ef3906702cd13efed1a1f08",
+    "bitacora\\proceso_gemini\\20261125T002950Z\\evaluacion\\A\\c04_3.json": "857c3247e9b8988f50ab6e977ddff3b1d4f1de3405d17b8080e9db22cf00d864",
+    "bitacora\\proceso_gemini\\20261125T002950Z\\evaluacion\\A\\c05_1.json": "17ac00bd94c236704678ac53c12a407db25584647d097d114a6c178b7ffedbaa",
+    "bitacora\\proceso_gemini\\20261125T002950Z\\evaluacion\\A\\c05_2.json": "46ae0ab8be2303387d44d367257466b84def1cd84e3ebf222d1dfcf38362f5a1",
+    "bitacora\\proceso_gemini\\20261125T002950Z\\evaluacion\\A\\c05_3.json": "11c269e901b7cf1d2d2812a6cc3057e2bd3c1fd186094c1a780cce9a0b644453"
+  }
+}

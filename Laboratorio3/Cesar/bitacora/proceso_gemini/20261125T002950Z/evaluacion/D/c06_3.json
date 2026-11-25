@@ -1,0 +1,31 @@
+{
+  "caso": "c06",
+  "repeticion": 3,
+  "config": "D",
+  "fecha_utc": "2026-11-25T00:53:51.042026+00:00",
+  "modelo": "gemini-3.1-flash-lite",
+  "salida": {
+    "respuesta": "Para los módulos que mueven dinero o manejan autenticación, se exige una cobertura mínima del 80 % de ramas. Esta cobertura no sustituye la revisión de casos límite.",
+    "fuentes": [
+      "ing-08#0"
+    ],
+    "abstuvo": false,
+    "errores_citas": [],
+    "latencia_ms": 3889.2,
+    "costo_usd": 0.0004009,
+    "recuperados": [
+      [
+        "ing-08#0",
+        0.713
+      ],
+      [
+        "ing-08#1",
+        0.699
+      ],
+      [
+        "ing-01#0",
+        0.654
+      ]
+    ]
+  }
+}

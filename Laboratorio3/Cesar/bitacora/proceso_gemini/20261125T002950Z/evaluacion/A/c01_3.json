@@ -1,0 +1,16 @@
+{
+  "caso": "c01",
+  "repeticion": 3,
+  "config": "A",
+  "fecha_utc": "2026-11-25T00:30:10.201549+00:00",
+  "modelo": "gemini-3.1-flash-lite",
+  "salida": {
+    "respuesta": "No existe una regla única universal, ya que la frecuencia depende del nivel de criticidad del secreto, el entorno (nube vs. local) y las normativas de cumplimiento (como PCI-DSS, SOC2 o HIPAA).\n\nSin embargo, las **mejores prácticas de la industria** sugieren los siguientes criterios:\n\n### 1. Frecuencia recomendada\n*   **Rotación programada (estándar):** Cada **90 días**. Es el estándar más común en auditorías de seguridad.\n*   **Entornos de alta seguridad:** Cada **30 días**.\n*   **Entornos de desarrollo/pruebas:** Pueden ser más flexibles (ej. cada 6 meses o al desplegar una nueva versión), pero nunca deben ser los mismos que los de producción.\n\n### 2. ¿Cuándo rotar \"inmediatamente\"? (Eventos disparadores)\nIndependientemente del calendario, debes rotar los secretos de forma obligatoria si ocurre lo siguiente:\n*   **Exposición accidental:** Si un secreto fue subido a un repositorio (GitHub, GitLab), enviado por chat, correo o quedó expuesto en logs.\n*   **Cambio de personal:** Si un administrador o desarrollador con acceso a secretos críticos abandona la empresa o cambia de equipo.\n*   **Sospecha de compromiso:** Si detectas actividad inusual en los sistemas que utilizan esas credenciales.\n*   **Incidente de seguridad:** Si hubo una brecha en el servidor donde se almacenan o procesan los secretos.\n\n### 3. El enfoque moderno: \"Rotación Dinámica\"\nLas empresas más avanzadas están abandonando la rotación manual o programada por fechas en favor de la **rotación dinámica (Just-in-Time)**:\n*   **Secretos efímeros:** En lugar de tener una contraseña estática, el sistema (usando herramientas como **HashiCorp Vault** o AWS Secrets Manager) genera credenciales temporales que expiran automáticamente en minutos u horas.\n*   **Ventaja:** Si el secreto es interceptado, su utilidad es casi nula porque caduca muy rápido.\n\n### 4. Factores que dificultan la rotación\nSi no rotas los secretos con frecuencia, suele ser por estas razones técnicas que deberías resolver:\n*   **Acoplamiento fuerte:** La aplicación requiere un reinicio para tomar la nueva contraseña.\n*   **Falta de automatización:** El proceso es manual y propenso a errores.\n*   **Dependencias múltiples:** Muchos servicios comparten la misma clave (si una falla, todo se cae).\n\n### Recomendación para empezar:\n1.  **Auditoría:** Identifica todos tus secretos (API keys, DB passwords, certificados).\n2.  **Centralización:** Usa un gestor de secretos (Vault, AWS/GCP/Azure Secret Manager). **Nunca** los dejes en archivos `.env` o variables de entorno estáticas.\n3.  **Automatización:** Implementa un script o herramienta que actualice el secreto en el gestor y notifique a la aplicación para que lo recargue sin necesidad de intervención humana.\n\n**¿En qué tipo de entorno estás trabajando?** (Si me das un poco más de contexto sobre si es una app web, infraestructura en la nube o servidores locales, puedo darte una recomendación más específica).",
+    "fuentes": [],
+    "abstuvo": false,
+    "errores_citas": [],
+    "latencia_ms": 3058.3,
+    "costo_usd": 0.0017725999999999998,
+    "recuperados": []
+  }
+}

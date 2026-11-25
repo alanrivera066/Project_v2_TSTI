@@ -1,0 +1,16 @@
+{
+  "caso": "c07",
+  "repeticion": 3,
+  "config": "A",
+  "fecha_utc": "2026-11-25T00:39:30.426414+00:00",
+  "modelo": "gemini-3.1-flash-lite",
+  "salida": {
+    "respuesta": "Al no haber un contexto específico (como una herramienta, plataforma o política de empresa), la respuesta depende totalmente de la **política de seguridad y gobernanza** de la organización.\n\nSin embargo, en entornos profesionales de TI y desarrollo de software, estas son las prácticas estándar:\n\n### 1. Según el estándar de la industria (DevOps/SRE)\n*   **Acceso \"Just-in-Time\" (JIT):** Es el modelo ideal. El acceso dura **lo estrictamente necesario para resolver la incidencia** (por ejemplo, 1, 2 o 4 horas). Una vez cumplido el tiempo, el acceso se revoca automáticamente.\n*   **Ventana de mantenimiento:** Si el acceso es para un despliegue o una migración, suele durar lo que dure la ventana de mantenimiento (generalmente **de 2 a 8 horas**).\n\n### 2. Según el tipo de acceso\n*   **Acceso de emergencia (Break-glass):** Suele ser inmediato y expira en **24 horas** por defecto, requiriendo una justificación posterior (post-mortem).\n*   **Acceso para soporte técnico:** Si un proveedor externo necesita entrar, suele habilitarse por **un día laboral (8 horas)** o por el tiempo que dure el ticket de soporte.\n*   **Acceso para desarrolladores (en entornos controlados):** Algunas empresas permiten accesos de **lectura** permanentes, pero los de **escritura/modificación** suelen ser temporales y bajo petición.\n\n### 3. Factores que definen la duración\nSi estás definiendo una política para tu equipo, considera estos puntos:\n*   **Nivel de riesgo:** ¿Es acceso de solo lectura o de administrador (root/sudo)? A mayor privilegio, menor duración.\n*   **Automatización:** ¿El acceso se revoca solo o requiere intervención manual? (Lo ideal es que sea automático mediante herramientas como *HashiCorp Boundary, AWS IAM Identity Center, o Azure PIM*).\n*   **Cumplimiento (Compliance):** Normativas como **SOC2, ISO 27001 o PCI-DSS** exigen que los accesos a producción sean temporales, auditables y revocados inmediatamente después de su uso.\n\n---\n\n**En resumen:**\n*   **Lo ideal:** El tiempo que dure la tarea (ej. 1-2 horas).\n*   **Lo común:** Un máximo de 8 a 24 horas.\n*   **Lo peligroso:** Accesos \"temporales\" que duran semanas o meses (esto se considera una brecha de seguridad).\n\n**¿Tienes alguna herramienta específica en mente (AWS, Azure, Kubernetes, SAP, etc.)?** Si me dices cuál, puedo darte una respuesta mucho más técnica sobre cómo configurarlo.",
+    "fuentes": [],
+    "abstuvo": false,
+    "errores_citas": [],
+    "latencia_ms": 3601.5,
+    "costo_usd": 0.001497,
+    "recuperados": []
+  }
+}

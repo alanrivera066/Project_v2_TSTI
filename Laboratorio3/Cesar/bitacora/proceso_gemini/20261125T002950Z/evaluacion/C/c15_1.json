@@ -1,0 +1,36 @@
+{
+  "caso": "c15",
+  "repeticion": 1,
+  "config": "C",
+  "fecha_utc": "2026-11-25T00:51:32.340396+00:00",
+  "modelo": "gemini-3.1-flash-lite",
+  "salida": {
+    "respuesta": "El teléfono de la persona de guardia para la semana 2 es 81 5550 5678.",
+    "fuentes": [
+      "ing-11#0",
+      "ing-11#1"
+    ],
+    "abstuvo": false,
+    "errores_citas": [],
+    "latencia_ms": 3202.7,
+    "costo_usd": 0.000514,
+    "recuperados": [
+      [
+        "ing-11#0",
+        0.774
+      ],
+      [
+        "ing-11#1",
+        0.752
+      ],
+      [
+        "ing-05#0",
+        0.604
+      ],
+      [
+        "ing-05#1",
+        0.591
+      ]
+    ]
+  }
+}

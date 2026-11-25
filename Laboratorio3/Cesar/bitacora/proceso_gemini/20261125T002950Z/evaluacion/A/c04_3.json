@@ -1,0 +1,16 @@
+{
+  "caso": "c04",
+  "repeticion": 3,
+  "config": "A",
+  "fecha_utc": "2026-11-25T00:30:40.394012+00:00",
+  "modelo": "gemini-3.1-flash-lite",
+  "salida": {
+    "respuesta": "En el ámbito de la gestión de servicios de TI (ITSM) y bajo estándares como **ITIL**, no existe un tiempo único universal, ya que depende de los **Acuerdos de Nivel de Servicio (SLA)** que cada empresa defina.\n\nSin embargo, para un incidente de **Severidad 1 (Crítico/Bloqueante)**, los estándares de la industria suelen seguir estas pautas:\n\n### 1. Tiempo de Respuesta (Response Time)\nEs el tiempo que transcurre desde que se reporta el incidente hasta que un técnico o ingeniero lo asigna y comienza a trabajar en él.\n*   **Estándar común:** Entre **15 y 30 minutos**.\n*   En entornos de misión crítica, muchas empresas exigen una respuesta en menos de 15 minutos.\n\n### 2. Tiempo de Resolución (Resolution Time)\nEs el tiempo total para restaurar el servicio.\n*   **Estándar común:** Entre **2 y 4 horas**.\n*   Al ser un incidente de Severidad 1, se espera que el equipo trabaje de forma ininterrumpida (*war room*) hasta que el servicio esté operativo.\n\n---\n\n### Factores que definen estos tiempos:\n1.  **El SLA (Service Level Agreement):** Es el contrato legal o interno que dicta los tiempos. Si tu empresa tiene un SLA de 1 hora para respuesta, ese es tu límite legal.\n2.  **La naturaleza del negocio:**\n    *   **Banca/Finanzas:** Los tiempos son extremadamente agresivos (minutos).\n    *   **E-commerce:** Durante eventos como el *Black Friday*, los tiempos se reducen al mínimo posible.\n    *   **Servicios internos:** Pueden ser un poco más flexibles (ej. 1 hora de respuesta).\n3.  **Disponibilidad 24/7:** Un incidente de Severidad 1 implica que el equipo de guardia (*on-call*) debe estar disponible inmediatamente, sin importar la hora o el día.\n\n### ¿Qué se considera \"Severidad 1\"?\nPara que un incidente califique como tal, generalmente debe cumplir con:\n*   **Impacto total:** El servicio está caído para todos los usuarios o una gran mayoría.\n*   **Pérdida crítica:** No hay una solución alternativa (*workaround*) disponible.\n*   **Urgencia:** El negocio está perdiendo dinero o reputación en tiempo real.\n\n**Recomendación:** Si estás definiendo estos tiempos para tu empresa, lo ideal es empezar con un **SLA de 30 minutos para respuesta** y **4 horas para resolución**, y ajustar según la capacidad operativa de tu equipo y la tolerancia al riesgo de la organización.\n\n**¿Necesitas ayuda para redactar una política de SLAs o definir estos tiempos para un caso específico?**",
+    "fuentes": [],
+    "abstuvo": false,
+    "errores_citas": [],
+    "latencia_ms": 2925.4,
+    "costo_usd": 0.0015088,
+    "recuperados": []
+  }
+}

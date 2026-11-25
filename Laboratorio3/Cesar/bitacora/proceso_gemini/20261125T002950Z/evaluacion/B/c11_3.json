@@ -1,0 +1,16 @@
+{
+  "caso": "c11",
+  "repeticion": 3,
+  "config": "B",
+  "fecha_utc": "2026-11-25T00:45:44.414270+00:00",
+  "modelo": "gemini-3.1-flash-lite",
+  "salida": {
+    "respuesta": "No cuento con información en el contexto proporcionado sobre los tiempos de corrección para vulnerabilidades críticas en dependencias.",
+    "fuentes": [],
+    "abstuvo": true,
+    "errores_citas": [],
+    "latencia_ms": 3299.0,
+    "costo_usd": 0.00022030000000000002,
+    "recuperados": []
+  }
+}

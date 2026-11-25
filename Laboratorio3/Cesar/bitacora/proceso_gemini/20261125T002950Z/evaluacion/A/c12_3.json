@@ -1,0 +1,16 @@
+{
+  "caso": "c12",
+  "repeticion": 3,
+  "config": "A",
+  "fecha_utc": "2026-11-25T00:41:16.932419+00:00",
+  "modelo": "gemini-3.1-flash-lite",
+  "salida": {
+    "respuesta": "La respuesta corta es: **Técnicamente sí, pero culturalmente (y por seguridad) es una de las peores ideas en el mundo del desarrollo de software.**\n\nAquí te explico el dilema:\n\n### 1. ¿Por qué existe la regla de \"no desplegar los viernes\"?\nLa sabiduría popular en DevOps dice: *\"Si algo sale mal, no quieres arruinar tu fin de semana ni el de tu equipo\"*.\n\n*   **El factor humano:** Si ocurre un error crítico a las 4:00 PM de un viernes, el equipo está cansado, con la mente puesta en el descanso y posiblemente con menos personal disponible para resolver incidencias.\n*   **El soporte:** Si el despliegue causa un problema mayor que requiere soporte técnico o atención de terceros, es probable que nadie responda hasta el lunes.\n*   **El \"efecto dominó\":** Un pequeño bug que parece inofensivo puede escalar a una caída total del sistema, obligando a todos a trabajar horas extra no planificadas.\n\n### 2. ¿Cuándo SÍ se puede desplegar un viernes?\nSi tu equipo tiene una cultura de ingeniería madura, desplegar un viernes no debería ser un problema. Puedes hacerlo si cumples con esto:\n\n*   **Despliegues automatizados y rápidos:** Si tienes un pipeline de CI/CD robusto que hace pruebas automáticas y el despliegue toma segundos.\n*   **Estrategias de despliegue seguro:** Si usas *Blue-Green deployments* o *Canary releases*, donde puedes revertir (rollback) a la versión anterior con un solo clic en caso de error.\n*   **Observabilidad:** Si tienes sistemas de monitoreo y alertas que te avisan inmediatamente si algo falla.\n*   **Cultura de \"Feature Flags\":** Si puedes desactivar la funcionalidad nueva sin tener que hacer un despliegue completo de nuevo.\n\n### 3. La regla de oro\nSi tu equipo se hace la pregunta **\"¿Estamos seguros de que esto no va a fallar?\"**, la respuesta es **NO**.\n\n*   **Si el despliegue es pequeño, rutinario y está totalmente automatizado:** Hazlo.\n*   **Si es un cambio grande, una migración de base de datos o algo complejo:** **Espera al lunes por la mañana.**\n\n**En resumen:** Desplegar los viernes es una prueba de fuego para tu infraestructura. Si te da miedo hacerlo, significa que tu proceso de despliegue aún no es lo suficientemente confiable. **El objetivo final de DevOps es que desplegar un viernes sea tan aburrido y seguro como desplegar un martes a las 10:00 AM.**",
+    "fuentes": [],
+    "abstuvo": false,
+    "errores_citas": [],
+    "latencia_ms": 12699.3,
+    "costo_usd": 0.0014351,
+    "recuperados": []
+  }
+}

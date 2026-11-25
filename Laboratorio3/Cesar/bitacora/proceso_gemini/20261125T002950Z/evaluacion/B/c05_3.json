@@ -1,0 +1,16 @@
+{
+  "caso": "c05",
+  "repeticion": 3,
+  "config": "B",
+  "fecha_utc": "2026-11-25T00:43:56.296063+00:00",
+  "modelo": "gemini-3.1-flash-lite",
+  "salida": {
+    "respuesta": "El contexto proporcionado no contiene información sobre el formato requerido para los errores de una API.",
+    "fuentes": [],
+    "abstuvo": true,
+    "errores_citas": [],
+    "latencia_ms": 3189.3,
+    "costo_usd": 0.0002063,
+    "recuperados": []
+  }
+}

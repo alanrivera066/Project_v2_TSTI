@@ -1,0 +1,16 @@
+{
+  "caso": "c11",
+  "repeticion": 3,
+  "config": "A",
+  "fecha_utc": "2026-11-25T00:40:49.460403+00:00",
+  "modelo": "gemini-3.1-flash-lite",
+  "salida": {
+    "respuesta": "En el ámbito de la ciberseguridad y el desarrollo de software, no existe una regla única universal, pero sí **estándares de la industria** que dictan los tiempos de respuesta esperados para una vulnerabilidad crítica (CVSS 9.0 - 10.0).\n\nAquí te detallo los plazos recomendados según el contexto:\n\n### 1. El estándar de la industria (SLA)\nLa mayoría de las organizaciones que siguen marcos de trabajo como **ISO 27001, SOC2 o PCI DSS** establecen los siguientes tiempos para vulnerabilidades críticas:\n\n*   **Plazo ideal:** **24 a 48 horas.**\n*   **Plazo máximo aceptable:** **7 días.**\n\nSi una vulnerabilidad es crítica (ej. ejecución remota de código - RCE) y tiene un *exploit* público disponible, el tiempo de respuesta debe ser **inmediato** (horas).\n\n### 2. Factores que determinan la urgencia\nNo todas las vulnerabilidades críticas se tratan igual. Debes evaluar:\n\n*   **Exposición:** ¿El componente afectado es accesible desde internet o está detrás de una red privada?\n*   **Explotabilidad:** ¿Existe un *exploit* público (PoC) o se está explotando activamente en la naturaleza (*in-the-wild*)? Si la respuesta es sí, el tiempo de corrección debe ser de **horas**.\n*   **Contexto de uso:** ¿La aplicación maneja datos sensibles (PII, tarjetas de crédito, salud)? Si es así, la prioridad es máxima.\n*   **Facilidad de parcheo:** ¿Es solo actualizar una versión (ej. `npm update`) o requiere cambios estructurales en el código? Si es complejo, se debe implementar una **mitigación temporal** (WAF, deshabilitar la función afectada) mientras se prepara el parche definitivo.\n\n### 3. ¿Qué hacer si no puedes corregirlo en 24-48 horas?\nSi el parche rompe la aplicación o requiere mucho tiempo de desarrollo, debes aplicar una estrategia de **gestión de riesgos**:\n\n1.  **Mitigación:** Implementar reglas en el WAF (Web Application Firewall) para bloquear los patrones de ataque conocidos.\n2.  **Aislamiento:** Si es posible, aislar el servicio afectado del resto de la infraestructura.\n3.  **Monitoreo:** Aumentar el nivel de *logging* y alertas sobre el componente vulnerable para detectar intentos de explotación.\n4.  **Aceptación de riesgo:** Documentar formalmente por qué no se corrigió a tiempo y qué controles compensatorios se pusieron en marcha (esto es vital para auditorías).\n\n### Resumen para tu equipo:\n*   **Si es crítica y tiene exploit público:** \"Manos a la obra\" (objetivo: < 24h).\n*   **Si es crítica pero difícil de explotar:** \"Sprint de emergencia\" (objetivo: < 7 días).\n\n**Consejo pro:** Si usas herramientas de SCA (*Software Composition Analysis*) como Snyk, Dependabot o GitHub Advanced Security, estas suelen marcar el \"tiempo de vida\" de la vulnerabilidad. Mantener ese tiempo por debajo de los 7 días es una métrica de salud excelente para cualquier equipo de ingeniería.",
+    "fuentes": [],
+    "abstuvo": false,
+    "errores_citas": [],
+    "latencia_ms": 3228.3,
+    "costo_usd": 0.0017691,
+    "recuperados": []
+  }
+}

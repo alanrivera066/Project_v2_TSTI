@@ -1,0 +1,16 @@
+{
+  "caso": "c09",
+  "repeticion": 1,
+  "config": "A",
+  "fecha_utc": "2026-11-25T00:39:54.411679+00:00",
+  "modelo": "gemini-3.1-flash-lite",
+  "salida": {
+    "respuesta": "Para poder responderte con un \"sí\" o un \"no\" responsable, necesito que evalúes los siguientes puntos críticos. Si puedes marcar todos como \"listos\", entonces adelante:\n\n### 1. Estado del Código y QA\n*   **¿Está el código congelado (Code Freeze)?** Si planeas seguir haciendo cambios hasta el 29, el riesgo es altísimo.\n*   **¿Pasó todas las pruebas?** No solo las unitarias, sino las de integración y, sobre todo, las de **regresión** (para asegurar que lo que ya funcionaba no se rompió).\n*   **¿Hubo pruebas de usuario (UAT)?** ¿El cliente o el dueño del producto ya dio el visto bueno final?\n\n### 2. Logística del Calendario\n*   **¿Es viernes?** (El 30 de este mes cae viernes). **Regla de oro:** Evita liberar a producción un viernes a menos que sea estrictamente necesario. Si algo falla, el equipo de guardia tendrá que trabajar el fin de semana.\n*   **¿Hay soporte disponible?** ¿Quién estará pendiente de los logs y errores el 30 y el 31? Asegúrate de que el equipo de soporte o los desarrolladores estén disponibles.\n\n### 3. Plan de Contingencia (Rollback)\n*   **¿Tienes un plan de reversión?** Si algo sale mal, ¿puedes volver a la versión anterior en menos de 15 minutos?\n*   **¿La base de datos está preparada?** Si hay cambios en el esquema, ¿tienes scripts de migración probados y un backup reciente?\n\n### 4. Comunicación\n*   **¿El equipo de negocio/stakeholders está avisado?** A veces, liberar un 30 (cierre de mes) puede interferir con procesos contables, cierres de facturación o reportes críticos. Confirma que no afecte ninguna operación de fin de mes.\n\n---\n\n**Mi recomendación:**\n\n1.  **Si el despliegue es crítico y no hay otra fecha:** Hazlo temprano en la mañana (nunca después del mediodía) para tener margen de maniobra.\n2.  **Si es una funcionalidad nueva o no urgente:** **No lo hagas.** Es mejor esperar al lunes 2 (o el siguiente día hábil) para tener a todo el equipo disponible ante cualquier eventualidad.\n\n**¿Qué opinas tú? ¿Cómo sientes la estabilidad del sistema ahora mismo?**",
+    "fuentes": [],
+    "abstuvo": false,
+    "errores_citas": [],
+    "latencia_ms": 3587.4,
+    "costo_usd": 0.0013385,
+    "recuperados": []
+  }
+}

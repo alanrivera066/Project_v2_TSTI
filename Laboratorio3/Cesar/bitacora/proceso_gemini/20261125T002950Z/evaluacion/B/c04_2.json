@@ -1,0 +1,16 @@
+{
+  "caso": "c04",
+  "repeticion": 2,
+  "config": "B",
+  "fecha_utc": "2026-11-25T00:43:30.807170+00:00",
+  "modelo": "gemini-3.1-flash-lite",
+  "salida": {
+    "respuesta": "No cuento con información en el contexto proporcionado sobre los tiempos de respuesta para incidentes de severidad 1.",
+    "fuentes": [],
+    "abstuvo": true,
+    "errores_citas": [],
+    "latencia_ms": 1702.0,
+    "costo_usd": 0.00022,
+    "recuperados": []
+  }
+}

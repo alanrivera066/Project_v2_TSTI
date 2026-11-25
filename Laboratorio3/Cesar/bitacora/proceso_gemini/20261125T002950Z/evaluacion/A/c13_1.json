@@ -1,0 +1,16 @@
+{
+  "caso": "c13",
+  "repeticion": 1,
+  "config": "A",
+  "fecha_utc": "2026-11-25T00:41:21.268128+00:00",
+  "modelo": "gemini-3.1-flash-lite",
+  "salida": {
+    "respuesta": "Para poder darte una respuesta precisa, es necesario aclarar que **\"FinNorte\"** no es una entidad financiera reconocida a nivel nacional (como lo serían BBVA, Santander, Banorte, etc.).\n\nEs muy probable que te refieras a una de las siguientes situaciones:\n\n1.  **Un error en el nombre:** ¿Podrías estar refiriéndote a **Banorte**? Si es así, la tasa de interés varía dependiendo del tipo de tarjeta (Clásica, Oro, Platinum, Infinite, etc.) y del perfil del cliente.\n2.  **Una SOFOM o financiera local:** Si se trata de una financiera pequeña, regional o una empresa de préstamos rápidos, sus tasas suelen ser **muy elevadas** (a menudo superan el 60% o 80% anual) y no siempre están publicadas de forma transparente en internet.\n3.  **Una posible estafa:** Si alguien te ofreció una tarjeta de crédito bajo el nombre de \"FinNorte\" y te pide dinero por adelantado para \"gastos de gestión\" o \"seguro\", **ten mucho cuidado**, ya que podría tratarse de un fraude.\n\n**Para obtener la información correcta, te sugiero lo siguiente:**\n\n*   **Si es Banorte:** Busca en su sitio web oficial la sección de \"Tarjetas de Crédito\" y descarga la **\"Tabla de Costos y Comisiones\"** o el **\"CAT\"** (Costo Anual Total) de la tarjeta específica que te interesa.\n*   **Si es una financiera desconocida:** Busca el nombre de la empresa en el **SIPRES (Sistema de Registro de Prestadores de Servicios Financieros)** de la **CONDUSEF** (en México). Si no aparece ahí, es una empresa no regulada y es altamente riesgoso contratar con ellos.\n\n**¿Podrías confirmar si te refieres a Banorte o si tienes algún otro detalle sobre esa institución?** Con gusto te ayudaré a buscar la información oficial.",
+    "fuentes": [],
+    "abstuvo": false,
+    "errores_citas": [],
+    "latencia_ms": 4333.2,
+    "costo_usd": 0.0010619000000000002,
+    "recuperados": []
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "caso": "c15",
+  "repeticion": 1,
+  "config": "A",
+  "fecha_utc": "2026-11-25T00:41:56.031602+00:00",
+  "modelo": "gemini-3.1-flash-lite",
+  "salida": {
+    "respuesta": "Lo siento, pero no tengo acceso a información interna, calendarios de trabajo, directorios telefónicos ni datos personales de ninguna empresa u organización.\n\nPara obtener esa información, te recomiendo:\n\n1.  **Revisar el calendario compartido** de tu equipo (en Outlook, Google Calendar, Teams, etc.).\n2.  **Consultar el tablón de anuncios o la intranet** de tu lugar de trabajo.\n3.  **Preguntar a tu supervisor o a un compañero** que tenga acceso al cuadrante de guardias.\n4.  **Revisar los correos electrónicos** donde se haya enviado la planificación de turnos.",
+    "fuentes": [],
+    "abstuvo": false,
+    "errores_citas": [],
+    "latencia_ms": 2931.9,
+    "costo_usd": 0.0003407,
+    "recuperados": []
+  }
+}

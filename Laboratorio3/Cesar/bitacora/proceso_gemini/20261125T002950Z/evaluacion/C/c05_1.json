@@ -1,0 +1,35 @@
+{
+  "caso": "c05",
+  "repeticion": 1,
+  "config": "C",
+  "fecha_utc": "2026-11-25T00:48:31.677385+00:00",
+  "modelo": "gemini-3.1-flash-lite",
+  "salida": {
+    "respuesta": "Los errores deben responderse con el formato application/problem+json, incluyendo los campos type, title, status, detail y trace_id. Está estrictamente prohibido incluir trazas de pila o datos personales en el campo detail.",
+    "fuentes": [
+      "ing-07#0"
+    ],
+    "abstuvo": false,
+    "errores_citas": [],
+    "latencia_ms": 2550.5,
+    "costo_usd": 0.0004622,
+    "recuperados": [
+      [
+        "ing-07#0",
+        0.731
+      ],
+      [
+        "ing-12#0",
+        0.684
+      ],
+      [
+        "ing-07#1",
+        0.637
+      ],
+      [
+        "ing-12#1",
+        0.625
+      ]
+    ]
+  }
+}

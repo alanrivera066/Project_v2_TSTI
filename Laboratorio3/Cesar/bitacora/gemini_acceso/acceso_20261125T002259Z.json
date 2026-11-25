@@ -1,0 +1,9 @@
+{
+  "fecha_utc": "2026-11-25T00:22:59.097422+00:00",
+  "configuracion_guardada": true,
+  "credencial_en_informe": false,
+  "api": "GET /v1beta/models",
+  "estado": "error_conexion",
+  "tipo_error": "ConnectionError",
+  "dns": true
+}

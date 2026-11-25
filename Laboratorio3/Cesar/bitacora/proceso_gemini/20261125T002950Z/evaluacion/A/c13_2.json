@@ -1,0 +1,16 @@
+{
+  "caso": "c13",
+  "repeticion": 2,
+  "config": "A",
+  "fecha_utc": "2026-11-25T00:41:29.097090+00:00",
+  "modelo": "gemini-3.1-flash-lite",
+  "salida": {
+    "respuesta": "Para poder darte una respuesta precisa, es necesario aclarar que **\"FinNorte\"** no es una entidad financiera reconocida a nivel nacional o internacional con un producto de tarjeta de crédito estandarizado.\n\nEs posible que te refieras a alguna de las siguientes situaciones:\n\n1.  **Una entidad local o regional:** Si se trata de una cooperativa, caja de ahorro o financiera pequeña de una región específica (por ejemplo, en el norte de México, Argentina o Chile), las tasas de interés varían constantemente según la política monetaria del país y el perfil crediticio del cliente.\n2.  **Un nombre comercial distinto:** A veces, las empresas operan bajo nombres comerciales que no coinciden con su razón social.\n3.  **Posible confusión:** Podrías estar refiriéndote a una institución con un nombre similar (como *Banorte* en México).\n\n**Si te refieres a Banorte (México):**\nLas tasas de interés de las tarjetas de crédito de Banorte son variables y dependen del producto específico (Clásica, Oro, Platinum, Infinite, etc.) y del historial del cliente. Puedes consultar el **CAT (Costo Anual Total)** promedio de cada tarjeta en su sitio web oficial: [www.banorte.com](https://www.banorte.com).\n\n**Para obtener la información correcta, te recomiendo:**\n*   **Revisar tu estado de cuenta:** Ahí aparece obligatoriamente la tasa de interés ordinaria y el CAT aplicable a tu contrato.\n*   **Consultar el sitio web oficial:** Busca la sección de \"Tarjetas de Crédito\" y descarga la \"Ficha Técnica\" o el \"Contrato\" del producto.\n*   **Llamar a atención al cliente:** El número suele estar al reverso de tu tarjeta física.\n\n**¿Podrías confirmar el país o el nombre exacto de la institución?** Con esa información podré ayudarte a buscar el dato específico.",
+    "fuentes": [],
+    "abstuvo": false,
+    "errores_citas": [],
+    "latencia_ms": 6162.2,
+    "costo_usd": 0.0010319,
+    "recuperados": []
+  }
+}

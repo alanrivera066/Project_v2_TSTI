@@ -1,0 +1,16 @@
+{
+  "caso": "c12",
+  "repeticion": 1,
+  "config": "A",
+  "fecha_utc": "2026-11-25T00:40:56.871992+00:00",
+  "modelo": "gemini-3.1-flash-lite",
+  "salida": {
+    "respuesta": "La respuesta corta es: **Técnicamente sí, pero culturalmente (y por seguridad) es una pésima idea.**\n\nEn el mundo del desarrollo de software, existe una regla de oro no escrita: **\"No se despliega los viernes por la tarde\"** (*Friday Deployments*).\n\nAquí te explico por qué se evita y cuándo podría ser una excepción:\n\n### ¿Por qué se evita? (El riesgo)\n1. **El factor humano:** Si algo sale mal (y siempre hay una posibilidad), el equipo está cansado, pensando en el fin de semana y con menos capacidad de resolución de problemas.\n2. **Disponibilidad:** Si el despliegue causa un error crítico, es muy difícil reunir a todo el equipo (QA, DevOps, Backend, Frontend) un viernes a las 5:00 PM o durante el fin de semana.\n3. **El \"efecto fin de semana\":** Si el sistema falla, el equipo tendrá que trabajar horas extra no planificadas, lo que genera frustración, agotamiento (*burnout*) y mala moral.\n4. **Soporte:** Los equipos de atención al cliente o soporte técnico suelen tener menos personal durante el fin de semana, por lo que los usuarios afectados no recibirán ayuda rápida.\n\n### ¿Cuándo SÍ se puede hacer?\nSi tu empresa tiene una cultura de ingeniería muy madura, podrías hacerlo si cumples con estas condiciones:\n* **Despliegues automatizados y reversibles:** Si tienes un sistema de *Blue-Green Deployment* o *Canary Releases* donde puedes volver a la versión anterior con un solo clic en segundos.\n* **Pruebas automatizadas robustas:** Si tienes una suite de tests que cubre el 90%+ de los casos críticos y el despliegue no requiere intervención manual.\n* **Observabilidad:** Si tienes herramientas de monitoreo que te avisan del error antes de que el usuario lo note.\n* **Cultura de \"No-Culpa\":** Si el equipo está tranquilo y no hay presión externa.\n\n### La regla de oro moderna\nMás que prohibir el viernes, la tendencia actual es **\"Despliega cuando te sientas seguro\"**. \n\nSi tu proceso de despliegue es tan doloroso que te da miedo hacerlo un viernes, **el problema no es el día, es tu proceso.** Si logras que desplegar sea algo aburrido, rápido y seguro, el día de la semana dejará de importar.\n\n**En resumen:** Si no tienes un sistema de despliegue automatizado y un plan de *rollback* (vuelta atrás) infalible, **no lo hagas**. Disfruta tu fin de semana y despliega el lunes a primera hora.",
+    "fuentes": [],
+    "abstuvo": false,
+    "errores_citas": [],
+    "latencia_ms": 4639.0,
+    "costo_usd": 0.0014451,
+    "recuperados": []
+  }
+}

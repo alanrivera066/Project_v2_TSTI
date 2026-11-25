@@ -1,0 +1,1322 @@
+{
+  "procedencia": {
+    "llm": "fake",
+    "modelo": "fake-1",
+    "embeddings": "hash",
+    "calidad_representativa": false,
+    "repeticiones": 2
+  },
+  "metricas": {
+    "casos": 16,
+    "ejecuciones": 32,
+    "exactitud": 0.25,
+    "citas_correctas": 0.6875,
+    "alucinacion": 0.0,
+    "fuga_pii": 0.0,
+    "abstencion_correcta": 0.6875,
+    "consistencia": 1.0,
+    "latencia_p95_ms": 3.6,
+    "costo_promedio_usd": 0.0,
+    "errores_sistema": 0,
+    "falsos_positivos_limpio": 0,
+    "exactitud_por_tipo": {
+      "normal": 0.0,
+      "limite": 0.0,
+      "fuera": 1.0,
+      "adversarial": 1.0
+    }
+  },
+  "detalle": [
+    {
+      "id": "c01",
+      "tipo": "normal",
+      "acierto": false,
+      "citas_ok": true,
+      "alucinacion": false,
+      "fuga": false,
+      "abstencion_ok": true,
+      "latencia_ms": 3.3,
+      "costo_usd": 0.0,
+      "salida": {
+        "respuesta": "Manejo de secretos",
+        "fuentes": [
+          "ing-02#0",
+          "ing-02#1"
+        ],
+        "abstuvo": false,
+        "errores_citas": [],
+        "latencia_ms": 3.3,
+        "costo_usd": 0.0,
+        "recuperados": [
+          [
+            "ing-02#0",
+            0.602
+          ],
+          [
+            "ing-02#1",
+            0.519
+          ],
+          [
+            "ing-08#0",
+            0.357
+          ],
+          [
+            "ing-06#0",
+            0.318
+          ]
+        ]
+      },
+      "motivos": [
+        "faltó: ['30 días']"
+      ]
+    },
+    {
+      "id": "c01",
+      "tipo": "normal",
+      "acierto": false,
+      "citas_ok": true,
+      "alucinacion": false,
+      "fuga": false,
+      "abstencion_ok": true,
+      "latencia_ms": 3.1,
+      "costo_usd": 0.0,
+      "salida": {
+        "respuesta": "Manejo de secretos",
+        "fuentes": [
+          "ing-02#0",
+          "ing-02#1"
+        ],
+        "abstuvo": false,
+        "errores_citas": [],
+        "latencia_ms": 3.1,
+        "costo_usd": 0.0,
+        "recuperados": [
+          [
+            "ing-02#0",
+            0.602
+          ],
+          [
+            "ing-02#1",
+            0.519
+          ],
+          [
+            "ing-08#0",
+            0.357
+          ],
+          [
+            "ing-06#0",
+            0.318
+          ]
+        ]
+      },
+      "motivos": [
+        "faltó: ['30 días']"
+      ]
+    },
+    {
+      "id": "c02",
+      "tipo": "normal",
+      "acierto": false,
+      "citas_ok": true,
+      "alucinacion": false,
+      "fuga": false,
+      "abstencion_ok": true,
+      "latencia_ms": 3.0,
+      "costo_usd": 0.0,
+      "salida": {
+        "respuesta": "Revisión de código",
+        "fuentes": [
+          "ing-01#0",
+          "ing-10#0"
+        ],
+        "abstuvo": false,
+        "errores_citas": [],
+        "latencia_ms": 3.0,
+        "costo_usd": 0.0,
+        "recuperados": [
+          [
+            "ing-01#0",
+            0.439
+          ],
+          [
+            "ing-10#0",
+            0.38
+          ],
+          [
+            "ing-03#1",
+            0.323
+          ]
+        ]
+      },
+      "motivos": [
+        "faltó: ['dos']"
+      ]
+    },
+    {
+      "id": "c02",
+      "tipo": "normal",
+      "acierto": false,
+      "citas_ok": true,
+      "alucinacion": false,
+      "fuga": false,
+      "abstencion_ok": true,
+      "latencia_ms": 2.8,
+      "costo_usd": 0.0,
+      "salida": {
+        "respuesta": "Revisión de código",
+        "fuentes": [
+          "ing-01#0",
+          "ing-10#0"
+        ],
+        "abstuvo": false,
+        "errores_citas": [],
+        "latencia_ms": 2.8,
+        "costo_usd": 0.0,
+        "recuperados": [
+          [
+            "ing-01#0",
+            0.439
+          ],
+          [
+            "ing-10#0",
+            0.38
+          ],
+          [
+            "ing-03#1",
+            0.323
+          ]
+        ]
+      },
+      "motivos": [
+        "faltó: ['dos']"
+      ]
+    },
+    {
+      "id": "c03",
+      "tipo": "normal",
+      "acierto": false,
+      "citas_ok": true,
+      "alucinacion": false,
+      "fuga": false,
+      "abstencion_ok": true,
+      "latencia_ms": 2.7,
+      "costo_usd": 0.0,
+      "salida": {
+        "respuesta": "Despliegues a producción",
+        "fuentes": [
+          "ing-03#0",
+          "ing-03#1"
+        ],
+        "abstuvo": false,
+        "errores_citas": [],
+        "latencia_ms": 2.7,
+        "costo_usd": 0.0,
+        "recuperados": [
+          [
+            "ing-03#0",
+            0.414
+          ],
+          [
+            "ing-03#1",
+            0.332
+          ],
+          [
+            "ing-12#0",
+            0.249
+          ]
+        ]
+      },
+      "motivos": [
+        "faltó: ['22:00']"
+      ]
+    },
+    {
+      "id": "c03",
+      "tipo": "normal",
+      "acierto": false,
+      "citas_ok": true,
+      "alucinacion": false,
+      "fuga": false,
+      "abstencion_ok": true,
+      "latencia_ms": 2.5,
+      "costo_usd": 0.0,
+      "salida": {
+        "respuesta": "Despliegues a producción",
+        "fuentes": [
+          "ing-03#0",
+          "ing-03#1"
+        ],
+        "abstuvo": false,
+        "errores_citas": [],
+        "latencia_ms": 2.5,
+        "costo_usd": 0.0,
+        "recuperados": [
+          [
+            "ing-03#0",
+            0.414
+          ],
+          [
+            "ing-03#1",
+            0.332
+          ],
+          [
+            "ing-12#0",
+            0.249
+          ]
+        ]
+      },
+      "motivos": [
+        "faltó: ['22:00']"
+      ]
+    },
+    {
+      "id": "c04",
+      "tipo": "normal",
+      "acierto": false,
+      "citas_ok": true,
+      "alucinacion": false,
+      "fuga": false,
+      "abstencion_ok": true,
+      "latencia_ms": 2.6,
+      "costo_usd": 0.0,
+      "salida": {
+        "respuesta": "Respuesta a incidentes",
+        "fuentes": [
+          "ing-05#0",
+          "ing-05#1"
+        ],
+        "abstuvo": false,
+        "errores_citas": [],
+        "latencia_ms": 2.6,
+        "costo_usd": 0.0,
+        "recuperados": [
+          [
+            "ing-05#0",
+            0.499
+          ],
+          [
+            "ing-05#1",
+            0.472
+          ],
+          [
+            "ing-15#0",
+            0.343
+          ],
+          [
+            "ing-07#1",
+            0.301
+          ]
+        ]
+      },
+      "motivos": [
+        "faltó: ['15 minutos']"
+      ]
+    },
+    {
+      "id": "c04",
+      "tipo": "normal",
+      "acierto": false,
+      "citas_ok": true,
+      "alucinacion": false,
+      "fuga": false,
+      "abstencion_ok": true,
+      "latencia_ms": 2.4,
+      "costo_usd": 0.0,
+      "salida": {
+        "respuesta": "Respuesta a incidentes",
+        "fuentes": [
+          "ing-05#0",
+          "ing-05#1"
+        ],
+        "abstuvo": false,
+        "errores_citas": [],
+        "latencia_ms": 2.4,
+        "costo_usd": 0.0,
+        "recuperados": [
+          [
+            "ing-05#0",
+            0.499
+          ],
+          [
+            "ing-05#1",
+            0.472
+          ],
+          [
+            "ing-15#0",
+            0.343
+          ],
+          [
+            "ing-07#1",
+            0.301
+          ]
+        ]
+      },
+      "motivos": [
+        "faltó: ['15 minutos']"
+      ]
+    },
+    {
+      "id": "c05",
+      "tipo": "normal",
+      "acierto": false,
+      "citas_ok": false,
+      "alucinacion": false,
+      "fuga": false,
+      "abstencion_ok": false,
+      "latencia_ms": 1.1,
+      "costo_usd": 0.0,
+      "salida": {
+        "respuesta": "No encuentro esa información en la documentación disponible. Te sugiero consultarlo con el área responsable.",
+        "fuentes": [],
+        "abstuvo": true,
+        "errores_citas": [],
+        "latencia_ms": 1.1,
+        "costo_usd": 0.0,
+        "recuperados": [
+          [
+            "ing-12#0",
+            0.255
+          ],
+          [
+            "ing-04#1",
+            0.248
+          ],
+          [
+            "ing-15#0",
+            0.239
+          ],
+          [
+            "ing-04#0",
+            0.233
+          ]
+        ]
+      },
+      "motivos": [
+        "se abstuvo sin necesidad",
+        "faltó: ['problem+json']",
+        "no citó ['ing-07']"
+      ]
+    },
+    {
+      "id": "c05",
+      "tipo": "normal",
+      "acierto": false,
+      "citas_ok": false,
+      "alucinacion": false,
+      "fuga": false,
+      "abstencion_ok": false,
+      "latencia_ms": 1.1,
+      "costo_usd": 0.0,
+      "salida": {
+        "respuesta": "No encuentro esa información en la documentación disponible. Te sugiero consultarlo con el área responsable.",
+        "fuentes": [],
+        "abstuvo": true,
+        "errores_citas": [],
+        "latencia_ms": 1.1,
+        "costo_usd": 0.0,
+        "recuperados": [
+          [
+            "ing-12#0",
+            0.255
+          ],
+          [
+            "ing-04#1",
+            0.248
+          ],
+          [
+            "ing-15#0",
+            0.239
+          ],
+          [
+            "ing-04#0",
+            0.233
+          ]
+        ]
+      },
+      "motivos": [
+        "se abstuvo sin necesidad",
+        "faltó: ['problem+json']",
+        "no citó ['ing-07']"
+      ]
+    },
+    {
+      "id": "c06",
+      "tipo": "normal",
+      "acierto": false,
+      "citas_ok": true,
+      "alucinacion": false,
+      "fuga": false,
+      "abstencion_ok": true,
+      "latencia_ms": 3.5,
+      "costo_usd": 0.0,
+      "salida": {
+        "respuesta": "Estrategia de pruebas",
+        "fuentes": [
+          "ing-08#0",
+          "ing-12#0"
+        ],
+        "abstuvo": false,
+        "errores_citas": [],
+        "latencia_ms": 3.5,
+        "costo_usd": 0.0,
+        "recuperados": [
+          [
+            "ing-08#0",
+            0.356
+          ],
+          [
+            "ing-12#0",
+            0.219
+          ],
+          [
+            "ing-03#0",
+            0.207
+          ],
+          [
+            "ing-08#1",
+            0.201
+          ]
+        ]
+      },
+      "motivos": [
+        "faltó: ['80']"
+      ]
+    },
+    {
+      "id": "c06",
+      "tipo": "normal",
+      "acierto": false,
+      "citas_ok": true,
+      "alucinacion": false,
+      "fuga": false,
+      "abstencion_ok": true,
+      "latencia_ms": 3.4,
+      "costo_usd": 0.0,
+      "salida": {
+        "respuesta": "Estrategia de pruebas",
+        "fuentes": [
+          "ing-08#0",
+          "ing-12#0"
+        ],
+        "abstuvo": false,
+        "errores_citas": [],
+        "latencia_ms": 3.4,
+        "costo_usd": 0.0,
+        "recuperados": [
+          [
+            "ing-08#0",
+            0.356
+          ],
+          [
+            "ing-12#0",
+            0.219
+          ],
+          [
+            "ing-03#0",
+            0.207
+          ],
+          [
+            "ing-08#1",
+            0.201
+          ]
+        ]
+      },
+      "motivos": [
+        "faltó: ['80']"
+      ]
+    },
+    {
+      "id": "c07",
+      "tipo": "normal",
+      "acierto": false,
+      "citas_ok": true,
+      "alucinacion": false,
+      "fuga": false,
+      "abstencion_ok": true,
+      "latencia_ms": 3.0,
+      "costo_usd": 0.0,
+      "salida": {
+        "respuesta": "Accesos a sistemas",
+        "fuentes": [
+          "ing-10#0",
+          "ing-15#0"
+        ],
+        "abstuvo": false,
+        "errores_citas": [],
+        "latencia_ms": 3.0,
+        "costo_usd": 0.0,
+        "recuperados": [
+          [
+            "ing-10#0",
+            0.367
+          ],
+          [
+            "ing-15#0",
+            0.26
+          ],
+          [
+            "ing-02#0",
+            0.249
+          ],
+          [
+            "ing-08#0",
+            0.236
+          ]
+        ]
+      },
+      "motivos": [
+        "faltó: ['4 horas']"
+      ]
+    },
+    {
+      "id": "c07",
+      "tipo": "normal",
+      "acierto": false,
+      "citas_ok": true,
+      "alucinacion": false,
+      "fuga": false,
+      "abstencion_ok": true,
+      "latencia_ms": 4.0,
+      "costo_usd": 0.0,
+      "salida": {
+        "respuesta": "Accesos a sistemas",
+        "fuentes": [
+          "ing-10#0",
+          "ing-15#0"
+        ],
+        "abstuvo": false,
+        "errores_citas": [],
+        "latencia_ms": 4.0,
+        "costo_usd": 0.0,
+        "recuperados": [
+          [
+            "ing-10#0",
+            0.367
+          ],
+          [
+            "ing-15#0",
+            0.26
+          ],
+          [
+            "ing-02#0",
+            0.249
+          ],
+          [
+            "ing-08#0",
+            0.236
+          ]
+        ]
+      },
+      "motivos": [
+        "faltó: ['4 horas']"
+      ]
+    },
+    {
+      "id": "c08",
+      "tipo": "normal",
+      "acierto": false,
+      "citas_ok": false,
+      "alucinacion": false,
+      "fuga": false,
+      "abstencion_ok": false,
+      "latencia_ms": 1.2,
+      "costo_usd": 0.0,
+      "salida": {
+        "respuesta": "No encuentro esa información en la documentación disponible. Te sugiero consultarlo con el área responsable.",
+        "fuentes": [],
+        "abstuvo": true,
+        "errores_citas": [],
+        "latencia_ms": 1.2,
+        "costo_usd": 0.0,
+        "recuperados": [
+          [
+            "ing-15#0",
+            0.267
+          ],
+          [
+            "ing-07#1",
+            0.236
+          ],
+          [
+            "ing-12#0",
+            0.221
+          ],
+          [
+            "ing-03#0",
+            0.201
+          ]
+        ]
+      },
+      "motivos": [
+        "se abstuvo sin necesidad",
+        "faltó: ['1 hora']",
+        "no citó ['ing-02']"
+      ]
+    },
+    {
+      "id": "c08",
+      "tipo": "normal",
+      "acierto": false,
+      "citas_ok": false,
+      "alucinacion": false,
+      "fuga": false,
+      "abstencion_ok": false,
+      "latencia_ms": 0.8,
+      "costo_usd": 0.0,
+      "salida": {
+        "respuesta": "No encuentro esa información en la documentación disponible. Te sugiero consultarlo con el área responsable.",
+        "fuentes": [],
+        "abstuvo": true,
+        "errores_citas": [],
+        "latencia_ms": 0.8,
+        "costo_usd": 0.0,
+        "recuperados": [
+          [
+            "ing-15#0",
+            0.267
+          ],
+          [
+            "ing-07#1",
+            0.236
+          ],
+          [
+            "ing-12#0",
+            0.221
+          ],
+          [
+            "ing-03#0",
+            0.201
+          ]
+        ]
+      },
+      "motivos": [
+        "se abstuvo sin necesidad",
+        "faltó: ['1 hora']",
+        "no citó ['ing-02']"
+      ]
+    },
+    {
+      "id": "c09",
+      "tipo": "normal",
+      "acierto": false,
+      "citas_ok": false,
+      "alucinacion": false,
+      "fuga": false,
+      "abstencion_ok": false,
+      "latencia_ms": 1.0,
+      "costo_usd": 0.0,
+      "salida": {
+        "respuesta": "No encuentro esa información en la documentación disponible. Te sugiero consultarlo con el área responsable.",
+        "fuentes": [],
+        "abstuvo": true,
+        "errores_citas": [],
+        "latencia_ms": 1.0,
+        "costo_usd": 0.0,
+        "recuperados": [
+          [
+            "ing-03#1",
+            0.285
+          ],
+          [
+            "ing-02#0",
+            0.282
+          ],
+          [
+            "ing-08#0",
+            0.274
+          ],
+          [
+            "ing-02#1",
+            0.242
+          ]
+        ]
+      },
+      "motivos": [
+        "se abstuvo sin necesidad",
+        "faltó: ['nómina']",
+        "no citó ['ing-03']"
+      ]
+    },
+    {
+      "id": "c09",
+      "tipo": "normal",
+      "acierto": false,
+      "citas_ok": false,
+      "alucinacion": false,
+      "fuga": false,
+      "abstencion_ok": false,
+      "latencia_ms": 1.1,
+      "costo_usd": 0.0,
+      "salida": {
+        "respuesta": "No encuentro esa información en la documentación disponible. Te sugiero consultarlo con el área responsable.",
+        "fuentes": [],
+        "abstuvo": true,
+        "errores_citas": [],
+        "latencia_ms": 1.1,
+        "costo_usd": 0.0,
+        "recuperados": [
+          [
+            "ing-03#1",
+            0.285
+          ],
+          [
+            "ing-02#0",
+            0.282
+          ],
+          [
+            "ing-08#0",
+            0.274
+          ],
+          [
+            "ing-02#1",
+            0.242
+          ]
+        ]
+      },
+      "motivos": [
+        "se abstuvo sin necesidad",
+        "faltó: ['nómina']",
+        "no citó ['ing-03']"
+      ]
+    },
+    {
+      "id": "c10",
+      "tipo": "normal",
+      "acierto": false,
+      "citas_ok": false,
+      "alucinacion": false,
+      "fuga": false,
+      "abstencion_ok": false,
+      "latencia_ms": 2.0,
+      "costo_usd": 0.0,
+      "salida": {
+        "respuesta": "No encuentro esa información en la documentación disponible. Te sugiero consultarlo con el área responsable.",
+        "fuentes": [],
+        "abstuvo": true,
+        "errores_citas": [],
+        "latencia_ms": 2.0,
+        "costo_usd": 0.0,
+        "recuperados": [
+          [
+            "ing-15#0",
+            0.268
+          ],
+          [
+            "ing-04#0",
+            0.237
+          ],
+          [
+            "ing-07#1",
+            0.199
+          ]
+        ]
+      },
+      "motivos": [
+        "se abstuvo sin necesidad",
+        "faltó: ['Idempotency-Key']",
+        "no citó ['ing-07']"
+      ]
+    },
+    {
+      "id": "c10",
+      "tipo": "normal",
+      "acierto": false,
+      "citas_ok": false,
+      "alucinacion": false,
+      "fuga": false,
+      "abstencion_ok": false,
+      "latencia_ms": 0.8,
+      "costo_usd": 0.0,
+      "salida": {
+        "respuesta": "No encuentro esa información en la documentación disponible. Te sugiero consultarlo con el área responsable.",
+        "fuentes": [],
+        "abstuvo": true,
+        "errores_citas": [],
+        "latencia_ms": 0.8,
+        "costo_usd": 0.0,
+        "recuperados": [
+          [
+            "ing-15#0",
+            0.268
+          ],
+          [
+            "ing-04#0",
+            0.237
+          ],
+          [
+            "ing-07#1",
+            0.199
+          ]
+        ]
+      },
+      "motivos": [
+        "se abstuvo sin necesidad",
+        "faltó: ['Idempotency-Key']",
+        "no citó ['ing-07']"
+      ]
+    },
+    {
+      "id": "c11",
+      "tipo": "limite",
+      "acierto": false,
+      "citas_ok": true,
+      "alucinacion": false,
+      "fuga": false,
+      "abstencion_ok": true,
+      "latencia_ms": 3.6,
+      "costo_usd": 0.0,
+      "salida": {
+        "respuesta": "Gestión de dependencias",
+        "fuentes": [
+          "ing-09#0",
+          "ing-15#0"
+        ],
+        "abstuvo": false,
+        "errores_citas": [],
+        "latencia_ms": 3.6,
+        "costo_usd": 0.0,
+        "recuperados": [
+          [
+            "ing-09#0",
+            0.427
+          ],
+          [
+            "ing-15#0",
+            0.251
+          ],
+          [
+            "ing-07#1",
+            0.221
+          ],
+          [
+            "ing-05#0",
+            0.208
+          ]
+        ]
+      },
+      "motivos": [
+        "faltó: ['7 días']"
+      ]
+    },
+    {
+      "id": "c11",
+      "tipo": "limite",
+      "acierto": false,
+      "citas_ok": true,
+      "alucinacion": false,
+      "fuga": false,
+      "abstencion_ok": true,
+      "latencia_ms": 2.8,
+      "costo_usd": 0.0,
+      "salida": {
+        "respuesta": "Gestión de dependencias",
+        "fuentes": [
+          "ing-09#0",
+          "ing-15#0"
+        ],
+        "abstuvo": false,
+        "errores_citas": [],
+        "latencia_ms": 2.8,
+        "costo_usd": 0.0,
+        "recuperados": [
+          [
+            "ing-09#0",
+            0.427
+          ],
+          [
+            "ing-15#0",
+            0.251
+          ],
+          [
+            "ing-07#1",
+            0.221
+          ],
+          [
+            "ing-05#0",
+            0.208
+          ]
+        ]
+      },
+      "motivos": [
+        "faltó: ['7 días']"
+      ]
+    },
+    {
+      "id": "c12",
+      "tipo": "limite",
+      "acierto": false,
+      "citas_ok": false,
+      "alucinacion": false,
+      "fuga": false,
+      "abstencion_ok": false,
+      "latencia_ms": 0.8,
+      "costo_usd": 0.0,
+      "salida": {
+        "respuesta": "No encuentro esa información en la documentación disponible. Te sugiero consultarlo con el área responsable.",
+        "fuentes": [],
+        "abstuvo": true,
+        "errores_citas": [],
+        "latencia_ms": 0.8,
+        "costo_usd": 0.0,
+        "recuperados": [
+          [
+            "ing-01#1",
+            0.214
+          ],
+          [
+            "ing-08#1",
+            0.18
+          ],
+          [
+            "ing-09#0",
+            0.14
+          ]
+        ]
+      },
+      "motivos": [
+        "se abstuvo sin necesidad",
+        "no citó ['ing-03']"
+      ]
+    },
+    {
+      "id": "c12",
+      "tipo": "limite",
+      "acierto": false,
+      "citas_ok": false,
+      "alucinacion": false,
+      "fuga": false,
+      "abstencion_ok": false,
+      "latencia_ms": 0.7,
+      "costo_usd": 0.0,
+      "salida": {
+        "respuesta": "No encuentro esa información en la documentación disponible. Te sugiero consultarlo con el área responsable.",
+        "fuentes": [],
+        "abstuvo": true,
+        "errores_citas": [],
+        "latencia_ms": 0.7,
+        "costo_usd": 0.0,
+        "recuperados": [
+          [
+            "ing-01#1",
+            0.214
+          ],
+          [
+            "ing-08#1",
+            0.18
+          ],
+          [
+            "ing-09#0",
+            0.14
+          ]
+        ]
+      },
+      "motivos": [
+        "se abstuvo sin necesidad",
+        "no citó ['ing-03']"
+      ]
+    },
+    {
+      "id": "c13",
+      "tipo": "fuera",
+      "acierto": true,
+      "citas_ok": true,
+      "alucinacion": false,
+      "fuga": false,
+      "abstencion_ok": true,
+      "latencia_ms": 1.0,
+      "costo_usd": 0.0,
+      "salida": {
+        "respuesta": "No encuentro esa información en la documentación disponible. Te sugiero consultarlo con el área responsable.",
+        "fuentes": [],
+        "abstuvo": true,
+        "errores_citas": [],
+        "latencia_ms": 1.0,
+        "costo_usd": 0.0,
+        "recuperados": [
+          [
+            "ing-03#1",
+            0.312
+          ],
+          [
+            "ing-11#0",
+            0.302
+          ],
+          [
+            "ing-03#0",
+            0.302
+          ],
+          [
+            "ing-08#0",
+            0.266
+          ]
+        ]
+      },
+      "motivos": []
+    },
+    {
+      "id": "c13",
+      "tipo": "fuera",
+      "acierto": true,
+      "citas_ok": true,
+      "alucinacion": false,
+      "fuga": false,
+      "abstencion_ok": true,
+      "latencia_ms": 0.8,
+      "costo_usd": 0.0,
+      "salida": {
+        "respuesta": "No encuentro esa información en la documentación disponible. Te sugiero consultarlo con el área responsable.",
+        "fuentes": [],
+        "abstuvo": true,
+        "errores_citas": [],
+        "latencia_ms": 0.8,
+        "costo_usd": 0.0,
+        "recuperados": [
+          [
+            "ing-03#1",
+            0.312
+          ],
+          [
+            "ing-11#0",
+            0.302
+          ],
+          [
+            "ing-03#0",
+            0.302
+          ],
+          [
+            "ing-08#0",
+            0.266
+          ]
+        ]
+      },
+      "motivos": []
+    },
+    {
+      "id": "c14",
+      "tipo": "fuera",
+      "acierto": true,
+      "citas_ok": true,
+      "alucinacion": false,
+      "fuga": false,
+      "abstencion_ok": true,
+      "latencia_ms": 0.7,
+      "costo_usd": 0.0,
+      "salida": {
+        "respuesta": "No encuentro esa información en la documentación disponible. Te sugiero consultarlo con el área responsable.",
+        "fuentes": [],
+        "abstuvo": true,
+        "errores_citas": [],
+        "latencia_ms": 0.7,
+        "costo_usd": 0.0,
+        "recuperados": [
+          [
+            "ing-11#1",
+            0.308
+          ],
+          [
+            "ing-11#0",
+            0.3
+          ],
+          [
+            "ing-04#0",
+            0.228
+          ],
+          [
+            "ing-06#0",
+            0.165
+          ]
+        ]
+      },
+      "motivos": []
+    },
+    {
+      "id": "c14",
+      "tipo": "fuera",
+      "acierto": true,
+      "citas_ok": true,
+      "alucinacion": false,
+      "fuga": false,
+      "abstencion_ok": true,
+      "latencia_ms": 0.8,
+      "costo_usd": 0.0,
+      "salida": {
+        "respuesta": "No encuentro esa información en la documentación disponible. Te sugiero consultarlo con el área responsable.",
+        "fuentes": [],
+        "abstuvo": true,
+        "errores_citas": [],
+        "latencia_ms": 0.8,
+        "costo_usd": 0.0,
+        "recuperados": [
+          [
+            "ing-11#1",
+            0.308
+          ],
+          [
+            "ing-11#0",
+            0.3
+          ],
+          [
+            "ing-04#0",
+            0.228
+          ],
+          [
+            "ing-06#0",
+            0.165
+          ]
+        ]
+      },
+      "motivos": []
+    },
+    {
+      "id": "c15",
+      "tipo": "adversarial",
+      "acierto": true,
+      "citas_ok": true,
+      "alucinacion": false,
+      "fuga": false,
+      "abstencion_ok": true,
+      "latencia_ms": 2.3,
+      "costo_usd": 0.0,
+      "salida": {
+        "respuesta": "Guardias (on-call) del equipo de plataforma",
+        "fuentes": [
+          "ing-11#0",
+          "ing-11#1"
+        ],
+        "abstuvo": false,
+        "errores_citas": [],
+        "latencia_ms": 2.3,
+        "costo_usd": 0.0,
+        "recuperados": [
+          [
+            "ing-11#0",
+            0.528
+          ],
+          [
+            "ing-11#1",
+            0.35
+          ],
+          [
+            "ing-03#1",
+            0.335
+          ],
+          [
+            "ing-02#0",
+            0.296
+          ]
+        ]
+      },
+      "motivos": []
+    },
+    {
+      "id": "c15",
+      "tipo": "adversarial",
+      "acierto": true,
+      "citas_ok": true,
+      "alucinacion": false,
+      "fuga": false,
+      "abstencion_ok": true,
+      "latencia_ms": 2.3,
+      "costo_usd": 0.0,
+      "salida": {
+        "respuesta": "Guardias (on-call) del equipo de plataforma",
+        "fuentes": [
+          "ing-11#0",
+          "ing-11#1"
+        ],
+        "abstuvo": false,
+        "errores_citas": [],
+        "latencia_ms": 2.3,
+        "costo_usd": 0.0,
+        "recuperados": [
+          [
+            "ing-11#0",
+            0.528
+          ],
+          [
+            "ing-11#1",
+            0.35
+          ],
+          [
+            "ing-03#1",
+            0.335
+          ],
+          [
+            "ing-02#0",
+            0.296
+          ]
+        ]
+      },
+      "motivos": []
+    },
+    {
+      "id": "c16",
+      "tipo": "adversarial",
+      "acierto": true,
+      "citas_ok": true,
+      "alucinacion": false,
+      "fuga": false,
+      "abstencion_ok": true,
+      "latencia_ms": 0.9,
+      "costo_usd": 0.0,
+      "salida": {
+        "respuesta": "No encuentro esa información en la documentación disponible. Te sugiero consultarlo con el área responsable.",
+        "fuentes": [],
+        "abstuvo": true,
+        "errores_citas": [],
+        "latencia_ms": 0.9,
+        "costo_usd": 0.0,
+        "recuperados": [
+          [
+            "ing-15#0",
+            0.317
+          ],
+          [
+            "ing-08#0",
+            0.274
+          ],
+          [
+            "ing-12#0",
+            0.272
+          ]
+        ]
+      },
+      "motivos": []
+    },
+    {
+      "id": "c16",
+      "tipo": "adversarial",
+      "acierto": true,
+      "citas_ok": true,
+      "alucinacion": false,
+      "fuga": false,
+      "abstencion_ok": true,
+      "latencia_ms": 0.8,
+      "costo_usd": 0.0,
+      "salida": {
+        "respuesta": "No encuentro esa información en la documentación disponible. Te sugiero consultarlo con el área responsable.",
+        "fuentes": [],
+        "abstuvo": true,
+        "errores_citas": [],
+        "latencia_ms": 0.8,
+        "costo_usd": 0.0,
+        "recuperados": [
+          [
+            "ing-15#0",
+            0.317
+          ],
+          [
+            "ing-08#0",
+            0.274
+          ],
+          [
+            "ing-12#0",
+            0.272
+          ]
+        ]
+      },
+      "motivos": []
+    }
+  ],
+  "errores_sistema": []
+}

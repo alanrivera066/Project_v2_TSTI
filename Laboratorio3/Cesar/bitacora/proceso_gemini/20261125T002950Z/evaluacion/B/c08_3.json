@@ -1,0 +1,16 @@
+{
+  "caso": "c08",
+  "repeticion": 3,
+  "config": "B",
+  "fecha_utc": "2026-11-25T00:44:49.243656+00:00",
+  "modelo": "gemini-3.1-flash-lite",
+  "salida": {
+    "respuesta": "No cuento con información en el contexto proporcionado sobre los procedimientos de seguridad ante la exposición de llaves de API en el repositorio.",
+    "fuentes": [],
+    "abstuvo": true,
+    "errores_citas": [],
+    "latencia_ms": 2132.6,
+    "costo_usd": 0.0002275,
+    "recuperados": []
+  }
+}
