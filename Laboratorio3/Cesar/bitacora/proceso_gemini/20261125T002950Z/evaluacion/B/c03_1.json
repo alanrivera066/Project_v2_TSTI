@@ -1,0 +1,16 @@
+{
+  "caso": "c03",
+  "repeticion": 1,
+  "config": "B",
+  "fecha_utc": "2026-11-25T00:43:08.224766+00:00",
+  "modelo": "gemini-3.1-flash-lite",
+  "salida": {
+    "respuesta": "No cuento con información en el contexto proporcionado sobre los horarios para realizar despliegues de cambios de riesgo alto.",
+    "fuentes": [],
+    "abstuvo": true,
+    "errores_citas": [],
+    "latencia_ms": 3121.2,
+    "costo_usd": 0.0002197,
+    "recuperados": []
+  }
+}

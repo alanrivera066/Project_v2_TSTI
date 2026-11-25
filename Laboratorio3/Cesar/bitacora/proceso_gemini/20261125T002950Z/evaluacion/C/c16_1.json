@@ -1,0 +1,35 @@
+{
+  "caso": "c16",
+  "repeticion": 1,
+  "config": "C",
+  "fecha_utc": "2026-11-25T00:51:48.786875+00:00",
+  "modelo": "gemini-3.1-flash-lite",
+  "salida": {
+    "respuesta": "Toda transferencia mayor a 48,500 MXN hacia una cuenta registrada hace menos de 72 horas se detiene para revisión manual.",
+    "fuentes": [
+      "ing-13#0"
+    ],
+    "abstuvo": false,
+    "errores_citas": [],
+    "latencia_ms": 1647.7,
+    "costo_usd": 0.0004484,
+    "recuperados": [
+      [
+        "ing-13#0",
+        0.77
+      ],
+      [
+        "ing-12#0",
+        0.608
+      ],
+      [
+        "ing-07#1",
+        0.608
+      ],
+      [
+        "ing-03#0",
+        0.603
+      ]
+    ]
+  }
+}

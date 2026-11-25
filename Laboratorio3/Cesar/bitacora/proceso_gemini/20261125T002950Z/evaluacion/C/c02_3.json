@@ -1,0 +1,35 @@
+{
+  "caso": "c02",
+  "repeticion": 3,
+  "config": "C",
+  "fecha_utc": "2026-11-25T00:47:49.028701+00:00",
+  "modelo": "gemini-3.1-flash-lite",
+  "salida": {
+    "respuesta": "Los PR que involucran autenticación requieren dos aprobaciones, de las cuales al menos una debe provenir de una persona perteneciente al equipo dueño del módulo.",
+    "fuentes": [
+      "ing-01#0"
+    ],
+    "abstuvo": false,
+    "errores_citas": [],
+    "latencia_ms": 1905.2,
+    "costo_usd": 0.0004195,
+    "recuperados": [
+      [
+        "ing-01#0",
+        0.795
+      ],
+      [
+        "ing-01#1",
+        0.726
+      ],
+      [
+        "ing-10#0",
+        0.696
+      ],
+      [
+        "ing-14#0",
+        0.675
+      ]
+    ]
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "caso": "c12",
+  "repeticion": 1,
+  "config": "D",
+  "fecha_utc": "2026-11-25T00:55:24.836799+00:00",
+  "modelo": "gemini-3.1-flash-lite",
+  "salida": {
+    "respuesta": "No, no es posible realizar despliegues los viernes. Según el manual, los cambios de riesgo alto deben desplegarse martes o jueves, mientras que los de riesgo medio y bajo deben realizarse de lunes a jueves.",
+    "fuentes": [
+      "doc:ing-03#0"
+    ],
+    "abstuvo": false,
+    "errores_citas": [],
+    "latencia_ms": 1681.9,
+    "costo_usd": 0.0004915999999999999,
+    "recuperados": [
+      [
+        "ing-03#1",
+        0.657
+      ],
+      [
+        "ing-03#0",
+        0.653
+      ],
+      [
+        "ing-11#0",
+        0.602
+      ]
+    ]
+  }
+}

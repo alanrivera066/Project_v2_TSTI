@@ -1,0 +1,16 @@
+{
+  "caso": "c02",
+  "repeticion": 2,
+  "config": "B",
+  "fecha_utc": "2026-11-25T00:42:54.864821+00:00",
+  "modelo": "gemini-3.1-flash-lite",
+  "salida": {
+    "respuesta": "No cuento con información en el contexto proporcionado sobre el número de aprobaciones requeridas para un PR que involucre autenticación.",
+    "fuentes": [],
+    "abstuvo": true,
+    "errores_citas": [],
+    "latencia_ms": 1761.6,
+    "costo_usd": 0.00022939999999999997,
+    "recuperados": []
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "caso": "c10",
+  "repeticion": 2,
+  "config": "A",
+  "fecha_utc": "2026-11-25T00:40:28.229173+00:00",
+  "modelo": "gemini-3.1-flash-lite",
+  "salida": {
+    "respuesta": "Si un cliente te envía dos veces la misma transferencia por error, lo más importante es **actuar con transparencia y rapidez**. Aquí te explico los pasos que debes seguir para manejar la situación de forma profesional y legal:\n\n### 1. No gastes ni muevas el dinero\nAunque el dinero esté en tu cuenta, **no te pertenece**. Si lo gastas, podrías incurrir en un problema legal por apropiación indebida. Mantén el monto intacto en tu cuenta bancaria.\n\n### 2. Verifica la situación\n*   **Confirma el error:** Revisa tus estados de cuenta y asegúrate de que, efectivamente, se trata de una duplicidad y no de un pago por otro concepto o una factura pendiente.\n*   **Contacta al cliente:** Escríbele o llámale inmediatamente. Es muy probable que el cliente ya se haya dado cuenta y esté preocupado.\n    *   *Ejemplo de mensaje:* \"Hola [Nombre del cliente], te contacto porque he recibido dos transferencias idénticas por el pago de [concepto]. Entiendo que ha sido un error, ¿prefieres que te devuelva el importe o quieres que lo apliquemos como saldo a favor para futuras compras?\"\n\n### 3. Elige cómo proceder\nTienes dos opciones principales:\n\n*   **Opción A: Devolución inmediata (Lo más recomendado)**\n    *   Realiza una transferencia de vuelta por el mismo monto.\n    *   **Importante:** Asegúrate de que la cuenta de destino sea la misma desde la que salió el dinero original.\n    *   Guarda el comprobante de la devolución y envíaselo al cliente.\n*   **Opción B: Saldo a favor**\n    *   Si el cliente es recurrente y te lo solicita, puedes dejar ese dinero como crédito para una compra futura.\n    *   **Importante:** Documenta esto por escrito (un correo electrónico o mensaje donde el cliente acepte explícitamente que el dinero se quede como saldo a favor). Esto evita reclamos futuros.\n\n### 4. Consideraciones contables y fiscales\n*   **Si eres empresa o autónomo:** No emitas una factura por el segundo pago. Si ya emitiste una factura por el primer pago, el segundo es simplemente un \"error de ingreso\" que debe ser reembolsado.\n*   **Si el banco te contacta:** A veces, el banco del cliente detecta el error y te contacta para solicitar la devolución. Si esto sucede, colabora de inmediato para evitar que el banco bloquee el monto o inicie un proceso de reversión forzosa.\n\n### ¿Qué pasa si no haces nada?\nSi ignoras el error, el cliente puede:\n1.  Contactar a su banco para solicitar una **reclamación de transferencia errónea**.\n2.  El banco se pondrá en contacto con tu banco.\n3.  Tu banco podría retener el dinero o incluso suspender tu cuenta temporalmente mientras se aclara la situación.\n4.  Podrías perder la confianza del cliente y dañar tu reputación profesional.\n\n**En resumen:** Lo mejor es contactar al cliente, confirmar el error y devolver el dinero lo antes posible. Eso genera confianza y te evita cualquier complicación legal.",
+    "fuentes": [],
+    "abstuvo": false,
+    "errores_citas": [],
+    "latencia_ms": 13403.1,
+    "costo_usd": 0.001731,
+    "recuperados": []
+  }
+}

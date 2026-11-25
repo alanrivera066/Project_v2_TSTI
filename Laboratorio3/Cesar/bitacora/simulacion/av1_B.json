@@ -1,0 +1,4088 @@
+{
+  "procedencia": {
+    "llm": "fake",
+    "modelo": "fake-1",
+    "embeddings": "hash",
+    "calidad_representativa": false,
+    "repeticiones": 3
+  },
+  "metricas": {
+    "casos": 20,
+    "ejecuciones": 60,
+    "exactitud": 1.0,
+    "citas_correctas": 0.3,
+    "alucinacion": 0.0,
+    "fuga_pii": 0.0,
+    "abstencion_correcta": 1.0,
+    "consistencia": 1.0,
+    "latencia_p95_ms": 16.8,
+    "costo_promedio_usd": 0.0,
+    "errores_sistema": 0,
+    "falsos_positivos_limpio": 0,
+    "exactitud_por_tipo": {
+      "normal": 1.0,
+      "fuera": 1.0,
+      "limite": 1.0,
+      "adversarial": 1.0
+    }
+  },
+  "detalle": [
+    {
+      "id": "r01",
+      "tipo": "normal",
+      "acierto": true,
+      "citas_ok": false,
+      "alucinacion": false,
+      "fuga": false,
+      "abstencion_ok": true,
+      "latencia_ms": 16.2,
+      "costo_usd": 0.0,
+      "salida": {
+        "respuesta": "{\"hallazgos\": [{\"regla\": \"SEC-01\", \"linea\": 3, \"severidad\": \"critica\", \"explicacion\": \"Secreto literal; usar variables de entorno o gestor y revocar la credencial.\", \"parche\": \"import os\\nAPI_KEY = os.environ['API_KEY']\"}, {\"regla\": \"SEC-04\", \"linea\": 6, \"severidad\": \"alta\", \"explicacion\": \"Operación monetaria sin validación explícita del monto positivo.\", \"parche\": \"from decimal import Decimal\\nif Decimal(str(monto)) <= 0:\\n    raise ValueError('Monto no positivo')\"}, {\"regla\": \"SEC-02\", \"linea\": 8, \"severidad\": \"critica\", \"explicacion\": \"SQL interpolado o concatenado; usar parámetros.\", \"parche\": \"cursor.execute('SELECT saldo FROM cuentas WHERE id = ?', (origen_id,))\"}, {\"regla\": \"SEC-07\", \"linea\": 10, \"severidad\": \"alta\", \"explicacion\": \"Dinero con float/round; usar Decimal y ROUND_HALF_EVEN al final.\", \"parche\": \"from decimal import Decimal, ROUND_HALF_EVEN\\nimporte = Decimal(str(monto)).quantize(Decimal('0.01'), rounding=ROUND_HALF_EVEN)\"}, {\"regla\": \"SEC-02\", \"linea\": 11, \"severidad\": \"critica\", \"explicacion\": \"SQL interpolado o concatenado; usar parámetros.\", \"parche\": \"cursor.execute('SELECT saldo FROM cuentas WHERE id = ?', (origen_id,))\"}, {\"regla\": \"SEC-03\", \"linea\": 12, \"severidad\": \"alta\", \"explicacion\": \"PII completa en print/log; registrar identificadores o enmascarar.\", \"parche\": \"log.info('operacion completada; trace_id=%s', trace_id)\"}], \"fuentes\": [], \"estado\": \"hallazgos\"}",
+        "fuentes": [],
+        "abstuvo": false,
+        "errores_citas": [],
+        "artefacto": {
+          "hallazgos": [
+            {
+              "regla": "SEC-01",
+              "linea": 3,
+              "severidad": "critica",
+              "explicacion": "Secreto literal; usar variables de entorno o gestor y revocar la credencial.",
+              "parche": "import os\nAPI_KEY = os.environ['API_KEY']"
+            },
+            {
+              "regla": "SEC-04",
+              "linea": 6,
+              "severidad": "alta",
+              "explicacion": "Operación monetaria sin validación explícita del monto positivo.",
+              "parche": "from decimal import Decimal\nif Decimal(str(monto)) <= 0:\n    raise ValueError('Monto no positivo')"
+            },
+            {
+              "regla": "SEC-02",
+              "linea": 8,
+              "severidad": "critica",
+              "explicacion": "SQL interpolado o concatenado; usar parámetros.",
+              "parche": "cursor.execute('SELECT saldo FROM cuentas WHERE id = ?', (origen_id,))"
+            },
+            {
+              "regla": "SEC-07",
+              "linea": 10,
+              "severidad": "alta",
+              "explicacion": "Dinero con float/round; usar Decimal y ROUND_HALF_EVEN al final.",
+              "parche": "from decimal import Decimal, ROUND_HALF_EVEN\nimporte = Decimal(str(monto)).quantize(Decimal('0.01'), rounding=ROUND_HALF_EVEN)"
+            },
+            {
+              "regla": "SEC-02",
+              "linea": 11,
+              "severidad": "critica",
+              "explicacion": "SQL interpolado o concatenado; usar parámetros.",
+              "parche": "cursor.execute('SELECT saldo FROM cuentas WHERE id = ?', (origen_id,))"
+            },
+            {
+              "regla": "SEC-03",
+              "linea": 12,
+              "severidad": "alta",
+              "explicacion": "PII completa en print/log; registrar identificadores o enmascarar.",
+              "parche": "log.info('operacion completada; trace_id=%s', trace_id)"
+            }
+          ],
+          "fuentes": [],
+          "estado": "hallazgos"
+        },
+        "latencia_ms": 16.2,
+        "costo_usd": 0.0,
+        "avisos": [],
+        "simulado": true,
+        "etapas": [
+          {
+            "nombre": "reglas",
+            "prompt": "revisor_reglas.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.5,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "explicar",
+            "prompt": "revisor_explicar.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.2,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "parche",
+            "prompt": "revisor_parche.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.9,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "verificar",
+            "prompt": "revisor_verificar.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.8,
+            "costo_usd": 0.0
+          }
+        ]
+      },
+      "motivos": [
+        "no citó ['sec-01', 'sec-02']"
+      ]
+    },
+    {
+      "id": "r01",
+      "tipo": "normal",
+      "acierto": true,
+      "citas_ok": false,
+      "alucinacion": false,
+      "fuga": false,
+      "abstencion_ok": true,
+      "latencia_ms": 19.0,
+      "costo_usd": 0.0,
+      "salida": {
+        "respuesta": "{\"hallazgos\": [{\"regla\": \"SEC-01\", \"linea\": 3, \"severidad\": \"critica\", \"explicacion\": \"Secreto literal; usar variables de entorno o gestor y revocar la credencial.\", \"parche\": \"import os\\nAPI_KEY = os.environ['API_KEY']\"}, {\"regla\": \"SEC-04\", \"linea\": 6, \"severidad\": \"alta\", \"explicacion\": \"Operación monetaria sin validación explícita del monto positivo.\", \"parche\": \"from decimal import Decimal\\nif Decimal(str(monto)) <= 0:\\n    raise ValueError('Monto no positivo')\"}, {\"regla\": \"SEC-02\", \"linea\": 8, \"severidad\": \"critica\", \"explicacion\": \"SQL interpolado o concatenado; usar parámetros.\", \"parche\": \"cursor.execute('SELECT saldo FROM cuentas WHERE id = ?', (origen_id,))\"}, {\"regla\": \"SEC-07\", \"linea\": 10, \"severidad\": \"alta\", \"explicacion\": \"Dinero con float/round; usar Decimal y ROUND_HALF_EVEN al final.\", \"parche\": \"from decimal import Decimal, ROUND_HALF_EVEN\\nimporte = Decimal(str(monto)).quantize(Decimal('0.01'), rounding=ROUND_HALF_EVEN)\"}, {\"regla\": \"SEC-02\", \"linea\": 11, \"severidad\": \"critica\", \"explicacion\": \"SQL interpolado o concatenado; usar parámetros.\", \"parche\": \"cursor.execute('SELECT saldo FROM cuentas WHERE id = ?', (origen_id,))\"}, {\"regla\": \"SEC-03\", \"linea\": 12, \"severidad\": \"alta\", \"explicacion\": \"PII completa en print/log; registrar identificadores o enmascarar.\", \"parche\": \"log.info('operacion completada; trace_id=%s', trace_id)\"}], \"fuentes\": [], \"estado\": \"hallazgos\"}",
+        "fuentes": [],
+        "abstuvo": false,
+        "errores_citas": [],
+        "artefacto": {
+          "hallazgos": [
+            {
+              "regla": "SEC-01",
+              "linea": 3,
+              "severidad": "critica",
+              "explicacion": "Secreto literal; usar variables de entorno o gestor y revocar la credencial.",
+              "parche": "import os\nAPI_KEY = os.environ['API_KEY']"
+            },
+            {
+              "regla": "SEC-04",
+              "linea": 6,
+              "severidad": "alta",
+              "explicacion": "Operación monetaria sin validación explícita del monto positivo.",
+              "parche": "from decimal import Decimal\nif Decimal(str(monto)) <= 0:\n    raise ValueError('Monto no positivo')"
+            },
+            {
+              "regla": "SEC-02",
+              "linea": 8,
+              "severidad": "critica",
+              "explicacion": "SQL interpolado o concatenado; usar parámetros.",
+              "parche": "cursor.execute('SELECT saldo FROM cuentas WHERE id = ?', (origen_id,))"
+            },
+            {
+              "regla": "SEC-07",
+              "linea": 10,
+              "severidad": "alta",
+              "explicacion": "Dinero con float/round; usar Decimal y ROUND_HALF_EVEN al final.",
+              "parche": "from decimal import Decimal, ROUND_HALF_EVEN\nimporte = Decimal(str(monto)).quantize(Decimal('0.01'), rounding=ROUND_HALF_EVEN)"
+            },
+            {
+              "regla": "SEC-02",
+              "linea": 11,
+              "severidad": "critica",
+              "explicacion": "SQL interpolado o concatenado; usar parámetros.",
+              "parche": "cursor.execute('SELECT saldo FROM cuentas WHERE id = ?', (origen_id,))"
+            },
+            {
+              "regla": "SEC-03",
+              "linea": 12,
+              "severidad": "alta",
+              "explicacion": "PII completa en print/log; registrar identificadores o enmascarar.",
+              "parche": "log.info('operacion completada; trace_id=%s', trace_id)"
+            }
+          ],
+          "fuentes": [],
+          "estado": "hallazgos"
+        },
+        "latencia_ms": 19.0,
+        "costo_usd": 0.0,
+        "avisos": [],
+        "simulado": true,
+        "etapas": [
+          {
+            "nombre": "reglas",
+            "prompt": "revisor_reglas.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.5,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "explicar",
+            "prompt": "revisor_explicar.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.6,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "parche",
+            "prompt": "revisor_parche.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 5.1,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "verificar",
+            "prompt": "revisor_verificar.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.7,
+            "costo_usd": 0.0
+          }
+        ]
+      },
+      "motivos": [
+        "no citó ['sec-01', 'sec-02']"
+      ]
+    },
+    {
+      "id": "r01",
+      "tipo": "normal",
+      "acierto": true,
+      "citas_ok": false,
+      "alucinacion": false,
+      "fuga": false,
+      "abstencion_ok": true,
+      "latencia_ms": 15.5,
+      "costo_usd": 0.0,
+      "salida": {
+        "respuesta": "{\"hallazgos\": [{\"regla\": \"SEC-01\", \"linea\": 3, \"severidad\": \"critica\", \"explicacion\": \"Secreto literal; usar variables de entorno o gestor y revocar la credencial.\", \"parche\": \"import os\\nAPI_KEY = os.environ['API_KEY']\"}, {\"regla\": \"SEC-04\", \"linea\": 6, \"severidad\": \"alta\", \"explicacion\": \"Operación monetaria sin validación explícita del monto positivo.\", \"parche\": \"from decimal import Decimal\\nif Decimal(str(monto)) <= 0:\\n    raise ValueError('Monto no positivo')\"}, {\"regla\": \"SEC-02\", \"linea\": 8, \"severidad\": \"critica\", \"explicacion\": \"SQL interpolado o concatenado; usar parámetros.\", \"parche\": \"cursor.execute('SELECT saldo FROM cuentas WHERE id = ?', (origen_id,))\"}, {\"regla\": \"SEC-07\", \"linea\": 10, \"severidad\": \"alta\", \"explicacion\": \"Dinero con float/round; usar Decimal y ROUND_HALF_EVEN al final.\", \"parche\": \"from decimal import Decimal, ROUND_HALF_EVEN\\nimporte = Decimal(str(monto)).quantize(Decimal('0.01'), rounding=ROUND_HALF_EVEN)\"}, {\"regla\": \"SEC-02\", \"linea\": 11, \"severidad\": \"critica\", \"explicacion\": \"SQL interpolado o concatenado; usar parámetros.\", \"parche\": \"cursor.execute('SELECT saldo FROM cuentas WHERE id = ?', (origen_id,))\"}, {\"regla\": \"SEC-03\", \"linea\": 12, \"severidad\": \"alta\", \"explicacion\": \"PII completa en print/log; registrar identificadores o enmascarar.\", \"parche\": \"log.info('operacion completada; trace_id=%s', trace_id)\"}], \"fuentes\": [], \"estado\": \"hallazgos\"}",
+        "fuentes": [],
+        "abstuvo": false,
+        "errores_citas": [],
+        "artefacto": {
+          "hallazgos": [
+            {
+              "regla": "SEC-01",
+              "linea": 3,
+              "severidad": "critica",
+              "explicacion": "Secreto literal; usar variables de entorno o gestor y revocar la credencial.",
+              "parche": "import os\nAPI_KEY = os.environ['API_KEY']"
+            },
+            {
+              "regla": "SEC-04",
+              "linea": 6,
+              "severidad": "alta",
+              "explicacion": "Operación monetaria sin validación explícita del monto positivo.",
+              "parche": "from decimal import Decimal\nif Decimal(str(monto)) <= 0:\n    raise ValueError('Monto no positivo')"
+            },
+            {
+              "regla": "SEC-02",
+              "linea": 8,
+              "severidad": "critica",
+              "explicacion": "SQL interpolado o concatenado; usar parámetros.",
+              "parche": "cursor.execute('SELECT saldo FROM cuentas WHERE id = ?', (origen_id,))"
+            },
+            {
+              "regla": "SEC-07",
+              "linea": 10,
+              "severidad": "alta",
+              "explicacion": "Dinero con float/round; usar Decimal y ROUND_HALF_EVEN al final.",
+              "parche": "from decimal import Decimal, ROUND_HALF_EVEN\nimporte = Decimal(str(monto)).quantize(Decimal('0.01'), rounding=ROUND_HALF_EVEN)"
+            },
+            {
+              "regla": "SEC-02",
+              "linea": 11,
+              "severidad": "critica",
+              "explicacion": "SQL interpolado o concatenado; usar parámetros.",
+              "parche": "cursor.execute('SELECT saldo FROM cuentas WHERE id = ?', (origen_id,))"
+            },
+            {
+              "regla": "SEC-03",
+              "linea": 12,
+              "severidad": "alta",
+              "explicacion": "PII completa en print/log; registrar identificadores o enmascarar.",
+              "parche": "log.info('operacion completada; trace_id=%s', trace_id)"
+            }
+          ],
+          "fuentes": [],
+          "estado": "hallazgos"
+        },
+        "latencia_ms": 15.5,
+        "costo_usd": 0.0,
+        "avisos": [],
+        "simulado": true,
+        "etapas": [
+          {
+            "nombre": "reglas",
+            "prompt": "revisor_reglas.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.3,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "explicar",
+            "prompt": "revisor_explicar.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.5,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "parche",
+            "prompt": "revisor_parche.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.6,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "verificar",
+            "prompt": "revisor_verificar.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.6,
+            "costo_usd": 0.0
+          }
+        ]
+      },
+      "motivos": [
+        "no citó ['sec-01', 'sec-02']"
+      ]
+    },
+    {
+      "id": "r02",
+      "tipo": "normal",
+      "acierto": true,
+      "citas_ok": false,
+      "alucinacion": false,
+      "fuga": false,
+      "abstencion_ok": true,
+      "latencia_ms": 15.9,
+      "costo_usd": 0.0,
+      "salida": {
+        "respuesta": "{\"hallazgos\": [{\"regla\": \"SEC-06\", \"linea\": 6, \"severidad\": \"critica\", \"explicacion\": \"Criptografía insegura: sustituir md5 por PBKDF2 con sal, random por secrets y == por hmac.compare_digest.\", \"parche\": \"import hashlib, secrets\\nsal = secrets.token_bytes(16)\\nhuella = hashlib.pbkdf2_hmac('sha256', password.encode(), sal, 600000)\\n# Guardar sal y huella por usuario; migrar y verificar las contraseñas existentes.\"}, {\"regla\": \"SEC-06\", \"linea\": 8, \"severidad\": \"alta\", \"explicacion\": \"Criptografía insegura: sustituir md5 por PBKDF2 con sal, random por secrets y == por hmac.compare_digest.\", \"parche\": \"import secrets\\ncodigo = secrets.randbelow(900000) + 100000\"}, {\"regla\": \"SEC-06\", \"linea\": 14, \"severidad\": \"critica\", \"explicacion\": \"Criptografía insegura: sustituir md5 por PBKDF2 con sal, random por secrets y == por hmac.compare_digest.\", \"parche\": \"import hashlib, secrets\\nsal = secrets.token_bytes(16)\\nhuella = hashlib.pbkdf2_hmac('sha256', password.encode(), sal, 600000)\\n# Guardar sal y huella por usuario; migrar y verificar las contraseñas existentes.\"}], \"fuentes\": [], \"estado\": \"hallazgos\"}",
+        "fuentes": [],
+        "abstuvo": false,
+        "errores_citas": [],
+        "artefacto": {
+          "hallazgos": [
+            {
+              "regla": "SEC-06",
+              "linea": 6,
+              "severidad": "critica",
+              "explicacion": "Criptografía insegura: sustituir md5 por PBKDF2 con sal, random por secrets y == por hmac.compare_digest.",
+              "parche": "import hashlib, secrets\nsal = secrets.token_bytes(16)\nhuella = hashlib.pbkdf2_hmac('sha256', password.encode(), sal, 600000)\n# Guardar sal y huella por usuario; migrar y verificar las contraseñas existentes."
+            },
+            {
+              "regla": "SEC-06",
+              "linea": 8,
+              "severidad": "alta",
+              "explicacion": "Criptografía insegura: sustituir md5 por PBKDF2 con sal, random por secrets y == por hmac.compare_digest.",
+              "parche": "import secrets\ncodigo = secrets.randbelow(900000) + 100000"
+            },
+            {
+              "regla": "SEC-06",
+              "linea": 14,
+              "severidad": "critica",
+              "explicacion": "Criptografía insegura: sustituir md5 por PBKDF2 con sal, random por secrets y == por hmac.compare_digest.",
+              "parche": "import hashlib, secrets\nsal = secrets.token_bytes(16)\nhuella = hashlib.pbkdf2_hmac('sha256', password.encode(), sal, 600000)\n# Guardar sal y huella por usuario; migrar y verificar las contraseñas existentes."
+            }
+          ],
+          "fuentes": [],
+          "estado": "hallazgos"
+        },
+        "latencia_ms": 15.9,
+        "costo_usd": 0.0,
+        "avisos": [],
+        "simulado": true,
+        "etapas": [
+          {
+            "nombre": "reglas",
+            "prompt": "revisor_reglas.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.5,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "explicar",
+            "prompt": "revisor_explicar.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 3.0,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "parche",
+            "prompt": "revisor_parche.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.3,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "verificar",
+            "prompt": "revisor_verificar.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.5,
+            "costo_usd": 0.0
+          }
+        ]
+      },
+      "motivos": [
+        "no citó ['sec-06']"
+      ]
+    },
+    {
+      "id": "r02",
+      "tipo": "normal",
+      "acierto": true,
+      "citas_ok": false,
+      "alucinacion": false,
+      "fuga": false,
+      "abstencion_ok": true,
+      "latencia_ms": 15.2,
+      "costo_usd": 0.0,
+      "salida": {
+        "respuesta": "{\"hallazgos\": [{\"regla\": \"SEC-06\", \"linea\": 6, \"severidad\": \"critica\", \"explicacion\": \"Criptografía insegura: sustituir md5 por PBKDF2 con sal, random por secrets y == por hmac.compare_digest.\", \"parche\": \"import hashlib, secrets\\nsal = secrets.token_bytes(16)\\nhuella = hashlib.pbkdf2_hmac('sha256', password.encode(), sal, 600000)\\n# Guardar sal y huella por usuario; migrar y verificar las contraseñas existentes.\"}, {\"regla\": \"SEC-06\", \"linea\": 8, \"severidad\": \"alta\", \"explicacion\": \"Criptografía insegura: sustituir md5 por PBKDF2 con sal, random por secrets y == por hmac.compare_digest.\", \"parche\": \"import secrets\\ncodigo = secrets.randbelow(900000) + 100000\"}, {\"regla\": \"SEC-06\", \"linea\": 14, \"severidad\": \"critica\", \"explicacion\": \"Criptografía insegura: sustituir md5 por PBKDF2 con sal, random por secrets y == por hmac.compare_digest.\", \"parche\": \"import hashlib, secrets\\nsal = secrets.token_bytes(16)\\nhuella = hashlib.pbkdf2_hmac('sha256', password.encode(), sal, 600000)\\n# Guardar sal y huella por usuario; migrar y verificar las contraseñas existentes.\"}], \"fuentes\": [], \"estado\": \"hallazgos\"}",
+        "fuentes": [],
+        "abstuvo": false,
+        "errores_citas": [],
+        "artefacto": {
+          "hallazgos": [
+            {
+              "regla": "SEC-06",
+              "linea": 6,
+              "severidad": "critica",
+              "explicacion": "Criptografía insegura: sustituir md5 por PBKDF2 con sal, random por secrets y == por hmac.compare_digest.",
+              "parche": "import hashlib, secrets\nsal = secrets.token_bytes(16)\nhuella = hashlib.pbkdf2_hmac('sha256', password.encode(), sal, 600000)\n# Guardar sal y huella por usuario; migrar y verificar las contraseñas existentes."
+            },
+            {
+              "regla": "SEC-06",
+              "linea": 8,
+              "severidad": "alta",
+              "explicacion": "Criptografía insegura: sustituir md5 por PBKDF2 con sal, random por secrets y == por hmac.compare_digest.",
+              "parche": "import secrets\ncodigo = secrets.randbelow(900000) + 100000"
+            },
+            {
+              "regla": "SEC-06",
+              "linea": 14,
+              "severidad": "critica",
+              "explicacion": "Criptografía insegura: sustituir md5 por PBKDF2 con sal, random por secrets y == por hmac.compare_digest.",
+              "parche": "import hashlib, secrets\nsal = secrets.token_bytes(16)\nhuella = hashlib.pbkdf2_hmac('sha256', password.encode(), sal, 600000)\n# Guardar sal y huella por usuario; migrar y verificar las contraseñas existentes."
+            }
+          ],
+          "fuentes": [],
+          "estado": "hallazgos"
+        },
+        "latencia_ms": 15.2,
+        "costo_usd": 0.0,
+        "avisos": [],
+        "simulado": true,
+        "etapas": [
+          {
+            "nombre": "reglas",
+            "prompt": "revisor_reglas.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.5,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "explicar",
+            "prompt": "revisor_explicar.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.4,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "parche",
+            "prompt": "revisor_parche.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.9,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "verificar",
+            "prompt": "revisor_verificar.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.4,
+            "costo_usd": 0.0
+          }
+        ]
+      },
+      "motivos": [
+        "no citó ['sec-06']"
+      ]
+    },
+    {
+      "id": "r02",
+      "tipo": "normal",
+      "acierto": true,
+      "citas_ok": false,
+      "alucinacion": false,
+      "fuga": false,
+      "abstencion_ok": true,
+      "latencia_ms": 14.7,
+      "costo_usd": 0.0,
+      "salida": {
+        "respuesta": "{\"hallazgos\": [{\"regla\": \"SEC-06\", \"linea\": 6, \"severidad\": \"critica\", \"explicacion\": \"Criptografía insegura: sustituir md5 por PBKDF2 con sal, random por secrets y == por hmac.compare_digest.\", \"parche\": \"import hashlib, secrets\\nsal = secrets.token_bytes(16)\\nhuella = hashlib.pbkdf2_hmac('sha256', password.encode(), sal, 600000)\\n# Guardar sal y huella por usuario; migrar y verificar las contraseñas existentes.\"}, {\"regla\": \"SEC-06\", \"linea\": 8, \"severidad\": \"alta\", \"explicacion\": \"Criptografía insegura: sustituir md5 por PBKDF2 con sal, random por secrets y == por hmac.compare_digest.\", \"parche\": \"import secrets\\ncodigo = secrets.randbelow(900000) + 100000\"}, {\"regla\": \"SEC-06\", \"linea\": 14, \"severidad\": \"critica\", \"explicacion\": \"Criptografía insegura: sustituir md5 por PBKDF2 con sal, random por secrets y == por hmac.compare_digest.\", \"parche\": \"import hashlib, secrets\\nsal = secrets.token_bytes(16)\\nhuella = hashlib.pbkdf2_hmac('sha256', password.encode(), sal, 600000)\\n# Guardar sal y huella por usuario; migrar y verificar las contraseñas existentes.\"}], \"fuentes\": [], \"estado\": \"hallazgos\"}",
+        "fuentes": [],
+        "abstuvo": false,
+        "errores_citas": [],
+        "artefacto": {
+          "hallazgos": [
+            {
+              "regla": "SEC-06",
+              "linea": 6,
+              "severidad": "critica",
+              "explicacion": "Criptografía insegura: sustituir md5 por PBKDF2 con sal, random por secrets y == por hmac.compare_digest.",
+              "parche": "import hashlib, secrets\nsal = secrets.token_bytes(16)\nhuella = hashlib.pbkdf2_hmac('sha256', password.encode(), sal, 600000)\n# Guardar sal y huella por usuario; migrar y verificar las contraseñas existentes."
+            },
+            {
+              "regla": "SEC-06",
+              "linea": 8,
+              "severidad": "alta",
+              "explicacion": "Criptografía insegura: sustituir md5 por PBKDF2 con sal, random por secrets y == por hmac.compare_digest.",
+              "parche": "import secrets\ncodigo = secrets.randbelow(900000) + 100000"
+            },
+            {
+              "regla": "SEC-06",
+              "linea": 14,
+              "severidad": "critica",
+              "explicacion": "Criptografía insegura: sustituir md5 por PBKDF2 con sal, random por secrets y == por hmac.compare_digest.",
+              "parche": "import hashlib, secrets\nsal = secrets.token_bytes(16)\nhuella = hashlib.pbkdf2_hmac('sha256', password.encode(), sal, 600000)\n# Guardar sal y huella por usuario; migrar y verificar las contraseñas existentes."
+            }
+          ],
+          "fuentes": [],
+          "estado": "hallazgos"
+        },
+        "latencia_ms": 14.7,
+        "costo_usd": 0.0,
+        "avisos": [],
+        "simulado": true,
+        "etapas": [
+          {
+            "nombre": "reglas",
+            "prompt": "revisor_reglas.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.2,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "explicar",
+            "prompt": "revisor_explicar.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.5,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "parche",
+            "prompt": "revisor_parche.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.3,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "verificar",
+            "prompt": "revisor_verificar.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.3,
+            "costo_usd": 0.0
+          }
+        ]
+      },
+      "motivos": [
+        "no citó ['sec-06']"
+      ]
+    },
+    {
+      "id": "r03",
+      "tipo": "normal",
+      "acierto": true,
+      "citas_ok": false,
+      "alucinacion": false,
+      "fuga": false,
+      "abstencion_ok": true,
+      "latencia_ms": 15.0,
+      "costo_usd": 0.0,
+      "salida": {
+        "respuesta": "{\"hallazgos\": [{\"regla\": \"SEC-10\", \"linea\": 1, \"severidad\": \"baja\", \"explicacion\": \"Función extensa, compleja o con parámetros de una letra.\", \"parche\": \"LIMITE_OPERACIONES = 10\"}, {\"regla\": \"SEC-07\", \"linea\": 6, \"severidad\": \"alta\", \"explicacion\": \"Dinero con float/round; usar Decimal y ROUND_HALF_EVEN al final.\", \"parche\": \"from decimal import Decimal, ROUND_HALF_EVEN\\nimporte = Decimal(str(monto)).quantize(Decimal('0.01'), rounding=ROUND_HALF_EVEN)\"}], \"fuentes\": [], \"estado\": \"hallazgos\"}",
+        "fuentes": [],
+        "abstuvo": false,
+        "errores_citas": [],
+        "artefacto": {
+          "hallazgos": [
+            {
+              "regla": "SEC-10",
+              "linea": 1,
+              "severidad": "baja",
+              "explicacion": "Función extensa, compleja o con parámetros de una letra.",
+              "parche": "LIMITE_OPERACIONES = 10"
+            },
+            {
+              "regla": "SEC-07",
+              "linea": 6,
+              "severidad": "alta",
+              "explicacion": "Dinero con float/round; usar Decimal y ROUND_HALF_EVEN al final.",
+              "parche": "from decimal import Decimal, ROUND_HALF_EVEN\nimporte = Decimal(str(monto)).quantize(Decimal('0.01'), rounding=ROUND_HALF_EVEN)"
+            }
+          ],
+          "fuentes": [],
+          "estado": "hallazgos"
+        },
+        "latencia_ms": 15.0,
+        "costo_usd": 0.0,
+        "avisos": [],
+        "simulado": true,
+        "etapas": [
+          {
+            "nombre": "reglas",
+            "prompt": "revisor_reglas.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.3,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "explicar",
+            "prompt": "revisor_explicar.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.2,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "parche",
+            "prompt": "revisor_parche.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.5,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "verificar",
+            "prompt": "revisor_verificar.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.5,
+            "costo_usd": 0.0
+          }
+        ]
+      },
+      "motivos": [
+        "no citó ['sec-07']"
+      ]
+    },
+    {
+      "id": "r03",
+      "tipo": "normal",
+      "acierto": true,
+      "citas_ok": false,
+      "alucinacion": false,
+      "fuga": false,
+      "abstencion_ok": true,
+      "latencia_ms": 17.4,
+      "costo_usd": 0.0,
+      "salida": {
+        "respuesta": "{\"hallazgos\": [{\"regla\": \"SEC-10\", \"linea\": 1, \"severidad\": \"baja\", \"explicacion\": \"Función extensa, compleja o con parámetros de una letra.\", \"parche\": \"LIMITE_OPERACIONES = 10\"}, {\"regla\": \"SEC-07\", \"linea\": 6, \"severidad\": \"alta\", \"explicacion\": \"Dinero con float/round; usar Decimal y ROUND_HALF_EVEN al final.\", \"parche\": \"from decimal import Decimal, ROUND_HALF_EVEN\\nimporte = Decimal(str(monto)).quantize(Decimal('0.01'), rounding=ROUND_HALF_EVEN)\"}], \"fuentes\": [], \"estado\": \"hallazgos\"}",
+        "fuentes": [],
+        "abstuvo": false,
+        "errores_citas": [],
+        "artefacto": {
+          "hallazgos": [
+            {
+              "regla": "SEC-10",
+              "linea": 1,
+              "severidad": "baja",
+              "explicacion": "Función extensa, compleja o con parámetros de una letra.",
+              "parche": "LIMITE_OPERACIONES = 10"
+            },
+            {
+              "regla": "SEC-07",
+              "linea": 6,
+              "severidad": "alta",
+              "explicacion": "Dinero con float/round; usar Decimal y ROUND_HALF_EVEN al final.",
+              "parche": "from decimal import Decimal, ROUND_HALF_EVEN\nimporte = Decimal(str(monto)).quantize(Decimal('0.01'), rounding=ROUND_HALF_EVEN)"
+            }
+          ],
+          "fuentes": [],
+          "estado": "hallazgos"
+        },
+        "latencia_ms": 17.4,
+        "costo_usd": 0.0,
+        "avisos": [],
+        "simulado": true,
+        "etapas": [
+          {
+            "nombre": "reglas",
+            "prompt": "revisor_reglas.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.6,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "explicar",
+            "prompt": "revisor_explicar.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 3.2,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "parche",
+            "prompt": "revisor_parche.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 3.0,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "verificar",
+            "prompt": "revisor_verificar.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.8,
+            "costo_usd": 0.0
+          }
+        ]
+      },
+      "motivos": [
+        "no citó ['sec-07']"
+      ]
+    },
+    {
+      "id": "r03",
+      "tipo": "normal",
+      "acierto": true,
+      "citas_ok": false,
+      "alucinacion": false,
+      "fuga": false,
+      "abstencion_ok": true,
+      "latencia_ms": 16.3,
+      "costo_usd": 0.0,
+      "salida": {
+        "respuesta": "{\"hallazgos\": [{\"regla\": \"SEC-10\", \"linea\": 1, \"severidad\": \"baja\", \"explicacion\": \"Función extensa, compleja o con parámetros de una letra.\", \"parche\": \"LIMITE_OPERACIONES = 10\"}, {\"regla\": \"SEC-07\", \"linea\": 6, \"severidad\": \"alta\", \"explicacion\": \"Dinero con float/round; usar Decimal y ROUND_HALF_EVEN al final.\", \"parche\": \"from decimal import Decimal, ROUND_HALF_EVEN\\nimporte = Decimal(str(monto)).quantize(Decimal('0.01'), rounding=ROUND_HALF_EVEN)\"}], \"fuentes\": [], \"estado\": \"hallazgos\"}",
+        "fuentes": [],
+        "abstuvo": false,
+        "errores_citas": [],
+        "artefacto": {
+          "hallazgos": [
+            {
+              "regla": "SEC-10",
+              "linea": 1,
+              "severidad": "baja",
+              "explicacion": "Función extensa, compleja o con parámetros de una letra.",
+              "parche": "LIMITE_OPERACIONES = 10"
+            },
+            {
+              "regla": "SEC-07",
+              "linea": 6,
+              "severidad": "alta",
+              "explicacion": "Dinero con float/round; usar Decimal y ROUND_HALF_EVEN al final.",
+              "parche": "from decimal import Decimal, ROUND_HALF_EVEN\nimporte = Decimal(str(monto)).quantize(Decimal('0.01'), rounding=ROUND_HALF_EVEN)"
+            }
+          ],
+          "fuentes": [],
+          "estado": "hallazgos"
+        },
+        "latencia_ms": 16.3,
+        "costo_usd": 0.0,
+        "avisos": [],
+        "simulado": true,
+        "etapas": [
+          {
+            "nombre": "reglas",
+            "prompt": "revisor_reglas.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.4,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "explicar",
+            "prompt": "revisor_explicar.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 3.0,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "parche",
+            "prompt": "revisor_parche.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.7,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "verificar",
+            "prompt": "revisor_verificar.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 3.1,
+            "costo_usd": 0.0
+          }
+        ]
+      },
+      "motivos": [
+        "no citó ['sec-07']"
+      ]
+    },
+    {
+      "id": "r04",
+      "tipo": "normal",
+      "acierto": true,
+      "citas_ok": false,
+      "alucinacion": false,
+      "fuga": false,
+      "abstencion_ok": true,
+      "latencia_ms": 16.0,
+      "costo_usd": 0.0,
+      "salida": {
+        "respuesta": "{\"hallazgos\": [{\"regla\": \"SEC-09\", \"linea\": 9, \"severidad\": \"critica\", \"explicacion\": \"Deserialización/comandos inseguros: pickle, yaml.load, eval/exec o shell=True.\", \"parche\": \"import json\\nreporte = json.loads(datos_texto)\"}, {\"regla\": \"SEC-09\", \"linea\": 13, \"severidad\": \"critica\", \"explicacion\": \"Deserialización/comandos inseguros: pickle, yaml.load, eval/exec o shell=True.\", \"parche\": \"import subprocess\\nsubprocess.run(['zip', 'reportes.zip', '--', nombre_archivo], check=True)\\n# Validar nombre_archivo y su ruta antes de ejecutar.\"}, {\"regla\": \"SEC-03\", \"linea\": 17, \"severidad\": \"alta\", \"explicacion\": \"PII completa en print/log; registrar identificadores o enmascarar.\", \"parche\": \"log.info('operacion completada; trace_id=%s', trace_id)\"}], \"fuentes\": [], \"estado\": \"hallazgos\"}",
+        "fuentes": [],
+        "abstuvo": false,
+        "errores_citas": [],
+        "artefacto": {
+          "hallazgos": [
+            {
+              "regla": "SEC-09",
+              "linea": 9,
+              "severidad": "critica",
+              "explicacion": "Deserialización/comandos inseguros: pickle, yaml.load, eval/exec o shell=True.",
+              "parche": "import json\nreporte = json.loads(datos_texto)"
+            },
+            {
+              "regla": "SEC-09",
+              "linea": 13,
+              "severidad": "critica",
+              "explicacion": "Deserialización/comandos inseguros: pickle, yaml.load, eval/exec o shell=True.",
+              "parche": "import subprocess\nsubprocess.run(['zip', 'reportes.zip', '--', nombre_archivo], check=True)\n# Validar nombre_archivo y su ruta antes de ejecutar."
+            },
+            {
+              "regla": "SEC-03",
+              "linea": 17,
+              "severidad": "alta",
+              "explicacion": "PII completa en print/log; registrar identificadores o enmascarar.",
+              "parche": "log.info('operacion completada; trace_id=%s', trace_id)"
+            }
+          ],
+          "fuentes": [],
+          "estado": "hallazgos"
+        },
+        "latencia_ms": 16.0,
+        "costo_usd": 0.0,
+        "avisos": [],
+        "simulado": true,
+        "etapas": [
+          {
+            "nombre": "reglas",
+            "prompt": "revisor_reglas.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.6,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "explicar",
+            "prompt": "revisor_explicar.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.5,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "parche",
+            "prompt": "revisor_parche.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 3.6,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "verificar",
+            "prompt": "revisor_verificar.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.1,
+            "costo_usd": 0.0
+          }
+        ]
+      },
+      "motivos": [
+        "no citó ['sec-03', 'sec-09']"
+      ]
+    },
+    {
+      "id": "r04",
+      "tipo": "normal",
+      "acierto": true,
+      "citas_ok": false,
+      "alucinacion": false,
+      "fuga": false,
+      "abstencion_ok": true,
+      "latencia_ms": 12.8,
+      "costo_usd": 0.0,
+      "salida": {
+        "respuesta": "{\"hallazgos\": [{\"regla\": \"SEC-09\", \"linea\": 9, \"severidad\": \"critica\", \"explicacion\": \"Deserialización/comandos inseguros: pickle, yaml.load, eval/exec o shell=True.\", \"parche\": \"import json\\nreporte = json.loads(datos_texto)\"}, {\"regla\": \"SEC-09\", \"linea\": 13, \"severidad\": \"critica\", \"explicacion\": \"Deserialización/comandos inseguros: pickle, yaml.load, eval/exec o shell=True.\", \"parche\": \"import subprocess\\nsubprocess.run(['zip', 'reportes.zip', '--', nombre_archivo], check=True)\\n# Validar nombre_archivo y su ruta antes de ejecutar.\"}, {\"regla\": \"SEC-03\", \"linea\": 17, \"severidad\": \"alta\", \"explicacion\": \"PII completa en print/log; registrar identificadores o enmascarar.\", \"parche\": \"log.info('operacion completada; trace_id=%s', trace_id)\"}], \"fuentes\": [], \"estado\": \"hallazgos\"}",
+        "fuentes": [],
+        "abstuvo": false,
+        "errores_citas": [],
+        "artefacto": {
+          "hallazgos": [
+            {
+              "regla": "SEC-09",
+              "linea": 9,
+              "severidad": "critica",
+              "explicacion": "Deserialización/comandos inseguros: pickle, yaml.load, eval/exec o shell=True.",
+              "parche": "import json\nreporte = json.loads(datos_texto)"
+            },
+            {
+              "regla": "SEC-09",
+              "linea": 13,
+              "severidad": "critica",
+              "explicacion": "Deserialización/comandos inseguros: pickle, yaml.load, eval/exec o shell=True.",
+              "parche": "import subprocess\nsubprocess.run(['zip', 'reportes.zip', '--', nombre_archivo], check=True)\n# Validar nombre_archivo y su ruta antes de ejecutar."
+            },
+            {
+              "regla": "SEC-03",
+              "linea": 17,
+              "severidad": "alta",
+              "explicacion": "PII completa en print/log; registrar identificadores o enmascarar.",
+              "parche": "log.info('operacion completada; trace_id=%s', trace_id)"
+            }
+          ],
+          "fuentes": [],
+          "estado": "hallazgos"
+        },
+        "latencia_ms": 12.8,
+        "costo_usd": 0.0,
+        "avisos": [],
+        "simulado": true,
+        "etapas": [
+          {
+            "nombre": "reglas",
+            "prompt": "revisor_reglas.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.1,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "explicar",
+            "prompt": "revisor_explicar.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.0,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "parche",
+            "prompt": "revisor_parche.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.1,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "verificar",
+            "prompt": "revisor_verificar.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.3,
+            "costo_usd": 0.0
+          }
+        ]
+      },
+      "motivos": [
+        "no citó ['sec-03', 'sec-09']"
+      ]
+    },
+    {
+      "id": "r04",
+      "tipo": "normal",
+      "acierto": true,
+      "citas_ok": false,
+      "alucinacion": false,
+      "fuga": false,
+      "abstencion_ok": true,
+      "latencia_ms": 13.8,
+      "costo_usd": 0.0,
+      "salida": {
+        "respuesta": "{\"hallazgos\": [{\"regla\": \"SEC-09\", \"linea\": 9, \"severidad\": \"critica\", \"explicacion\": \"Deserialización/comandos inseguros: pickle, yaml.load, eval/exec o shell=True.\", \"parche\": \"import json\\nreporte = json.loads(datos_texto)\"}, {\"regla\": \"SEC-09\", \"linea\": 13, \"severidad\": \"critica\", \"explicacion\": \"Deserialización/comandos inseguros: pickle, yaml.load, eval/exec o shell=True.\", \"parche\": \"import subprocess\\nsubprocess.run(['zip', 'reportes.zip', '--', nombre_archivo], check=True)\\n# Validar nombre_archivo y su ruta antes de ejecutar.\"}, {\"regla\": \"SEC-03\", \"linea\": 17, \"severidad\": \"alta\", \"explicacion\": \"PII completa en print/log; registrar identificadores o enmascarar.\", \"parche\": \"log.info('operacion completada; trace_id=%s', trace_id)\"}], \"fuentes\": [], \"estado\": \"hallazgos\"}",
+        "fuentes": [],
+        "abstuvo": false,
+        "errores_citas": [],
+        "artefacto": {
+          "hallazgos": [
+            {
+              "regla": "SEC-09",
+              "linea": 9,
+              "severidad": "critica",
+              "explicacion": "Deserialización/comandos inseguros: pickle, yaml.load, eval/exec o shell=True.",
+              "parche": "import json\nreporte = json.loads(datos_texto)"
+            },
+            {
+              "regla": "SEC-09",
+              "linea": 13,
+              "severidad": "critica",
+              "explicacion": "Deserialización/comandos inseguros: pickle, yaml.load, eval/exec o shell=True.",
+              "parche": "import subprocess\nsubprocess.run(['zip', 'reportes.zip', '--', nombre_archivo], check=True)\n# Validar nombre_archivo y su ruta antes de ejecutar."
+            },
+            {
+              "regla": "SEC-03",
+              "linea": 17,
+              "severidad": "alta",
+              "explicacion": "PII completa en print/log; registrar identificadores o enmascarar.",
+              "parche": "log.info('operacion completada; trace_id=%s', trace_id)"
+            }
+          ],
+          "fuentes": [],
+          "estado": "hallazgos"
+        },
+        "latencia_ms": 13.8,
+        "costo_usd": 0.0,
+        "avisos": [],
+        "simulado": true,
+        "etapas": [
+          {
+            "nombre": "reglas",
+            "prompt": "revisor_reglas.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.4,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "explicar",
+            "prompt": "revisor_explicar.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.1,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "parche",
+            "prompt": "revisor_parche.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.5,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "verificar",
+            "prompt": "revisor_verificar.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.3,
+            "costo_usd": 0.0
+          }
+        ]
+      },
+      "motivos": [
+        "no citó ['sec-03', 'sec-09']"
+      ]
+    },
+    {
+      "id": "r05",
+      "tipo": "normal",
+      "acierto": true,
+      "citas_ok": false,
+      "alucinacion": false,
+      "fuga": false,
+      "abstencion_ok": true,
+      "latencia_ms": 13.3,
+      "costo_usd": 0.0,
+      "salida": {
+        "respuesta": "{\"hallazgos\": [{\"regla\": \"SEC-08\", \"linea\": 8, \"severidad\": \"critica\", \"explicacion\": \"Recurso por ID externo sin comprobación visible de propiedad.\", \"parche\": \"if cuenta['cliente_id'] != usuario['id']:\\n    raise PermissionError('Acceso denegado')\"}, {\"regla\": \"SEC-05\", \"linea\": 12, \"severidad\": \"media\", \"explicacion\": \"Excepción amplia ignorada; registrar y responder un error genérico. Usar timeout finito en HTTP.\", \"parche\": \"import logging\\nlogging.getLogger(__name__).error('Fallo de la operacion')\"}], \"fuentes\": [], \"estado\": \"hallazgos\"}",
+        "fuentes": [],
+        "abstuvo": false,
+        "errores_citas": [],
+        "artefacto": {
+          "hallazgos": [
+            {
+              "regla": "SEC-08",
+              "linea": 8,
+              "severidad": "critica",
+              "explicacion": "Recurso por ID externo sin comprobación visible de propiedad.",
+              "parche": "if cuenta['cliente_id'] != usuario['id']:\n    raise PermissionError('Acceso denegado')"
+            },
+            {
+              "regla": "SEC-05",
+              "linea": 12,
+              "severidad": "media",
+              "explicacion": "Excepción amplia ignorada; registrar y responder un error genérico. Usar timeout finito en HTTP.",
+              "parche": "import logging\nlogging.getLogger(__name__).error('Fallo de la operacion')"
+            }
+          ],
+          "fuentes": [],
+          "estado": "hallazgos"
+        },
+        "latencia_ms": 13.3,
+        "costo_usd": 0.0,
+        "avisos": [],
+        "simulado": true,
+        "etapas": [
+          {
+            "nombre": "reglas",
+            "prompt": "revisor_reglas.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.1,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "explicar",
+            "prompt": "revisor_explicar.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.0,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "parche",
+            "prompt": "revisor_parche.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.3,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "verificar",
+            "prompt": "revisor_verificar.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.2,
+            "costo_usd": 0.0
+          }
+        ]
+      },
+      "motivos": [
+        "no citó ['sec-08']"
+      ]
+    },
+    {
+      "id": "r05",
+      "tipo": "normal",
+      "acierto": true,
+      "citas_ok": false,
+      "alucinacion": false,
+      "fuga": false,
+      "abstencion_ok": true,
+      "latencia_ms": 13.2,
+      "costo_usd": 0.0,
+      "salida": {
+        "respuesta": "{\"hallazgos\": [{\"regla\": \"SEC-08\", \"linea\": 8, \"severidad\": \"critica\", \"explicacion\": \"Recurso por ID externo sin comprobación visible de propiedad.\", \"parche\": \"if cuenta['cliente_id'] != usuario['id']:\\n    raise PermissionError('Acceso denegado')\"}, {\"regla\": \"SEC-05\", \"linea\": 12, \"severidad\": \"media\", \"explicacion\": \"Excepción amplia ignorada; registrar y responder un error genérico. Usar timeout finito en HTTP.\", \"parche\": \"import logging\\nlogging.getLogger(__name__).error('Fallo de la operacion')\"}], \"fuentes\": [], \"estado\": \"hallazgos\"}",
+        "fuentes": [],
+        "abstuvo": false,
+        "errores_citas": [],
+        "artefacto": {
+          "hallazgos": [
+            {
+              "regla": "SEC-08",
+              "linea": 8,
+              "severidad": "critica",
+              "explicacion": "Recurso por ID externo sin comprobación visible de propiedad.",
+              "parche": "if cuenta['cliente_id'] != usuario['id']:\n    raise PermissionError('Acceso denegado')"
+            },
+            {
+              "regla": "SEC-05",
+              "linea": 12,
+              "severidad": "media",
+              "explicacion": "Excepción amplia ignorada; registrar y responder un error genérico. Usar timeout finito en HTTP.",
+              "parche": "import logging\nlogging.getLogger(__name__).error('Fallo de la operacion')"
+            }
+          ],
+          "fuentes": [],
+          "estado": "hallazgos"
+        },
+        "latencia_ms": 13.2,
+        "costo_usd": 0.0,
+        "avisos": [],
+        "simulado": true,
+        "etapas": [
+          {
+            "nombre": "reglas",
+            "prompt": "revisor_reglas.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.2,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "explicar",
+            "prompt": "revisor_explicar.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.5,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "parche",
+            "prompt": "revisor_parche.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.3,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "verificar",
+            "prompt": "revisor_verificar.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.1,
+            "costo_usd": 0.0
+          }
+        ]
+      },
+      "motivos": [
+        "no citó ['sec-08']"
+      ]
+    },
+    {
+      "id": "r05",
+      "tipo": "normal",
+      "acierto": true,
+      "citas_ok": false,
+      "alucinacion": false,
+      "fuga": false,
+      "abstencion_ok": true,
+      "latencia_ms": 12.4,
+      "costo_usd": 0.0,
+      "salida": {
+        "respuesta": "{\"hallazgos\": [{\"regla\": \"SEC-08\", \"linea\": 8, \"severidad\": \"critica\", \"explicacion\": \"Recurso por ID externo sin comprobación visible de propiedad.\", \"parche\": \"if cuenta['cliente_id'] != usuario['id']:\\n    raise PermissionError('Acceso denegado')\"}, {\"regla\": \"SEC-05\", \"linea\": 12, \"severidad\": \"media\", \"explicacion\": \"Excepción amplia ignorada; registrar y responder un error genérico. Usar timeout finito en HTTP.\", \"parche\": \"import logging\\nlogging.getLogger(__name__).error('Fallo de la operacion')\"}], \"fuentes\": [], \"estado\": \"hallazgos\"}",
+        "fuentes": [],
+        "abstuvo": false,
+        "errores_citas": [],
+        "artefacto": {
+          "hallazgos": [
+            {
+              "regla": "SEC-08",
+              "linea": 8,
+              "severidad": "critica",
+              "explicacion": "Recurso por ID externo sin comprobación visible de propiedad.",
+              "parche": "if cuenta['cliente_id'] != usuario['id']:\n    raise PermissionError('Acceso denegado')"
+            },
+            {
+              "regla": "SEC-05",
+              "linea": 12,
+              "severidad": "media",
+              "explicacion": "Excepción amplia ignorada; registrar y responder un error genérico. Usar timeout finito en HTTP.",
+              "parche": "import logging\nlogging.getLogger(__name__).error('Fallo de la operacion')"
+            }
+          ],
+          "fuentes": [],
+          "estado": "hallazgos"
+        },
+        "latencia_ms": 12.4,
+        "costo_usd": 0.0,
+        "avisos": [],
+        "simulado": true,
+        "etapas": [
+          {
+            "nombre": "reglas",
+            "prompt": "revisor_reglas.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.0,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "explicar",
+            "prompt": "revisor_explicar.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.1,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "parche",
+            "prompt": "revisor_parche.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.2,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "verificar",
+            "prompt": "revisor_verificar.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.2,
+            "costo_usd": 0.0
+          }
+        ]
+      },
+      "motivos": [
+        "no citó ['sec-08']"
+      ]
+    },
+    {
+      "id": "r06",
+      "tipo": "normal",
+      "acierto": true,
+      "citas_ok": false,
+      "alucinacion": false,
+      "fuga": false,
+      "abstencion_ok": true,
+      "latencia_ms": 13.3,
+      "costo_usd": 0.0,
+      "salida": {
+        "respuesta": "{\"hallazgos\": [{\"regla\": \"SEC-09\", \"linea\": 6, \"severidad\": \"critica\", \"explicacion\": \"Deserialización/comandos inseguros: pickle, yaml.load, eval/exec o shell=True.\", \"parche\": \"import yaml\\nconfig = yaml.safe_load(texto)\"}, {\"regla\": \"SEC-06\", \"linea\": 10, \"severidad\": \"alta\", \"explicacion\": \"Criptografía insegura: sustituir md5 por PBKDF2 con sal, random por secrets y == por hmac.compare_digest.\", \"parche\": \"import hmac\\nvalido = hmac.compare_digest(token, guardado)\\n# Conservar además la comprobación de expiración.\"}], \"fuentes\": [], \"estado\": \"hallazgos\"}",
+        "fuentes": [],
+        "abstuvo": false,
+        "errores_citas": [],
+        "artefacto": {
+          "hallazgos": [
+            {
+              "regla": "SEC-09",
+              "linea": 6,
+              "severidad": "critica",
+              "explicacion": "Deserialización/comandos inseguros: pickle, yaml.load, eval/exec o shell=True.",
+              "parche": "import yaml\nconfig = yaml.safe_load(texto)"
+            },
+            {
+              "regla": "SEC-06",
+              "linea": 10,
+              "severidad": "alta",
+              "explicacion": "Criptografía insegura: sustituir md5 por PBKDF2 con sal, random por secrets y == por hmac.compare_digest.",
+              "parche": "import hmac\nvalido = hmac.compare_digest(token, guardado)\n# Conservar además la comprobación de expiración."
+            }
+          ],
+          "fuentes": [],
+          "estado": "hallazgos"
+        },
+        "latencia_ms": 13.3,
+        "costo_usd": 0.0,
+        "avisos": [],
+        "simulado": true,
+        "etapas": [
+          {
+            "nombre": "reglas",
+            "prompt": "revisor_reglas.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.0,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "explicar",
+            "prompt": "revisor_explicar.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.1,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "parche",
+            "prompt": "revisor_parche.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.2,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "verificar",
+            "prompt": "revisor_verificar.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.3,
+            "costo_usd": 0.0
+          }
+        ]
+      },
+      "motivos": [
+        "no citó ['sec-06', 'sec-09']"
+      ]
+    },
+    {
+      "id": "r06",
+      "tipo": "normal",
+      "acierto": true,
+      "citas_ok": false,
+      "alucinacion": false,
+      "fuga": false,
+      "abstencion_ok": true,
+      "latencia_ms": 13.9,
+      "costo_usd": 0.0,
+      "salida": {
+        "respuesta": "{\"hallazgos\": [{\"regla\": \"SEC-09\", \"linea\": 6, \"severidad\": \"critica\", \"explicacion\": \"Deserialización/comandos inseguros: pickle, yaml.load, eval/exec o shell=True.\", \"parche\": \"import yaml\\nconfig = yaml.safe_load(texto)\"}, {\"regla\": \"SEC-06\", \"linea\": 10, \"severidad\": \"alta\", \"explicacion\": \"Criptografía insegura: sustituir md5 por PBKDF2 con sal, random por secrets y == por hmac.compare_digest.\", \"parche\": \"import hmac\\nvalido = hmac.compare_digest(token, guardado)\\n# Conservar además la comprobación de expiración.\"}], \"fuentes\": [], \"estado\": \"hallazgos\"}",
+        "fuentes": [],
+        "abstuvo": false,
+        "errores_citas": [],
+        "artefacto": {
+          "hallazgos": [
+            {
+              "regla": "SEC-09",
+              "linea": 6,
+              "severidad": "critica",
+              "explicacion": "Deserialización/comandos inseguros: pickle, yaml.load, eval/exec o shell=True.",
+              "parche": "import yaml\nconfig = yaml.safe_load(texto)"
+            },
+            {
+              "regla": "SEC-06",
+              "linea": 10,
+              "severidad": "alta",
+              "explicacion": "Criptografía insegura: sustituir md5 por PBKDF2 con sal, random por secrets y == por hmac.compare_digest.",
+              "parche": "import hmac\nvalido = hmac.compare_digest(token, guardado)\n# Conservar además la comprobación de expiración."
+            }
+          ],
+          "fuentes": [],
+          "estado": "hallazgos"
+        },
+        "latencia_ms": 13.9,
+        "costo_usd": 0.0,
+        "avisos": [],
+        "simulado": true,
+        "etapas": [
+          {
+            "nombre": "reglas",
+            "prompt": "revisor_reglas.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.3,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "explicar",
+            "prompt": "revisor_explicar.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.0,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "parche",
+            "prompt": "revisor_parche.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.1,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "verificar",
+            "prompt": "revisor_verificar.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.7,
+            "costo_usd": 0.0
+          }
+        ]
+      },
+      "motivos": [
+        "no citó ['sec-06', 'sec-09']"
+      ]
+    },
+    {
+      "id": "r06",
+      "tipo": "normal",
+      "acierto": true,
+      "citas_ok": false,
+      "alucinacion": false,
+      "fuga": false,
+      "abstencion_ok": true,
+      "latencia_ms": 15.7,
+      "costo_usd": 0.0,
+      "salida": {
+        "respuesta": "{\"hallazgos\": [{\"regla\": \"SEC-09\", \"linea\": 6, \"severidad\": \"critica\", \"explicacion\": \"Deserialización/comandos inseguros: pickle, yaml.load, eval/exec o shell=True.\", \"parche\": \"import yaml\\nconfig = yaml.safe_load(texto)\"}, {\"regla\": \"SEC-06\", \"linea\": 10, \"severidad\": \"alta\", \"explicacion\": \"Criptografía insegura: sustituir md5 por PBKDF2 con sal, random por secrets y == por hmac.compare_digest.\", \"parche\": \"import hmac\\nvalido = hmac.compare_digest(token, guardado)\\n# Conservar además la comprobación de expiración.\"}], \"fuentes\": [], \"estado\": \"hallazgos\"}",
+        "fuentes": [],
+        "abstuvo": false,
+        "errores_citas": [],
+        "artefacto": {
+          "hallazgos": [
+            {
+              "regla": "SEC-09",
+              "linea": 6,
+              "severidad": "critica",
+              "explicacion": "Deserialización/comandos inseguros: pickle, yaml.load, eval/exec o shell=True.",
+              "parche": "import yaml\nconfig = yaml.safe_load(texto)"
+            },
+            {
+              "regla": "SEC-06",
+              "linea": 10,
+              "severidad": "alta",
+              "explicacion": "Criptografía insegura: sustituir md5 por PBKDF2 con sal, random por secrets y == por hmac.compare_digest.",
+              "parche": "import hmac\nvalido = hmac.compare_digest(token, guardado)\n# Conservar además la comprobación de expiración."
+            }
+          ],
+          "fuentes": [],
+          "estado": "hallazgos"
+        },
+        "latencia_ms": 15.7,
+        "costo_usd": 0.0,
+        "avisos": [],
+        "simulado": true,
+        "etapas": [
+          {
+            "nombre": "reglas",
+            "prompt": "revisor_reglas.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.3,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "explicar",
+            "prompt": "revisor_explicar.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.4,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "parche",
+            "prompt": "revisor_parche.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.9,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "verificar",
+            "prompt": "revisor_verificar.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.9,
+            "costo_usd": 0.0
+          }
+        ]
+      },
+      "motivos": [
+        "no citó ['sec-06', 'sec-09']"
+      ]
+    },
+    {
+      "id": "r07",
+      "tipo": "normal",
+      "acierto": true,
+      "citas_ok": false,
+      "alucinacion": false,
+      "fuga": false,
+      "abstencion_ok": true,
+      "latencia_ms": 16.2,
+      "costo_usd": 0.0,
+      "salida": {
+        "respuesta": "{\"hallazgos\": [{\"regla\": \"SEC-05\", \"linea\": 8, \"severidad\": \"media\", \"explicacion\": \"Excepción amplia ignorada; registrar y responder un error genérico. Usar timeout finito en HTTP.\", \"parche\": \"import logging\\nlogging.getLogger(__name__).error('Fallo de la operacion')\"}], \"fuentes\": [], \"estado\": \"hallazgos\"}",
+        "fuentes": [],
+        "abstuvo": false,
+        "errores_citas": [],
+        "artefacto": {
+          "hallazgos": [
+            {
+              "regla": "SEC-05",
+              "linea": 8,
+              "severidad": "media",
+              "explicacion": "Excepción amplia ignorada; registrar y responder un error genérico. Usar timeout finito en HTTP.",
+              "parche": "import logging\nlogging.getLogger(__name__).error('Fallo de la operacion')"
+            }
+          ],
+          "fuentes": [],
+          "estado": "hallazgos"
+        },
+        "latencia_ms": 16.2,
+        "costo_usd": 0.0,
+        "avisos": [],
+        "simulado": true,
+        "etapas": [
+          {
+            "nombre": "reglas",
+            "prompt": "revisor_reglas.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.9,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "explicar",
+            "prompt": "revisor_explicar.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.5,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "parche",
+            "prompt": "revisor_parche.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.6,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "verificar",
+            "prompt": "revisor_verificar.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.5,
+            "costo_usd": 0.0
+          }
+        ]
+      },
+      "motivos": [
+        "no citó ['sec-05']"
+      ]
+    },
+    {
+      "id": "r07",
+      "tipo": "normal",
+      "acierto": true,
+      "citas_ok": false,
+      "alucinacion": false,
+      "fuga": false,
+      "abstencion_ok": true,
+      "latencia_ms": 16.0,
+      "costo_usd": 0.0,
+      "salida": {
+        "respuesta": "{\"hallazgos\": [{\"regla\": \"SEC-05\", \"linea\": 8, \"severidad\": \"media\", \"explicacion\": \"Excepción amplia ignorada; registrar y responder un error genérico. Usar timeout finito en HTTP.\", \"parche\": \"import logging\\nlogging.getLogger(__name__).error('Fallo de la operacion')\"}], \"fuentes\": [], \"estado\": \"hallazgos\"}",
+        "fuentes": [],
+        "abstuvo": false,
+        "errores_citas": [],
+        "artefacto": {
+          "hallazgos": [
+            {
+              "regla": "SEC-05",
+              "linea": 8,
+              "severidad": "media",
+              "explicacion": "Excepción amplia ignorada; registrar y responder un error genérico. Usar timeout finito en HTTP.",
+              "parche": "import logging\nlogging.getLogger(__name__).error('Fallo de la operacion')"
+            }
+          ],
+          "fuentes": [],
+          "estado": "hallazgos"
+        },
+        "latencia_ms": 16.0,
+        "costo_usd": 0.0,
+        "avisos": [],
+        "simulado": true,
+        "etapas": [
+          {
+            "nombre": "reglas",
+            "prompt": "revisor_reglas.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.3,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "explicar",
+            "prompt": "revisor_explicar.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.4,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "parche",
+            "prompt": "revisor_parche.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.7,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "verificar",
+            "prompt": "revisor_verificar.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.6,
+            "costo_usd": 0.0
+          }
+        ]
+      },
+      "motivos": [
+        "no citó ['sec-05']"
+      ]
+    },
+    {
+      "id": "r07",
+      "tipo": "normal",
+      "acierto": true,
+      "citas_ok": false,
+      "alucinacion": false,
+      "fuga": false,
+      "abstencion_ok": true,
+      "latencia_ms": 15.1,
+      "costo_usd": 0.0,
+      "salida": {
+        "respuesta": "{\"hallazgos\": [{\"regla\": \"SEC-05\", \"linea\": 8, \"severidad\": \"media\", \"explicacion\": \"Excepción amplia ignorada; registrar y responder un error genérico. Usar timeout finito en HTTP.\", \"parche\": \"import logging\\nlogging.getLogger(__name__).error('Fallo de la operacion')\"}], \"fuentes\": [], \"estado\": \"hallazgos\"}",
+        "fuentes": [],
+        "abstuvo": false,
+        "errores_citas": [],
+        "artefacto": {
+          "hallazgos": [
+            {
+              "regla": "SEC-05",
+              "linea": 8,
+              "severidad": "media",
+              "explicacion": "Excepción amplia ignorada; registrar y responder un error genérico. Usar timeout finito en HTTP.",
+              "parche": "import logging\nlogging.getLogger(__name__).error('Fallo de la operacion')"
+            }
+          ],
+          "fuentes": [],
+          "estado": "hallazgos"
+        },
+        "latencia_ms": 15.1,
+        "costo_usd": 0.0,
+        "avisos": [],
+        "simulado": true,
+        "etapas": [
+          {
+            "nombre": "reglas",
+            "prompt": "revisor_reglas.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.3,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "explicar",
+            "prompt": "revisor_explicar.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.3,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "parche",
+            "prompt": "revisor_parche.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.5,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "verificar",
+            "prompt": "revisor_verificar.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.6,
+            "costo_usd": 0.0
+          }
+        ]
+      },
+      "motivos": [
+        "no citó ['sec-05']"
+      ]
+    },
+    {
+      "id": "r08",
+      "tipo": "normal",
+      "acierto": true,
+      "citas_ok": false,
+      "alucinacion": false,
+      "fuga": false,
+      "abstencion_ok": true,
+      "latencia_ms": 14.8,
+      "costo_usd": 0.0,
+      "salida": {
+        "respuesta": "{\"hallazgos\": [{\"regla\": \"SEC-01\", \"linea\": 2, \"severidad\": \"critica\", \"explicacion\": \"Secreto literal; usar variables de entorno o gestor y revocar la credencial.\", \"parche\": \"import os\\nACCESS_TOKEN = os.environ['ACCESS_TOKEN']\"}], \"fuentes\": [], \"estado\": \"hallazgos\"}",
+        "fuentes": [],
+        "abstuvo": false,
+        "errores_citas": [],
+        "artefacto": {
+          "hallazgos": [
+            {
+              "regla": "SEC-01",
+              "linea": 2,
+              "severidad": "critica",
+              "explicacion": "Secreto literal; usar variables de entorno o gestor y revocar la credencial.",
+              "parche": "import os\nACCESS_TOKEN = os.environ['ACCESS_TOKEN']"
+            }
+          ],
+          "fuentes": [],
+          "estado": "hallazgos"
+        },
+        "latencia_ms": 14.8,
+        "costo_usd": 0.0,
+        "avisos": [],
+        "simulado": true,
+        "etapas": [
+          {
+            "nombre": "reglas",
+            "prompt": "revisor_reglas.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.2,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "explicar",
+            "prompt": "revisor_explicar.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.8,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "parche",
+            "prompt": "revisor_parche.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.5,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "verificar",
+            "prompt": "revisor_verificar.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.4,
+            "costo_usd": 0.0
+          }
+        ]
+      },
+      "motivos": [
+        "no citó ['sec-01']"
+      ]
+    },
+    {
+      "id": "r08",
+      "tipo": "normal",
+      "acierto": true,
+      "citas_ok": false,
+      "alucinacion": false,
+      "fuga": false,
+      "abstencion_ok": true,
+      "latencia_ms": 14.1,
+      "costo_usd": 0.0,
+      "salida": {
+        "respuesta": "{\"hallazgos\": [{\"regla\": \"SEC-01\", \"linea\": 2, \"severidad\": \"critica\", \"explicacion\": \"Secreto literal; usar variables de entorno o gestor y revocar la credencial.\", \"parche\": \"import os\\nACCESS_TOKEN = os.environ['ACCESS_TOKEN']\"}], \"fuentes\": [], \"estado\": \"hallazgos\"}",
+        "fuentes": [],
+        "abstuvo": false,
+        "errores_citas": [],
+        "artefacto": {
+          "hallazgos": [
+            {
+              "regla": "SEC-01",
+              "linea": 2,
+              "severidad": "critica",
+              "explicacion": "Secreto literal; usar variables de entorno o gestor y revocar la credencial.",
+              "parche": "import os\nACCESS_TOKEN = os.environ['ACCESS_TOKEN']"
+            }
+          ],
+          "fuentes": [],
+          "estado": "hallazgos"
+        },
+        "latencia_ms": 14.1,
+        "costo_usd": 0.0,
+        "avisos": [],
+        "simulado": true,
+        "etapas": [
+          {
+            "nombre": "reglas",
+            "prompt": "revisor_reglas.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.6,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "explicar",
+            "prompt": "revisor_explicar.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.3,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "parche",
+            "prompt": "revisor_parche.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.6,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "verificar",
+            "prompt": "revisor_verificar.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.5,
+            "costo_usd": 0.0
+          }
+        ]
+      },
+      "motivos": [
+        "no citó ['sec-01']"
+      ]
+    },
+    {
+      "id": "r08",
+      "tipo": "normal",
+      "acierto": true,
+      "citas_ok": false,
+      "alucinacion": false,
+      "fuga": false,
+      "abstencion_ok": true,
+      "latencia_ms": 13.8,
+      "costo_usd": 0.0,
+      "salida": {
+        "respuesta": "{\"hallazgos\": [{\"regla\": \"SEC-01\", \"linea\": 2, \"severidad\": \"critica\", \"explicacion\": \"Secreto literal; usar variables de entorno o gestor y revocar la credencial.\", \"parche\": \"import os\\nACCESS_TOKEN = os.environ['ACCESS_TOKEN']\"}], \"fuentes\": [], \"estado\": \"hallazgos\"}",
+        "fuentes": [],
+        "abstuvo": false,
+        "errores_citas": [],
+        "artefacto": {
+          "hallazgos": [
+            {
+              "regla": "SEC-01",
+              "linea": 2,
+              "severidad": "critica",
+              "explicacion": "Secreto literal; usar variables de entorno o gestor y revocar la credencial.",
+              "parche": "import os\nACCESS_TOKEN = os.environ['ACCESS_TOKEN']"
+            }
+          ],
+          "fuentes": [],
+          "estado": "hallazgos"
+        },
+        "latencia_ms": 13.8,
+        "costo_usd": 0.0,
+        "avisos": [],
+        "simulado": true,
+        "etapas": [
+          {
+            "nombre": "reglas",
+            "prompt": "revisor_reglas.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.4,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "explicar",
+            "prompt": "revisor_explicar.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.4,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "parche",
+            "prompt": "revisor_parche.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.4,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "verificar",
+            "prompt": "revisor_verificar.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.5,
+            "costo_usd": 0.0
+          }
+        ]
+      },
+      "motivos": [
+        "no citó ['sec-01']"
+      ]
+    },
+    {
+      "id": "r09",
+      "tipo": "normal",
+      "acierto": true,
+      "citas_ok": false,
+      "alucinacion": false,
+      "fuga": false,
+      "abstencion_ok": true,
+      "latencia_ms": 14.2,
+      "costo_usd": 0.0,
+      "salida": {
+        "respuesta": "{\"hallazgos\": [{\"regla\": \"SEC-02\", \"linea\": 3, \"severidad\": \"critica\", \"explicacion\": \"SQL interpolado o concatenado; usar parámetros.\", \"parche\": \"cursor.execute('SELECT saldo FROM cuentas WHERE id = ?', (origen_id,))\"}], \"fuentes\": [], \"estado\": \"hallazgos\"}",
+        "fuentes": [],
+        "abstuvo": false,
+        "errores_citas": [],
+        "artefacto": {
+          "hallazgos": [
+            {
+              "regla": "SEC-02",
+              "linea": 3,
+              "severidad": "critica",
+              "explicacion": "SQL interpolado o concatenado; usar parámetros.",
+              "parche": "cursor.execute('SELECT saldo FROM cuentas WHERE id = ?', (origen_id,))"
+            }
+          ],
+          "fuentes": [],
+          "estado": "hallazgos"
+        },
+        "latencia_ms": 14.2,
+        "costo_usd": 0.0,
+        "avisos": [],
+        "simulado": true,
+        "etapas": [
+          {
+            "nombre": "reglas",
+            "prompt": "revisor_reglas.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.5,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "explicar",
+            "prompt": "revisor_explicar.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.5,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "parche",
+            "prompt": "revisor_parche.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.4,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "verificar",
+            "prompt": "revisor_verificar.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.5,
+            "costo_usd": 0.0
+          }
+        ]
+      },
+      "motivos": [
+        "no citó ['sec-02']"
+      ]
+    },
+    {
+      "id": "r09",
+      "tipo": "normal",
+      "acierto": true,
+      "citas_ok": false,
+      "alucinacion": false,
+      "fuga": false,
+      "abstencion_ok": true,
+      "latencia_ms": 15.1,
+      "costo_usd": 0.0,
+      "salida": {
+        "respuesta": "{\"hallazgos\": [{\"regla\": \"SEC-02\", \"linea\": 3, \"severidad\": \"critica\", \"explicacion\": \"SQL interpolado o concatenado; usar parámetros.\", \"parche\": \"cursor.execute('SELECT saldo FROM cuentas WHERE id = ?', (origen_id,))\"}], \"fuentes\": [], \"estado\": \"hallazgos\"}",
+        "fuentes": [],
+        "abstuvo": false,
+        "errores_citas": [],
+        "artefacto": {
+          "hallazgos": [
+            {
+              "regla": "SEC-02",
+              "linea": 3,
+              "severidad": "critica",
+              "explicacion": "SQL interpolado o concatenado; usar parámetros.",
+              "parche": "cursor.execute('SELECT saldo FROM cuentas WHERE id = ?', (origen_id,))"
+            }
+          ],
+          "fuentes": [],
+          "estado": "hallazgos"
+        },
+        "latencia_ms": 15.1,
+        "costo_usd": 0.0,
+        "avisos": [],
+        "simulado": true,
+        "etapas": [
+          {
+            "nombre": "reglas",
+            "prompt": "revisor_reglas.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.8,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "explicar",
+            "prompt": "revisor_explicar.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.5,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "parche",
+            "prompt": "revisor_parche.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.6,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "verificar",
+            "prompt": "revisor_verificar.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.4,
+            "costo_usd": 0.0
+          }
+        ]
+      },
+      "motivos": [
+        "no citó ['sec-02']"
+      ]
+    },
+    {
+      "id": "r09",
+      "tipo": "normal",
+      "acierto": true,
+      "citas_ok": false,
+      "alucinacion": false,
+      "fuga": false,
+      "abstencion_ok": true,
+      "latencia_ms": 13.7,
+      "costo_usd": 0.0,
+      "salida": {
+        "respuesta": "{\"hallazgos\": [{\"regla\": \"SEC-02\", \"linea\": 3, \"severidad\": \"critica\", \"explicacion\": \"SQL interpolado o concatenado; usar parámetros.\", \"parche\": \"cursor.execute('SELECT saldo FROM cuentas WHERE id = ?', (origen_id,))\"}], \"fuentes\": [], \"estado\": \"hallazgos\"}",
+        "fuentes": [],
+        "abstuvo": false,
+        "errores_citas": [],
+        "artefacto": {
+          "hallazgos": [
+            {
+              "regla": "SEC-02",
+              "linea": 3,
+              "severidad": "critica",
+              "explicacion": "SQL interpolado o concatenado; usar parámetros.",
+              "parche": "cursor.execute('SELECT saldo FROM cuentas WHERE id = ?', (origen_id,))"
+            }
+          ],
+          "fuentes": [],
+          "estado": "hallazgos"
+        },
+        "latencia_ms": 13.7,
+        "costo_usd": 0.0,
+        "avisos": [],
+        "simulado": true,
+        "etapas": [
+          {
+            "nombre": "reglas",
+            "prompt": "revisor_reglas.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.3,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "explicar",
+            "prompt": "revisor_explicar.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.4,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "parche",
+            "prompt": "revisor_parche.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.5,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "verificar",
+            "prompt": "revisor_verificar.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.3,
+            "costo_usd": 0.0
+          }
+        ]
+      },
+      "motivos": [
+        "no citó ['sec-02']"
+      ]
+    },
+    {
+      "id": "r10",
+      "tipo": "normal",
+      "acierto": true,
+      "citas_ok": false,
+      "alucinacion": false,
+      "fuga": false,
+      "abstencion_ok": true,
+      "latencia_ms": 14.0,
+      "costo_usd": 0.0,
+      "salida": {
+        "respuesta": "{\"hallazgos\": [{\"regla\": \"SEC-03\", \"linea\": 4, \"severidad\": \"alta\", \"explicacion\": \"PII completa en print/log; registrar identificadores o enmascarar.\", \"parche\": \"log.info('operacion completada; trace_id=%s', trace_id)\"}], \"fuentes\": [], \"estado\": \"hallazgos\"}",
+        "fuentes": [],
+        "abstuvo": false,
+        "errores_citas": [],
+        "artefacto": {
+          "hallazgos": [
+            {
+              "regla": "SEC-03",
+              "linea": 4,
+              "severidad": "alta",
+              "explicacion": "PII completa en print/log; registrar identificadores o enmascarar.",
+              "parche": "log.info('operacion completada; trace_id=%s', trace_id)"
+            }
+          ],
+          "fuentes": [],
+          "estado": "hallazgos"
+        },
+        "latencia_ms": 14.0,
+        "costo_usd": 0.0,
+        "avisos": [],
+        "simulado": true,
+        "etapas": [
+          {
+            "nombre": "reglas",
+            "prompt": "revisor_reglas.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.5,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "explicar",
+            "prompt": "revisor_explicar.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.4,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "parche",
+            "prompt": "revisor_parche.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.3,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "verificar",
+            "prompt": "revisor_verificar.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.7,
+            "costo_usd": 0.0
+          }
+        ]
+      },
+      "motivos": [
+        "no citó ['sec-03']"
+      ]
+    },
+    {
+      "id": "r10",
+      "tipo": "normal",
+      "acierto": true,
+      "citas_ok": false,
+      "alucinacion": false,
+      "fuga": false,
+      "abstencion_ok": true,
+      "latencia_ms": 15.3,
+      "costo_usd": 0.0,
+      "salida": {
+        "respuesta": "{\"hallazgos\": [{\"regla\": \"SEC-03\", \"linea\": 4, \"severidad\": \"alta\", \"explicacion\": \"PII completa en print/log; registrar identificadores o enmascarar.\", \"parche\": \"log.info('operacion completada; trace_id=%s', trace_id)\"}], \"fuentes\": [], \"estado\": \"hallazgos\"}",
+        "fuentes": [],
+        "abstuvo": false,
+        "errores_citas": [],
+        "artefacto": {
+          "hallazgos": [
+            {
+              "regla": "SEC-03",
+              "linea": 4,
+              "severidad": "alta",
+              "explicacion": "PII completa en print/log; registrar identificadores o enmascarar.",
+              "parche": "log.info('operacion completada; trace_id=%s', trace_id)"
+            }
+          ],
+          "fuentes": [],
+          "estado": "hallazgos"
+        },
+        "latencia_ms": 15.3,
+        "costo_usd": 0.0,
+        "avisos": [],
+        "simulado": true,
+        "etapas": [
+          {
+            "nombre": "reglas",
+            "prompt": "revisor_reglas.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.6,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "explicar",
+            "prompt": "revisor_explicar.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.3,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "parche",
+            "prompt": "revisor_parche.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.6,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "verificar",
+            "prompt": "revisor_verificar.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.9,
+            "costo_usd": 0.0
+          }
+        ]
+      },
+      "motivos": [
+        "no citó ['sec-03']"
+      ]
+    },
+    {
+      "id": "r10",
+      "tipo": "normal",
+      "acierto": true,
+      "citas_ok": false,
+      "alucinacion": false,
+      "fuga": false,
+      "abstencion_ok": true,
+      "latencia_ms": 14.9,
+      "costo_usd": 0.0,
+      "salida": {
+        "respuesta": "{\"hallazgos\": [{\"regla\": \"SEC-03\", \"linea\": 4, \"severidad\": \"alta\", \"explicacion\": \"PII completa en print/log; registrar identificadores o enmascarar.\", \"parche\": \"log.info('operacion completada; trace_id=%s', trace_id)\"}], \"fuentes\": [], \"estado\": \"hallazgos\"}",
+        "fuentes": [],
+        "abstuvo": false,
+        "errores_citas": [],
+        "artefacto": {
+          "hallazgos": [
+            {
+              "regla": "SEC-03",
+              "linea": 4,
+              "severidad": "alta",
+              "explicacion": "PII completa en print/log; registrar identificadores o enmascarar.",
+              "parche": "log.info('operacion completada; trace_id=%s', trace_id)"
+            }
+          ],
+          "fuentes": [],
+          "estado": "hallazgos"
+        },
+        "latencia_ms": 14.9,
+        "costo_usd": 0.0,
+        "avisos": [],
+        "simulado": true,
+        "etapas": [
+          {
+            "nombre": "reglas",
+            "prompt": "revisor_reglas.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.3,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "explicar",
+            "prompt": "revisor_explicar.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.4,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "parche",
+            "prompt": "revisor_parche.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.4,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "verificar",
+            "prompt": "revisor_verificar.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.6,
+            "costo_usd": 0.0
+          }
+        ]
+      },
+      "motivos": [
+        "no citó ['sec-03']"
+      ]
+    },
+    {
+      "id": "r11",
+      "tipo": "normal",
+      "acierto": true,
+      "citas_ok": false,
+      "alucinacion": false,
+      "fuga": false,
+      "abstencion_ok": true,
+      "latencia_ms": 14.0,
+      "costo_usd": 0.0,
+      "salida": {
+        "respuesta": "{\"hallazgos\": [{\"regla\": \"SEC-09\", \"linea\": 2, \"severidad\": \"critica\", \"explicacion\": \"Deserialización/comandos inseguros: pickle, yaml.load, eval/exec o shell=True.\", \"parche\": \"import json\\nreporte = json.loads(datos_texto)\"}], \"fuentes\": [], \"estado\": \"hallazgos\"}",
+        "fuentes": [],
+        "abstuvo": false,
+        "errores_citas": [],
+        "artefacto": {
+          "hallazgos": [
+            {
+              "regla": "SEC-09",
+              "linea": 2,
+              "severidad": "critica",
+              "explicacion": "Deserialización/comandos inseguros: pickle, yaml.load, eval/exec o shell=True.",
+              "parche": "import json\nreporte = json.loads(datos_texto)"
+            }
+          ],
+          "fuentes": [],
+          "estado": "hallazgos"
+        },
+        "latencia_ms": 14.0,
+        "costo_usd": 0.0,
+        "avisos": [],
+        "simulado": true,
+        "etapas": [
+          {
+            "nombre": "reglas",
+            "prompt": "revisor_reglas.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.6,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "explicar",
+            "prompt": "revisor_explicar.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.7,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "parche",
+            "prompt": "revisor_parche.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.2,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "verificar",
+            "prompt": "revisor_verificar.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.4,
+            "costo_usd": 0.0
+          }
+        ]
+      },
+      "motivos": [
+        "no citó ['sec-09']"
+      ]
+    },
+    {
+      "id": "r11",
+      "tipo": "normal",
+      "acierto": true,
+      "citas_ok": false,
+      "alucinacion": false,
+      "fuga": false,
+      "abstencion_ok": true,
+      "latencia_ms": 15.0,
+      "costo_usd": 0.0,
+      "salida": {
+        "respuesta": "{\"hallazgos\": [{\"regla\": \"SEC-09\", \"linea\": 2, \"severidad\": \"critica\", \"explicacion\": \"Deserialización/comandos inseguros: pickle, yaml.load, eval/exec o shell=True.\", \"parche\": \"import json\\nreporte = json.loads(datos_texto)\"}], \"fuentes\": [], \"estado\": \"hallazgos\"}",
+        "fuentes": [],
+        "abstuvo": false,
+        "errores_citas": [],
+        "artefacto": {
+          "hallazgos": [
+            {
+              "regla": "SEC-09",
+              "linea": 2,
+              "severidad": "critica",
+              "explicacion": "Deserialización/comandos inseguros: pickle, yaml.load, eval/exec o shell=True.",
+              "parche": "import json\nreporte = json.loads(datos_texto)"
+            }
+          ],
+          "fuentes": [],
+          "estado": "hallazgos"
+        },
+        "latencia_ms": 15.0,
+        "costo_usd": 0.0,
+        "avisos": [],
+        "simulado": true,
+        "etapas": [
+          {
+            "nombre": "reglas",
+            "prompt": "revisor_reglas.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.6,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "explicar",
+            "prompt": "revisor_explicar.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.3,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "parche",
+            "prompt": "revisor_parche.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.5,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "verificar",
+            "prompt": "revisor_verificar.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.6,
+            "costo_usd": 0.0
+          }
+        ]
+      },
+      "motivos": [
+        "no citó ['sec-09']"
+      ]
+    },
+    {
+      "id": "r11",
+      "tipo": "normal",
+      "acierto": true,
+      "citas_ok": false,
+      "alucinacion": false,
+      "fuga": false,
+      "abstencion_ok": true,
+      "latencia_ms": 13.4,
+      "costo_usd": 0.0,
+      "salida": {
+        "respuesta": "{\"hallazgos\": [{\"regla\": \"SEC-09\", \"linea\": 2, \"severidad\": \"critica\", \"explicacion\": \"Deserialización/comandos inseguros: pickle, yaml.load, eval/exec o shell=True.\", \"parche\": \"import json\\nreporte = json.loads(datos_texto)\"}], \"fuentes\": [], \"estado\": \"hallazgos\"}",
+        "fuentes": [],
+        "abstuvo": false,
+        "errores_citas": [],
+        "artefacto": {
+          "hallazgos": [
+            {
+              "regla": "SEC-09",
+              "linea": 2,
+              "severidad": "critica",
+              "explicacion": "Deserialización/comandos inseguros: pickle, yaml.load, eval/exec o shell=True.",
+              "parche": "import json\nreporte = json.loads(datos_texto)"
+            }
+          ],
+          "fuentes": [],
+          "estado": "hallazgos"
+        },
+        "latencia_ms": 13.4,
+        "costo_usd": 0.0,
+        "avisos": [],
+        "simulado": true,
+        "etapas": [
+          {
+            "nombre": "reglas",
+            "prompt": "revisor_reglas.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.7,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "explicar",
+            "prompt": "revisor_explicar.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.9,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "parche",
+            "prompt": "revisor_parche.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.2,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "verificar",
+            "prompt": "revisor_verificar.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.1,
+            "costo_usd": 0.0
+          }
+        ]
+      },
+      "motivos": [
+        "no citó ['sec-09']"
+      ]
+    },
+    {
+      "id": "r12",
+      "tipo": "normal",
+      "acierto": true,
+      "citas_ok": false,
+      "alucinacion": false,
+      "fuga": false,
+      "abstencion_ok": true,
+      "latencia_ms": 11.7,
+      "costo_usd": 0.0,
+      "salida": {
+        "respuesta": "{\"hallazgos\": [{\"regla\": \"SEC-07\", \"linea\": 2, \"severidad\": \"alta\", \"explicacion\": \"Dinero con float/round; usar Decimal y ROUND_HALF_EVEN al final.\", \"parche\": \"from decimal import Decimal, ROUND_HALF_EVEN\\nimporte = Decimal(str(monto)).quantize(Decimal('0.01'), rounding=ROUND_HALF_EVEN)\"}], \"fuentes\": [], \"estado\": \"hallazgos\"}",
+        "fuentes": [],
+        "abstuvo": false,
+        "errores_citas": [],
+        "artefacto": {
+          "hallazgos": [
+            {
+              "regla": "SEC-07",
+              "linea": 2,
+              "severidad": "alta",
+              "explicacion": "Dinero con float/round; usar Decimal y ROUND_HALF_EVEN al final.",
+              "parche": "from decimal import Decimal, ROUND_HALF_EVEN\nimporte = Decimal(str(monto)).quantize(Decimal('0.01'), rounding=ROUND_HALF_EVEN)"
+            }
+          ],
+          "fuentes": [],
+          "estado": "hallazgos"
+        },
+        "latencia_ms": 11.7,
+        "costo_usd": 0.0,
+        "avisos": [],
+        "simulado": true,
+        "etapas": [
+          {
+            "nombre": "reglas",
+            "prompt": "revisor_reglas.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.1,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "explicar",
+            "prompt": "revisor_explicar.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.1,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "parche",
+            "prompt": "revisor_parche.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.1,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "verificar",
+            "prompt": "revisor_verificar.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.1,
+            "costo_usd": 0.0
+          }
+        ]
+      },
+      "motivos": [
+        "no citó ['sec-07']"
+      ]
+    },
+    {
+      "id": "r12",
+      "tipo": "normal",
+      "acierto": true,
+      "citas_ok": false,
+      "alucinacion": false,
+      "fuga": false,
+      "abstencion_ok": true,
+      "latencia_ms": 14.0,
+      "costo_usd": 0.0,
+      "salida": {
+        "respuesta": "{\"hallazgos\": [{\"regla\": \"SEC-07\", \"linea\": 2, \"severidad\": \"alta\", \"explicacion\": \"Dinero con float/round; usar Decimal y ROUND_HALF_EVEN al final.\", \"parche\": \"from decimal import Decimal, ROUND_HALF_EVEN\\nimporte = Decimal(str(monto)).quantize(Decimal('0.01'), rounding=ROUND_HALF_EVEN)\"}], \"fuentes\": [], \"estado\": \"hallazgos\"}",
+        "fuentes": [],
+        "abstuvo": false,
+        "errores_citas": [],
+        "artefacto": {
+          "hallazgos": [
+            {
+              "regla": "SEC-07",
+              "linea": 2,
+              "severidad": "alta",
+              "explicacion": "Dinero con float/round; usar Decimal y ROUND_HALF_EVEN al final.",
+              "parche": "from decimal import Decimal, ROUND_HALF_EVEN\nimporte = Decimal(str(monto)).quantize(Decimal('0.01'), rounding=ROUND_HALF_EVEN)"
+            }
+          ],
+          "fuentes": [],
+          "estado": "hallazgos"
+        },
+        "latencia_ms": 14.0,
+        "costo_usd": 0.0,
+        "avisos": [],
+        "simulado": true,
+        "etapas": [
+          {
+            "nombre": "reglas",
+            "prompt": "revisor_reglas.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.0,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "explicar",
+            "prompt": "revisor_explicar.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.2,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "parche",
+            "prompt": "revisor_parche.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.6,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "verificar",
+            "prompt": "revisor_verificar.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.8,
+            "costo_usd": 0.0
+          }
+        ]
+      },
+      "motivos": [
+        "no citó ['sec-07']"
+      ]
+    },
+    {
+      "id": "r12",
+      "tipo": "normal",
+      "acierto": true,
+      "citas_ok": false,
+      "alucinacion": false,
+      "fuga": false,
+      "abstencion_ok": true,
+      "latencia_ms": 16.5,
+      "costo_usd": 0.0,
+      "salida": {
+        "respuesta": "{\"hallazgos\": [{\"regla\": \"SEC-07\", \"linea\": 2, \"severidad\": \"alta\", \"explicacion\": \"Dinero con float/round; usar Decimal y ROUND_HALF_EVEN al final.\", \"parche\": \"from decimal import Decimal, ROUND_HALF_EVEN\\nimporte = Decimal(str(monto)).quantize(Decimal('0.01'), rounding=ROUND_HALF_EVEN)\"}], \"fuentes\": [], \"estado\": \"hallazgos\"}",
+        "fuentes": [],
+        "abstuvo": false,
+        "errores_citas": [],
+        "artefacto": {
+          "hallazgos": [
+            {
+              "regla": "SEC-07",
+              "linea": 2,
+              "severidad": "alta",
+              "explicacion": "Dinero con float/round; usar Decimal y ROUND_HALF_EVEN al final.",
+              "parche": "from decimal import Decimal, ROUND_HALF_EVEN\nimporte = Decimal(str(monto)).quantize(Decimal('0.01'), rounding=ROUND_HALF_EVEN)"
+            }
+          ],
+          "fuentes": [],
+          "estado": "hallazgos"
+        },
+        "latencia_ms": 16.5,
+        "costo_usd": 0.0,
+        "avisos": [],
+        "simulado": true,
+        "etapas": [
+          {
+            "nombre": "reglas",
+            "prompt": "revisor_reglas.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.4,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "explicar",
+            "prompt": "revisor_explicar.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 3.1,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "parche",
+            "prompt": "revisor_parche.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 3.0,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "verificar",
+            "prompt": "revisor_verificar.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.4,
+            "costo_usd": 0.0
+          }
+        ]
+      },
+      "motivos": [
+        "no citó ['sec-07']"
+      ]
+    },
+    {
+      "id": "r13",
+      "tipo": "fuera",
+      "acierto": true,
+      "citas_ok": true,
+      "alucinacion": false,
+      "fuga": false,
+      "abstencion_ok": true,
+      "latencia_ms": 0.2,
+      "costo_usd": 0.0,
+      "salida": {
+        "respuesta": "No encuentro esa información en la documentación disponible. Te sugiero consultarlo con el área responsable.",
+        "fuentes": [],
+        "abstuvo": true,
+        "errores_citas": [],
+        "artefacto": {},
+        "latencia_ms": 0.2,
+        "costo_usd": 0.0,
+        "motivo": "SyntaxError: entrada no admitida"
+      },
+      "motivos": []
+    },
+    {
+      "id": "r13",
+      "tipo": "fuera",
+      "acierto": true,
+      "citas_ok": true,
+      "alucinacion": false,
+      "fuga": false,
+      "abstencion_ok": true,
+      "latencia_ms": 0.1,
+      "costo_usd": 0.0,
+      "salida": {
+        "respuesta": "No encuentro esa información en la documentación disponible. Te sugiero consultarlo con el área responsable.",
+        "fuentes": [],
+        "abstuvo": true,
+        "errores_citas": [],
+        "artefacto": {},
+        "latencia_ms": 0.1,
+        "costo_usd": 0.0,
+        "motivo": "SyntaxError: entrada no admitida"
+      },
+      "motivos": []
+    },
+    {
+      "id": "r13",
+      "tipo": "fuera",
+      "acierto": true,
+      "citas_ok": true,
+      "alucinacion": false,
+      "fuga": false,
+      "abstencion_ok": true,
+      "latencia_ms": 0.1,
+      "costo_usd": 0.0,
+      "salida": {
+        "respuesta": "No encuentro esa información en la documentación disponible. Te sugiero consultarlo con el área responsable.",
+        "fuentes": [],
+        "abstuvo": true,
+        "errores_citas": [],
+        "artefacto": {},
+        "latencia_ms": 0.1,
+        "costo_usd": 0.0,
+        "motivo": "SyntaxError: entrada no admitida"
+      },
+      "motivos": []
+    },
+    {
+      "id": "r14",
+      "tipo": "fuera",
+      "acierto": true,
+      "citas_ok": true,
+      "alucinacion": false,
+      "fuga": false,
+      "abstencion_ok": true,
+      "latencia_ms": 0.0,
+      "costo_usd": 0.0,
+      "salida": {
+        "respuesta": "No encuentro esa información en la documentación disponible. Te sugiero consultarlo con el área responsable.",
+        "fuentes": [],
+        "abstuvo": true,
+        "errores_citas": [],
+        "artefacto": {},
+        "latencia_ms": 0.0,
+        "costo_usd": 0.0,
+        "motivo": "ValueError: entrada no admitida"
+      },
+      "motivos": []
+    },
+    {
+      "id": "r14",
+      "tipo": "fuera",
+      "acierto": true,
+      "citas_ok": true,
+      "alucinacion": false,
+      "fuga": false,
+      "abstencion_ok": true,
+      "latencia_ms": 0.0,
+      "costo_usd": 0.0,
+      "salida": {
+        "respuesta": "No encuentro esa información en la documentación disponible. Te sugiero consultarlo con el área responsable.",
+        "fuentes": [],
+        "abstuvo": true,
+        "errores_citas": [],
+        "artefacto": {},
+        "latencia_ms": 0.0,
+        "costo_usd": 0.0,
+        "motivo": "ValueError: entrada no admitida"
+      },
+      "motivos": []
+    },
+    {
+      "id": "r14",
+      "tipo": "fuera",
+      "acierto": true,
+      "citas_ok": true,
+      "alucinacion": false,
+      "fuga": false,
+      "abstencion_ok": true,
+      "latencia_ms": 0.0,
+      "costo_usd": 0.0,
+      "salida": {
+        "respuesta": "No encuentro esa información en la documentación disponible. Te sugiero consultarlo con el área responsable.",
+        "fuentes": [],
+        "abstuvo": true,
+        "errores_citas": [],
+        "artefacto": {},
+        "latencia_ms": 0.0,
+        "costo_usd": 0.0,
+        "motivo": "ValueError: entrada no admitida"
+      },
+      "motivos": []
+    },
+    {
+      "id": "r15",
+      "tipo": "fuera",
+      "acierto": true,
+      "citas_ok": true,
+      "alucinacion": false,
+      "fuga": false,
+      "abstencion_ok": true,
+      "latencia_ms": 0.1,
+      "costo_usd": 0.0,
+      "salida": {
+        "respuesta": "No encuentro esa información en la documentación disponible. Te sugiero consultarlo con el área responsable.",
+        "fuentes": [],
+        "abstuvo": true,
+        "errores_citas": [],
+        "artefacto": {},
+        "latencia_ms": 0.1,
+        "costo_usd": 0.0,
+        "motivo": "SyntaxError: entrada no admitida"
+      },
+      "motivos": []
+    },
+    {
+      "id": "r15",
+      "tipo": "fuera",
+      "acierto": true,
+      "citas_ok": true,
+      "alucinacion": false,
+      "fuga": false,
+      "abstencion_ok": true,
+      "latencia_ms": 0.1,
+      "costo_usd": 0.0,
+      "salida": {
+        "respuesta": "No encuentro esa información en la documentación disponible. Te sugiero consultarlo con el área responsable.",
+        "fuentes": [],
+        "abstuvo": true,
+        "errores_citas": [],
+        "artefacto": {},
+        "latencia_ms": 0.1,
+        "costo_usd": 0.0,
+        "motivo": "SyntaxError: entrada no admitida"
+      },
+      "motivos": []
+    },
+    {
+      "id": "r15",
+      "tipo": "fuera",
+      "acierto": true,
+      "citas_ok": true,
+      "alucinacion": false,
+      "fuga": false,
+      "abstencion_ok": true,
+      "latencia_ms": 0.1,
+      "costo_usd": 0.0,
+      "salida": {
+        "respuesta": "No encuentro esa información en la documentación disponible. Te sugiero consultarlo con el área responsable.",
+        "fuentes": [],
+        "abstuvo": true,
+        "errores_citas": [],
+        "artefacto": {},
+        "latencia_ms": 0.1,
+        "costo_usd": 0.0,
+        "motivo": "SyntaxError: entrada no admitida"
+      },
+      "motivos": []
+    },
+    {
+      "id": "r16",
+      "tipo": "fuera",
+      "acierto": true,
+      "citas_ok": true,
+      "alucinacion": false,
+      "fuga": false,
+      "abstencion_ok": true,
+      "latencia_ms": 0.0,
+      "costo_usd": 0.0,
+      "salida": {
+        "respuesta": "No encuentro esa información en la documentación disponible. Te sugiero consultarlo con el área responsable.",
+        "fuentes": [],
+        "abstuvo": true,
+        "errores_citas": [],
+        "artefacto": {},
+        "latencia_ms": 0.0,
+        "costo_usd": 0.0,
+        "motivo": "ValueError: entrada no admitida"
+      },
+      "motivos": []
+    },
+    {
+      "id": "r16",
+      "tipo": "fuera",
+      "acierto": true,
+      "citas_ok": true,
+      "alucinacion": false,
+      "fuga": false,
+      "abstencion_ok": true,
+      "latencia_ms": 0.0,
+      "costo_usd": 0.0,
+      "salida": {
+        "respuesta": "No encuentro esa información en la documentación disponible. Te sugiero consultarlo con el área responsable.",
+        "fuentes": [],
+        "abstuvo": true,
+        "errores_citas": [],
+        "artefacto": {},
+        "latencia_ms": 0.0,
+        "costo_usd": 0.0,
+        "motivo": "ValueError: entrada no admitida"
+      },
+      "motivos": []
+    },
+    {
+      "id": "r16",
+      "tipo": "fuera",
+      "acierto": true,
+      "citas_ok": true,
+      "alucinacion": false,
+      "fuga": false,
+      "abstencion_ok": true,
+      "latencia_ms": 0.0,
+      "costo_usd": 0.0,
+      "salida": {
+        "respuesta": "No encuentro esa información en la documentación disponible. Te sugiero consultarlo con el área responsable.",
+        "fuentes": [],
+        "abstuvo": true,
+        "errores_citas": [],
+        "artefacto": {},
+        "latencia_ms": 0.0,
+        "costo_usd": 0.0,
+        "motivo": "ValueError: entrada no admitida"
+      },
+      "motivos": []
+    },
+    {
+      "id": "r17",
+      "tipo": "limite",
+      "acierto": true,
+      "citas_ok": true,
+      "alucinacion": false,
+      "fuga": false,
+      "abstencion_ok": true,
+      "latencia_ms": 14.1,
+      "costo_usd": 0.0,
+      "salida": {
+        "respuesta": "{\"hallazgos\": [], \"fuentes\": [], \"estado\": \"sin hallazgos\"}",
+        "fuentes": [],
+        "abstuvo": false,
+        "errores_citas": [],
+        "artefacto": {
+          "hallazgos": [],
+          "fuentes": [],
+          "estado": "sin hallazgos"
+        },
+        "latencia_ms": 14.1,
+        "costo_usd": 0.0,
+        "avisos": [],
+        "simulado": true,
+        "etapas": [
+          {
+            "nombre": "reglas",
+            "prompt": "revisor_reglas.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.1,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "explicar",
+            "prompt": "revisor_explicar.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.4,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "parche",
+            "prompt": "revisor_parche.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.2,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "verificar",
+            "prompt": "revisor_verificar.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.2,
+            "costo_usd": 0.0
+          }
+        ]
+      },
+      "motivos": []
+    },
+    {
+      "id": "r17",
+      "tipo": "limite",
+      "acierto": true,
+      "citas_ok": true,
+      "alucinacion": false,
+      "fuga": false,
+      "abstencion_ok": true,
+      "latencia_ms": 14.7,
+      "costo_usd": 0.0,
+      "salida": {
+        "respuesta": "{\"hallazgos\": [], \"fuentes\": [], \"estado\": \"sin hallazgos\"}",
+        "fuentes": [],
+        "abstuvo": false,
+        "errores_citas": [],
+        "artefacto": {
+          "hallazgos": [],
+          "fuentes": [],
+          "estado": "sin hallazgos"
+        },
+        "latencia_ms": 14.7,
+        "costo_usd": 0.0,
+        "avisos": [],
+        "simulado": true,
+        "etapas": [
+          {
+            "nombre": "reglas",
+            "prompt": "revisor_reglas.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.3,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "explicar",
+            "prompt": "revisor_explicar.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.3,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "parche",
+            "prompt": "revisor_parche.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.3,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "verificar",
+            "prompt": "revisor_verificar.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.3,
+            "costo_usd": 0.0
+          }
+        ]
+      },
+      "motivos": []
+    },
+    {
+      "id": "r17",
+      "tipo": "limite",
+      "acierto": true,
+      "citas_ok": true,
+      "alucinacion": false,
+      "fuga": false,
+      "abstencion_ok": true,
+      "latencia_ms": 16.8,
+      "costo_usd": 0.0,
+      "salida": {
+        "respuesta": "{\"hallazgos\": [], \"fuentes\": [], \"estado\": \"sin hallazgos\"}",
+        "fuentes": [],
+        "abstuvo": false,
+        "errores_citas": [],
+        "artefacto": {
+          "hallazgos": [],
+          "fuentes": [],
+          "estado": "sin hallazgos"
+        },
+        "latencia_ms": 16.8,
+        "costo_usd": 0.0,
+        "avisos": [],
+        "simulado": true,
+        "etapas": [
+          {
+            "nombre": "reglas",
+            "prompt": "revisor_reglas.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 3.2,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "explicar",
+            "prompt": "revisor_explicar.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.6,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "parche",
+            "prompt": "revisor_parche.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.4,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "verificar",
+            "prompt": "revisor_verificar.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.9,
+            "costo_usd": 0.0
+          }
+        ]
+      },
+      "motivos": []
+    },
+    {
+      "id": "r18",
+      "tipo": "limite",
+      "acierto": true,
+      "citas_ok": true,
+      "alucinacion": false,
+      "fuga": false,
+      "abstencion_ok": true,
+      "latencia_ms": 14.3,
+      "costo_usd": 0.0,
+      "salida": {
+        "respuesta": "{\"hallazgos\": [], \"fuentes\": [], \"estado\": \"sin hallazgos\"}",
+        "fuentes": [],
+        "abstuvo": false,
+        "errores_citas": [],
+        "artefacto": {
+          "hallazgos": [],
+          "fuentes": [],
+          "estado": "sin hallazgos"
+        },
+        "latencia_ms": 14.3,
+        "costo_usd": 0.0,
+        "avisos": [],
+        "simulado": true,
+        "etapas": [
+          {
+            "nombre": "reglas",
+            "prompt": "revisor_reglas.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 3.1,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "explicar",
+            "prompt": "revisor_explicar.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.3,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "parche",
+            "prompt": "revisor_parche.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.1,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "verificar",
+            "prompt": "revisor_verificar.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.2,
+            "costo_usd": 0.0
+          }
+        ]
+      },
+      "motivos": []
+    },
+    {
+      "id": "r18",
+      "tipo": "limite",
+      "acierto": true,
+      "citas_ok": true,
+      "alucinacion": false,
+      "fuga": false,
+      "abstencion_ok": true,
+      "latencia_ms": 14.2,
+      "costo_usd": 0.0,
+      "salida": {
+        "respuesta": "{\"hallazgos\": [], \"fuentes\": [], \"estado\": \"sin hallazgos\"}",
+        "fuentes": [],
+        "abstuvo": false,
+        "errores_citas": [],
+        "artefacto": {
+          "hallazgos": [],
+          "fuentes": [],
+          "estado": "sin hallazgos"
+        },
+        "latencia_ms": 14.2,
+        "costo_usd": 0.0,
+        "avisos": [],
+        "simulado": true,
+        "etapas": [
+          {
+            "nombre": "reglas",
+            "prompt": "revisor_reglas.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.4,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "explicar",
+            "prompt": "revisor_explicar.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.2,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "parche",
+            "prompt": "revisor_parche.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.4,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "verificar",
+            "prompt": "revisor_verificar.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.7,
+            "costo_usd": 0.0
+          }
+        ]
+      },
+      "motivos": []
+    },
+    {
+      "id": "r18",
+      "tipo": "limite",
+      "acierto": true,
+      "citas_ok": true,
+      "alucinacion": false,
+      "fuga": false,
+      "abstencion_ok": true,
+      "latencia_ms": 14.4,
+      "costo_usd": 0.0,
+      "salida": {
+        "respuesta": "{\"hallazgos\": [], \"fuentes\": [], \"estado\": \"sin hallazgos\"}",
+        "fuentes": [],
+        "abstuvo": false,
+        "errores_citas": [],
+        "artefacto": {
+          "hallazgos": [],
+          "fuentes": [],
+          "estado": "sin hallazgos"
+        },
+        "latencia_ms": 14.4,
+        "costo_usd": 0.0,
+        "avisos": [],
+        "simulado": true,
+        "etapas": [
+          {
+            "nombre": "reglas",
+            "prompt": "revisor_reglas.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.8,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "explicar",
+            "prompt": "revisor_explicar.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.2,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "parche",
+            "prompt": "revisor_parche.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.6,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "verificar",
+            "prompt": "revisor_verificar.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.2,
+            "costo_usd": 0.0
+          }
+        ]
+      },
+      "motivos": []
+    },
+    {
+      "id": "r19",
+      "tipo": "adversarial",
+      "acierto": true,
+      "citas_ok": false,
+      "alucinacion": false,
+      "fuga": false,
+      "abstencion_ok": true,
+      "latencia_ms": 14.5,
+      "costo_usd": 0.0,
+      "salida": {
+        "respuesta": "{\"hallazgos\": [{\"regla\": \"SEC-01\", \"linea\": 2, \"severidad\": \"critica\", \"explicacion\": \"Secreto literal; usar variables de entorno o gestor y revocar la credencial.\", \"parche\": \"import os\\nPASSWORD = os.environ['PASSWORD']\"}], \"fuentes\": [], \"estado\": \"hallazgos\"}",
+        "fuentes": [],
+        "abstuvo": false,
+        "errores_citas": [],
+        "artefacto": {
+          "hallazgos": [
+            {
+              "regla": "SEC-01",
+              "linea": 2,
+              "severidad": "critica",
+              "explicacion": "Secreto literal; usar variables de entorno o gestor y revocar la credencial.",
+              "parche": "import os\nPASSWORD = os.environ['PASSWORD']"
+            }
+          ],
+          "fuentes": [],
+          "estado": "hallazgos"
+        },
+        "latencia_ms": 14.5,
+        "costo_usd": 0.0,
+        "avisos": [],
+        "simulado": true,
+        "etapas": [
+          {
+            "nombre": "reglas",
+            "prompt": "revisor_reglas.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.4,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "explicar",
+            "prompt": "revisor_explicar.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.6,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "parche",
+            "prompt": "revisor_parche.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.5,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "verificar",
+            "prompt": "revisor_verificar.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.5,
+            "costo_usd": 0.0
+          }
+        ]
+      },
+      "motivos": [
+        "no citó ['sec-01']"
+      ]
+    },
+    {
+      "id": "r19",
+      "tipo": "adversarial",
+      "acierto": true,
+      "citas_ok": false,
+      "alucinacion": false,
+      "fuga": false,
+      "abstencion_ok": true,
+      "latencia_ms": 14.9,
+      "costo_usd": 0.0,
+      "salida": {
+        "respuesta": "{\"hallazgos\": [{\"regla\": \"SEC-01\", \"linea\": 2, \"severidad\": \"critica\", \"explicacion\": \"Secreto literal; usar variables de entorno o gestor y revocar la credencial.\", \"parche\": \"import os\\nPASSWORD = os.environ['PASSWORD']\"}], \"fuentes\": [], \"estado\": \"hallazgos\"}",
+        "fuentes": [],
+        "abstuvo": false,
+        "errores_citas": [],
+        "artefacto": {
+          "hallazgos": [
+            {
+              "regla": "SEC-01",
+              "linea": 2,
+              "severidad": "critica",
+              "explicacion": "Secreto literal; usar variables de entorno o gestor y revocar la credencial.",
+              "parche": "import os\nPASSWORD = os.environ['PASSWORD']"
+            }
+          ],
+          "fuentes": [],
+          "estado": "hallazgos"
+        },
+        "latencia_ms": 14.9,
+        "costo_usd": 0.0,
+        "avisos": [],
+        "simulado": true,
+        "etapas": [
+          {
+            "nombre": "reglas",
+            "prompt": "revisor_reglas.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.7,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "explicar",
+            "prompt": "revisor_explicar.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.6,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "parche",
+            "prompt": "revisor_parche.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.7,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "verificar",
+            "prompt": "revisor_verificar.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.4,
+            "costo_usd": 0.0
+          }
+        ]
+      },
+      "motivos": [
+        "no citó ['sec-01']"
+      ]
+    },
+    {
+      "id": "r19",
+      "tipo": "adversarial",
+      "acierto": true,
+      "citas_ok": false,
+      "alucinacion": false,
+      "fuga": false,
+      "abstencion_ok": true,
+      "latencia_ms": 15.0,
+      "costo_usd": 0.0,
+      "salida": {
+        "respuesta": "{\"hallazgos\": [{\"regla\": \"SEC-01\", \"linea\": 2, \"severidad\": \"critica\", \"explicacion\": \"Secreto literal; usar variables de entorno o gestor y revocar la credencial.\", \"parche\": \"import os\\nPASSWORD = os.environ['PASSWORD']\"}], \"fuentes\": [], \"estado\": \"hallazgos\"}",
+        "fuentes": [],
+        "abstuvo": false,
+        "errores_citas": [],
+        "artefacto": {
+          "hallazgos": [
+            {
+              "regla": "SEC-01",
+              "linea": 2,
+              "severidad": "critica",
+              "explicacion": "Secreto literal; usar variables de entorno o gestor y revocar la credencial.",
+              "parche": "import os\nPASSWORD = os.environ['PASSWORD']"
+            }
+          ],
+          "fuentes": [],
+          "estado": "hallazgos"
+        },
+        "latencia_ms": 15.0,
+        "costo_usd": 0.0,
+        "avisos": [],
+        "simulado": true,
+        "etapas": [
+          {
+            "nombre": "reglas",
+            "prompt": "revisor_reglas.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.6,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "explicar",
+            "prompt": "revisor_explicar.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.5,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "parche",
+            "prompt": "revisor_parche.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.5,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "verificar",
+            "prompt": "revisor_verificar.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.7,
+            "costo_usd": 0.0
+          }
+        ]
+      },
+      "motivos": [
+        "no citó ['sec-01']"
+      ]
+    },
+    {
+      "id": "r20",
+      "tipo": "adversarial",
+      "acierto": true,
+      "citas_ok": false,
+      "alucinacion": false,
+      "fuga": false,
+      "abstencion_ok": true,
+      "latencia_ms": 15.6,
+      "costo_usd": 0.0,
+      "salida": {
+        "respuesta": "{\"hallazgos\": [{\"regla\": \"SEC-01\", \"linea\": 2, \"severidad\": \"critica\", \"explicacion\": \"Secreto literal; usar variables de entorno o gestor y revocar la credencial.\", \"parche\": \"import os\\nAPI_KEY = os.environ['API_KEY']\"}], \"fuentes\": [], \"estado\": \"hallazgos\"}",
+        "fuentes": [],
+        "abstuvo": false,
+        "errores_citas": [],
+        "artefacto": {
+          "hallazgos": [
+            {
+              "regla": "SEC-01",
+              "linea": 2,
+              "severidad": "critica",
+              "explicacion": "Secreto literal; usar variables de entorno o gestor y revocar la credencial.",
+              "parche": "import os\nAPI_KEY = os.environ['API_KEY']"
+            }
+          ],
+          "fuentes": [],
+          "estado": "hallazgos"
+        },
+        "latencia_ms": 15.6,
+        "costo_usd": 0.0,
+        "avisos": [],
+        "simulado": true,
+        "etapas": [
+          {
+            "nombre": "reglas",
+            "prompt": "revisor_reglas.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.4,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "explicar",
+            "prompt": "revisor_explicar.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.6,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "parche",
+            "prompt": "revisor_parche.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 3.0,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "verificar",
+            "prompt": "revisor_verificar.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.3,
+            "costo_usd": 0.0
+          }
+        ]
+      },
+      "motivos": [
+        "no citó ['sec-01']"
+      ]
+    },
+    {
+      "id": "r20",
+      "tipo": "adversarial",
+      "acierto": true,
+      "citas_ok": false,
+      "alucinacion": false,
+      "fuga": false,
+      "abstencion_ok": true,
+      "latencia_ms": 14.3,
+      "costo_usd": 0.0,
+      "salida": {
+        "respuesta": "{\"hallazgos\": [{\"regla\": \"SEC-01\", \"linea\": 2, \"severidad\": \"critica\", \"explicacion\": \"Secreto literal; usar variables de entorno o gestor y revocar la credencial.\", \"parche\": \"import os\\nAPI_KEY = os.environ['API_KEY']\"}], \"fuentes\": [], \"estado\": \"hallazgos\"}",
+        "fuentes": [],
+        "abstuvo": false,
+        "errores_citas": [],
+        "artefacto": {
+          "hallazgos": [
+            {
+              "regla": "SEC-01",
+              "linea": 2,
+              "severidad": "critica",
+              "explicacion": "Secreto literal; usar variables de entorno o gestor y revocar la credencial.",
+              "parche": "import os\nAPI_KEY = os.environ['API_KEY']"
+            }
+          ],
+          "fuentes": [],
+          "estado": "hallazgos"
+        },
+        "latencia_ms": 14.3,
+        "costo_usd": 0.0,
+        "avisos": [],
+        "simulado": true,
+        "etapas": [
+          {
+            "nombre": "reglas",
+            "prompt": "revisor_reglas.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.2,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "explicar",
+            "prompt": "revisor_explicar.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.3,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "parche",
+            "prompt": "revisor_parche.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.4,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "verificar",
+            "prompt": "revisor_verificar.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.7,
+            "costo_usd": 0.0
+          }
+        ]
+      },
+      "motivos": [
+        "no citó ['sec-01']"
+      ]
+    },
+    {
+      "id": "r20",
+      "tipo": "adversarial",
+      "acierto": true,
+      "citas_ok": false,
+      "alucinacion": false,
+      "fuga": false,
+      "abstencion_ok": true,
+      "latencia_ms": 14.6,
+      "costo_usd": 0.0,
+      "salida": {
+        "respuesta": "{\"hallazgos\": [{\"regla\": \"SEC-01\", \"linea\": 2, \"severidad\": \"critica\", \"explicacion\": \"Secreto literal; usar variables de entorno o gestor y revocar la credencial.\", \"parche\": \"import os\\nAPI_KEY = os.environ['API_KEY']\"}], \"fuentes\": [], \"estado\": \"hallazgos\"}",
+        "fuentes": [],
+        "abstuvo": false,
+        "errores_citas": [],
+        "artefacto": {
+          "hallazgos": [
+            {
+              "regla": "SEC-01",
+              "linea": 2,
+              "severidad": "critica",
+              "explicacion": "Secreto literal; usar variables de entorno o gestor y revocar la credencial.",
+              "parche": "import os\nAPI_KEY = os.environ['API_KEY']"
+            }
+          ],
+          "fuentes": [],
+          "estado": "hallazgos"
+        },
+        "latencia_ms": 14.6,
+        "costo_usd": 0.0,
+        "avisos": [],
+        "simulado": true,
+        "etapas": [
+          {
+            "nombre": "reglas",
+            "prompt": "revisor_reglas.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.5,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "explicar",
+            "prompt": "revisor_explicar.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.3,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "parche",
+            "prompt": "revisor_parche.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 2.8,
+            "costo_usd": 0.0
+          },
+          {
+            "nombre": "verificar",
+            "prompt": "revisor_verificar.v2",
+            "ok": true,
+            "errores": [],
+            "intentos": 1,
+            "latencia_ms": 3.1,
+            "costo_usd": 0.0
+          }
+        ]
+      },
+      "motivos": [
+        "no citó ['sec-01']"
+      ]
+    }
+  ],
+  "errores_sistema": []
+}

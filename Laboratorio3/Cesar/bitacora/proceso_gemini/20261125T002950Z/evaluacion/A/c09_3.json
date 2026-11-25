@@ -1,0 +1,16 @@
+{
+  "caso": "c09",
+  "repeticion": 3,
+  "config": "A",
+  "fecha_utc": "2026-11-25T00:40:05.810890+00:00",
+  "modelo": "gemini-3.1-flash-lite",
+  "salida": {
+    "respuesta": "Para responderte con seguridad, necesito que revises estos **4 puntos críticos**. Si puedes marcar todos como \"listos\", entonces sí puedes:\n\n1.  **Estado del QA/Testing:** ¿Han terminado todas las pruebas de regresión y de aceptación (UAT)? ¿Hay algún bug crítico o bloqueante abierto?\n2.  **Congelamiento de código (Code Freeze):** ¿Tienes planeado dejar de hacer cambios en la rama de producción al menos 48-72 horas antes del día 30? (Para evitar sorpresas de último minuto).\n3.  **Plan de Rollback:** Si algo sale mal el día 30, ¿tienes un plan documentado y probado para volver a la versión anterior en menos de X minutos?\n4.  **Disponibilidad del equipo:** ¿Estarán presentes los desarrolladores, QA y DevOps el día 30 (y el 31, por si acaso)? **Evita liberar un viernes o un día antes de un festivo/fin de semana largo** si no es estrictamente necesario.\n\n---\n\n**Preguntas clave para ti:**\n*   **¿Qué día de la semana cae el 30?** (Si es viernes, piénsalo dos veces).\n*   **¿Hay alta carga de tráfico ese día?** (Ejemplo: cierre de mes, ofertas, etc.).\n*   **¿El equipo está bajo mucha presión?** (Las liberaciones apresuradas suelen ser las que más fallan).\n\n**Mi recomendación:** Si el código está estable y el equipo está descansado, adelante. Si sientes que estás \"corriendo\" para llegar a esa fecha, **no lo hagas**. Es mejor retrasar 2 o 3 días que pasar un fin de semana arreglando errores en producción.\n\n¿Cómo ves el panorama actual de tu proyecto?",
+    "fuentes": [],
+    "abstuvo": false,
+    "errores_citas": [],
+    "latencia_ms": 2984.4,
+    "costo_usd": 0.000981,
+    "recuperados": []
+  }
+}

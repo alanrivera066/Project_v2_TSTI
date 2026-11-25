@@ -1,0 +1,35 @@
+{
+  "caso": "c08",
+  "repeticion": 2,
+  "config": "C",
+  "fecha_utc": "2026-11-25T00:49:34.006484+00:00",
+  "modelo": "gemini-3.1-flash-lite",
+  "salida": {
+    "respuesta": "Si un secreto se expone, debes revocarlo en un máximo de 1 hora tras su detección. Se debe abrir un incidente de severidad 2 y revisar el historial de uso del secreto durante los últimos 30 días. Ten en cuenta que borrar el commit no es suficiente, ya que el secreto permanece en el historial del repositorio.",
+    "fuentes": [
+      "ing-02#1"
+    ],
+    "abstuvo": false,
+    "errores_citas": [],
+    "latencia_ms": 4876.1,
+    "costo_usd": 0.0005155,
+    "recuperados": [
+      [
+        "ing-02#1",
+        0.732
+      ],
+      [
+        "ing-02#0",
+        0.711
+      ],
+      [
+        "ing-06#0",
+        0.635
+      ],
+      [
+        "ing-07#1",
+        0.624
+      ]
+    ]
+  }
+}

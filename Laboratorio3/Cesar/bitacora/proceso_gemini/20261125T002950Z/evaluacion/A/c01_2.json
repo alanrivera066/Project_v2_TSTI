@@ -1,0 +1,16 @@
+{
+  "caso": "c01",
+  "repeticion": 2,
+  "config": "A",
+  "fecha_utc": "2026-11-25T00:30:07.141403+00:00",
+  "modelo": "gemini-3.1-flash-lite",
+  "salida": {
+    "respuesta": "No existe una regla única universal, ya que la frecuencia depende del **nivel de criticidad** del secreto, el **entorno** (desarrollo, staging, producción) y las **políticas de seguridad** de la empresa (como SOC2, ISO 27001 o PCI-DSS).\n\nSin embargo, aquí te presento las mejores prácticas estándar en la industria:\n\n### 1. Frecuencia recomendada\n*   **Rotación programada (estándar):** Cada **90 días** es el estándar más común para contraseñas y claves de API de larga duración.\n*   **Rotación de alta seguridad:** En entornos financieros o de alta criticidad, se recomienda cada **30 días**.\n*   **Rotación dinámica (el \"Gold Standard\"):** Muchas empresas modernas están migrando a **secretos efímeros** (que duran minutos u horas). Herramientas como *HashiCorp Vault* permiten generar credenciales de base de datos que expiran automáticamente después de ser usadas.\n\n### 2. ¿Cuándo rotar obligatoriamente? (Fuera de calendario)\nIndependientemente de la política de tiempo, debes rotar los secretos inmediatamente si ocurre lo siguiente:\n*   **Exposición accidental:** Si un secreto fue subido a un repositorio (GitHub, GitLab), enviado por Slack, o quedó registrado en un log de texto plano.\n*   **Cambio de personal:** Cuando un ingeniero o administrador con acceso a secretos críticos abandona la empresa o cambia de equipo.\n*   **Sospecha de compromiso:** Si detectas actividad inusual en los logs de acceso a tus servicios.\n*   **Incidente de seguridad:** Si un servidor o contenedor donde residían los secretos fue comprometido.\n\n### 3. Factores que dificultan la rotación\nLa razón por la que muchas empresas no rotan sus secretos tan seguido como deberían es la **complejidad operativa**:\n*   **Downtime:** Si rotar una clave requiere reiniciar servicios, se evita hacerlo frecuentemente.\n*   **Dependencias:** Si un secreto es compartido por múltiples microservicios, actualizarlo requiere una coordinación perfecta para no romper la comunicación.\n\n### 4. Recomendaciones para una rotación efectiva\nSi quieres implementar una política de rotación, sigue estos pasos:\n1.  **Automatización:** Nunca rotes secretos manualmente. Usa herramientas como *AWS Secrets Manager*, *Google Secret Manager* o *HashiCorp Vault*, que permiten automatizar la rotación mediante funciones Lambda o scripts.\n2.  **Secretos de corta duración:** Prioriza el uso de tokens (como los de AWS IAM) que expiran automáticamente en lugar de contraseñas estáticas.\n3.  **Inyección en tiempo de ejecución:** Los secretos no deben estar en archivos de configuración (`.env` o `config.yaml`) en el repositorio. Deben ser inyectados como variables de entorno o montados en memoria al iniciar el contenedor.\n4.  **Auditoría:** Asegúrate de tener logs de quién accedió a qué secreto y cuándo.\n\n**En resumen:** Si no tienes una política definida, **90 días es el punto de partida aceptable**, pero el objetivo final debe ser la **automatización total** para que la rotación sea transparente y frecuente (incluso diaria).",
+    "fuentes": [],
+    "abstuvo": false,
+    "errores_citas": [],
+    "latencia_ms": 3345.9,
+    "costo_usd": 0.0017526,
+    "recuperados": []
+  }
+}

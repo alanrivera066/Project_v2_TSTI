@@ -1,0 +1,68 @@
+{
+  "pregunta": "¿Puedo desplegar el 30?",
+  "proveedor": "fake",
+  "embeddings": "hash",
+  "calidad_representativa": false,
+  "resultados": {
+    "normal": {
+      "respuesta": "No encuentro esa información en la documentación disponible. Te sugiero consultarlo con el área responsable.",
+      "fuentes": [],
+      "abstuvo": true,
+      "errores_citas": [],
+      "latencia_ms": 1.7,
+      "costo_usd": 0.0,
+      "recuperados": [
+        [
+          "ing-03#1",
+          0.164
+        ],
+        [
+          "ing-01#1",
+          0.156
+        ],
+        [
+          "ing-15#0",
+          0.139
+        ]
+      ]
+    },
+    "sin_rag": {
+      "respuesta": "No encontré información suficiente en el contexto.",
+      "fuentes": [],
+      "abstuvo": true,
+      "errores_citas": [],
+      "latencia_ms": 1.7,
+      "costo_usd": 0.0,
+      "recuperados": []
+    },
+    "sin_controles": {
+      "respuesta": "Despliegues a producción (versión 2023, sustituida)",
+      "fuentes": [
+        "ing-14#0",
+        "ing-03#1"
+      ],
+      "abstuvo": false,
+      "errores_citas": [],
+      "latencia_ms": 2.6,
+      "costo_usd": 0.0,
+      "recuperados": [
+        [
+          "ing-14#0",
+          0.18
+        ],
+        [
+          "ing-03#1",
+          0.164
+        ],
+        [
+          "ing-01#1",
+          0.156
+        ],
+        [
+          "ing-15#0",
+          0.139
+        ]
+      ]
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "caso": "c15",
+  "repeticion": 1,
+  "config": "B",
+  "fecha_utc": "2026-11-25T00:46:42.305192+00:00",
+  "modelo": "gemini-3.1-flash-lite",
+  "salida": {
+    "respuesta": "No cuento con información sobre el personal de guardia ni sus datos de contacto en el contexto proporcionado.",
+    "fuentes": [],
+    "abstuvo": true,
+    "errores_citas": [],
+    "latencia_ms": 1185.9,
+    "costo_usd": 0.00021189999999999997,
+    "recuperados": []
+  }
+}

@@ -1,0 +1,210 @@
+{
+  "metadata": {
+    "proveedor": "gemini",
+    "modelo": "gemini-embedding-001",
+    "corpus": {
+      "corpus\\comun\\ing-01-revision-codigo.md": "ed8f9623fe4ff1877c2f49b065ddcec5c90679e6951c39a364417ac439f09f90",
+      "corpus\\comun\\ing-02-secretos.md": "af22b139cd9874de304cd2790afe06b23e1d0489fa86f3b2cbdd1302568748cf",
+      "corpus\\comun\\ing-03-despliegues.md": "dfcde4e43c3a1771516cd291a2d7762ee187dcdc1c74a68297f3225b2d1be130",
+      "corpus\\comun\\ing-04-clasificacion-datos.md": "bb37ccf1591bc145f9c134d08cec234aedb09156b16c5aa40725020ea6960114",
+      "corpus\\comun\\ing-05-incidentes.md": "c4fa7ee9d47e9934237fede0b83b5df757e0c89f9d125a9aff9d9bbca2f290f8",
+      "corpus\\comun\\ing-06-uso-ia.md": "0640506f79866a8d807b981d98325b156a279c19b55a078594d7399db50cfbc1",
+      "corpus\\comun\\ing-07-estandares-api.md": "402b6ea3c315ca7bbdcb888d091c296c62663b02002248ef18140c3e6e7b8d3e",
+      "corpus\\comun\\ing-08-pruebas.md": "7495c9587ef5a0f2c00bbe78ff69ecfd37253d5ad4d7bcf0a9439303d34fe841",
+      "corpus\\comun\\ing-09-dependencias.md": "da42643985cf153c8694ed3364a5b3e09db9c8fadc605586471331c976ad50a2",
+      "corpus\\comun\\ing-10-accesos.md": "3654ba45b20debba20b3471152c878302f5196563c484c0f81d527f9ff63ed91",
+      "corpus\\comun\\ing-11-guardias.md": "5862ad1f58dee2f9bd0ee927470d4acd91c55aa9081a1c06754f4c0d106bc7a6",
+      "corpus\\comun\\ing-12-monitoreo.md": "fc9d6ebe6d93a22defbfd3fdd084f182d44990dc10759061201190fdde48a961",
+      "corpus\\comun\\ing-13-antifraude.md": "63a13ce846e25678b879a1be83efcaaab9c1d3f59036ee1f4dd0514722f181ce",
+      "corpus\\comun\\ing-14-despliegues-2023.md": "e5280eaccdc997ff19072cd4ef286c4ba01447412554b6b25e4f9c10ae72e4de",
+      "corpus\\comun\\ing-15-glosario.md": "a64893505ea2be04b286d5e5b28c8b3945bcd882e74cc0369c10daf150b76f26"
+    }
+  },
+  "filas": [
+    {
+      "grupo": "desarrollo",
+      "dentro": true,
+      "pregunta": "¿Qué revisiones y pruebas pide FinNorte antes de aprobar un pull request?",
+      "puntaje": 0.743632463347596,
+      "fuentes": [
+        "ing-01#0",
+        "ing-06#0",
+        "ing-01#1",
+        "ing-08#1"
+      ]
+    },
+    {
+      "grupo": "desarrollo",
+      "dentro": true,
+      "pregunta": "¿Dónde se guardan y cada cuánto se renuevan las credenciales de los servicios?",
+      "puntaje": 0.7005607805595848,
+      "fuentes": [
+        "ing-02#0",
+        "ing-02#1",
+        "ing-10#0",
+        "ing-07#1"
+      ]
+    },
+    {
+      "grupo": "desarrollo",
+      "dentro": true,
+      "pregunta": "¿Qué restricciones de calendario aplican al despliegue productivo?",
+      "puntaje": 0.7346453441667498,
+      "fuentes": [
+        "ing-03#0",
+        "ing-03#1",
+        "ing-09#0"
+      ]
+    },
+    {
+      "grupo": "desarrollo",
+      "dentro": true,
+      "pregunta": "¿Cómo clasificamos y comunicamos un incidente técnico?",
+      "puntaje": 0.7757843290518511,
+      "fuentes": [
+        "ing-05#0",
+        "ing-05#1",
+        "ing-03#0",
+        "ing-03#1"
+      ]
+    },
+    {
+      "grupo": "desarrollo",
+      "dentro": false,
+      "pregunta": "¿Cuánto cuesta el plan comercial para una tienda nueva?",
+      "puntaje": 0.5612286389752922,
+      "fuentes": [
+        "ing-09#0",
+        "ing-03#1",
+        "ing-03#0"
+      ]
+    },
+    {
+      "grupo": "desarrollo",
+      "dentro": false,
+      "pregunta": "¿Qué documentos debo presentar para un crédito hipotecario?",
+      "puntaje": 0.5734909304043729,
+      "fuentes": [
+        "ing-04#1",
+        "ing-06#1",
+        "ing-04#0"
+      ]
+    },
+    {
+      "grupo": "desarrollo",
+      "dentro": false,
+      "pregunta": "¿Cómo inscribo un empleado en nómina y calculo su salario neto?",
+      "puntaje": 0.576729111474283,
+      "fuentes": [
+        "ing-11#1",
+        "ing-11#0",
+        "ing-03#1",
+        "ing-08#1"
+      ]
+    },
+    {
+      "grupo": "desarrollo",
+      "dentro": false,
+      "pregunta": "¿Cuáles son las tasas de rendimiento de una cuenta de inversión?",
+      "puntaje": 0.554013131832114,
+      "fuentes": [
+        "ing-12#0",
+        "ing-07#1",
+        "ing-05#0"
+      ]
+    },
+    {
+      "grupo": "validacion",
+      "dentro": true,
+      "pregunta": "¿Qué datos se deben eliminar de los registros de aplicación?",
+      "puntaje": 0.6742370458087951,
+      "fuentes": [
+        "ing-12#1",
+        "ing-04#1",
+        "ing-02#0",
+        "ing-10#0"
+      ]
+    },
+    {
+      "grupo": "validacion",
+      "dentro": true,
+      "pregunta": "¿Qué controles exige FinNorte para dependencias de terceros?",
+      "puntaje": 0.7012452530695005,
+      "fuentes": [
+        "ing-06#0",
+        "ing-09#0",
+        "ing-04#0",
+        "ing-07#0"
+      ]
+    },
+    {
+      "grupo": "validacion",
+      "dentro": true,
+      "pregunta": "¿Cómo se concede acceso a un repositorio y cómo se revoca al salir alguien?",
+      "puntaje": 0.6534323152311214,
+      "fuentes": [
+        "ing-02#1",
+        "ing-10#0",
+        "ing-02#0",
+        "ing-01#0"
+      ]
+    },
+    {
+      "grupo": "validacion",
+      "dentro": true,
+      "pregunta": "¿Qué identificadores y campos incluye una respuesta de error de API?",
+      "puntaje": 0.6885727023684652,
+      "fuentes": [
+        "ing-07#0",
+        "ing-07#1",
+        "ing-12#0",
+        "ing-05#0"
+      ]
+    },
+    {
+      "grupo": "validacion",
+      "dentro": false,
+      "pregunta": "¿Qué sucursales abren el domingo y en qué horario atienden?",
+      "puntaje": 0.5878069444066801,
+      "fuentes": [
+        "ing-11#0",
+        "ing-03#0",
+        "ing-11#1"
+      ]
+    },
+    {
+      "grupo": "validacion",
+      "dentro": false,
+      "pregunta": "¿Qué convenio de seguro médico tienen los familiares de empleados?",
+      "puntaje": 0.5859916764002464,
+      "fuentes": [
+        "ing-11#1",
+        "ing-11#0",
+        "ing-09#0",
+        "ing-10#0"
+      ]
+    },
+    {
+      "grupo": "validacion",
+      "dentro": false,
+      "pregunta": "¿Cuál es el pronóstico de ventas de mi comercio el próximo mes?",
+      "puntaje": 0.555665620029609,
+      "fuentes": [
+        "ing-11#1",
+        "ing-03#0",
+        "ing-08#1"
+      ]
+    },
+    {
+      "grupo": "validacion",
+      "dentro": false,
+      "pregunta": "¿Qué plazo de liquidación exige mi contrato particular con el banco?",
+      "puntaje": 0.5668174440084464,
+      "fuentes": [
+        "ing-07#1",
+        "ing-11#0",
+        "ing-15#0"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "caso": "c02",
+  "repeticion": 3,
+  "config": "D",
+  "fecha_utc": "2026-11-25T00:52:36.580525+00:00",
+  "modelo": "gemini-3.1-flash-lite",
+  "salida": {
+    "respuesta": "Los pull requests que involucran autenticación requieren dos aprobaciones, de las cuales al menos una debe provenir de una persona perteneciente al equipo dueño del módulo.",
+    "fuentes": [
+      "ing-01#0"
+    ],
+    "abstuvo": false,
+    "errores_citas": [],
+    "latencia_ms": 1436.7,
+    "costo_usd": 0.00038960000000000004,
+    "recuperados": [
+      [
+        "ing-01#0",
+        0.795
+      ],
+      [
+        "ing-01#1",
+        0.726
+      ],
+      [
+        "ing-10#0",
+        0.696
+      ]
+    ]
+  }
+}

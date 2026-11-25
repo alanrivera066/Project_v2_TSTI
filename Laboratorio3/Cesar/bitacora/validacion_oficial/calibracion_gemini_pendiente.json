@@ -1,0 +1,6 @@
+{
+  "estado": "pendiente",
+  "motivo": "No hay GEMINI_API_KEY autorizada configurada",
+  "proveedor": "gemini",
+  "llamadas_al_proveedor": 0
+}

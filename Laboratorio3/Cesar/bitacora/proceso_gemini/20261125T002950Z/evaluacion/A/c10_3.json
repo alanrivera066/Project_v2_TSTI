@@ -1,0 +1,16 @@
+{
+  "caso": "c10",
+  "repeticion": 3,
+  "config": "A",
+  "fecha_utc": "2026-11-25T00:40:31.075584+00:00",
+  "modelo": "gemini-3.1-flash-lite",
+  "salida": {
+    "respuesta": "Si un cliente te envía dos veces la misma transferencia por error, lo más importante es **actuar con transparencia y rapidez**. Aquí te explico los pasos que debes seguir para manejar la situación de forma profesional y legal:\n\n### 1. No gastes ni muevas el dinero\nAunque el dinero esté en tu cuenta, **no te pertenece**. Si lo gastas, podrías incurrir en un problema legal por apropiación indebida. Mantén el monto intacto en tu cuenta bancaria.\n\n### 2. Verifica la situación\n*   **Confirma el error:** Revisa tus estados de cuenta y asegúrate de que, efectivamente, se trata de un pago duplicado y no de un pago por dos servicios o facturas distintas.\n*   **Contacta al cliente:** Escríbele o llámale inmediatamente. Puedes decirle algo como: *\"Hola [Nombre], he notado que recibí dos transferencias por el mismo concepto. ¿Fue un error o necesitabas pagar algo adicional?\"*\n\n### 3. ¿Cómo devolverlo? (La regla de oro)\n**Nunca devuelvas el dinero a una cuenta distinta a la que envió el pago.**\n*   Si el cliente confirma que fue un error, **devuélvele el dinero a la misma cuenta bancaria de origen** desde la que salió el pago.\n*   Esto es vital para evitar estafas (a veces, terceros usan cuentas robadas para hacer transferencias y piden que el reembolso se haga a una cuenta diferente, lo cual es una técnica de lavado de dinero o fraude).\n\n### 4. Documenta todo\n*   Guarda los comprobantes de la recepción de ambos pagos.\n*   Guarda el comprobante de la devolución que realices.\n*   Si es una empresa, emite una nota de crédito o un documento que respalde que el dinero fue devuelto por concepto de \"pago duplicado\".\n\n### 5. ¿Qué pasa si el cliente no responde?\nSi intentas contactar al cliente y no obtienes respuesta, **no te quedes el dinero**.\n*   Llama a tu banco y explica la situación. Informa que recibiste un pago duplicado y que no logras contactar al emisor.\n*   El banco puede iniciar un proceso de reversión o, al menos, dejar constancia de que tú notificaste el error, lo cual te protege legalmente.\n\n### ¿Qué riesgos corres si no haces nada?\n*   **Problemas legales:** El cliente puede denunciar el error ante su banco y, si tú no has hecho nada, el banco podría bloquear tu cuenta por movimientos sospechosos o por una reclamación de fraude.\n*   **Daño a tu reputación:** Si es un cliente recurrente, devolver el dinero de inmediato genera mucha confianza y profesionalismo.\n\n**En resumen:** Avisa al cliente, confirma que fue un error y devuelve el dinero a la misma cuenta de origen. Es la forma más segura y ética de proceder.",
+    "fuentes": [],
+    "abstuvo": false,
+    "errores_citas": [],
+    "latencia_ms": 2845.0,
+    "costo_usd": 0.0015785,
+    "recuperados": []
+  }
+}

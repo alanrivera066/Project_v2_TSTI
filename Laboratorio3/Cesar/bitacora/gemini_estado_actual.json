@@ -1,0 +1,13 @@
+{
+  "estado": "completo",
+  "umbral": 0.6386449460169339,
+  "respuestas_guardadas": 192,
+  "respuestas_previstas": 192,
+  "modelo": "gemini-3.1-flash-lite",
+  "embeddings": "gemini-embedding-001",
+  "evidencia": "bitacora/proceso_gemini/20261125T002950Z",
+  "integridad": "bitacora/proceso_gemini/20261125T002950Z/integridad_final.json",
+  "consistencia_docente": "Estabilidad del acierto booleano",
+  "consistencia_literal": "Conservada como metrica adicional",
+  "nota": "Se conserva el fallo c10; no se ajusto el umbral con el conjunto final."
+}

@@ -1,0 +1,16 @@
+{
+  "caso": "c06",
+  "repeticion": 2,
+  "config": "B",
+  "fecha_utc": "2026-11-25T00:44:06.429946+00:00",
+  "modelo": "gemini-3.1-flash-lite",
+  "salida": {
+    "respuesta": "No cuento con información en el contexto proporcionado sobre los requisitos de cobertura de ramas para los módulos que mueven dinero en FinNorte.",
+    "fuentes": [],
+    "abstuvo": true,
+    "errores_citas": [],
+    "latencia_ms": 1321.4,
+    "costo_usd": 0.00023219999999999998,
+    "recuperados": []
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "caso": "c09",
+  "repeticion": 1,
+  "config": "B",
+  "fecha_utc": "2026-11-25T00:44:57.052664+00:00",
+  "modelo": "gemini-3.1-flash-lite",
+  "salida": {
+    "respuesta": "No cuento con información en el manual sobre las políticas o restricciones para liberaciones a producción en fechas específicas.",
+    "fuentes": [],
+    "abstuvo": true,
+    "errores_citas": [],
+    "latencia_ms": 3941.0,
+    "costo_usd": 0.0002147,
+    "recuperados": []
+  }
+}

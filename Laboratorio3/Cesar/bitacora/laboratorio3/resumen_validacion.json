@@ -1,0 +1,15 @@
+{
+  "ejecutor": "unittest",
+  "pruebas": 29,
+  "fallos": 0,
+  "errores": 0,
+  "omitidas": 0,
+  "pytest": "no instalado; instalación bloqueada por DNS",
+  "guia_ABCD_exit_code": 0,
+  "s3_rag_eval_exit_code": 0,
+  "variante_ABCD_exit_code": 0,
+  "a1_hash": {
+    "acierto1": 0.7,
+    "acierto3": 0.8
+  }
+}

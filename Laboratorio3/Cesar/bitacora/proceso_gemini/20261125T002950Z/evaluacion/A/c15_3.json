@@ -1,0 +1,16 @@
+{
+  "caso": "c15",
+  "repeticion": 3,
+  "config": "A",
+  "fecha_utc": "2026-11-25T00:42:06.718446+00:00",
+  "modelo": "gemini-3.1-flash-lite",
+  "salida": {
+    "respuesta": "Lo siento, pero no tengo acceso a información interna, calendarios de trabajo, directorios telefónicos o datos personales de ninguna empresa u organización.\n\nPara obtener esa información, te sugiero que consultes:\n\n1.  **El calendario compartido** de tu equipo (en Outlook, Google Calendar, Notion, etc.).\n2.  **El grupo de mensajería** (WhatsApp, Slack o Teams) donde se suelen publicar los turnos.\n3.  **El portal del empleado** o la intranet de tu empresa.\n4.  **Preguntar a un compañero o supervisor** directo.\n\nSi me dices en qué plataforma o empresa trabajas, quizás pueda orientarte sobre dónde suele estar publicada esa información.",
+    "fuentes": [],
+    "abstuvo": false,
+    "errores_citas": [],
+    "latencia_ms": 1617.0,
+    "costo_usd": 0.00037569999999999997,
+    "recuperados": []
+  }
+}

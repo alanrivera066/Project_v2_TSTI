@@ -1,0 +1,34 @@
+test_archivos (test_revisor_unittest.RevisorTests.test_archivos) ... ok
+test_asistente (test_revisor_unittest.RevisorTests.test_asistente) ... ok
+test_busqueda (test_revisor_unittest.RevisorTests.test_busqueda) ... ok
+test_cita_falsa (test_revisor_unittest.RevisorTests.test_cita_falsa) ... ok
+test_citas (test_revisor_unittest.RevisorTests.test_citas) ... ok
+test_confidencial (test_revisor_unittest.RevisorTests.test_confidencial) ... ok
+test_coseno (test_revisor_unittest.RevisorTests.test_coseno) ... ok
+test_crypto_alias (test_revisor_unittest.RevisorTests.test_crypto_alias) ... ok
+test_cuatro_etapas (test_revisor_unittest.RevisorTests.test_cuatro_etapas) ... ok
+test_dependencia (test_revisor_unittest.RevisorTests.test_dependencia) ... ok
+test_fuera (test_revisor_unittest.RevisorTests.test_fuera) ... ok
+test_inyeccion (test_revisor_unittest.RevisorTests.test_inyeccion) ... ok
+test_json_invalido (test_revisor_unittest.RevisorTests.test_json_invalido) ... ok
+test_limpio (test_revisor_unittest.RevisorTests.test_limpio) ... ok
+test_lineas_omisiones (test_revisor_unittest.RevisorTests.test_lineas_omisiones) ... ok
+test_no_ejecucion (test_revisor_unittest.RevisorTests.test_no_ejecucion) ... ok
+test_normalizar (test_revisor_unittest.RevisorTests.test_normalizar) ... ok
+test_parche_invalido (test_revisor_unittest.RevisorTests.test_parche_invalido) ... ok
+test_pii (test_revisor_unittest.RevisorTests.test_pii) ... ok
+test_prompts (test_revisor_unittest.RevisorTests.test_prompts) ... ok
+test_reintento (test_revisor_unittest.RevisorTests.test_reintento) ... ok
+test_ruta (test_revisor_unittest.RevisorTests.test_ruta) ... ok
+test_saneo (test_revisor_unittest.RevisorTests.test_saneo) ... ok
+test_sha_archivo (test_revisor_unittest.RevisorTests.test_sha_archivo) ... ok
+test_shell (test_revisor_unittest.RevisorTests.test_shell) ... ok
+test_sql_seguro (test_revisor_unittest.RevisorTests.test_sql_seguro) ... ok
+test_sql_variable (test_revisor_unittest.RevisorTests.test_sql_variable) ... ok
+test_umbral (test_revisor_unittest.RevisorTests.test_umbral) ... ok
+test_yaml_seguro (test_revisor_unittest.RevisorTests.test_yaml_seguro) ... ok
+
+----------------------------------------------------------------------
+Ran 29 tests in 0.435s
+
+OK

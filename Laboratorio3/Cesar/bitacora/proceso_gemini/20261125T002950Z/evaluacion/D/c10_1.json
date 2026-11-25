@@ -1,0 +1,29 @@
+{
+  "caso": "c10",
+  "repeticion": 1,
+  "config": "D",
+  "fecha_utc": "2026-11-25T00:54:47.466702+00:00",
+  "modelo": "gemini-3.1-flash-lite",
+  "salida": {
+    "respuesta": "No encuentro esa información en la documentación disponible. Te sugiero consultarlo con el área responsable.",
+    "fuentes": [],
+    "abstuvo": true,
+    "errores_citas": [],
+    "latencia_ms": 314.6,
+    "costo_usd": 0.0,
+    "recuperados": [
+      [
+        "ing-07#1",
+        0.625
+      ],
+      [
+        "ing-08#1",
+        0.594
+      ],
+      [
+        "ing-15#0",
+        0.59
+      ]
+    ]
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "caso": "c02",
+  "repeticion": 3,
+  "config": "A",
+  "fecha_utc": "2026-11-25T00:30:21.982895+00:00",
+  "modelo": "gemini-3.1-flash-lite",
+  "salida": {
+    "respuesta": "En un entorno profesional de desarrollo de software, un Pull Request (PR) que toca **autenticación** se considera una **modificación de alto riesgo**.\n\nPor lo tanto, no existe un número único universal, pero las mejores prácticas de la industria (y los estándares de seguridad como SOC2 o ISO 27001) dictan lo siguiente:\n\n### 1. El estándar mínimo: 2 aprobaciones\nPara cambios críticos, la regla de oro es **\"Four-Eyes Principle\" (Principio de cuatro ojos)**:\n*   **Aprobador 1:** Un desarrollador senior o el dueño del módulo (para asegurar la calidad del código y la lógica).\n*   **Aprobador 2:** Un experto en seguridad o un arquitecto (para asegurar que no se introduzcan vulnerabilidades como *hardcoded secrets*, fallos en el hashing de contraseñas, problemas de inyección o debilidades en el flujo de tokens JWT/OAuth).\n\n### 2. Factores que pueden aumentar este número\nSi tu empresa tiene procesos de cumplimiento estrictos, podrías necesitar:\n*   **Aprobación de Seguridad (SecOps):** En muchas empresas, si el PR toca el núcleo de la autenticación (ej. cambios en el login, manejo de sesiones, o integración con proveedores de identidad como Auth0/Okta), es obligatorio que un miembro del equipo de seguridad firme el PR.\n*   **QA/QA Automation:** Si el cambio afecta la experiencia de usuario o flujos críticos, a veces se requiere una aprobación de un QA Lead para confirmar que los casos de prueba (incluyendo los de regresión) han pasado.\n\n### 3. Recomendaciones adicionales para este tipo de PRs\nSi estás gestionando un PR de autenticación, considera añadir estos requisitos en tu archivo `CODEOWNERS` o en la configuración de tu repositorio (GitHub/GitLab):\n\n*   **Revisión obligatoria de un \"Code Owner\":** Configura el repositorio para que cualquier cambio en la carpeta `/auth` o `/security` requiera obligatoriamente la aprobación de un grupo específico de personas (los más experimentados).\n*   **Pruebas automatizadas obligatorias:** No permitas que el PR se apruebe si no tiene una cobertura de tests unitarios y de integración que cubra los nuevos cambios.\n*   **Análisis estático (SAST):** Asegúrate de que herramientas como *SonarQube, Snyk o Semgrep* corran automáticamente y no encuentren vulnerabilidades críticas antes de que alguien lo revise manualmente.\n\n**En resumen:** Si no tienes una política definida, **apunta a 2 aprobaciones**, donde al menos una sea de alguien con conocimiento profundo en seguridad o arquitectura. Si el cambio es muy sensible, **3 aprobaciones** (Dev + Senior/Arquitecto + Seguridad) es lo ideal.",
+    "fuentes": [],
+    "abstuvo": false,
+    "errores_citas": [],
+    "latencia_ms": 4568.2,
+    "costo_usd": 0.0015057,
+    "recuperados": []
+  }
+}

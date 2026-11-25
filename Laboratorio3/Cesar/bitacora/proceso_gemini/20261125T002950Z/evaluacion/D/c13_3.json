@@ -1,0 +1,35 @@
+{
+  "caso": "c13",
+  "repeticion": 3,
+  "config": "D",
+  "fecha_utc": "2026-11-25T00:55:54.708543+00:00",
+  "modelo": "gemini-3.1-flash-lite",
+  "salida": {
+    "respuesta": "El contexto proporcionado no contiene información sobre la tasa de interés específica de la tarjeta de crédito de FinNorte. El documento [doc:ing-04#0] menciona que las tasas publicadas son información pública, pero no detalla los valores actuales.",
+    "fuentes": [
+      "doc:ing-04#0"
+    ],
+    "abstuvo": true,
+    "errores_citas": [],
+    "latencia_ms": 1551.6,
+    "costo_usd": 0.0005218,
+    "recuperados": [
+      [
+        "ing-04#0",
+        0.672
+      ],
+      [
+        "ing-07#0",
+        0.66
+      ],
+      [
+        "ing-06#0",
+        0.595
+      ],
+      [
+        "ing-11#1",
+        0.542
+      ]
+    ]
+  }
+}

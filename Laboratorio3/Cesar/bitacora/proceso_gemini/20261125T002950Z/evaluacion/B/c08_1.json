@@ -1,0 +1,16 @@
+{
+  "caso": "c08",
+  "repeticion": 1,
+  "config": "B",
+  "fecha_utc": "2026-11-25T00:44:37.764176+00:00",
+  "modelo": "gemini-3.1-flash-lite",
+  "salida": {
+    "respuesta": "No cuento con información en el contexto proporcionado sobre los procedimientos de seguridad para el manejo de llaves de API expuestas en repositorios. Falta documentación sobre el protocolo de respuesta ante incidentes de seguridad o gestión de secretos.",
+    "fuentes": [],
+    "abstuvo": true,
+    "errores_citas": [],
+    "latencia_ms": 2653.6,
+    "costo_usd": 0.0002775,
+    "recuperados": []
+  }
+}

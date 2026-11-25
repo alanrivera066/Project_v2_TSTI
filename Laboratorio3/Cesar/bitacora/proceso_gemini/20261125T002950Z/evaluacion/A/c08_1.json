@@ -1,0 +1,16 @@
+{
+  "caso": "c08",
+  "repeticion": 1,
+  "config": "A",
+  "fecha_utc": "2026-11-25T00:39:37.094277+00:00",
+  "modelo": "gemini-3.1-flash-lite",
+  "salida": {
+    "respuesta": "No entres en pánico, pero **actúa rápido**. El hecho de que la llave esté en el historial de Git significa que, aunque la borres en el siguiente commit, **sigue existiendo en el historial**.\n\nSigue estos pasos en orden:\n\n### 1. Invalida la llave inmediatamente (Lo más importante)\nNo intentes \"limpiar\" el repo primero. Ve al panel de control del servicio (AWS, Google Cloud, Stripe, OpenAI, etc.) y **revoca o elimina la llave**.\n*   Si la llave está activa, alguien pudo haberla copiado en el segundo en que se subió.\n*   Considera que esa llave ya está comprometida.\n\n### 2. Elimina la llave del historial de Git\nBorrar el archivo o editarlo no basta, porque Git guarda todo el historial. Tienes dos opciones:\n\n#### Opción A: Usar `BFG Repo-Cleaner` (Recomendado)\nEs la herramienta más fácil y rápida.\n1. Descarga [BFG Repo-Cleaner](https://rtyley.github.io/bfg-repo-cleaner/).\n2. Ejecuta: `java -jar bfg.jar --delete-files \"nombre_del_archivo_con_la_llave.ext\"`.\n3. Luego limpia el historial: `git reflog expire --expire=now --all && git gc --prune=now --aggressive`.\n4. Haz un `git push --force`.\n\n#### Opción B: Usar `git filter-repo` (La forma oficial)\nSi prefieres no usar herramientas externas, `git filter-repo` es el estándar actual (reemplazó a `filter-branch`):\n1. Instálalo: `pip install git-filter-repo`.\n2. Ejecuta: `git filter-repo --path nombre_del_archivo_con_la_llave.ext --invert-paths`.\n3. Haz un `git push --force --all`.\n\n### 3. Notifica al equipo\nSi trabajas con más personas, avísales que hiciste un `push --force`. Esto es importante porque **reescribirás el historial** y ellos tendrán problemas al hacer `git pull`. Tendrán que hacer un `git fetch` y resetear sus ramas locales.\n\n### 4. Cambia las credenciales\nComo mencioné en el paso 1, genera una **llave nueva**. Nunca intentes \"arreglar\" la vieja.\n\n### 5. Prevención (Para que no vuelva a pasar)\nPara evitar que esto ocurra en el futuro, instala un \"pre-commit hook\":\n\n1. **`git-secrets`**: Escanea tus commits antes de que se suban.\n2. **`truffleHog`** o **`gitleaks`**: Son herramientas excelentes que escanean tu historial en busca de secretos.\n3. **`.gitignore`**: Asegúrate de que los archivos de configuración (`.env`, `config.json`) estén en tu `.gitignore`.\n4. **Variables de entorno**: Nunca hardcodees llaves. Usa siempre archivos `.env` (que no se suben al repo) o gestores de secretos (AWS Secrets Manager, HashiCorp Vault).\n\n**Nota final:** Si el repositorio es **público** en GitHub, asume que la llave fue robada en cuestión de segundos por bots. Si es **privado**, el riesgo es menor, pero sigue siendo obligatorio invalidar la llave.",
+    "fuentes": [],
+    "abstuvo": false,
+    "errores_citas": [],
+    "latencia_ms": 4270.8,
+    "costo_usd": 0.0018788,
+    "recuperados": []
+  }
+}

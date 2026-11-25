@@ -1,0 +1,35 @@
+{
+  "caso": "c11",
+  "repeticion": 3,
+  "config": "C",
+  "fecha_utc": "2026-11-25T00:50:31.589867+00:00",
+  "modelo": "gemini-3.1-flash-lite",
+  "salida": {
+    "respuesta": "Las vulnerabilidades críticas en una dependencia deben corregirse en un plazo de 7 días naturales.",
+    "fuentes": [
+      "ing-09#0"
+    ],
+    "abstuvo": false,
+    "errores_citas": [],
+    "latencia_ms": 2456.2,
+    "costo_usd": 0.0004081,
+    "recuperados": [
+      [
+        "ing-09#0",
+        0.758
+      ],
+      [
+        "ing-02#1",
+        0.648
+      ],
+      [
+        "ing-05#1",
+        0.642
+      ],
+      [
+        "ing-05#0",
+        0.642
+      ]
+    ]
+  }
+}

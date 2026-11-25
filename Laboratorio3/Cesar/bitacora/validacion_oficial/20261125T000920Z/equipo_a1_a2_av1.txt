@@ -1,0 +1,16 @@
+...........                                                              [100%]
+=================================== PASSES ====================================
+- generated xml file: C:\Users\cesar\OneDrive\Documentos\ChatGPT\Estudiar\laboratorio3_finnorte\finnorte-ia-alumno\bitacora\validacion_oficial\20261125T000920Z\equipo_a1_a2_av1.xml -
+=========================== short test summary info ===========================
+PASSED tests/test_a1_vectores.py::test_normalizar_filas_unitarias
+PASSED tests/test_a1_vectores.py::test_normalizar_vector_cero_no_explota
+PASSED tests/test_a1_vectores.py::test_coseno_casos_conocidos
+PASSED tests/test_a1_vectores.py::test_buscar_devuelve_k_ordenados
+PASSED tests/test_a2_pipeline.py::test_validar_esquema_detecta_errores
+PASSED tests/test_a2_pipeline.py::test_flujo_encadena_cuatro_etapas
+PASSED tests/test_a2_pipeline.py::test_reintenta_cuando_el_json_no_cumple
+PASSED tests/test_a2_pipeline.py::test_regla_de_negocio_en_codigo_se_dispara
+PASSED tests/test_av1_controles.py::test_citas_inventadas_se_detectan
+PASSED tests/test_av1_controles.py::test_abstencion_por_umbral
+PASSED tests/test_av1_controles.py::test_asistente_rechaza_cita_alucinada
+11 passed in 0.74s

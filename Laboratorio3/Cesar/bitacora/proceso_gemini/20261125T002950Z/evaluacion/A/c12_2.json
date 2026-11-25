@@ -1,0 +1,16 @@
+{
+  "caso": "c12",
+  "repeticion": 2,
+  "config": "A",
+  "fecha_utc": "2026-11-25T00:41:01.675071+00:00",
+  "modelo": "gemini-3.1-flash-lite",
+  "salida": {
+    "respuesta": "La respuesta corta es: **Técnicamente sí, pero culturalmente (y por seguridad) es una pésima idea.**\n\nEn el mundo del desarrollo de software, existe una regla de oro no escrita: **\"No se despliega los viernes por la tarde\"** (o *Friday Deployment Rule*).\n\nAquí te explico por qué se evita y cuándo podría ser una excepción:\n\n### ¿Por qué se evita? (El lado oscuro)\n1. **El factor humano:** Si algo sale mal (y siempre hay una posibilidad), el equipo estará cansado, con ganas de irse a casa o ya fuera de la oficina. Resolver un incidente crítico un viernes a las 6:00 p.m. es una receta para el agotamiento (*burnout*) y el resentimiento.\n2. **Falta de soporte:** Si el despliegue rompe algo que no es evidente de inmediato, es probable que no tengas a todo el equipo disponible para investigar, ni al equipo de soporte al cliente listo para manejar las quejas.\n3. **El fin de semana:** Nadie quiere pasar su sábado o domingo arreglando un *bug* que se pudo haber evitado esperando al lunes.\n\n### ¿Cuándo SÍ se puede hacer?\nDesplegar un viernes no es un pecado capital si tu equipo tiene la madurez técnica necesaria:\n\n1. **Despliegues automatizados y reversibles:** Si tienes un sistema de *Continuous Deployment* (CD) donde, si algo falla, puedes hacer un **\"rollback\" con un solo clic** en segundos, el riesgo disminuye drásticamente.\n2. **Entornos de prueba robustos:** Si has probado exhaustivamente en entornos de *staging* que son idénticos a producción.\n3. **Cultura de \"Feature Flags\":** Si puedes desplegar el código pero mantener la funcionalidad apagada, y solo activarla cuando estés seguro de que todo funciona.\n4. **Monitoreo avanzado:** Si tienes alertas automáticas que te avisan de inmediato si algo sale mal, permitiéndote reaccionar antes de que los usuarios se vean afectados masivamente.\n\n### La recomendación profesional:\n*   **Si eres un equipo pequeño o estás empezando:** **No lo hagas.** Espera al lunes por la mañana. Es mejor dormir tranquilo el fin de semana.\n*   **Si tienes una infraestructura de nivel \"Google/Netflix\":** Puedes desplegar cuando quieras, porque tu sistema es lo suficientemente resiliente para que un despliegue sea un evento aburrido y sin riesgos.\n\n**En resumen:** Si tienes que preguntar si es buena idea, **probablemente no lo sea.** Mejor espera al lunes a primera hora; así, si algo explota, tendrás a todo el equipo fresco y listo para solucionarlo.",
+    "fuentes": [],
+    "abstuvo": false,
+    "errores_citas": [],
+    "latencia_ms": 3442.9,
+    "costo_usd": 0.0014601,
+    "recuperados": []
+  }
+}

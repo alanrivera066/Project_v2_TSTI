@@ -1,0 +1,16 @@
+{
+  "caso": "c09",
+  "repeticion": 2,
+  "config": "A",
+  "fecha_utc": "2026-11-25T00:40:01.208880+00:00",
+  "modelo": "gemini-3.1-flash-lite",
+  "salida": {
+    "respuesta": "Para darte una respuesta responsable, necesito que evalúes los siguientes puntos críticos. Si puedes responder \"sí\" a todos, adelante; si no, el riesgo es alto:\n\n### 1. Estado del Código y QA\n*   **¿Está el código congelado (Code Freeze)?** Si planeas seguir haciendo cambios hasta el 29, el riesgo de errores de último minuto es altísimo.\n*   **¿Pasó todas las pruebas?** ¿Tienes el visto bueno de QA o el resultado de las pruebas automatizadas es 100% exitoso?\n*   **¿Hay deuda técnica crítica?** Si estás lanzando algo \"con parches\" para llegar a la fecha, considera si esos parches aguantarán el tráfico real.\n\n### 2. El factor \"Fin de Mes\" (Riesgo Operativo)\n*   **¿Es el 30 un día de alta carga?** Si tu sistema procesa nóminas, cierres contables, facturación o reportes mensuales, el 30 es el peor día para tener una caída.\n*   **¿Hay soporte disponible?** ¿El equipo técnico estará disponible el 30 y el 31 para monitorear? **Nunca liberes un viernes o un día previo a un festivo/fin de semana** si no tienes un equipo de guardia (on-call) listo.\n\n### 3. Plan de Contingencia (Rollback)\n*   **¿Tienes un plan de reversión probado?** Si algo sale mal a los 10 minutos de subir a producción, ¿sabes exactamente cómo volver a la versión anterior en menos de 5 minutos?\n*   **¿Hay dependencias externas?** ¿Dependes de APIs de terceros o servicios que también podrían estar saturados por el cierre de mes?\n\n### 4. Comunicación\n*   **¿Están los stakeholders informados?** ¿Saben que vas a liberar ese día y aceptan el riesgo?\n*   **¿Hay un plan de comunicación para los usuarios?** Si el despliegue requiere mantenimiento o puede causar intermitencia, ¿están avisados?\n\n---\n\n**Mi recomendación:**\n\n1.  **Si el despliegue es crítico para el negocio:** Asegúrate de que el equipo de infraestructura y soporte esté presente.\n2.  **Si el despliegue es opcional:** **No lo hagas.** El 30 es un día de alta sensibilidad operativa en casi cualquier industria. Es mejor esperar al día 2 o 3 del mes siguiente, cuando la carga operativa de cierre ha bajado.\n3.  **Si decides hacerlo:** Hazlo en una ventana de mantenimiento de **baja afluencia** (madrugada) y asegúrate de tener un *rollback* listo.\n\n**¿Qué tipo de sistema es?** (Si me dices si es una web, una app, un sistema financiero, etc., puedo darte un consejo más específico).",
+    "fuentes": [],
+    "abstuvo": false,
+    "errores_citas": [],
+    "latencia_ms": 4382.9,
+    "costo_usd": 0.001561,
+    "recuperados": []
+  }
+}

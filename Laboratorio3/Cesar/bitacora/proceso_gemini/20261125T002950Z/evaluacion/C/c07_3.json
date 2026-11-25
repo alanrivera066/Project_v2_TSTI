@@ -1,0 +1,35 @@
+{
+  "caso": "c07",
+  "repeticion": 3,
+  "config": "C",
+  "fecha_utc": "2026-11-25T00:49:19.387319+00:00",
+  "modelo": "gemini-3.1-flash-lite",
+  "salida": {
+    "respuesta": "El acceso temporal a producción tiene una vigencia máxima de 4 horas y debe solicitarse a través de la herramienta de acceso privilegiado (PAM) con un ticket asociado.",
+    "fuentes": [
+      "ing-10#0"
+    ],
+    "abstuvo": false,
+    "errores_citas": [],
+    "latencia_ms": 2258.2,
+    "costo_usd": 0.00043460000000000005,
+    "recuperados": [
+      [
+        "ing-10#0",
+        0.663
+      ],
+      [
+        "ing-14#0",
+        0.633
+      ],
+      [
+        "ing-07#1",
+        0.611
+      ],
+      [
+        "ing-03#0",
+        0.607
+      ]
+    ]
+  }
+}

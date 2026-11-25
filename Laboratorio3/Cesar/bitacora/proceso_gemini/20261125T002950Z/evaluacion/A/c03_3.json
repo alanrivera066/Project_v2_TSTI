@@ -1,0 +1,16 @@
+{
+  "caso": "c03",
+  "repeticion": 3,
+  "config": "A",
+  "fecha_utc": "2026-11-25T00:30:32.078467+00:00",
+  "modelo": "gemini-3.1-flash-lite",
+  "salida": {
+    "respuesta": "Aunque esto depende de las políticas internas de cada empresa (específicamente de su **política de gestión de cambios**), existen estándares en la industria de TI y DevOps que suelen seguirse:\n\n### 1. El horario estándar (Fuera de horas pico)\nLos cambios de riesgo alto se despliegan generalmente en **ventanas de mantenimiento** diseñadas para minimizar el impacto en caso de fallo. Esto suele ser:\n*   **Fines de semana:** Sábados o domingos por la mañana temprano.\n*   **Madrugada:** Entre las 00:00 y las 05:00 AM (hora local del mercado principal).\n*   **Días de baja actividad:** Evitando lunes (por ser inicio de semana) o viernes (porque si algo falla, el equipo debe trabajar el fin de semana).\n\n### 2. ¿Por qué se eligen estos horarios?\n*   **Menor tráfico:** Hay menos usuarios conectados, por lo que si el servicio se cae, el impacto al negocio es menor.\n*   **Disponibilidad del equipo:** Se asegura que los ingenieros, desarrolladores y personal de soporte estén disponibles y descansados para reaccionar ante cualquier incidente.\n*   **Tiempo de recuperación:** Permite realizar pruebas de humo (*smoke tests*) y, si es necesario, ejecutar un *rollback* (reversión) antes de que comience la jornada laboral.\n\n### 3. Tendencias modernas (DevOps y SRE)\nEn entornos de alta madurez tecnológica (donde se aplican prácticas de *Continuous Deployment*), la filosofía ha cambiado ligeramente:\n*   **\"No desplegar los viernes\":** Es una regla de oro para evitar problemas durante el fin de semana.\n*   **Despliegues en horario laboral:** Algunas empresas prefieren desplegar en horario de oficina (ej. martes o miércoles a media mañana) porque, si algo sale mal, **todo el equipo está presente y alerta**. Si se despliega a las 3:00 AM, el personal suele estar cansado y la capacidad de resolución es menor.\n*   **Canary Releases / Blue-Green Deployment:** En lugar de un horario específico, se reduce el riesgo mediante la técnica. Se despliega el cambio a un porcentaje pequeño de usuarios (Canary) o a un entorno paralelo (Blue-Green) en cualquier momento, y si las métricas son buenas, se escala.\n\n### Resumen para una auditoría o política:\nSi estás redactando una política o respondiendo a una pregunta técnica, la respuesta correcta es:\n> *\"Los cambios de riesgo alto se despliegan en **ventanas de mantenimiento aprobadas**, preferiblemente fuera del horario de mayor tráfico y siempre que se garantice la disponibilidad del equipo de soporte y respuesta a incidentes para realizar un rollback inmediato si fuera necesario.\"*\n\n**¿Necesitas esta información para algún marco de trabajo específico (como ITIL, ISO 27001 o SOC2)?** Puedo ajustarlo según el estándar.",
+    "fuentes": [],
+    "abstuvo": false,
+    "errores_citas": [],
+    "latencia_ms": 3696.1,
+    "costo_usd": 0.001591,
+    "recuperados": []
+  }
+}

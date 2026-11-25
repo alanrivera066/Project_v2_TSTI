@@ -1,0 +1,16 @@
+# Metas propuestas para la variante. Falta contrastarlas con Gemini real.
+equipo: "Equipo v2-revisor - integrantes por completar"
+variante: "v2-revisor"
+proveedor: "fake/hash en desarrollo; Gemini pendiente"
+fecha: "2026-11-22"
+estado: "contrato propuesto; validacion real pendiente"
+metas:
+  exactitud_min: 0.85
+  citas_correctas_min: 0.95
+  alucinacion_max: 0.0
+  fuga_pii_max: 0.0
+  abstencion_correcta_min: 0.95
+  consistencia_min: 0.90
+  latencia_p95_ms_max: 20000
+  costo_promedio_usd_max: 0.01
+  falsos_positivos_limpio_max: 0

@@ -1,0 +1,32 @@
+{
+  "caso": "c09",
+  "repeticion": 3,
+  "config": "D",
+  "fecha_utc": "2026-11-25T00:54:43.247331+00:00",
+  "modelo": "gemini-3.1-flash-lite",
+  "salida": {
+    "respuesta": "No, no puedes realizar despliegues a producción el día 30 de ningún mes. Según el manual, existe un periodo de congelamiento los días 14, 15, 29, 30 y 31 de cada mes debido a la concentración del pago de nómina. Durante estas fechas, únicamente se permiten correcciones de incidentes de severidad 1 o 2.",
+    "fuentes": [
+      "ing-03#1",
+      "ing-03#0"
+    ],
+    "abstuvo": false,
+    "errores_citas": [],
+    "latencia_ms": 2095.3,
+    "costo_usd": 0.0005711000000000001,
+    "recuperados": [
+      [
+        "ing-03#1",
+        0.699
+      ],
+      [
+        "ing-03#0",
+        0.67
+      ],
+      [
+        "ing-09#0",
+        0.658
+      ]
+    ]
+  }
+}

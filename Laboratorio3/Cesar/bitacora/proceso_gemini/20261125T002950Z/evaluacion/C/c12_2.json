@@ -1,0 +1,36 @@
+{
+  "caso": "c12",
+  "repeticion": 2,
+  "config": "C",
+  "fecha_utc": "2026-11-25T00:50:43.473507+00:00",
+  "modelo": "gemini-3.1-flash-lite",
+  "salida": {
+    "respuesta": "No, no es posible realizar despliegues los viernes. Según la política vigente, los despliegues de riesgo alto deben realizarse martes o jueves de 22:00 a 02:00, mientras que los de riesgo medio y bajo se realizan de lunes a jueves de 10:00 a 17:00. La política anterior que permitía despliegues los viernes fue sustituida.",
+    "fuentes": [
+      "ing-03#0",
+      "ing-14#0"
+    ],
+    "abstuvo": false,
+    "errores_citas": [],
+    "latencia_ms": 2338.7,
+    "costo_usd": 0.0006515,
+    "recuperados": [
+      [
+        "ing-14#0",
+        0.715
+      ],
+      [
+        "ing-03#1",
+        0.657
+      ],
+      [
+        "ing-03#0",
+        0.653
+      ],
+      [
+        "ing-11#0",
+        0.602
+      ]
+    ]
+  }
+}

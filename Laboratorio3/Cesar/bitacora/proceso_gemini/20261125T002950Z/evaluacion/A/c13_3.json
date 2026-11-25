@@ -1,0 +1,16 @@
+{
+  "caso": "c13",
+  "repeticion": 3,
+  "config": "A",
+  "fecha_utc": "2026-11-25T00:41:31.402324+00:00",
+  "modelo": "gemini-3.1-flash-lite",
+  "salida": {
+    "respuesta": "Para poder darte una respuesta precisa, es necesario aclarar que **\"FinNorte\"** no es una entidad financiera reconocida a nivel nacional o internacional con una oferta estandarizada de tarjetas de crédito.\n\nEs posible que te refieras a alguna de las siguientes situaciones:\n\n1.  **Una entidad local o regional:** Si se trata de una cooperativa, caja de ahorro o financiera pequeña de una región específica (por ejemplo, en el norte de México, Argentina o España), las tasas varían drásticamente según el producto y el perfil del cliente.\n2.  **Un nombre comercial distinto:** A veces, las empresas cambian de nombre o son filiales de bancos más grandes.\n3.  **Confusión de nombre:** Podrías estar refiriéndote a una entidad con un nombre similar (como *Financiera Norte*, *Banco del Norte*, etc.).\n\n**Para obtener la tasa exacta, te recomiendo lo siguiente:**\n\n*   **Revisa tu contrato:** La tasa de interés (CAT o Tasa Efectiva Anual) debe aparecer obligatoriamente en tu estado de cuenta o en el contrato que firmaste al recibir la tarjeta.\n*   **Consulta el sitio web oficial:** Busca la página web de la institución y busca la sección de \"Tarifas\", \"Comisiones\" o \"Información al usuario financiero\".\n*   **Llama a atención al cliente:** Es la forma más segura. El número suele estar al reverso de tu tarjeta física.\n\n**Si me indicas el país y el nombre completo de la institución (o si es una tarjeta de una tienda departamental específica), podría ayudarte a buscar la información pública disponible.**\n\n*Nota: Recuerda que las tasas de interés de las tarjetas de crédito son variables y dependen del perfil crediticio de cada usuario.*",
+    "fuentes": [],
+    "abstuvo": false,
+    "errores_citas": [],
+    "latencia_ms": 2303.5,
+    "costo_usd": 0.0009394,
+    "recuperados": []
+  }
+}

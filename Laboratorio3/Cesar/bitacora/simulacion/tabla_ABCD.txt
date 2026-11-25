@@ -1,0 +1,18 @@
+SIMULACION: las métricas no representan calidad del LLM
+20 casos · 3 repeticiones · contrato: Equipo v2-revisor - integrantes por completar
+
+Casos por tipo: {'normal': 12, 'fuera': 4, 'limite': 2, 'adversarial': 2} · pedido: 12 normal, 4 fuera, 4 limite/adversarial
+
+| Config | Descripción | Exactitud | Citas ok | Alucinación | Fuga | Abstención ok | Consistencia | p95 ms | US$/resp | Contrato |
+|---|---|---|---|---|---|---|---|---|---|---|
+| A | v1 sin RAG sin controles | 1.00 | 0.30 | 0.00 | 0.00 | 1.00 | 1.00 | 17 | 0.00000 | NO |
+| B | v2 sin RAG sin controles | 1.00 | 0.30 | 0.00 | 0.00 | 1.00 | 1.00 | 17 | 0.00000 | NO |
+| C | v2 con RAG sin controles | 1.00 | 1.00 | 0.00 | 0.00 | 1.00 | 1.00 | 23 | 0.00000 | SI |
+| D | v2 con RAG y controles | 1.00 | 1.00 | 0.00 | 0.00 | 1.00 | 1.00 | 24 | 0.00000 | SI |
+
+B − A en exactitud: +0.00 (IC 95 % (0.0, 0.0))
+C − B en exactitud: +0.00 (IC 95 % (0.0, 0.0))
+D − C en exactitud: +0.00 (IC 95 % (0.0, 0.0))
+D − A en exactitud: +0.00 (IC 95 % (0.0, 0.0))
+
+Si un intervalo incluye 0, todavía no puedes afirmar que ese cambio mejoró: dilo así en tu documento.

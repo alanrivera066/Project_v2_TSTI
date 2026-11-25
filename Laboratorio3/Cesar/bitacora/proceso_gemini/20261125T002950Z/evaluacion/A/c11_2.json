@@ -1,0 +1,16 @@
+{
+  "caso": "c11",
+  "repeticion": 2,
+  "config": "A",
+  "fecha_utc": "2026-11-25T00:40:43.334049+00:00",
+  "modelo": "gemini-3.1-flash-lite",
+  "salida": {
+    "respuesta": "En el ámbito de la ciberseguridad y el desarrollo de software, no existe una regla única universal, pero sí existen **estándares de la industria** y **mejores prácticas** que dictan los tiempos de respuesta.\n\nPara una vulnerabilidad **crítica** (generalmente aquellas con un puntaje CVSS de 9.0 a 10.0), los plazos recomendados son:\n\n### 1. El estándar de la industria (SLA)\nLa mayoría de las organizaciones maduras y marcos de cumplimiento (como PCI DSS, SOC2 o ISO 27001) establecen los siguientes tiempos:\n\n*   **Plazo ideal:** **24 a 48 horas.**\n*   **Plazo máximo aceptable:** **7 días.**\n\nSi una vulnerabilidad es crítica, significa que es **fácilmente explotable** (a menudo de forma remota y sin autenticación) y que tiene un **impacto devastador** (ej. ejecución remota de código - RCE). Por lo tanto, dejarla abierta más de una semana se considera una negligencia grave en entornos de producción.\n\n### 2. Factores que determinan la urgencia\nAunque el estándar sea \"lo antes posible\", el tiempo real depende de:\n\n*   **Exposición:** ¿El sistema es público o está detrás de una red privada? Si es público, el tiempo de respuesta debe ser inmediato (horas).\n*   **Explotabilidad real:** ¿Existe un *exploit* público (PoC) disponible? Si ya hay un script circulando en internet para atacar esa vulnerabilidad, el tiempo de respuesta debe reducirse a **cuestión de horas**.\n*   **Criticidad del activo:** ¿El sistema maneja datos sensibles (tarjetas de crédito, datos médicos, credenciales)? Si la respuesta es sí, la prioridad es máxima.\n*   **Facilidad de parcheo:** A veces, actualizar una dependencia rompe otras partes del código. Si el parche no es directo, se debe implementar una **mitigación** (como un WAF o desactivar la funcionalidad afectada) mientras se trabaja en la solución definitiva.\n\n### 3. ¿Qué hacer si no puedes corregirlo de inmediato?\nSi por razones técnicas no puedes actualizar la dependencia en menos de 48 horas, debes aplicar **medidas compensatorias**:\n\n1.  **Aislamiento:** Aislar el servicio afectado del resto de la red.\n2.  **WAF (Web Application Firewall):** Configurar reglas para bloquear los patrones de ataque conocidos asociados a esa vulnerabilidad.\n3.  **Desactivación:** Si la funcionalidad que usa la dependencia no es crítica, desactívala temporalmente.\n4.  **Monitoreo intensivo:** Aumentar el nivel de *logging* y alertas sobre ese componente específico para detectar intentos de intrusión.\n\n### Resumen\nSi trabajas en un entorno profesional:\n*   **Si es crítica y pública:** Tienes **menos de 24-48 horas**.\n*   **Si es crítica pero interna:** Tienes **hasta 7 días**, pero idealmente deberías resolverlo cuanto antes.\n\n**Consejo:** Si la vulnerabilidad es crítica, **no esperes al próximo ciclo de despliegue**. Se debe realizar un *hotfix* (parche de emergencia) fuera del calendario habitual de lanzamientos.",
+    "fuentes": [],
+    "abstuvo": false,
+    "errores_citas": [],
+    "latencia_ms": 3102.8,
+    "costo_usd": 0.0017916,
+    "recuperados": []
+  }
+}

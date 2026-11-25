@@ -1,0 +1,119 @@
+{
+  "calidad_semantica_real": false,
+  "filas": [
+    {
+      "regla": "sec-01",
+      "consulta": "Secreto literal; usar variables de entorno o gestor y revocar la credencial.",
+      "recuperados": [
+        "sec-01",
+        "sec-11",
+        "sec-08"
+      ],
+      "acierto1": true,
+      "acierto3": true
+    },
+    {
+      "regla": "sec-02",
+      "consulta": "SQL interpolado o concatenado; usar parámetros.",
+      "recuperados": [
+        "sec-02",
+        "sec-04",
+        "sec-01"
+      ],
+      "acierto1": true,
+      "acierto3": true
+    },
+    {
+      "regla": "sec-03",
+      "consulta": "PII completa en print/log; registrar identificadores o enmascarar.",
+      "recuperados": [
+        "sec-03",
+        "sec-08",
+        "sec-01"
+      ],
+      "acierto1": true,
+      "acierto3": true
+    },
+    {
+      "regla": "sec-04",
+      "consulta": "Operación monetaria sin validación explícita del monto positivo.",
+      "recuperados": [
+        "sec-01",
+        "sec-07",
+        "sec-10"
+      ],
+      "acierto1": false,
+      "acierto3": false
+    },
+    {
+      "regla": "sec-05",
+      "consulta": "Excepción amplia ignorada; registrar y responder un error genérico. Usar timeout finito en HTTP.",
+      "recuperados": [
+        "sec-05",
+        "sec-11",
+        "sec-03"
+      ],
+      "acierto1": true,
+      "acierto3": true
+    },
+    {
+      "regla": "sec-06",
+      "consulta": "Criptografía insegura: sustituir md5 por PBKDF2 con sal, random por secrets y == por hmac.compare_digest.",
+      "recuperados": [
+        "sec-06",
+        "sec-09",
+        "sec-01"
+      ],
+      "acierto1": true,
+      "acierto3": true
+    },
+    {
+      "regla": "sec-07",
+      "consulta": "Dinero con float/round; usar Decimal y ROUND_HALF_EVEN al final.",
+      "recuperados": [
+        "sec-07",
+        "sec-04",
+        "sec-06"
+      ],
+      "acierto1": true,
+      "acierto3": true
+    },
+    {
+      "regla": "sec-08",
+      "consulta": "Recurso por ID externo sin comprobación visible de propiedad.",
+      "recuperados": [
+        "sec-09",
+        "sec-05",
+        "sec-08"
+      ],
+      "acierto1": false,
+      "acierto3": true
+    },
+    {
+      "regla": "sec-09",
+      "consulta": "Deserialización/comandos inseguros: pickle, yaml.load, eval/exec o shell=True.",
+      "recuperados": [
+        "sec-09",
+        "sec-01",
+        "sec-04"
+      ],
+      "acierto1": true,
+      "acierto3": true
+    },
+    {
+      "regla": "sec-10",
+      "consulta": "Función extensa, compleja o con parámetros de una letra.",
+      "recuperados": [
+        "sec-02",
+        "sec-06",
+        "sec-03"
+      ],
+      "acierto1": false,
+      "acierto3": false
+    }
+  ],
+  "metricas": {
+    "acierto1": 0.7,
+    "acierto3": 0.8
+  }
+}

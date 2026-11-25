@@ -1,0 +1,22 @@
+{
+  "estado": "calibrado",
+  "umbral_propuesto": 0.6386449460169339,
+  "desarrollo": {
+    "verdaderos_positivos": 4,
+    "verdaderos_negativos": 4,
+    "falsos_negativos": 0,
+    "falsos_positivos": 0,
+    "sensibilidad": 1.0,
+    "especificidad": 1.0,
+    "exactitud_balanceada": 1.0
+  },
+  "validacion": {
+    "verdaderos_positivos": 4,
+    "verdaderos_negativos": 4,
+    "falsos_negativos": 0,
+    "falsos_positivos": 0,
+    "sensibilidad": 1.0,
+    "especificidad": 1.0,
+    "exactitud_balanceada": 1.0
+  }
+}

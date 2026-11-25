@@ -1,0 +1,31 @@
+{
+  "caso": "c03",
+  "repeticion": 2,
+  "config": "D",
+  "fecha_utc": "2026-11-25T00:52:48.611567+00:00",
+  "modelo": "gemini-3.1-flash-lite",
+  "salida": {
+    "respuesta": "Los cambios clasificados como de riesgo alto deben desplegarse únicamente los días martes o jueves, dentro del horario comprendido entre las 22:00 y las 02:00 horas (tiempo del centro de México).",
+    "fuentes": [
+      "doc:ing-03#0"
+    ],
+    "abstuvo": false,
+    "errores_citas": [],
+    "latencia_ms": 1467.4,
+    "costo_usd": 0.0004665,
+    "recuperados": [
+      [
+        "ing-03#0",
+        0.813
+      ],
+      [
+        "ing-03#1",
+        0.763
+      ],
+      [
+        "ing-01#0",
+        0.638
+      ]
+    ]
+  }
+}

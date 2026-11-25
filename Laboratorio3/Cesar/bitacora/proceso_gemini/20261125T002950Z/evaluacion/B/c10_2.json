@@ -1,0 +1,16 @@
+{
+  "caso": "c10",
+  "repeticion": 2,
+  "config": "B",
+  "fecha_utc": "2026-11-25T00:45:18.951571+00:00",
+  "modelo": "gemini-3.1-flash-lite",
+  "salida": {
+    "respuesta": "No cuento con información en el manual sobre el procedimiento a seguir en caso de transferencias duplicadas por parte de un cliente.",
+    "fuentes": [],
+    "abstuvo": true,
+    "errores_citas": [],
+    "latencia_ms": 1837.8,
+    "costo_usd": 0.0002247,
+    "recuperados": []
+  }
+}
