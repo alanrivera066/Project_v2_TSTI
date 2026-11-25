@@ -8,3 +8,4 @@ bitacora/**/emb_*.npy
 .DS_Store
 *.egg-info/
 bitacora/demo_dictamen/
+bitacora/usuarios.db
