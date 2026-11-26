@@ -132,3 +132,34 @@ Herramienta: ChatGPT mediante Codex.
 Herramienta: ChatGPT mediante Codex; modelo exacto del asistente no verificado. 
 
 El usuario solicitó actualizar Varias secciones en el repositorio
+
+## Alan (alanrivera066) — Laboratorio A3 + A4, Actividad 3 y Actividad 4 · 2026-11
+
+**Herramienta utilizada:** Claude (Anthropic).
+
+**¿Para qué la utilicé?**
+
+Para completar las 5 funciones de `api/auth.py`, diseñar el endpoint `POST /v1/revisor`, analizar el `login()` oficial y escribir sus 3 versiones (`a3/`), implementar `ejecutar_agente`, la herramienta `correr_linter`, la acción sensible `publicar_revision`, el validador `src/finnorte/validador_revisor.py`, adaptar `app/cliente_api.py` y escribir las pruebas `tests/test_a3_*.py` y `tests/test_a4_revisor.py`. Los prompts de diseño (Paso 1) y de análisis del `login()` (Paso 4) los corrí en chats nuevos.
+
+**¿Qué acepté?**
+
+- PBKDF2-HMAC-SHA256 con sal y `hmac.compare_digest` (SEC-06).
+- Token HMAC con expiración de 15 minutos y secreto en `TOKEN_SECRET` (ing-02).
+- El hallazgo del «contrato de retorno»: `login()` devuelve textos y cualquier texto es verdadero en Python.
+- Confirmación humana en dos pasos para `publicar_revision`, y ruff con reglas `S` como linter porque lee el código sin ejecutarlo.
+
+**¿Qué modifiqué?**
+
+- El asistente aceptó que la búsqueda de usuario no fuera de tiempo constante; yo comparo contra un hash falso cuando el usuario no existe.
+- Proponía el limitador de intentos en memoria; yo guardo los intentos en SQLite con ventana de 15 minutos.
+- Dejaba el límite de peticiones fuera del módulo; el servicio limita a 30 por minuto con 429 y `Retry-After` (ing-07).
+- En la A4, la primera corrida con Gemini dio 0 de 5 en el validador porque el modelo citaba la ruta del archivo como fuente. Ajusté el prompt y la salida de `correr_linter` (ahora entrega los ids `sec-XX`), y la segunda corrida dio 5 de 5.
+
+**¿Qué rechacé?**
+
+- Usar una librería externa para el hash (`check_needs_rehash`) y agregar MFA y sesiones: fuera del alcance de la actividad.
+- Usar sus 25 pruebas generadas: no prueban el servicio del proyecto y no las vi correr.
+
+**¿Cómo lo validé?**
+
+`pytest -q`: 155 passed y 4 omitidas (las del caso guía del laboratorio). Corrí `a4/correr_5_entradas.py --version 1` y `--version 2` con Gemini (resultados en `bitacora/a4/`), probé `/v1/revisor` en `/docs` (401, 200, 422, token alterado, 429) y revisé la interfaz con el servicio encendido y apagado.

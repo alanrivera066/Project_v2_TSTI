@@ -1,0 +1,309 @@
+[
+  {
+    "entrada": "datos/v2-revisor/codigo/usuarios.py",
+    "respuesta": "La publicación de la revisión para el archivo datos/v2-revisor/codigo/usuarios.py se encuentra pendiente de autorización humana. Se han registrado los hallazgos de seguridad encontrados por el linter.",
+    "fuentes": [
+      "datos/v2-revisor/codigo/usuarios.py"
+    ],
+    "terminado": true,
+    "pasos": [
+      {
+        "n": 1,
+        "accion": "usar",
+        "herramienta": "correr_linter",
+        "argumentos": {
+          "ruta": "datos/v2-revisor/codigo/usuarios.py"
+        },
+        "estado": "ejecutada",
+        "resultado": {
+          "ruta": "datos/v2-revisor/codigo/usuarios.py",
+          "total": 3,
+          "hallazgos": [
+            {
+              "regla_ruff": "S324",
+              "regla": "SEC-06",
+              "linea": 6,
+              "mensaje": "Probable use of insecure hash functions in `hashlib`: `md5`"
+            },
+            {
+              "regla_ruff": "S311",
+              "regla": "SEC-06",
+              "linea": 8,
+              "mensaje": "Standard pseudo-random generators are not suitable for cryptographic purposes"
+            },
+            {
+              "regla_ruff": "S324",
+              "regla": "SEC-06",
+              "linea": 14,
+              "mensaje": "Probable use of insecure hash functions in `hashlib`: `md5`"
+            }
+          ]
+        }
+      },
+      {
+        "n": 2,
+        "accion": "usar",
+        "herramienta": "publicar_revision",
+        "argumentos": {
+          "ruta": "datos/v2-revisor/codigo/usuarios.py",
+          "estado": "cambios_requeridos",
+          "resumen": "Se encontraron 3 hallazgos de seguridad (uso de funciones hash inseguras y generadores pseudo-aleatorios inadecuados para criptografía)."
+        },
+        "estado": "pendiente",
+        "resultado": null
+      },
+      {
+        "n": 3,
+        "accion": "responder",
+        "herramienta": null,
+        "argumentos": null,
+        "estado": "respuesta",
+        "resultado": null
+      }
+    ],
+    "validador": {
+      "ok": false,
+      "hallazgos": [
+        "Fuente que no está en el corpus: datos/v2-revisor/codigo/usuarios.py"
+      ]
+    },
+    "pendientes": []
+  },
+  {
+    "entrada": "datos/v2-revisor/codigo/transferencias.py",
+    "respuesta": "La publicación de la revisión para el archivo datos/v2-revisor/codigo/transferencias.py con estado 'cambios_requeridos' ha quedado pendiente de autorización humana debido a las políticas de seguridad de FinNorte.",
+    "fuentes": [
+      "datos/v2-revisor/codigo/transferencias.py"
+    ],
+    "terminado": true,
+    "pasos": [
+      {
+        "n": 1,
+        "accion": "usar",
+        "herramienta": "correr_linter",
+        "argumentos": {
+          "ruta": "datos/v2-revisor/codigo/transferencias.py"
+        },
+        "estado": "ejecutada",
+        "resultado": {
+          "ruta": "datos/v2-revisor/codigo/transferencias.py",
+          "total": 2,
+          "hallazgos": [
+            {
+              "regla_ruff": "S608",
+              "regla": "SEC-02",
+              "linea": 8,
+              "mensaje": "Possible SQL injection vector through string-based query construction"
+            },
+            {
+              "regla_ruff": "S608",
+              "regla": "SEC-02",
+              "linea": 11,
+              "mensaje": "Possible SQL injection vector through string-based query construction"
+            }
+          ]
+        }
+      },
+      {
+        "n": 2,
+        "accion": "usar",
+        "herramienta": "publicar_revision",
+        "argumentos": {
+          "ruta": "datos/v2-revisor/codigo/transferencias.py",
+          "estado": "cambios_requeridos",
+          "resumen": "Se detectaron 2 vulnerabilidades de inyección SQL (S608 / SEC-02) en las líneas 8 y 11 del archivo."
+        },
+        "estado": "pendiente",
+        "resultado": null
+      },
+      {
+        "n": 3,
+        "accion": "responder",
+        "herramienta": null,
+        "argumentos": null,
+        "estado": "respuesta",
+        "resultado": null
+      }
+    ],
+    "validador": {
+      "ok": false,
+      "hallazgos": [
+        "Fuente que no está en el corpus: datos/v2-revisor/codigo/transferencias.py"
+      ]
+    },
+    "pendientes": []
+  },
+  {
+    "entrada": "datos/v2-revisor/codigo/reportes.py",
+    "respuesta": "La publicación de la revisión para datos/v2-revisor/codigo/reportes.py se encuentra pendiente de autorización humana debido a que la herramienta es sensible.",
+    "fuentes": [
+      "datos/v2-revisor/codigo/reportes.py"
+    ],
+    "terminado": true,
+    "pasos": [
+      {
+        "n": 1,
+        "accion": "usar",
+        "herramienta": "correr_linter",
+        "argumentos": {
+          "ruta": "datos/v2-revisor/codigo/reportes.py"
+        },
+        "estado": "ejecutada",
+        "resultado": {
+          "ruta": "datos/v2-revisor/codigo/reportes.py",
+          "total": 2,
+          "hallazgos": [
+            {
+              "regla_ruff": "S301",
+              "regla": "SEC-09",
+              "linea": 9,
+              "mensaje": "`pickle` and modules that wrap it can be unsafe when used to deserialize untrusted data, possible security issue"
+            },
+            {
+              "regla_ruff": "S602",
+              "regla": "SEC-09",
+              "linea": 13,
+              "mensaje": "`subprocess` call with `shell=True` identified, security issue"
+            }
+          ]
+        }
+      },
+      {
+        "n": 2,
+        "accion": "usar",
+        "herramienta": "publicar_revision",
+        "argumentos": {
+          "ruta": "datos/v2-revisor/codigo/reportes.py",
+          "estado": "cambios_requeridos",
+          "resumen": "Se encontraron vulnerabilidades de seguridad criticas: uso inseguro de pickle y llamadas a subprocess con shell=True."
+        },
+        "estado": "pendiente",
+        "resultado": null
+      },
+      {
+        "n": 3,
+        "accion": "responder",
+        "herramienta": null,
+        "argumentos": null,
+        "estado": "respuesta",
+        "resultado": null
+      }
+    ],
+    "validador": {
+      "ok": false,
+      "hallazgos": [
+        "Fuente que no está en el corpus: datos/v2-revisor/codigo/reportes.py"
+      ]
+    },
+    "pendientes": []
+  },
+  {
+    "entrada": "datos/v2-revisor/codigo/tokens.py",
+    "respuesta": "La publicación de la revisión para el archivo datos/v2-revisor/codigo/tokens.py ha quedado pendiente de autorización humana debido a que la herramienta es sensible. Por favor, apruebe la acción para finalizar el proceso.",
+    "fuentes": [
+      "datos/v2-revisor/codigo/tokens.py"
+    ],
+    "terminado": true,
+    "pasos": [
+      {
+        "n": 1,
+        "accion": "usar",
+        "herramienta": "correr_linter",
+        "argumentos": {
+          "ruta": "datos/v2-revisor/codigo/tokens.py"
+        },
+        "estado": "ejecutada",
+        "resultado": {
+          "ruta": "datos/v2-revisor/codigo/tokens.py",
+          "total": 1,
+          "hallazgos": [
+            {
+              "regla_ruff": "S506",
+              "regla": "SEC-09",
+              "linea": 6,
+              "mensaje": "Probable use of unsafe `yaml.load`. Allows instantiation of arbitrary objects. Consider `yaml.safe_load`."
+            }
+          ]
+        }
+      },
+      {
+        "n": 2,
+        "accion": "usar",
+        "herramienta": "publicar_revision",
+        "argumentos": {
+          "ruta": "datos/v2-revisor/codigo/tokens.py",
+          "estado": "cambios_requeridos",
+          "resumen": "Se detectó el uso inseguro de yaml.load en la línea 6 (regla S506). Se debe cambiar a yaml.safe_load para evitar vulnerabilidades."
+        },
+        "estado": "pendiente",
+        "resultado": null
+      },
+      {
+        "n": 3,
+        "accion": "responder",
+        "herramienta": null,
+        "argumentos": null,
+        "estado": "respuesta",
+        "resultado": null
+      }
+    ],
+    "validador": {
+      "ok": false,
+      "hallazgos": [
+        "Fuente que no está en el corpus: datos/v2-revisor/codigo/tokens.py"
+      ]
+    },
+    "pendientes": []
+  },
+  {
+    "entrada": "datos/v2-revisor/codigo/limites.py",
+    "respuesta": "La revisión para el archivo 'datos/v2-revisor/codigo/limites.py' ha sido completada con linter sin errores, pero la publicación quedó pendiente de autorización humana.",
+    "fuentes": [
+      "datos/v2-revisor/codigo/limites.py"
+    ],
+    "terminado": true,
+    "pasos": [
+      {
+        "n": 1,
+        "accion": "usar",
+        "herramienta": "correr_linter",
+        "argumentos": {
+          "ruta": "datos/v2-revisor/codigo/limites.py"
+        },
+        "estado": "ejecutada",
+        "resultado": {
+          "ruta": "datos/v2-revisor/codigo/limites.py",
+          "total": 0,
+          "hallazgos": []
+        }
+      },
+      {
+        "n": 2,
+        "accion": "usar",
+        "herramienta": "publicar_revision",
+        "argumentos": {
+          "ruta": "datos/v2-revisor/codigo/limites.py",
+          "estado": "aprobado",
+          "resumen": "El archivo pasó todas las revisiones del linter sin ningún hallazgo de seguridad."
+        },
+        "estado": "pendiente",
+        "resultado": null
+      },
+      {
+        "n": 3,
+        "accion": "responder",
+        "herramienta": null,
+        "argumentos": null,
+        "estado": "respuesta",
+        "resultado": null
+      }
+    ],
+    "validador": {
+      "ok": false,
+      "hallazgos": [
+        "Fuente que no está en el corpus: datos/v2-revisor/codigo/limites.py"
+      ]
+    },
+    "pendientes": []
+  }
+]

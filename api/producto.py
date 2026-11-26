@@ -12,6 +12,7 @@ Endpoints
   POST /auth/login      {"email","contrasena"} → {"token", "tipo": "Bearer", "expira_en_s"}
   POST /v1/preguntas    {"pregunta"}          caso guía: respuesta con citas (requiere token)
   POST /v1/variante     {"entrada": {...}}    tu variante.sistema(); si aún no existe, motor DEMO (requiere token)
+  POST /v1/revisor      {"codigo","solicitud"} A3: revisión de código de v2-revisor (requiere token)
   POST /v1/agente       {"tarea"}             agente con herramientas; lo sensible queda PENDIENTE    ← A4
   POST /v1/agente/confirmar/{id} {"aprobar"}   confirmación humana con los datos exactos               ← A4
 
@@ -35,10 +36,10 @@ from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
 from pydantic import BaseModel, Field
 
 from api.auth import VIGENCIA_S, Autenticador, ErrorAuth, validar_token
-from finnorte import agente_servicio, llm, variante
+from finnorte import agente_servicio, herramientas, llm, variante
+from finnorte.validador_revisor import validar_hallazgos, validar_plan_revisor
 from finnorte.caso_guia import asistente as caso_guia
 from finnorte.caso_guia import motor_demo
-from finnorte.caso_guia.herramientas import herramientas_caso_guia
 from finnorte.config import RAIZ, config
 
 app = FastAPI(title="FinNorte · Producto (servicio con token + Gemini + agente)", version="2.0")
@@ -61,7 +62,10 @@ class ErrorHTTP(Exception):
 
 @app.exception_handler(ErrorHTTP)
 async def _manejar(_: Request, e: ErrorHTTP):
-    return problema(e.status, e.title, e.detail)
+    r = problema(e.status, e.title, e.detail)
+    if e.status == 429:
+        r.headers["Retry-After"] = "60"      # ing-07: el 429 dice cuánto esperar
+    return r
 
 
 @app.exception_handler(RequestValidationError)
@@ -166,6 +170,33 @@ def ejecutar_variante(e: EntradaVariante, usuario: str = Depends(usuario_actual)
     return out
 
 
+# ───────────────────────────── A3 · endpoint de la variante v2-revisor ─────────────────────────────
+class EntradaRevisor(BaseModel):
+    """Lo que recibe el revisor: el código Python a revisar y, opcional, qué se pide."""
+    codigo: str = Field(min_length=10, max_length=20_000, description="Código Python a revisar")
+    solicitud: str = Field(default="Revisar el archivo Python", max_length=300)
+    nombre_archivo: str = Field(default="", max_length=120, description="Opcional, p. ej. limites.py")
+
+
+@app.post("/v1/revisor")
+def revisar_codigo(e: EntradaRevisor, usuario: str = Depends(usuario_actual)):
+    """Revisa código Python con el motor del Avance 1 (detectar → explicar → parche → dictamen).
+    Protegido con token, límite por minuto y errores problem+json."""
+    try:
+        out = variante.sistema({"codigo": e.codigo, "solicitud": e.solicitud})
+    except ValueError as err:
+        raise ErrorHTTP(422, "Entrada inválida", str(err)[:200])
+    except llm.LLMError as err:
+        raise ErrorHTTP(503, "Proveedor del modelo no disponible", str(err)[:200])
+    claves = ("respuesta", "fuentes", "abstuvo", "errores_citas", "artefacto", "latencia_ms", "costo_usd")
+    salida = {k: out.get(k) for k in claves}
+    # A4: el validador de lógica tradicional corre en CADA respuesta
+    hallazgos = (out.get("artefacto") or {}).get("hallazgos", [])
+    problemas = validar_hallazgos(e.codigo, hallazgos, e.nombre_archivo, out.get("fuentes") or [])
+    salida["validador"] = {"ok": not problemas, "hallazgos": problemas}
+    return salida
+
+
 class Tarea(BaseModel):
     tarea: str = Field(min_length=5, max_length=800)
 
@@ -175,14 +206,15 @@ class Decision(BaseModel):
 
 
 def _herramientas():
-    return herramientas_caso_guia()     # A4: agrega aquí las herramientas de TU variante
+    return herramientas.herramientas_revisor()     # A4: herramientas de v2-revisor
 
 
 @app.post("/v1/agente")
 def agente(t: Tarea, usuario: str = Depends(usuario_actual)):
     try:
-        # A4: agente_servicio.iniciar(t.tarea, usuario, _herramientas(), ejecutor=herramientas.ejecutar_agente, validador=tu_validador)
-        return agente_servicio.iniciar(t.tarea, usuario, _herramientas())
+        # A4: mi ejecutor (herramientas.ejecutar_agente con las instrucciones de v2-revisor) y mi validador
+        return agente_servicio.iniciar(t.tarea, usuario, _herramientas(),
+                                       ejecutor=herramientas.ejecutar_agente_revisor, validador=validar_plan_revisor)
     except llm.LLMError as e:
         raise ErrorHTTP(503, "Proveedor del modelo no disponible", str(e)[:200])
 

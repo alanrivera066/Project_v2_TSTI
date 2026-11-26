@@ -1,0 +1,378 @@
+[
+  {
+    "entrada": "datos/v2-revisor/codigo/usuarios.py",
+    "respuesta": "La publicación de la revisión para el archivo datos/v2-revisor/codigo/usuarios.py se encuentra pendiente de autorización humana. No se puede repetir la acción automáticamente.",
+    "fuentes": [
+      "sec-06"
+    ],
+    "terminado": true,
+    "pasos": [
+      {
+        "n": 1,
+        "accion": "usar",
+        "herramienta": "correr_linter",
+        "argumentos": {
+          "ruta": "datos/v2-revisor/codigo/usuarios.py"
+        },
+        "estado": "ejecutada",
+        "resultado": {
+          "ruta": "datos/v2-revisor/codigo/usuarios.py",
+          "total": 3,
+          "hallazgos": [
+            {
+              "regla_ruff": "S324",
+              "regla": "SEC-06",
+              "linea": 6,
+              "mensaje": "Probable use of insecure hash functions in `hashlib`: `md5`",
+              "codigo_linea": "h = hashlib.md5(password.encode()).hexdigest()"
+            },
+            {
+              "regla_ruff": "S311",
+              "regla": "SEC-06",
+              "linea": 8,
+              "mensaje": "Standard pseudo-random generators are not suitable for cryptographic purposes",
+              "codigo_linea": "codigo = random.randint(100000, 999999)"
+            },
+            {
+              "regla_ruff": "S324",
+              "regla": "SEC-06",
+              "linea": 14,
+              "mensaje": "Probable use of insecure hash functions in `hashlib`: `md5`",
+              "codigo_linea": "return u and u[\"hash\"] == hashlib.md5(password.encode()).hexdigest()"
+            }
+          ],
+          "fuentes": [
+            "sec-06"
+          ]
+        }
+      },
+      {
+        "n": 2,
+        "accion": "usar",
+        "herramienta": "publicar_revision",
+        "argumentos": {
+          "ruta": "datos/v2-revisor/codigo/usuarios.py",
+          "estado": "cambios_requeridos",
+          "resumen": "Se encontraron 3 hallazgos relacionados con SEC-06 en las líneas 6, 8 y 14 debido al uso de funciones hash inseguras (md5) y generadores pseudoaleatorios no criptográficos."
+        },
+        "estado": "pendiente",
+        "resultado": null
+      },
+      {
+        "n": 3,
+        "accion": "responder",
+        "herramienta": null,
+        "argumentos": null,
+        "estado": "respuesta",
+        "resultado": null
+      }
+    ],
+    "validador": {
+      "ok": true,
+      "hallazgos": []
+    },
+    "pendientes": [
+      {
+        "id": "3e0b9ea9f38c",
+        "herramienta": "publicar_revision",
+        "argumentos": {
+          "ruta": "datos/v2-revisor/codigo/usuarios.py",
+          "estado": "cambios_requeridos",
+          "resumen": "Se encontraron 3 hallazgos relacionados con SEC-06 en las líneas 6, 8 y 14 debido al uso de funciones hash inseguras (md5) y generadores pseudoaleatorios no criptográficos."
+        },
+        "mensaje": "¿Autorizas publicar_revision con estos datos exactos? {'ruta': 'datos/v2-revisor/codigo/usuarios.py', 'estado': 'cambios_requeridos', 'resumen': 'Se encontraron 3 hallazgos relacionados con SEC-06 en las líneas 6, 8 y 14 debido al uso de funciones hash inseguras (md5) y generadores pseudoaleatorios no criptográficos.'}",
+        "expira_en_s": 600
+      }
+    ]
+  },
+  {
+    "entrada": "datos/v2-revisor/codigo/transferencias.py",
+    "respuesta": "La publicacion de la revision para datos/v2-revisor/codigo/transferencias.py se encuentra pendiente de autorizacion humana. Se detectaron 2 hallazgos de seguridad (SEC-02) en las lineas 8 y 11.",
+    "fuentes": [
+      "sec-02"
+    ],
+    "terminado": true,
+    "pasos": [
+      {
+        "n": 1,
+        "accion": "usar",
+        "herramienta": "correr_linter",
+        "argumentos": {
+          "ruta": "datos/v2-revisor/codigo/transferencias.py"
+        },
+        "estado": "ejecutada",
+        "resultado": {
+          "ruta": "datos/v2-revisor/codigo/transferencias.py",
+          "total": 2,
+          "hallazgos": [
+            {
+              "regla_ruff": "S608",
+              "regla": "SEC-02",
+              "linea": 8,
+              "mensaje": "Possible SQL injection vector through string-based query construction",
+              "codigo_linea": "cur.execute(f\"SELECT saldo FROM cuentas WHERE id = '{origen_id}'\")"
+            },
+            {
+              "regla_ruff": "S608",
+              "regla": "SEC-02",
+              "linea": 11,
+              "mensaje": "Possible SQL injection vector through string-based query construction",
+              "codigo_linea": "cur.execute(\"UPDATE cuentas SET saldo = saldo - \" + str(monto) + \" WHERE id = '\" + origen_id + \"'\")"
+            }
+          ],
+          "fuentes": [
+            "sec-02"
+          ]
+        }
+      },
+      {
+        "n": 2,
+        "accion": "usar",
+        "herramienta": "publicar_revision",
+        "argumentos": {
+          "ruta": "datos/v2-revisor/codigo/transferencias.py",
+          "estado": "cambios_requeridos",
+          "resumen": "El linter encontro vulnerabilidades de inyeccion SQL (SEC-02) en las lineas 8 y 11 utilizando construccion de consultas basadas en cadenas."
+        },
+        "estado": "pendiente",
+        "resultado": null
+      },
+      {
+        "n": 3,
+        "accion": "responder",
+        "herramienta": null,
+        "argumentos": null,
+        "estado": "respuesta",
+        "resultado": null
+      }
+    ],
+    "validador": {
+      "ok": true,
+      "hallazgos": []
+    },
+    "pendientes": [
+      {
+        "id": "c83c75fc2099",
+        "herramienta": "publicar_revision",
+        "argumentos": {
+          "ruta": "datos/v2-revisor/codigo/transferencias.py",
+          "estado": "cambios_requeridos",
+          "resumen": "El linter encontro vulnerabilidades de inyeccion SQL (SEC-02) en las lineas 8 y 11 utilizando construccion de consultas basadas en cadenas."
+        },
+        "mensaje": "¿Autorizas publicar_revision con estos datos exactos? {'ruta': 'datos/v2-revisor/codigo/transferencias.py', 'estado': 'cambios_requeridos', 'resumen': 'El linter encontro vulnerabilidades de inyeccion SQL (SEC-02) en las lineas 8 y 11 utilizando construccion de consultas basadas en cadenas.'}",
+        "expira_en_s": 600
+      }
+    ]
+  },
+  {
+    "entrada": "datos/v2-revisor/codigo/reportes.py",
+    "respuesta": "La publicación de la revisión para el archivo datos/v2-revisor/codigo/reportes.py con estado 'cambios_requeridos' ha quedado pendiente de autorización humana. No se puede repetir la llamada a la herramienta.",
+    "fuentes": [
+      "sec-09"
+    ],
+    "terminado": true,
+    "pasos": [
+      {
+        "n": 1,
+        "accion": "usar",
+        "herramienta": "correr_linter",
+        "argumentos": {
+          "ruta": "datos/v2-revisor/codigo/reportes.py"
+        },
+        "estado": "ejecutada",
+        "resultado": {
+          "ruta": "datos/v2-revisor/codigo/reportes.py",
+          "total": 2,
+          "hallazgos": [
+            {
+              "regla_ruff": "S301",
+              "regla": "SEC-09",
+              "linea": 9,
+              "mensaje": "`pickle` and modules that wrap it can be unsafe when used to deserialize untrusted data, possible security issue",
+              "codigo_linea": "return pickle.loads(datos_bytes)"
+            },
+            {
+              "regla_ruff": "S602",
+              "regla": "SEC-09",
+              "linea": 13,
+              "mensaje": "`subprocess` call with `shell=True` identified, security issue",
+              "codigo_linea": "subprocess.run(f\"zip reportes.zip {nombre_archivo}\", shell=True)"
+            }
+          ],
+          "fuentes": [
+            "sec-09"
+          ]
+        }
+      },
+      {
+        "n": 2,
+        "accion": "usar",
+        "herramienta": "publicar_revision",
+        "argumentos": {
+          "ruta": "datos/v2-revisor/codigo/reportes.py",
+          "estado": "cambios_requeridos",
+          "resumen": "Se encontraron hallazgos de seguridad (SEC-09) en las líneas 9 y 13 relacionados con el uso de pickle y subprocess con shell=True."
+        },
+        "estado": "pendiente",
+        "resultado": null
+      },
+      {
+        "n": 3,
+        "accion": "responder",
+        "herramienta": null,
+        "argumentos": null,
+        "estado": "respuesta",
+        "resultado": null
+      }
+    ],
+    "validador": {
+      "ok": true,
+      "hallazgos": []
+    },
+    "pendientes": [
+      {
+        "id": "5ba3d7597279",
+        "herramienta": "publicar_revision",
+        "argumentos": {
+          "ruta": "datos/v2-revisor/codigo/reportes.py",
+          "estado": "cambios_requeridos",
+          "resumen": "Se encontraron hallazgos de seguridad (SEC-09) en las líneas 9 y 13 relacionados con el uso de pickle y subprocess con shell=True."
+        },
+        "mensaje": "¿Autorizas publicar_revision con estos datos exactos? {'ruta': 'datos/v2-revisor/codigo/reportes.py', 'estado': 'cambios_requeridos', 'resumen': 'Se encontraron hallazgos de seguridad (SEC-09) en las líneas 9 y 13 relacionados con el uso de pickle y subprocess con shell=True.'}",
+        "expira_en_s": 600
+      }
+    ]
+  },
+  {
+    "entrada": "datos/v2-revisor/codigo/tokens.py",
+    "respuesta": "La publicación de la revisión para datos/v2-revisor/codigo/tokens.py quedó pendiente de autorización humana. No se ha vuelto a enviar.",
+    "fuentes": [
+      "sec-09"
+    ],
+    "terminado": true,
+    "pasos": [
+      {
+        "n": 1,
+        "accion": "usar",
+        "herramienta": "correr_linter",
+        "argumentos": {
+          "ruta": "datos/v2-revisor/codigo/tokens.py"
+        },
+        "estado": "ejecutada",
+        "resultado": {
+          "ruta": "datos/v2-revisor/codigo/tokens.py",
+          "total": 1,
+          "hallazgos": [
+            {
+              "regla_ruff": "S506",
+              "regla": "SEC-09",
+              "linea": 6,
+              "mensaje": "Probable use of unsafe `yaml.load`. Allows instantiation of arbitrary objects. Consider `yaml.safe_load`.",
+              "codigo_linea": "return yaml.load(texto)"
+            }
+          ],
+          "fuentes": [
+            "sec-09"
+          ]
+        }
+      },
+      {
+        "n": 2,
+        "accion": "usar",
+        "herramienta": "publicar_revision",
+        "argumentos": {
+          "ruta": "datos/v2-revisor/codigo/tokens.py",
+          "estado": "cambios_requeridos",
+          "resumen": "Se encontro un hallazgo de seguridad SEC-09 en la linea 6 debido al uso inseguro de yaml.load."
+        },
+        "estado": "pendiente",
+        "resultado": null
+      },
+      {
+        "n": 3,
+        "accion": "responder",
+        "herramienta": null,
+        "argumentos": null,
+        "estado": "respuesta",
+        "resultado": null
+      }
+    ],
+    "validador": {
+      "ok": true,
+      "hallazgos": []
+    },
+    "pendientes": [
+      {
+        "id": "7c73dbc112f2",
+        "herramienta": "publicar_revision",
+        "argumentos": {
+          "ruta": "datos/v2-revisor/codigo/tokens.py",
+          "estado": "cambios_requeridos",
+          "resumen": "Se encontro un hallazgo de seguridad SEC-09 en la linea 6 debido al uso inseguro de yaml.load."
+        },
+        "mensaje": "¿Autorizas publicar_revision con estos datos exactos? {'ruta': 'datos/v2-revisor/codigo/tokens.py', 'estado': 'cambios_requeridos', 'resumen': 'Se encontro un hallazgo de seguridad SEC-09 en la linea 6 debido al uso inseguro de yaml.load.'}",
+        "expira_en_s": 600
+      }
+    ]
+  },
+  {
+    "entrada": "datos/v2-revisor/codigo/limites.py",
+    "respuesta": "La publicacion de la revision para el archivo datos/v2-revisor/codigo/limites.py ha quedado pendiente de autorizacion humana. No se requiere realizar ninguna accion adicional por el momento.",
+    "fuentes": [],
+    "terminado": true,
+    "pasos": [
+      {
+        "n": 1,
+        "accion": "usar",
+        "herramienta": "correr_linter",
+        "argumentos": {
+          "ruta": "datos/v2-revisor/codigo/limites.py"
+        },
+        "estado": "ejecutada",
+        "resultado": {
+          "ruta": "datos/v2-revisor/codigo/limites.py",
+          "total": 0,
+          "hallazgos": [],
+          "fuentes": []
+        }
+      },
+      {
+        "n": 2,
+        "accion": "usar",
+        "herramienta": "publicar_revision",
+        "argumentos": {
+          "ruta": "datos/v2-revisor/codigo/limites.py",
+          "estado": "aprobado",
+          "resumen": "El linter no encontro ningun hallazgo de seguridad en el archivo limites.py, por lo que la revision ha sido aprobada exitosamente."
+        },
+        "estado": "pendiente",
+        "resultado": null
+      },
+      {
+        "n": 3,
+        "accion": "responder",
+        "herramienta": null,
+        "argumentos": null,
+        "estado": "respuesta",
+        "resultado": null
+      }
+    ],
+    "validador": {
+      "ok": true,
+      "hallazgos": []
+    },
+    "pendientes": [
+      {
+        "id": "47410c7bb429",
+        "herramienta": "publicar_revision",
+        "argumentos": {
+          "ruta": "datos/v2-revisor/codigo/limites.py",
+          "estado": "aprobado",
+          "resumen": "El linter no encontro ningun hallazgo de seguridad en el archivo limites.py, por lo que la revision ha sido aprobada exitosamente."
+        },
+        "mensaje": "¿Autorizas publicar_revision con estos datos exactos? {'ruta': 'datos/v2-revisor/codigo/limites.py', 'estado': 'aprobado', 'resumen': 'El linter no encontro ningun hallazgo de seguridad en el archivo limites.py, por lo que la revision ha sido aprobada exitosamente.'}",
+        "expira_en_s": 600
+      }
+    ]
+  }
+]

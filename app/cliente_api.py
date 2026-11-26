@@ -2,7 +2,7 @@
 
 Antes: en otra terminal, uvicorn api.producto:app --reload
 La URL del servicio se lee de API_URL: primero de la variable de entorno, luego del .env (por defecto http://127.0.0.1:8000).
-A4: adapta esta interfaz a tu variante (modo «Mi variante», tu herramienta y tu validador visibles).
+A4: adaptada a v2-revisor: «Mi variante» llama a POST /v1/revisor y el «Agente» usa correr_linter y publicar_revision.
 
 Diseño (T9): estados de espera y error visibles, fuentes desplegables, costo y latencia a la vista.
 Agente (T10): lo sensible NO se ejecuta hasta que tú lo autorizas con los datos exactos a la vista.
@@ -81,7 +81,7 @@ if not st.session_state.get("token"):
 if st.sidebar.button("Cerrar sesión"):
     st.session_state.clear()
     st.rerun()
-modo = st.sidebar.radio("Modo", ["Preguntar (caso guía)", "Mi variante", "Agente"])
+modo = st.sidebar.radio("Modo", ["Mi variante", "Agente", "Preguntar (caso guía)"])
 st.sidebar.caption("Ficticio · uso educativo · LSCA2318")
 
 # ───────────────────────────── modos ─────────────────────────────
@@ -102,29 +102,42 @@ if modo.startswith("Preguntar"):
             st.caption(f"⏱ {out['latencia_ms']:.0f} ms · 💲 US${out['costo_usd']:.5f}")
 
 elif modo == "Mi variante":
-    st.title(f"🧩 Mi variante · {salud.get('variante', '')}")
-    campo = st.selectbox("Campo de entrada", ["pregunta", "requisito", "codigo", "log"])
-    texto = st.text_area("Entrada", height=200)
-    if st.button("Ejecutar", type="primary", disabled=not texto.strip()):
-        with st.spinner("Recuperando contexto, corriendo el flujo y validando…"):
-            st_, out = llamar("POST", "/v1/variante", json={"entrada": {campo: texto}})
+    st.title("🧩 Revisor de código · v2-revisor")
+    st.caption("Pega código Python o elige un ejemplo. El motor detecta, explica, propone parche y da dictamen.")
+    carpeta = Path(__file__).resolve().parents[1] / "datos" / "v2-revisor" / "codigo"
+    ejemplos = ["(pegar mi código)"] + sorted(x.name for x in carpeta.glob("*.py"))
+    elegido = st.selectbox("Archivo de ejemplo", ejemplos)
+    inicial = "" if elegido == ejemplos[0] else (carpeta / elegido).read_text(encoding="utf-8")
+    codigo = st.text_area("Código Python", inicial, height=260, key=f"codigo-{elegido}")
+    if st.button("Revisar", type="primary", disabled=len(codigo.strip()) < 10):
+        nombre = "" if elegido == ejemplos[0] else elegido
+        with st.spinner("Revisando en 4 etapas con Gemini y validando…"):
+            st_, out = llamar("POST", "/v1/revisor", json={"codigo": codigo, "nombre_archivo": nombre})
         if st_ != 200:
             mostrar_error(st_, out)
         else:
             (st.warning if out.get("abstuvo") else st.success)(out.get("respuesta", ""))
+            v = out.get("validador", {})
+            (st.success if v.get("ok") else st.error)(
+                "Validador: OK (reglas SEC y líneas existen; sin fuentes externas)" if v.get("ok")
+                else "Validador: " + " · ".join(v.get("hallazgos", [])))
+            hallazgos = (out.get("artefacto") or {}).get("hallazgos", [])
+            if hallazgos:
+                st.subheader(f"Hallazgos ({len(hallazgos)})")
+                st.dataframe([{k: h.get(k) for k in ("id", "regla", "linea", "descripcion")} for h in hallazgos],
+                             use_container_width=True)
             if out.get("fuentes"):
-                with st.expander("Fuentes"):
+                with st.expander(f"Fuentes ({len(out['fuentes'])})"):
                     st.write(out["fuentes"])
             if out.get("artefacto"):
-                with st.expander("Artefacto estructurado"):
+                with st.expander("Artefacto completo (parches y dictamen)"):
                     st.json(out["artefacto"])
-            if out.get("errores_citas"):
-                st.error(f"Citas con problema: {out['errores_citas']}")
+            st.caption(f"⏱ {out.get('latencia_ms') or 0:.0f} ms · 💲 US${out.get('costo_usd') or 0:.5f}")
 
 else:
     st.title("🤖 Agente con confirmación humana")
-    st.caption("El agente consulta el manual y las ventanas de despliegue. Crear un ticket requiere TU autorización.")
-    tarea = st.text_area("Tarea", "Quiero desplegar un cambio de riesgo alto en pagos-api el 2026-11-24. ¿Se puede? Si sí, crea el ticket.")
+    st.caption("El agente corre el linter (ruff) sin ejecutar el código. Publicar la revisión requiere TU autorización.")
+    tarea = st.text_area("Tarea", "Revisa datos/v2-revisor/codigo/usuarios.py con el linter y publica la revisión.")
     if st.button("Ejecutar agente", type="primary"):
         with st.spinner("El agente está trabajando (cada paso es una llamada a Gemini)…"):
             st_, out = llamar("POST", "/v1/agente", json={"tarea": tarea})

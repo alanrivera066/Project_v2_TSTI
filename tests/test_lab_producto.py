@@ -105,6 +105,7 @@ def test_pregunta_del_caso_guia_con_fuentes(cliente):
     assert r.status_code == 200 and r.json()["fuentes"] and not r.json()["abstuvo"]
 
 
+@pytest.mark.skip(reason="A4: /v1/agente ya usa el agente de v2-revisor; su versión está en tests/test_a4_revisor.py")
 def test_agente_deja_pendiente_y_rechazo_no_ejecuta(cliente):
     h = _token(cliente)
     r = _ok(cliente.post("/v1/agente", json={"tarea": TAREA_MARTES}, headers=h)).json()
@@ -116,6 +117,7 @@ def test_agente_deja_pendiente_y_rechazo_no_ejecuta(cliente):
     assert any(e.get("estado") == "rechazada" for e in trazas.leer("agente"))
 
 
+@pytest.mark.skip(reason="A4: /v1/agente ya usa el agente de v2-revisor; su versión está en tests/test_a4_revisor.py")
 def test_agente_confirmado_ejecuta_exactamente_lo_aprobado_una_vez(cliente):
     h = _token(cliente)
     p = _ok(cliente.post("/v1/agente", json={"tarea": TAREA_MARTES}, headers=h)).json()["pendientes"][0]
@@ -124,12 +126,14 @@ def test_agente_confirmado_ejecuta_exactamente_lo_aprobado_una_vez(cliente):
     assert cliente.post(f"/v1/agente/confirmar/{p['id']}", json={"aprobar": True}, headers=h).status_code == 404
 
 
+@pytest.mark.skip(reason="A4: /v1/agente ya usa el agente de v2-revisor; su versión está en tests/test_a4_revisor.py")
 def test_viernes_no_deja_nada_que_autorizar(cliente):
     h = _token(cliente)
     r = _ok(cliente.post("/v1/agente", json={"tarea": TAREA_VIERNES}, headers=h)).json()
     assert r["pendientes"] == [] and TICKETS == []
 
 
+@pytest.mark.skip(reason="A4: /v1/agente ya usa el agente de v2-revisor; su versión está en tests/test_a4_revisor.py")
 def test_otro_usuario_no_puede_confirmar(cliente):
     h = _token(cliente)
     p = _ok(cliente.post("/v1/agente", json={"tarea": TAREA_MARTES}, headers=h)).json()["pendientes"][0]
